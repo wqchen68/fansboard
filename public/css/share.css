@@ -1,0 +1,123 @@
+/*儀錶板*/
+div.playerlistblock{
+	background-color:rgba(0,0,0,0.2);
+	min-height:580px;
+	padding: 10px;
+	text-align:left;
+}
+div.chartblock{
+	background-color:rgba(0,0,0,0.6);
+	min-height:600px; 
+}
+/*下拉式選單*/
+.selectForm{
+        padding: 5px;
+        background-color: rgba(255,255,255,1);
+        color: #000;
+        border-color: #fff;
+        border-radius: 3px;
+}
+
+
+/*表格*/
+div.tablebackground{
+	background-color:rgba(0,0,0,0.2);
+        padding: 10px;
+}
+div.tableupdate{
+	margin:5px 0 0 0;
+        font-size: 12px;
+}
+tr.report-detail {
+	font-weight:normal;
+	text-align:right;
+	background-color:rgba(0,0,0,0.4);
+}
+tr.report-detail:hover {
+	background-color:rgba(0,0,0,0.6);
+}
+th.report-detail-dark {
+	font-weight:normal;
+	text-align:center;
+	background-color:rgba(0,0,0,0.8);
+}
+th.report-detail-midd {
+	font-weight:normal;
+	text-align:center;
+	background-color:rgba(0,0,0,0.6);
+}
+th.report-detail-yell {
+	font-weight:normal;
+	text-align:center;
+	color:#000;
+	background-color:gold;
+}
+
+/*球員名片*/
+div.playercardbig{
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 5px;
+	padding: 8px;
+	margin: 5px 0 0 0;
+	text-align: left;
+	font-color: #fff;
+}
+div.newsbox{
+	width:100%;
+	height:130px;
+	padding:5px 0 0 0;
+	background-color:rgba(0,0,0,0.0);
+	color:#fff;       
+}
+div.newsbox-icon{
+	float:left;
+	padding:0 4px 0 0;
+	width:47px;
+	height:100%;
+	background-repeat:no-repeat;
+	background-size:47px 100%;
+}
+div.playercardsmall{
+	height:72px;
+	width:96%;
+	padding: 5px;
+	border-radius:5px;
+	text-align:left;
+	background-color:rgba(0,0,0,0.2);
+	cursor: pointer;
+	border: 0px solid transparent;
+}
+div.playercardsmall.active {
+	border-color: #f00;
+}
+div.playercardsmall-news{
+	float:left;
+	font-size:12px;
+	font-weight:normal;
+	line-height: 20px;
+	background-color:rgba(0,0,0,0.0);
+	width:76%;
+	height:100%;        
+}
+div.cardplayer{margin:0 0 5px 10px;color:#fff}
+div.cardteamposi{margin:0 0 5px 10px;color:#fff}
+div.cardinjna{margin:0 0 5px 10px;color:red}
+div.cardstat{margin:0 0 5px 10px;color:gold}
+
+
+
+/*hotcoldplayer*/
+div.todaydata{
+	line-height:20px;
+	font-size:12px;
+	text-align:left;
+	font-weight:normal;
+	color:#FFF;
+}
+div.prcard{
+	border-radius:5px;
+	background-color:rgba(0,0,0,0.5);
+	margin:2px;
+}
+
+

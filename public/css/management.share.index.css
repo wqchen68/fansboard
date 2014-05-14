@@ -1,0 +1,36 @@
+li.tab {
+	height: 25px;
+	line-height: 25px;
+	position: relative;
+	display:block;	
+	float: left;
+	border: 0px solid #444;
+	border-bottom-width: 5px;
+	border-bottom-color: #fff;
+	list-style: none;
+	padding: 5px;
+	margin: 3px;	
+	cursor:pointer;
+	background-color:#fff 
+}
+li.tab:hover {
+	color:#000;
+	
+	border-bottom-color: #ffc000;
+}
+li.tab.active {
+	border-bottom-color:#000;
+	z-index:10;
+	background-color:#ddd
+}
+li.tab.init {
+	z-index: 10;
+	color: #000;
+	background-color: #fff;
+}
+li.tab a {
+	display: block;	
+	text-decoration: none;
+	font-weight: bold;
+	color: #000;	
+}

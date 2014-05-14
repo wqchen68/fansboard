@@ -1,0 +1,98 @@
+/* *********************************************************************************************************************
+	One% CSS Grid - 12 Columns Fluid CSS Grid System
+
+	Why One% ? Let’s count ...
+		we have 12 columns (magic number divided by 2, 3, 4, 6)
+
+		for 12 columns we need 11 margins
+
+		so if we count margin 3%, then 3% * 11 margins = 33%
+
+		and if we count width of 1 column 5.5%, than 5.5% * 12 columns = 66%
+
+		in the end we have 33% + 66% = 99% aaand ???
+
+		1% is still here so that's the name - One%
+
+	2 starting options ? Let’s count a bit more ...
+		1200px - perfectly fits 1280 screens
+			12 columns
+			margin 3% / 36px (full-width)
+			col1 5.5% / 66px (full-width)
+
+		1000px - perfectly fits 1024 screens
+			12 columns
+			margin 3% / 30px (full-width)
+			col1 5.5% / 55px (full-width)
+*/
+
+
+/* *********************************************************************************************************************
+ * Main container for all
+ */
+.onepcssgrid-1p-1000, .onepcssgrid-1p-1200 , .onepcssgrid-1p-1400 {
+	margin: 0 auto;
+	padding: 0 0 0 0.1%; /* THAT'S THE NAME ;) */
+}
+.onepcssgrid-1p-1400 {
+	max-width: 1400px;
+}
+.onepcssgrid-1p-1200 {
+	max-width: 1200px;
+}
+.onepcssgrid-1p-1000 {
+	max-width: 1000px;
+}
+
+.onerow {
+	clear: both;
+	padding: 0;
+}
+
+/* *********************************************************************************************************************
+ * Common columns definitions
+ */
+.col-1p1, .col-1p2, .col-1p3, .col-1p4, .col-1p5, .col-1p6, .col-1p7, .col-1p8, .col-1p9, .col-1p10, .col-1p11, .col-1p12 {
+	float: left;
+	margin: 0 0.9% 0 0;
+}
+
+.col-1p1.last, .col-1p2.last, .col-1p3.last, .col-1p4.last, .col-1p5.last, .col-1p6.last, .col-1p7.last, .col-1p8.last, .col-1p9.last, .col-1p10.last, .col-1p11.last, .col-1p12, .col-1pfull {
+	margin: 0;
+}
+
+
+
+.col-1p1 { width: 7.5%; }
+.col-1p2 { width: 15.9%; }
+.col-1p3 { width: 24.3%; }
+.col-1p4 { width: 32.7%; }
+.col-1p5 { width: 41.1%; }
+.col-1p6 { width: 49.5%; }
+.col-1p7 { width: 57.9%; }
+.col-1p8 { width: 66.3%; }
+.col-1p9 { width: 74.7%; }
+.col-1p10 { width: 83.1%; }
+.col-1p11 { width: 91.5%; }
+.col-1p12 { width: 99.9%; }
+.col-1pfull { width: 100%; }
+
+
+
+
+
+/* *********************************************************************************************************************
+ * Small devices
+ */
+@media all and (max-width: 1200px) {
+	.col-1p1, .col-1p2, .col-1p3, .col-1p4, .col-1p5, .col-1p6, .col-1p7, .col-1p8, .col-1p9, .col-1p10, .col-1p11 {
+		float: none;
+		width: 99.9%;
+	}
+}
+@media all and (max-width: 768px) {
+	.col-1p1, .col-1p2, .col-1p3, .col-1p4, .col-1p5, .col-1p6, .col-1p7, .col-1p8, .col-1p9, .col-1p10, .col-1p11 {
+		float: none;
+		width: 99.9%;
+	}
+}
