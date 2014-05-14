@@ -37,8 +37,8 @@
                                     (7) <span style="background-color:#001f70;color:#bed4e9;font-weight:bold;border-radius:2px;padding:2px">MEM<span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 30px;font-weight:bold">2</span>
-                                    <span style="padding:0 0 0 40px;font-weight:bold">2</span>
+                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 40px">3</span>
                                 </div>
                             </div>
                             <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
@@ -47,8 +47,8 @@
                                     (6) <span style="background-color:#04529c;color:#ffc61e;font-weight:bold;border-radius:2px;padding:2px">GSW<span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 30px;font-weight:bold">2</span>
-                                    <span style="padding:0 0 0 40px;font-weight:bold">2</span>
+                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 40px">3</span>
                                 </div>
                             </div>
 
