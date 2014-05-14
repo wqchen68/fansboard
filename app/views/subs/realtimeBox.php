@@ -17,8 +17,8 @@
                                     (8) <span style="background-color:#006ab5;color:#072156;font-weight:bold;border-radius:2px;padding:2px">DAL<span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 30px;font-weight:bold">2</span>
-                                    <span style="padding:0 0 0 40px;font-weight:bold">2</span>
+                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 40px">3</span>
                                 </div>
                             </div>
                             <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
