@@ -27,8 +27,8 @@
                                     (5) <span style="background-color:#cf1d32;color:#FFFFFF;font-weight:bold;border-radius:2px;padding:2px">POR<span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 30px">1</span>
-                                    <span style="padding:0 0 0 40px;color:gold;font-weight:bold">3</span>
+                                    <span style="padding:0 0 0 30px">2</span>
+                                    <span style="padding:0 0 0 40px;color:gold;font-weight:bold">4</span>
                                 </div>
                             </div>
                             <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
