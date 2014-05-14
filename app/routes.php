@@ -10,7 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-//dtest
+//dtesttim
 Route::any('test', function(){	
 	$player = Player::getRealtime()->getData()->value;
 	$root1 = rand(0,2);
