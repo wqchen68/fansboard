@@ -9,45 +9,45 @@
 
                         <div style="float:left;margin:0 5px 0 0;font-size: 25px;color:gold;font-weight:bold;font-style:italic">PLAYOFFS</div>
 
-                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(255,0,0,0.2)">
+                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(0,0,0,0.3)">
 
-                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
                                     (1) <span style="background-color:#c6cdd3;color:#000000;font-weight:bold;border-radius:2px;padding:2px">SAS</span>
-                                    (8) <span style="background-color:#006ab5;color:#072156;font-weight:bold;border-radius:2px;padding:2px">DAL<span>
+                                    (8) <span style="background-color:#006ab5;color:#072156;font-weight:bold;border-radius:2px;padding:2px">DAL</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
                                     <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
                                     <span style="padding:0 0 0 40px">3</span>
                                 </div>
                             </div>
-                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
                                     (4) <span style="background-color:#FFFFFF;color:#ce1138;font-weight:bold;border-radius:2px;padding:2px">HOU</span>
-                                    (5) <span style="background-color:#cf1d32;color:#FFFFFF;font-weight:bold;border-radius:2px;padding:2px">POR<span>
+                                    (5) <span style="background-color:#cf1d32;color:#FFFFFF;font-weight:bold;border-radius:2px;padding:2px">POR</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
                                     <span style="padding:0 0 0 30px">2</span>
                                     <span style="padding:0 0 0 40px;color:gold;font-weight:bold">4</span>
                                 </div>
                             </div>
-                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
                                     (2) <span style="background-color:#007dc3;color:#FFFFFF;font-weight:bold;border-radius:2px;padding:2px">OKC</span>
-                                    (7) <span style="background-color:#001f70;color:#bed4e9;font-weight:bold;border-radius:2px;padding:2px">MEM<span>
+                                    (7) <span style="background-color:#001f70;color:#bed4e9;font-weight:bold;border-radius:2px;padding:2px">MEM</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 30px;font-weight:bold;color:gold">4</span>
                                     <span style="padding:0 0 0 40px">3</span>
                                 </div>
                             </div>
-                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
                                     (3) <span style="background-color:#ee2944;color:#146aa2;font-weight:bold;border-radius:2px;padding:2px">LAC</span>
-                                    (6) <span style="background-color:#04529c;color:#ffc61e;font-weight:bold;border-radius:2px;padding:2px">GSW<span>
+                                    (6) <span style="background-color:#04529c;color:#ffc61e;font-weight:bold;border-radius:2px;padding:2px">GSW</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 30px;font-weight:bold;color:gold">4</span>
                                     <span style="padding:0 0 0 40px">3</span>
                                 </div>
                             </div>
@@ -56,46 +56,46 @@
                         </div>
 
 
-                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(0,126,255,0.2)">
+                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(0,0,0,0.3)">
 
-                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
                                     (1) <span style="background-color:#092c57;color:#ffc322;font-weight:bold;border-radius:2px;padding:2px">IND</span>
-                                    (8) <span style="background-color:#01244c;color:#d21033;font-weight:bold;border-radius:2px;padding:2px">ATL<span>
+                                    (8) <span style="background-color:#01244c;color:#d21033;font-weight:bold;border-radius:2px;padding:2px">ATL</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 30px">2</span>
-                                    <span style="padding:0 0 0 40px;color:gold;font-weight:bold">3</span>
+                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 40px">3</span>
                                 </div>
                             </div>
-                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
                                     (4) <span style="background-color:#c41e3a;color:#000000;font-weight:bold;border-radius:2px;padding:2px">CHI</span>
-                                    (5) <span style="background-color:#c60c30;color:#002244;font-weight:bold;border-radius:2px;padding:2px">WAS<span>
+                                    (5) <span style="background-color:#c60c30;color:#002244;font-weight:bold;border-radius:2px;padding:2px">WAS</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
                                     <span style="padding:0 0 0 30px">1</span>
-                                    <span style="padding:0 0 0 40px;color:gold;font-weight:bold">3</span>
+                                    <span style="padding:0 0 0 40px;color:gold;font-weight:bold">4</span>
                                 </div>
                             </div>
-                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
                                     (2) <span style="background-color:#000000;color:#b01b2e;font-weight:bold;border-radius:2px;padding:2px">MIA</span>
-                                    (7) <span style="background-color:#e35205;color:#0c2340;font-weight:bold;border-radius:2px;padding:2px">CHA<span>
+                                    (7) <span style="background-color:#e35205;color:#0c2340;font-weight:bold;border-radius:2px;padding:2px">CHA</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
                                     <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
                                     <span style="padding:0 0 0 40px">0</span>
                                 </div>
                             </div>
-                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
                                     (3) <span style="background-color:#b31b1b;color:#c6cdd3;font-weight:bold;border-radius:2px;padding:2px">TOR</span>
-                                    (6) <span style="background-color:#000000;color:#FFFFFF;font-weight:bold;border-radius:2px;padding:2px">BRO<span>
+                                    (6) <span style="background-color:#000000;color:#FFFFFF;font-weight:bold;border-radius:2px;padding:2px">BRO</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 30px;font-weight:bold">2</span>
-                                    <span style="padding:0 0 0 40px;font-weight:bold">2</span>
+                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 40px">3</span>
                                 </div>
                             </div>
 
@@ -108,32 +108,73 @@
 
             
                 <div class="onerow">
-                    <div style="background-color:rgba(0,0,0,0);padding:0 0 0 980px">
+                    <div style="background-color:rgba(0,0,0,0);padding:0 0 0 160px">
 
-                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(255,0,0,0.2)">
+                        <div style="float:left;margin:0 5px 0 50px;padding: 2px;background-color:rgba(255,0,0,0.2)">
+
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                                <div style="padding:5px">
+                                    (1) <span style="background-color:#c6cdd3;color:#000000;font-weight:bold;border-radius:2px;padding:2px">SAS</span>
+                                    (5) <span style="background-color:#cf1d32;color:#FFFFFF;font-weight:bold;border-radius:2px;padding:2px">POR</span>
+                                </div>
+                                <div style="padding:0 5px 0 5px;text-align:left">
+                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 40px">1</span>
+                                </div>
+                            </div>
+
+                            <div style="height:0;clear:both"></div>
+                        </div>
+                        
+                        <div style="float:left;margin:0 5px 0 120px;padding: 2px;background-color:rgba(255,0,0,0.2)">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                                <div style="padding:5px">
+                                    (2) <span style="background-color:#007dc3;color:#FFFFFF;font-weight:bold;border-radius:2px;padding:2px">OKC</span>
+                                    (3) <span style="background-color:#ee2944;color:#146aa2;font-weight:bold;border-radius:2px;padding:2px">LAC</span>
+                                </div>
+                                <div style="padding:0 5px 0 5px;text-align:left">
+                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">3</span>
+                                    <span style="padding:0 0 0 40px">2</span>
+                                </div>
+                            </div>
 
                             <div style="height:0;clear:both"></div>
                         </div>
 
 
-                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(0,126,255,0.2)">
+                        <div style="float:left;margin:0 5px 0 130px;padding: 2px;background-color:rgba(0,126,255,0.2)">
 
                             <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
-                                    (2) <span style="background-color:#000000;color:#b01b2e;font-weight:bold;border-radius:2px;padding:2px">MIA</span>
-                                    (?) <span style="background-color:ffffff;color:#000000;font-weight:bold;border-radius:2px;padding:2px">?????<span>
+                                    (1) <span style="background-color:#092c57;color:#ffc322;font-weight:bold;border-radius:2px;padding:2px">IND</span>
+                                    (5) <span style="background-color:#c60c30;color:#002244;font-weight:bold;border-radius:2px;padding:2px">WAS</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 30px">0</span>
-                                    <span style="padding:0 0 0 40px">0</span>
+                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">3</span>
+                                    <span style="padding:0 0 0 40px">2</span>
                                 </div>
                             </div>
+                            <div style="height:0;clear:both"></div>
+                        </div>
+                            
+                        <div style="float:left;margin:0 5px 0 120px;padding: 2px;background-color:rgba(0,126,255,0.2)">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                                <div style="padding:5px">
+                                    (2) <span style="background-color:#000000;color:#b01b2e;font-weight:bold;border-radius:2px;padding:2px">MIA</span>
+                                    (6) <span style="background-color:#000000;color:#FFFFFF;font-weight:bold;border-radius:2px;padding:2px">BRO</span>
+                                </div>
+                                <div style="padding:0 5px 0 5px;text-align:left">
+                                    <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 40px">1</span>
+                                </div>
+                            </div>
+
                             <div style="height:0;clear:both"></div>
                         </div>
 
                     </div>
                     <div style="height:0;clear:both"></div>
-		</div>            
+		</div>           
             
             
             
