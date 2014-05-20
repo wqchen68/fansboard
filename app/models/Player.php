@@ -166,7 +166,8 @@ class Player {
 					'teamlist.colorback',
 					'teamlist.colorfont',
 					DB::raw('realtimeeff.bxeff/realtimeeff.bxmin AS effper'))
-				->whereRaw('realtimeeff.bxeff>=0')->get();
+                                ->whereRaw('realtimeeff.bxeff>=0')->get();
+				//->whereRaw('realtimeeff.bxeff>=0 AND (realtimeeff.team="lac" OR realtimeeff.team="okc")')->get();
 
 		//shuffle($valueA);
 		$efflv = DB::table('realtimeeff')//->join(DB::raw('(SELECT fbido FROM realtimeeff ORDER BY bxeff DESC LIMIT 30) list'),function($query){
