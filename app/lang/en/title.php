@@ -23,6 +23,8 @@ return array(
 	'matchPlayer' => 'Similar Player',
 	'tradeCompare' => 'Trade Compare',
 	'hotcoldplayer' => 'Hot & Cold Player',
+        'playerSalary' => 'Player Salary',
+        'draftplayerAbility' => 'Draft Player Ability',
 
 
 );

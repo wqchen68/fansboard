@@ -304,7 +304,7 @@ $(function(){
                 gridLineDashStyle: 'Dot',
                 gridLineWidth: 1,
 				staggerLines: 1,
-                max: 82,
+                max: 81,
                 min: 0, 
                 lineWidth: 0
             }],

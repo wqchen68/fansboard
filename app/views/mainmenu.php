@@ -44,7 +44,7 @@
 										<?=Form::tabi('realtimeBox','Real-Time Box')?>
 										<?=Form::tabi('hotcoldplayer','Hot & Cold Player')?>	
 										<?=Form::tabi('matchPlayer','Similar Player')?>
-                                                                                <?=Form::tabi('playerSalary','Player Salary')?>
+                                                                                <?=Form::tabi('playerSalary','Player Salary','lock')?>
 										<?=Form::tabi('tradeCompare','Trade Compare','lock')?>
 										<?=Form::tabi('','Player Status','lock')?>
 									</ul>	
@@ -61,13 +61,13 @@
 								</li>
 								<li class="tab">
 									<div class="tab-title">
-										<h4>NCAA Board</h4>
+										<h4>Draft Board</h4>
 										<h4 style="left:100%"></h4>
 									</div>
 									<ul style="width:100%">
 										<?=Form::tabi('','Draft Pool','lock')?>
-										<?=Form::tabi('','Player Ability','lock')?>
-										<?=Form::tabi('','Data Scatter','lock')?>
+										<?=Form::tabi('draftplayerAbility','Draft Player Ability','lock')?>
+										<?=Form::tabi('','Draft Data Scatter','lock')?>
 									</ul>	
 
 

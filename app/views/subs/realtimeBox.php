@@ -81,7 +81,7 @@
                             <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
                                     (2) <span style="background-color:#000000;color:#b01b2e;font-weight:bold;border-radius:2px;padding:2px">MIA</span>
-                                    (7) <span style="background-color:#e35205;color:#0c2340;font-weight:bold;border-radius:2px;padding:2px">CHA</span>
+                                    (7) <span style="background-color:#00778B;color:#201747;font-weight:bold;border-radius:2px;padding:2px">CHA</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
                                     <span style="padding:0 0 0 30px;color:gold;font-weight:bold">4</span>
@@ -180,32 +180,49 @@
                 <div class="onerow">
                     <div style="background-color:rgba(0,0,0,0);padding:0 0 0 160px">
 
-                        <div style="float:left;margin:0 5px 0 150px;padding: 2px;background-color:rgba(255,0,0,0.2)">
+                        <div style="float:left;margin:0 5px 0 150px;padding: 2px;background-color:rgba(0,0,0,0.3)">
 
-                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px 40px 5px 40px">
                                     (1) <span style="background-color:#c6cdd3;color:#000000;font-weight:bold;border-radius:2px;padding:2px">SAS</span>
                                     (2) <span style="background-color:#007dc3;color:#FFFFFF;font-weight:bold;border-radius:2px;padding:2px">OKC</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 70px">0</span>
-                                    <span style="padding:0 0 0 40px">0</span>
+                                    <span style="padding:0 0 0 70px;color:gold;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 40px">2</span>
                                 </div>
                             </div>
 
                             <div style="height:0;clear:both"></div>
                         </div>
 
-                        <div style="float:left;margin:0 5px 0 320px;padding: 2px;background-color:rgba(0,126,255,0.2)">
+                        <div style="float:left;margin:20px 5px 10px 40px;padding: 2px;background-color:rgba(255,255,0,0.2)">
 
                             <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:3px;text-align:center">
+                                <div style="padding:5px 40px 5px 40px">
+                                    (1) <span style="background-color:#c6cdd3;color:#000000;font-weight:bold;border-radius:2px;padding:2px 7px 2px 7px">SAS</span>
+                                    (2) <span style="background-color:#000000;color:#b01b2e;font-weight:bold;border-radius:2px;padding:2px 7px 2px 7px">MIA</span>
+                                </div>
+                                <div style="padding:0 5px 0 5px;text-align:left">
+                                    <span style="padding:0 0 0 70px;color:red;font-weight:bold">4</span>
+                                    <span style="padding:0 0 0 60px">1</span>
+                                </div>
+                            </div>
+
+                            <div style="height:0;clear:both"></div>
+                        </div>
+                        
+                        
+                        <div style="float:left;margin:0 5px 0 50px;padding: 2px;background-color:rgba(0,0,0,0.3)">
+
+                            <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px 40px 5px 40px">
                                     (1) <span style="background-color:#092c57;color:#ffc322;font-weight:bold;border-radius:2px;padding:2px">IND</span>
                                     (2) <span style="background-color:#000000;color:#b01b2e;font-weight:bold;border-radius:2px;padding:2px">MIA</span>
                                 </div>
                                 <div style="padding:0 5px 0 5px;text-align:left">
-                                    <span style="padding:0 0 0 70px;color:gold;font-weight:bold">1</span>
-                                    <span style="padding:0 0 0 40px">0</span>
+                                    <span style="padding:0 0 0 70px">2</span>
+                                    <span style="padding:0 0 0 40px;color:gold;font-weight:bold">4</span>                                    
                                 </div>
                             </div>
                             <div style="height:0;clear:both"></div>
@@ -215,7 +232,7 @@
                     <div style="height:0;clear:both"></div>
 		</div>         
             
-   
+           
             
 		<div class="onerow">
                     <div style="float:left;width:80px;margin:0 0 0 600px"><div class="reflashtime"></div></div>

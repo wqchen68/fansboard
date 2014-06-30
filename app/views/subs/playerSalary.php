@@ -7,7 +7,7 @@
 			
 			
 			<div class="col-1p12 last">
-				<div id="chart_playSalary" class="chartblock highlight"></div>
+				<div id="chart_playerSalary" class="chartblock highlight"></div>
 			</div>
                     
                     
@@ -41,3 +41,4 @@ div.exfig{
 
 
 <span class="javascript" src="js/hightchart.playerSalary.js"></span>
+<script src="http://code.highcharts.com/modules/drilldown.js"></script>
