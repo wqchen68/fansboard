@@ -199,7 +199,7 @@ class Player {
 					->leftJoin('syncdataframe','realtimeeff.fbido','=','syncdataframe.fbido')
 					->leftJoin('biodata','realtimeeff.fbido','=','biodata.fbido')
 					->leftJoin('syncplayerlist','realtimeeff.fbido','=','syncplayerlist.fbido')
-					->select(DB::raw('biodata.player AS playername,FORMAT(realtimeeff.bxeff,1)-FORMAT(syncdataframe.pweff,1) AS trend,
+					->select(DB::raw('biodata.player AS playername,FORMAT(realtimeeff.bxeff-syncdataframe.pweff,1) AS trend,
 									FORMAT(syncdataframe.pwmin,1) AS min1,
 									FORMAT(syncdataframe.pwpts,1) AS pts1,
 									FORMAT(syncdataframe.pwtreb,1) AS treb1,
@@ -253,7 +253,7 @@ class Player {
 					->leftJoin('syncdataframe','realtimeeff.fbido','=','syncdataframe.fbido')
 					->leftJoin('biodata','realtimeeff.fbido','=','biodata.fbido')
 					->leftJoin('syncplayerlist','realtimeeff.fbido','=','syncplayerlist.fbido')
-					->select(DB::raw('biodata.player AS playername,FORMAT(realtimeeff.bxeff,1)-FORMAT(syncdataframe.pweff,1) AS trend,
+					->select(DB::raw('biodata.player AS playername,FORMAT(realtimeeff.bxeff-syncdataframe.pweff,1) AS trend,
 									FORMAT(syncdataframe.pwmin,1) AS min1,
 									FORMAT(syncdataframe.pwpts,1) AS pts1,
 									FORMAT(syncdataframe.pwtreb,1) AS treb1,
@@ -311,7 +311,7 @@ class Player {
 					->leftJoin('syncdataframe AS A2','A1.fbido','=','A2.fbido')
 					->leftJoin('biodata','A1.fbido','=','biodata.fbido')
 					->leftJoin('syncplayerlist','A1.fbido','=','syncplayerlist.fbido')
-					->select(DB::raw('biodata.player AS playername,FORMAT(A2.pweff,1)-FORMAT(A1.pweff,1) AS trend,
+					->select(DB::raw('biodata.player AS playername,FORMAT(A2.pweff-A1.pweff,1) AS trend,
 									FORMAT(A1.pwmin,1) AS min1,
 									FORMAT(A1.pwpts,1) AS pts1,
 									FORMAT(A1.pwtreb,1) AS treb1,
@@ -333,7 +333,7 @@ class Player {
 					->leftJoin('syncdataframe AS A2','A1.fbido','=','A2.fbido')
 					->leftJoin('biodata','A1.fbido','=','biodata.fbido')
 					->leftJoin('syncplayerlist','A1.fbido','=','syncplayerlist.fbido')
-					->select(DB::raw('biodata.player AS playername,FORMAT(A2.pweff,1)-FORMAT(A1.pweff,1) AS trend,
+					->select(DB::raw('biodata.player AS playername,FORMAT(A2.pweff-A1.pweff,1) AS trend,
 									FORMAT(A1.pwmin,1) AS min1,
 									FORMAT(A1.pwpts,1) AS pts1,
 									FORMAT(A1.pwtreb,1) AS treb1,
