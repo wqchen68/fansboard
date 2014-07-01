@@ -1212,7 +1212,21 @@ class Player {
 		$queryLog = DB::getQueryLog();		
 		return Response::json(array('playlist'=>$player_option,'query'=>json_encode($queryLog)));
 	}
-	
+
+	public static function getPlayer3() {
+			
+		$resultAry = DB::table('ncaadataframe')				
+				->orderBy('player')->select('fbid','player')->get();
+		$player_option = '';
+		if( is_array($resultAry) ){
+			foreach($resultAry as $player)
+			$player_option .= '<tr><td class="sign-btn" value ="'.$player->fbid.'>'.$player->player.'<div class="muti-btn" /></td></tr>';
+		}
+		$queryLog = DB::getQueryLog();		
+		return Response::json(array('playlist'=>$player_option,'query'=>json_encode($queryLog)));
+	}        
+        
+        
 	public static function getMatch()	{
 		//$datarange = 'D07';
 		$datarange = Input::get('datarange');

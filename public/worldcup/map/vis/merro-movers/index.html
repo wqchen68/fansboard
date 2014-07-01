@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="en-us" dir="ltr" class="no-js ie6" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en-us" dir="ltr" class="no-js ie7" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-us" dir="ltr" class="no-js ie8" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en-us" dir="ltr" class="no-js ie9" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"> <![endif]-->   
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en-us" dir="ltr" class="no-js" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"> <!--<![endif]-->
+	<head>
+
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	
+	<meta property="og:site_name" content="Trulia Insights"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="Where Are House Hunters Searching?"/>
+	<meta property="og:image" content="http://insights.truliablog.com/vis/metro-movers/metro_movers_fb_img.png"/>
+	<meta property="og:url" content="http://insights.truliablog.com/vis/metro-movers/"/>
+	<meta property="og:description" content="More than one in three home searches crosses state lines. Are more people looking to move in or to leave where you live?"/>
+	<meta property="og:admins" content="1033586731,1213673,565608214"/>
+	<meta property="fb:app_id" content="179777705408709"/>
+	
+	<!-- Design and code by Joe Golike @golike for Trulia.com -->
+
+	<title>Where Are House Hunters Searching? - Trulia Insights</title>
+
+	<link rel="stylesheet" media="all" href="../lib/css/insights_1.1.css"/>
+	<link rel="stylesheet" media="all" href="metro_movers.css?v=1.1"/>
+	
+	<script src="http://use.typekit.com/dkx5efl.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+
+</head>
+
+<body class="light">
+	<div id="container" class="g960_12">
+		<!-- <div class="grid_overlay"></div> -->
+		<div id="trulia_bar" class="m12"><a href="/">Back to Trulia Insights</a></div>
+		<div id="header" class="c12">
+			<div id="title" class="m8">
+				<h1>Where Are House Hunters Searching?</h1>
+				<p id="subtitle">More than one in three home searches crosses state lines. Are more people looking to move in or move out where you live?</p>
+			</div>
+			<!--
+			<div id="share" class="m4">
+				<div class="static"></div>
+			</div>
+			-->
+			<ul id="share" class="m4">
+				<li class="share_fblike"><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://insights.truliablog.com/vis/metro-movers/" send="false" layout="box_count" show_faces="false"></fb:like></li>
+				<li class="share_twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="trulia" data-text="More than one in three home searches crosses state lines. #truliainsights">Tweet</a><script src="http://platform.twitter.com/widgets.js"></script></li>
+				<li class="share_google"><g:plusone size="tall" href="http://insights.truliablog.com/vis/metro-movers/"></g:plusone><script>(function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();</script></li>
+				<li class="share_stumble"><script src="http://www.stumbleupon.com/hostedbadge.php?s=5&r=http://insights.truliablog.com/vis/metro-movers/"></script></li>
+				<li class="share_pinterest"><a href="http://pinterest.com/pin/create/button/?url=http%3A%2F%2Finsights.truliablog.com%2Fvis%2Fmetro-movers%2F&media=http%3A%2F%2Finsights.truliablog.com%2Fvis%2Fmetro-movers%2Fmetro_movers_pin_img.png" class="pin-it-button" count-layout="vertical">Pin It</a><script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script></li>
+			</ul>
+		</div>
+		
+		<div id="content" class="m12">
+			<div id="controls">
+				<fieldset id="dir" class="radio">
+					<input type="radio" id="dir_in" name="dir" value="in" checked="checked"/><label for="dir_in" class="sel dir_in"><span>Inbound Searches</span></label>
+					<input type="radio" id="dir_out" name="dir" value="out" /><label for="dir_out" class="dir_out"><span>Outbound Searches</span></label>
+					<p>This map features home searches happening in the top 100 US metros. Click a metro to see the top ten metros where house hunters are looking to move in from (Inbound Searches) and move out to (Outbound Searches). The bigger the circle, the more home searches that are coming into or out of the selected metro area.</p>
+				</fieldset>
+			</div>
+			
+			<div id="powered_by"><a href="http://trulia.com">Powered By Trulia</a></div>
+			<div id="dir_tooltip" class="tooltip">
+				<p class="text"></p>
+				<div class="tri"></div>
+			</div>
+		</div>
+		
+		<div id="ie_content" class="m12">
+			<div id="ie_controls">
+				<fieldset id="ie_dir" class="radio">
+					<input type="radio" id="ie_dir_in" name="ie_dir" value="in" checked="checked"/><label id="in_label" for="ie_dir_in" class="sel dir_in"><span>Inbound Searches</span></label>
+					<input type="radio" id="ie_dir_out" name="ie_dir" value="out" /><label id="out_label" for="dir_out" class="dir_out"><span>Outbound Searches</span></label>
+				</fieldset>
+				<fieldset id="ie_metro" class="radio">
+					<!--<input type="radio" id="ie_metro_atlanta" name="ie_metro" value="atlanta"/><label id="atlanta_label" for="ie_metro_atlanta"><span>Atlanta</span></label>
+					<input type="radio" id="ie_metro_chicago" name="ie_metro" value="chicago"/><label id="chicago_label" for="ie_metro_chicago"><span>Chicago</span></label>
+					<input type="radio" id="ie_metro_houston" name="ie_metro" value="houston"/><label id="houston_label" for="ie_metro_houston"><span>Houston</span></label>
+					<input type="radio" id="ie_metro_lasvegas" name="ie_metro" value="lasvegas"/><label id="lasvegas_label" for="ie_metro_lasvegas"><span>Las Vegas</span></label>
+					<input type="radio" id="ie_metro_losangeles" name="ie_metro" value="losangeles"/><label id="losangeles_label" for="ie_metro_losangeles"><span>Los Angeles</span></label>
+					<input type="radio" id="ie_metro_miami" name="ie_metro" value="miami"/><label id="miami_label" for="ie_metro_miami"><span>Miami</span></label>
+					<input type="radio" id="ie_metro_newyork" name="ie_metro" value="newyork"/><label id="newyork_label" for="ie_metro_newyork"><span>New York</span></label>
+					<input type="radio" id="ie_metro_sanfrancisco" name="ie_metro" value="sanfrancisco" checked="checked"/><label id="sanfrancisco_label" for="ie_metro_sanfrancisco" class="sel"><span>San Francisco</span></label>
+					<input type="radio" id="ie_metro_seattle" name="ie_metro" value="seattle"/><label id="seattle_label" for="ie_metro_seattle"><span>Seattle</span></label>
+					<input type="radio" id="ie_metro_washingtondc" name="ie_metro" value="washingtondc"/><label id="washingtondc_label" for="ie_metro_washingtondc"><span>Washington, DC</span></label>
+				--></fieldset>
+			</div>
+			
+			<div class="viewport">
+				<ul class="strip">
+					<!--<li class="frame">
+						<img src="ie_frames/atlanta_in.png" alt=""/>
+						<img src="ie_frames/atlanta_out.png" alt=""/>
+					</li>
+					<li class="frame">
+						<img src="ie_frames/chicago_in.png" alt=""/>
+						<img src="ie_frames/chicago_out.png" alt=""/>
+					</li>
+					<li class="frame">
+						<img src="ie_frames/houston_in.png" alt=""/>
+						<img src="ie_frames/houston_out.png" alt=""/>
+					</li>
+					<li class="frame">
+						<img src="ie_frames/lasvegas_in.png" alt=""/>
+						<img src="ie_frames/lasvegas_out.png" alt=""/>
+					</li>
+					<li class="frame">
+						<img src="ie_frames/losangeles_in.png" alt=""/>
+						<img src="ie_frames/losangeles_out.png" alt=""/>
+					</li>
+					<li class="frame">
+						<img src="ie_frames/miami_in.png" alt=""/>
+						<img src="ie_frames/miami_out.png" alt=""/>
+					</li>
+					<li class="frame">
+						<img src="ie_frames/newyork_in.png" alt=""/>
+						<img src="ie_frames/newyork_out.png" alt=""/>
+					</li>
+					<li class="frame">
+						<img src="ie_frames/sanfrancisco_in.png" alt=""/>
+						<img src="ie_frames/sanfrancisco_out.png" alt=""/>
+					</li>
+					<li class="frame">
+						<img src="ie_frames/seattle_in.png" alt=""/>
+						<img src="ie_frames/seattle_out.png" alt=""/>
+					</li>
+					<li class="frame">
+						<img src="ie_frames/washingtondc_in.png" alt=""/>
+						<img src="ie_frames/washingtondc_out.png" alt=""/>
+					</li>
+     -->
+				</ul>
+			</div>
+			<div id="ie_msg">You're using a pretty old browser, so we can't give you the full interactive experience. We suggest you upgrade to a modern browser like Safari, Chrome, or Firefox now.</div>
+		</div>
+		
+		<div id="footer" class="m12"><strong>Source:</strong> Based on Trulia&rsquo;s <a href="http://info.trulia.com/index.php?s=43&item=140">Winter 2012 Metro Movers report</a>, which looks at nearly 100 million home searches on Trulia.com between Oct 1&mdash;Dec 31, 2011. The report starts with where people live today and gives you the inside scoop on where they want to live tomorrow.</div>
+	</div>
+	
+	<script src="../lib/js/jquery-1.6.2.min.js"></script>
+	<script src="../lib/js/insights_1.0/insights.js"></script>
+	
+	<!--[if (gt IE 9)|!(IE)]><!-->
+	<script src="../lib/js/d3_2.7.0/d3.min.js"></script>
+	<script src="../lib/js/d3_2.7.0/d3.geo.min.js"></script>
+	<script src="../lib/js/d3_2.7.0/d3.csv.min.js"></script>
+	<script src="../lib/js/circle_packer_movers.js"></script>
+	<script src="metro_movers.js"></script>
+	<!--<![endif]-->
+	
+	<!--[if lt IE 9]>
+	<script src="metro_movers_ie.js"></script>
+	<![endif]-->
+	
+	
+	<!-- Google Analytics -->
+	
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-17793303-3']);
+	  _gaq.push(['_trackPageview']);
+	 
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+
+</body>
+</html>

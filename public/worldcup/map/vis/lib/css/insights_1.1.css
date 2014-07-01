@@ -1,0 +1,311 @@
+/*
+Title:     Trulia Insights visualization template
+Author:    Joe Golike
+File Name: insights_1.1.css
+*/
+
+@import url(reset.css);
+@import url(grid_0.2.css);
+
+
+
+strong {
+	font-weight: bold;
+}
+
+body {
+	font: 13px/16px "ff-dagny-web-pro-1","ff-dagny-web-pro-2",sans-serif;
+	position: relative;
+}
+
+body.light {
+	background: white url(../img/bg-pixel1a.png) 0 -25px repeat-x;
+	color: #333;
+}
+
+body.dark {
+	background: #333 url(../img/bg-pixel1a-gray.png) 0 -25px repeat-x;
+	color: white;
+}
+
+#container {
+	margin: 0 auto;
+	position: relative;
+}
+
+#trulia_bar a {
+	text-decoration: none;
+	padding: 3px 15px;
+	float: right;
+	color: white;
+	background: url(../img/right-arrow.png) right 7px no-repeat;
+	text-shadow: 1px 1px 1px #4d7400;
+	text-transform: lowercase;
+}
+
+.dark #truliaBar a {
+	color: white;
+}
+
+#header {
+	margin-top: 30px;
+	padding-bottom: 20px;
+}
+
+#header #title h1 {
+	font-size: 28px;
+	line-height: 28px;
+	margin-bottom: 5px;
+}
+
+.light #header #title h1 {
+	color: #690;
+}
+
+#header #title p {
+	padding-left: 1px;
+	color: #999;
+	font-size: 15px;
+	line-height: 19px;
+}
+
+#content {
+	border-top: 1px dotted #ccc;
+	padding-top: 10px;
+	margin-bottom: 30px;
+	position: relative;
+}
+
+#powered_by {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+#powered_by a {
+	display: block;
+	width: 72px;
+	width: 54px;
+	height: 33px;
+	height: 25px;
+	background-image: url(../img/powered-by-trulia-75.png);
+	text-indent: -9999px;
+}
+
+.dark #powered_by a {
+	background-image: url(../img/powered-by-trulia-invert.png);
+}
+
+#powered_by.bw a {
+	background-image: url(../img/powered-by-trulia-bw.png);
+}
+
+
+#powered_by a:link {
+	background-position: left bottom;
+}
+
+#powered_by a:visited {
+	background-position: left bottom;
+}
+
+#powered_by a:hover {
+	background-position: left bottom;
+}
+
+#powered_by a:active {
+	background-position: left bottom;
+}
+
+
+/* FOOTER */
+#footer {
+	border-top: 1px dotted #ccc;
+	padding-top: 10px;
+	margin-bottom: 30px;
+	clear: both;
+}
+
+.light #footer {
+	color: #999;
+}
+
+#footer a:link {
+	color: #999;
+	text-decoration: underline;
+}
+
+#footer a:visited {
+	color: #999;
+}
+
+#footer a:hover {
+	color: #666;
+}
+
+#footer a:active {
+	color: #666;
+}
+
+#footer strong {
+	color: #666;
+}
+
+#controls .radio {
+	font-size: 12px;
+	line-height: 12px;
+}
+
+#controls .radio input {
+	display: none;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+}
+
+#controls .radio label {
+	float: left;
+	display: block;
+	cursor: pointer;
+	padding: 3px 6px;
+	background: #ccc;
+	border: 1px solid #bbb;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	margin: 0 3px 2px 0;
+	color: white;
+	text-shadow: 1px 1px 1px #bbb;
+}
+
+#controls .radio label:hover {
+	background: #aaa;
+	text-shadow: 1px 1px 1px #999;
+	border: 1px solid #888;
+}
+
+#controls .radio label.sel {
+	background: #690;
+	text-shadow: 1px 1px 1px #3e8112;
+	border: 1px solid #3e8112;
+}
+
+/* ************************************************** */
+
+.tooltip {
+	display: none;
+	position: absolute;
+	background: url(../../lib/img/black80.png);
+	z-index: 1338;
+	padding: 7px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: white;
+	-moz-box-shadow: 1px 1px 1px #666;
+	-webkit-box-shadow: 1px 1px 1px #666;
+	box-shadow: 1px 1px 1px #666;
+	pointer-events: none;
+}
+
+.tooltip span {
+	color: #bbb;
+	font-size: 11px;
+}
+
+.tooltip .tri {
+	position: absolute;
+	top: -9px;
+	left: 16px;
+	width: 17px;
+	height: 9px;
+	background: url(../img/blacktri80c.png) no-repeat;
+}
+
+/* ************************************************** */
+
+
+/* SOCIAL MEDIA LINKS*/
+#pinImg, #pinImg img {
+	opacity: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+#share .static {
+	width: 222px;
+	height: 62px;
+	background: url(../img/share-buttons-horiz2.png) no-repeat;
+}
+
+#share .static2 {
+	background: url(../img/share-buttons-2rows.png) no-repeat;
+	width: 213px;
+	height: 46px;
+	float: right;
+	clear: right;
+	margin: 3px 5px 25px 5px;
+}
+
+#share .static.horiz3 {
+	background: url(../img/share_static_horiz3.png) no-repeat;
+	width: 277px;
+	height: 63px;
+}
+
+#share li {
+	float: left;
+	margin-left: 10px;
+}
+
+#share li.share_fblike {
+	padding-top: 0;
+	margin-left: 0;
+}
+
+#share li.share_twitter {
+	margin-left: 3px;
+}
+
+#share li.share_google {
+	padding-top: 2px;
+}
+
+#share li.share_stumble {
+	padding-top: 1px;
+}
+
+#share li.share_pinterest {
+	padding-top: 4px;
+}
+
+#share2 {
+	float: right;
+	clear: right;
+	margin: 3px 5px 25px 5px;
+}
+
+#share2 li {
+	float: left;
+	margin-right: 6px;
+}
+
+#share2 li.share_fblike {
+	padding-top: 0;
+	margin-right: 0;
+}
+
+#share2 li.share_twitter {
+
+}
+
+#share2 li.share_google {
+	padding-top: 2px;
+}
+
+#share2 li.share_stumble {
+	padding-top: 2px;
+}

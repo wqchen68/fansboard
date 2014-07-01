@@ -1,0 +1,233 @@
+#ie_content {
+	display: none;
+	border-top: 1px dotted #ccc;
+	padding-top: 10px;
+	margin-bottom: 30px;
+}
+
+.ie6 #ie_content, .ie7 #ie_content, .ie8 #ie_content {
+	display: block !important;
+}
+
+.ie6 #content, .ie7 #content, .ie8 #content {
+	display: none !important;
+}
+
+#ie_content .viewport {
+	width: 1920px;
+	height: 965px;
+	position: relative;
+	overflow: hidden;
+}
+
+.viewport .strip {
+	width: 1920x;
+	height: 965px;
+	position: absolute;
+	left: -6580px; /* SF */
+	top: 0;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.strip .frame {
+	width: 1920px;
+	height: 965px;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+
+
+#ie_dir {
+	float: left;
+}
+
+#ie_metro {
+	float: right;
+	
+}
+
+
+#ie_controls .radio {
+	font-size: 12px;
+	line-height: 12px;
+}
+
+#ie_controls .radio input {
+	display: none;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+}
+
+#ie_controls .radio label {
+	float: left;
+	display: block;
+	cursor: pointer;
+	padding: 3px 6px;
+	background: #ccc;
+	border: 1px solid #bbb;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	margin: 0 3px 2px 0;
+	color: white;
+	text-shadow: 1px 1px 1px #bbb;
+}
+
+#ie_controls .radio label:hover {
+	background: #aaa;
+	text-shadow: 1px 1px 1px #999;
+	border: 1px solid #888;
+}
+
+#ie_controls .radio label.sel {
+	background: #690;
+	background: #333;
+	text-shadow: 1px 1px 1px #3e8112;
+	text-shadow: 1px 1px 1px black;
+	border: 1px solid #3e8112;
+	border: 1px solid black;
+}
+
+#ie_msg {
+	background: #dc322f;
+	padding: 5px;
+	color: white;
+}
+
+p#subtitle {
+	width: 535px;
+}
+
+
+
+
+
+
+
+.metro circle {
+	fill: #ddd;
+}
+
+.metro text {
+	font-size: 11px;
+}
+
+.metro.primary circle {
+	fill: #999;
+}
+
+.metro text {
+	display: none;
+	text-anchor: middle;
+	pointer-events: none;
+	text-shadow: white 1px 1px 1px;
+}
+
+#temp text {
+	display: block !important;
+}
+
+/*
+.metro:hover text {
+	display: block;
+}
+*/
+.metro.primary circle {
+	fill: #999;
+	cursor: pointer;
+	stroke-width: 2px;
+	stroke: #666;
+}
+
+.metro.primary:hover circle {
+	stroke: black !important;
+}
+
+.metro.sel_primary circle {
+	fill: #333;
+}
+
+.metro.sel_primary text {
+	fill: white;
+	text-shadow: black 1px 1px 1px;
+}
+
+.metro.in circle {
+	fill: #99d5ff !important;
+}
+
+.metro.in.primary circle {
+	stroke: #268bd2;
+}
+
+.metro.out circle {
+	fill: #ff9997 !important;
+}
+
+.metro.out.primary circle {
+	stroke: #dc322f;
+}
+
+.metro.sel_primary text, .metro.sel_related text {
+	display: block;
+}
+
+.metro.primary text {
+	font-weight: bold;
+}
+
+.metro.related text {
+	font-weight: bold;
+}
+
+.metro.sel_primary circle {
+	stroke: black !important;
+}
+
+#states path {
+	stroke: #ddd;
+	stroke-width: 1px;
+	fill: none;
+}
+
+label.sel.dir_in {
+	background: #99d5ff !important;
+	border-color: #268bd2 !important;
+}
+
+label.sel.dir_in span {
+	text-shadow: #268bd2 1px 1px 1px !important;
+}
+
+label.sel.dir_out {
+	background: #ff9997 !important;
+	border-color: #dc322f !important;
+}
+
+label.sel.dir_out span {
+	text-shadow: #dc322f 1px 1px 1px !important;
+}
+
+#controls p {
+	float: right;
+	color: #333;
+	padding: 4px 0 0 5px;
+	padding: 0;
+	font-style: italic;
+	line-height: 14px;
+	width: 655px;
+}
+
+
+#powered_by {
+	right: 100px;
+	bottom: 10px;
+}
