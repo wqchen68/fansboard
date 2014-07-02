@@ -12,6 +12,7 @@
 */
 //dtesttim
 Route::any('test', function(){	
+    //test
 	$player = Player::getRealtime()->getData()->value;
 	$root1 = rand(0,2);
 	
