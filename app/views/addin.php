@@ -16,7 +16,7 @@
 		<div id="container1" class="" style="border:0px solid #fff;margin:0 0 0 0;padding:0px"></div>
 	</div>
 
-	<div class="modelBox active" mid="5">
+	<div class="modelBox active" mid="6">
 		<div class="transparent" style="height:20px;overflow:hidden;border:1px solid #fff;border-bottom:0">
 			<div>
 				<input type="text" class="filter gray" style="width:98%;margin:0;padding:1%;border:0;outline: none;color:#999"  placeholder="Type Player Name..." />

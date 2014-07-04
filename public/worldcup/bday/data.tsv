@@ -1,367 +1,167 @@
 day	hour	qqq	value
-1	1	Egidio Arevalo Rios;<br/>Essaid Belkalem;\nJack Wilshere	30
-1	2	Jefferson;Loic Remy;Maxi Rodriguez	30
-1	3	Yoichiro Kakitani	10
-1	4	James Milner;Jung Sung-ryong;Toni Kroos	30
-1	5	Afriyie Acquah;Leroy Fer	20
-1	6	Abel Aguilar;Daniel Davari	20
-1	7	Eden Hazard	10
-1	8	David Silva;Jorge Claros;Koke;Oliver Bozani?;Stipe Pletikosa	50
-1	9	Cedric Si Mohamed;Juanfran	20
-1	10	Christian Atsu;?ime Vrsaljko	20
-1	11	Matt McKay	10
-1	12	Axel Witsel;Oribe Peralta;Salvatore Sirigu	30
-1	13	Mario Yepes;Santiago Arias;Sol Bamba	30
-1	14	Yohan Cabaye	10
-1	15	Joel Veltman	10
-1	16	Pablo Zabaleta;Park Joo-ho;Reto Ziegler;Stephan Lichtsteiner	40
-1	17	Hector Moreno	10
-1	18	Johan Djourou;Juan Fernando Quintero;Makoto Hasebe;Senad Luli?	40
-1	19	Claudio Marchisio;Matthias Ginter	20
-1	20	Jose Maria Gimenez;Pierre Webo;Renato Ibarra	30
-1	21	Victor	10
-1	22	Adrian Ramos;Dmitri Kombarov;Hashem Beikzadeh;Rodrigo Munoz;Vincent Aboubakar	50
-1	23	Arjen Robben	10
-1	24	Ermin Bi?ak?i?;Ki Sung-yueng;Luis Suarez;Vieirinha	40
-1	25	Marco Parolo;Pavel Mogilevets;Xavi;Yasuyuki Konno	40
-1	26	Jose de Jesus Corona	10
-1	27	Denis Glushakov;Fabian Orellana;Ruben Amorim	30
-1	28	Chris Wondolowski;Gianluigi Buffon;John Brooks;Yasuhito End?	40
-1	29		0
-1	30	Lucas Biglia	10
-1	31	Abdelmoumene Djabou	10
-2	1	Faouzi Ghoulam;Reza Haghighi;Steven Beitashour	30
-2	2	Gerard Pique;Ivan Peri?i?;Michael Uchebo;Silvestre Varela	40
-2	3	Donis Escober;Jalal Hosseini	20
-2	4	Mathew Leckie;Mauricio Pinilla	20
-2	5	Adnan Januzaj;Cristiano Ronaldo;Loukas Vyntra;Neymar;Rodrigo Palacio;Stefan de Vrij;Vedran ?orluka	70
-2	6	Carlos Sanchez	10
-2	7	Daniel Van Buyten	10
-2	8	Bruno Martins Indi;Giancarlo Gonzalez;Michael Lang;Yacine Brahimi	40
-2	9	Andrey Yeshchenko	10
-2	10		0
-2	11	Francisco Silva;Javier Aquino;Mark Bresciano;Matt Besler	40
-2	12	Christoph Kramer;Ron-Robert Zieler	20
-2	13	Alexandros Tziolis;Eliaquim Mangala;Mamadou Sakho;Memphis Depay;Rafael Marquez;Tino-Sven Su?i?;Yun Suk-young	70
-2	14	Bacary Sagna;Edinson Cavani;Jose Miguel Cubero;Philippe Senderos;Terence Kongolo;Angel di Maria	60
-2	15	Fidel Martinez;Gabriel Paletta;Panagiotis Tachtsidis;Rui Patricio	40
-2	16	Diego Godin;Rickie Lambert;Ron Vlaar	30
-2	17	Edin Vi??a	10
-2	18	Aleksei Ionov	10
-2	19		0
-2	20	Ciro Immobile	10
-2	21	Carlos Carmona;Federico Fernandez;Georgios Samaras;Jaime Ayovi;Phil Jones;Riyad Mahrez	60
-2	22	Enzo Perez;Haris Seferovi?;Jose Pedro Fuenzalida;Sergio Romero;Toshihiro Aoyama	50
-2	23		0
-2	24		0
-2	25	Eduardo;Ehsan Hajsafi;Joao Pereira;Milan Badelj;Sammy N'Djock	50
-2	26	Mehrdad Pouladi;Pepe	20
-2	27	Kim Young-gwon;Koo Ja-cheol	20
-2	28	Antonio Candreva;Eder Alvarez Balanta	20
-2	29	Benedikt Howedes;Saphir Taider	20
-3	1		0
-3	2	Ha Dae-sung;Toby Alderweireld	20
-3	3	Sh?ichi Gonda	10
-3	4		0
-3	5	Kunle Odunlami;Liassine Cadamuro-Bentaiba;Marco Urena	30
-3	6	Andranik Teymourian;Avdija Vr?ajevi?;Giorgos Karagounis;Kevin-Prince Boateng;Paul Aguilar;Tim Howard	60
-3	7		0
-3	8	Alan Pulido;Haris Medunjanin;Juan Carlos Garcia;Rio Mavuba;Remy Cabella	50
-3	9	Camilo Vargas;Clint Dempsey;Daley Blind	30
-3	10	Ivan Rakiti?;Park Jong-woo;Samuel Eto'o	30
-3	11	Didier Drogba;Fabio Coentrao	20
-3	12	Kostas Mitroglou	10
-3	13		0
-3	14	G?toku Sakai;Jose Juan Vazquez	20
-3	15	Paul Pogba;Edison Mendez	20
-3	16	Admir Mehmedi;Andy Najar	20
-3	17	Edin D?eko;Fraser Forster;Raul Meireles;Shinji Kagawa;Yeltsin Tejeda	50
-3	18	Gordon Schildenfeld;Stefanos Kapino	20
-3	19	Aleksandr Kokorin;Kolo Toure;Mohamed Zemmamouche	30
-3	20	Eiji Kawashima;Fernando Torres;Jo;Marcos Rojo;Nicolas Lombaerts	50
-3	21	Antoine Griezmann;Jordi Alba;Nicolas Lodeiro	30
-3	22		0
-3	23	Ejike Uzoenyi;Eyong Enoh;Maxim Choupo-Moting	30
-3	24	Andrei Semyonov;Benoit Assou-Ekotto;Gabriel Achilier;Ramires	40
-3	25	Diego Calvo;Martin Silva	20
-3	26		0
-3	27	Atsuto Uchida;Manuel Neuer;Nicolas N'Koulou	30
-3	28	Mensur Mujd?a	10
-3	29	Carlos Pena;Timothy Chandler	20
-3	30	Sergio Ramos	10
-3	31	Giovanni Sio	10
-4	1		0
-4	2	Arthur Boka;Carlos Salcido;Lee Bum-young;Miralem Pjani?	40
-4	3	Jose Maria Basanta;Karim Ansarifard;Tim Krul	30
-4	4	Manabu Sait?;Sami Khedira	20
-4	5		0
-4	6	Fatau Dauda	10
-4	7	Martin Caceres;William Carvalho	20
-4	8	Austin Ejide;Dario Vido?i?;Igor Akinfeev;Jerry Bengtson;Mathew Ryan	50
-4	9	Blaise Matuidi;Christian Noboa	20
-4	10	Augusto Fernandez;Fernando Gago;Vincent Kompany	30
-4	11	Dany Nounkeu;Enner Valencia;Lee Keun-ho	30
-4	12	Blerim D?emaili;Hiroki Sakai;Miguel Angel Ponce;Ricardo Alvarez;Valentin Stocker	50
-4	13	Claudio Bravo	10
-4	14	Kim Shin-wook;Loic Feudjou	20
-4	15	Steven Defour	10
-4	16	Shinji Okazaki	10
-4	17	Charles Aranguiz;Shkodran Mustafi	20
-4	18	Divock Origi	10
-4	19	Carlos Gruezo;Han Kook-young;Hector Herrera;Valon Behrami	40
-4	20	Nabil Ghilas	10
-4	21		0
-4	22	David Luiz;Jasper Cillessen;John Obi Mikel;Viktor Fayzulin	40
-4	23	John Boye;Kyle Beckerman;Michael Arroyo;Sammir	40
-4	24	Jan Vertonghen;Patrick Pemberton	20
-4	25	Raphael Varane;Rais M'Bolhi	20
-4	26		0
-4	27	Georgi Shchennikov	10
-4	28	Juan Mata	10
-4	29	Alejandro Bedoya;Domagoj Vida	20
-4	30		0
-5	1	Beto;Darijo Srna;Leonardo Bonucci	30
-5	2	Alireza Haghighi;Maynor Figueroa	20
-5	3	Ben Foster;Ezequiel Lavezzi;Noel Valladares	30
-5	4	Cesc Fabregas;Fernandinho	20
-5	5	Frickson Erazo;Raul Jimenez	20
-5	6	Dani Alves;Dries Mertens;Mateo Kova?i?	30
-5	7		0
-5	8	Andrea Barzagli	10
-5	9	Johnny Herrera	10
-5	10	Adam Lallana;Allan Nyom;Emilio Izaguirre;Emmanuel Emenike	40
-5	11	Andres Iniesta;Giovani dos Santos;Miguel Veloso;Thibaut Courtois	40
-5	12	Erik Durm;Fabrice Olinga;Marcelo	30
-5	13	Asmir Avduki?;Romelu Lukaku;Yaya Toure	30
-5	14	Hassan Yebda;Mickael Landreau;Oliver Zelenika	30
-5	15	Carl Medjani;James Holland;Jasmin Fejzi?;Medhi Lacen;Patrice Evra	50
-5	16	Ricardo Costa	10
-5	17	Christian Bolanos;Igor Denisov;Rafa Silva;Teofilo Gutierrez	40
-5	18	Diego Perez;Yuya Osako	20
-5	19	Andrea Pirlo;Diego Forlan;Joe Hart;Victor Ibarbo	40
-5	20	Iker Casillas;Stephane Mbia	20
-5	21	Mario Mand?uki?;Masato Morishige	20
-5	22	Arturo Vidal;Carlos Valdes;Didier Ya Konan;Tranquillo Barnetta;Vladimir Granat	50
-5	23	Hugo Almeida;Theofanis Gekas	20
-5	24	DaMarcus Beasley;Victor Bernardez	20
-5	25		0
-5	26	Juan Guillermo Cuadrado;Luis Neto;Yuri Lodygin	30
-5	27	Celso Borges;Gervinho	20
-5	28	Ji Dong-won	10
-5	29	Hernanes;Jean Makoun	20
-5	30	Steven Gerrard	10
-5	31		0
-6	1	David Myrie;Javier Hernandez;Samuel Inkoom	30
-6	2	Adam Taggart;Sergio Aguero	20
-6	3	Jean Beausejour;Jose Rojas;Mario Gotze;Panagiotis Glykos;Oscar Duarte	50
-6	4	Henri Bedimo;Lorenzo Insigne;Lukas Podolski	30
-6	5	Alexander Dominguez;Zvjezdan Misimovi?	20
-6	6	Julian Green	10
-6	7		0
-6	8	Javier Mascherano;Maxi Pereira	20
-6	9	Masoud Shojaei;Miroslav Klose;Sokratis Papastathopoulos;Wesley Sneijder;Yoshito ?kubo	50
-6	10	Steve von Bergen;Vasilis Torosidis	20
-6	11		0
-6	12	Eugene Galekovi?;Mauricio Isla	20
-6	13	Andreas Samaris;Keisuke Honda	20
-6	14	Ben Halloran;Joao Rojas;Kostas Manolas	30
-6	15	Sayouba Mande	10
-6	16	Fernando Muslera	10
-6	17	Alan Dzagoev;Jordan Henderson;Nick Rimando	30
-6	18	Islam Slimani;Shusaku Nishikawa	20
-6	19		0
-6	20	Asmir Begovi?;Aurelien Chedjou;Frank Lampard;Sead Kola?inac;Vasili Berezutski	50
-6	21	Cheick Tiote;Faryd Mondragon;Kostas Katsouranis	30
-6	22	Cristopher Toselli	10
-6	23		0
-6	24	Harrison Afful;Lionel Messi	20
-6	25	Miguel Layun	10
-6	26	Joel Campbell	10
-6	27	Gokhan Inler;Hugo Campagnaro;Hwang Seok-ho;Jordy Clasie;Jose Holebas;Matthew ?piranovi?	60
-6	28	Kevin De Bruyne	10
-6	29	Jason Davidson	10
-6	30	Fredy Guarin	10
-7	1		0
-7	2	Lee Chung-yong	10
-7	3	James Troisi	10
-7	4		0
-7	5	Ashkan Dejagah;Dejan Lovren	20
-7	6		0
-7	7	Alberto Aquilani	10
-7	8	Juan Carlos Paredes;Kwak Tae-hwi;Son Heung-min	30
-7	9	DeAndre Yedlin	10
-7	10	Park Chu-young	10
-7	11	Alexander Mejia;Geoff Cameron;Orestis Karnezis	30
-7	12	Antonio Cassano;Ghasem Haddadifar;James Rodriguez;Luke Shaw	40
-7	13	Guillermo Ochoa;Jonathan Mensah	20
-7	14	Maksim Kanunnikov;Sergei Ignashevich	20
-7	15	Peter Odemwingie	10
-7	16	Azubuike Egwuekwe;Michael Umana;Mousa Dembele;Sergio Busquets	40
-7	17		0
-7	18	Carlo Costly;Eugenio Mena	20
-7	19	Aleksandr Samedov;Kevin Groskreutz	20
-7	20	Lucas Digne	10
-7	21	Johnny Acosta;Marco Fabian	20
-7	22	Daryl Janmaat;Dirk Kuyt	20
-7	23	Alessio Cerci;Luiz Gustavo;Walter Gargano	30
-7	24	Daniele De Rossi	10
-7	25	Carlos Carbonero;Hulk;Paulinho;Wakaso Mubarak	40
-7	26	Agustin Orion;Maicon;Oswaldo Minda;Panagiotis Kone	40
-7	27		0
-7	28	Bailey Wright;Mathieu Debuchy;Pedro	30
-7	29	Oleg Shatov;Osman Chavez;Wilson Palacios	30
-7	30	Mariano Andujar;Mario Martinez;Rahman Ahmadi	30
-7	31	Michael Bradley	10
-8	1	Bastian Schweinsteiger;Esteban Paredes	20
-8	2	Helder Postiga	10
-8	3	Gary Medel;Mile Jedinak	20
-8	4	Antonio Valencia;Izet Hajrovi?;Mark Milligan	30
-8	5	Laurent Ciman;Salomon Kalou	20
-8	6	Robin van Persie;Roman Weidenfeller;Simon Mignolet;Vedad Ibi?evi?	40
-8	7		0
-8	8	Abel Hernandez;Josip Drmi?;Joel Matip	30
-8	9	Willian	10
-8	10		0
-8	11	Alireza Jahanbakhsh;Sammy Bossut;Walter Ayovi	30
-8	12	Hong Jeong-ho;Klaas-Jan Huntelaar;Mario Balotelli	30
-8	13	Alex Wilkinson;Randall Brenes	20
-8	14	Giorgio Chiellini	10
-8	15	Alex Oxlade-Chamberlain;Ryan McGowan	20
-8	16	Anel Had?i?;Godfrey Oboabona;Moussa Sissoko	30
-8	17	Edgar Salli;Phil Jagielka	20
-8	18	Bryan Ruiz;Dimitris Salpingidis;Emir Spahi?;Graham Zusi	40
-8	19		0
-8	20	Yuri Zhirkov	10
-8	21		0
-8	22	Mitchell Langerak	10
-8	23	Glen Johnson	10
-8	24	Maya Yoshida	10
-8	25	Ricardo Rodriguez	10
-8	26	Vangelis Moras	10
-8	27	Maxwell;Nikica Jelavi?;Sulley Muntari	30
-8	28	Cedric Djeugoue;Cesar Azpilicueta;Isaac Brizuela;Ismael Diomande;Masahiko Inoha;Thiago Motta	60
-8	29	Gonzalo Jara;Vincent Enyeama	20
-8	30	Mehdi Mostefa	10
-8	31	David Ospina;Pepe Reina	20
-9	1	Daniel Sturridge;Jefferson Montero;Paul Verhaegh	30
-9	2	Gelson Fernandes;Javi Martinez;Rafik Halliche	30
-9	3	Jerome Boateng;Julio Cesar	20
-9	4	Raul Albiol;Oscar Boniek Garcia	20
-9	5	Felipe Caicedo	10
-9	6	Amir Hossein Sadeghi;Joseph Yobo;Pejman Montazeri	30
-9	7		0
-9	8	Adrian Bone;Bernard;Carlos Bacca;Diego Benaglio;Joao Moutinho	50
-9	9	Alex Song;Brad Guzan;Luka Modri?;Oscar	40
-9	10	Andre Almeida;Ivan Franjic;Laurent Koscielny;Muhamed Be?i?	40
-9	11	Jordan Ayew	10
-9	12	Junior Diaz;Kim Chang-soo;Yuto Nagatomo	30
-9	13	Jonathan de Guzman;Luis Lopez;Thomas Muller	30
-9	14	Ivica Oli?;Juwon Oshaniwa;Khosro Heydari	30
-9	15		0
-9	16	Hossein Mahini	10
-9	17	Uche Nwofor	10
-9	18	Alfredo Talavera	10
-9	19	Diego Reyes;Eduardo;Majeed Waris;Sergey Ryzhikov	40
-9	20	Julian Draxler;Reza Ghoochannejhad;Waylon Francis	30
-9	21	Ante Rebi?	10
-9	22	Thiago Silva	10
-9	23	Bakhtiar Rahmani	10
-9	24		0
-9	25	Massimo Luongo;Reuben Gabriel	20
-9	26	Senijad Ibri?i?	10
-9	27	Granit Xhaka;Stephane Ruffier	20
-9	28	Andres Guardado;Jorge Guagua;Mathieu Valbuena;Stephen Adams	40
-9	29	Per Mertesacker	10
-9	30	Cristian Rodriguez;Cristian Zapata;Kim Seung-gyu;Olivier Giroud	40
-10	1		0
-10	2	Mikkel Diskerud;Nacer Chadli	20
-10	3	Fred;Jackson Martinez;Jorge Valdivia;Michel Vorm	40
-10	4	Michael Barrantes	10
-10	5	Kevin Mirallas	10
-10	6	Hotaru Yamaguchi;Kim Bo-kyung	20
-10	7	Diego Costa;Javad Nekounam;Madjid Bougherra;Sebastian Coates	40
-10	8	Felipe Gutierrez;Sejad Salihovi?	20
-10	9	Djamel Mesbah	10
-10	10	Ahmad Alenemeh;Ezequiel Garay;Xherdan Shaqiri	30
-10	11	Jean-Daniel Akpa-Akpro;Omar Gonzalez	20
-10	12	Christian Stuani;Giannis Maniatis;Shola Ameobi	30
-10	13		0
-10	14	Ahmed Musa;Henrique	20
-10	15	Mesut Ozil	10
-10	16	Marcelo Brozovi?;Rony Martinez	20
-10	17	Constant Djakpa;Kenneth Omeruo	20
-10	18	Daniel Opare;Dante;Efe Ambrose	30
-10	19		0
-10	20	Francisco Javier Rodriguez;Luis Saritama;Mattia De Sciglio	30
-10	21		0
-10	22	Aissa Mandi	10
-10	23		0
-10	24	Anthony Vanden Borre;Cristian Gamboa;Ognjen Vranje?;Wayne Rooney	40
-10	25	Esteban Granados;Roger Espinoza	20
-10	26	Juan Pablo Montes	10
-10	27	Danijel Suba?i?	10
-10	28		0
-10	29	Sylvain Gbohouo;Alvaro Gonzalez	20
-10	30		0
-10	31		0
-11	1	Jerry Palacios	10
-11	2	Charles Itandje;Diego Lugano;Pablo Armero	30
-11	3	Jermaine Jones;Marvin Chavez	20
-11	4		0
-11	5	Luis Garrido;Marco Verratti	20
-11	6	Andre Schurrle;Jozy Altidore	20
-11	7	David de Gea;Serey Die	20
-11	8	Brad Davis;Morgan Schneiderlin	20
-11	9		0
-11	10	Aron Johannsson;Mattia Perin	20
-11	11	Georginio Wijnaldum;Philipp Lahm	20
-11	12	Benjamin Moukandjo;Hiroshi Kiyotake;Ignazio Abate	30
-11	13	Nigel de Jong	10
-11	14	Mathis Bolly;Roman Burki;Thomas Vermaelen	30
-11	15		0
-11	16	Aleksei Kozlov	10
-11	17	Nani	10
-11	18		0
-11	19	Jorge Fucile	10
-11	20	Edder Delgado;Eduardo Vargas	20
-11	21		0
-11	22	Asamoah Gyan;Chris Smalling;Marouane Fellaini	30
-11	23		0
-11	24	Jeremain Lens;Mario Gavranovi?;Nabil Bentaleb;Roy Miller	40
-11	25	El Arbi Hillel Soudani;Xabi Alonso	20
-11	26	Danny Welbeck;Giorgos Tzavellas	20
-11	27	Aleksandr Kerzhakov;Bruno Alves	20
-11	28	Brayan Beckeles;Chigozie Agbim;Landry N'Guemo;Alvaro Pereira	40
-11	29		0
-11	30	Max Gradel;Miiko Albornoz	20
-12	1	Daniel Cambronero	10
-12	2	Danijel Pranji?;Emmanuel Agyemang-Badu;Gaston Ramirez;Matteo Darmian	40
-12	3	David Villa;Michael Essien	20
-12	4		0
-12	5	Ross Barkley	10
-12	6	Tim Cahill	10
-12	7		0
-12	8	Raheem Sterling	10
-12	9	Kwadwo Asamoah	10
-12	10	Gonzalo Higuain;Tommy Oar;Wilfried Bony;Oscar Bagui	40
-12	11	Fabian Johnson;Leighton Baines	20
-12	12	Adam Kwarasey;Ramon Azeez;Victor Moses	30
-12	13	Albert Adomah;Santi Cazorla	20
-12	14	Didier Zokora;Juan Camilo Zuniga	20
-12	15	Keylor Navas;Toni ?unji?	20
-12	16	Mats Hummels;Maximo Banguera	20
-12	17	Andre Ayew;Yann Sommer	20
-12	18	Rashid Sumaila	10
-12	19	Alexis Sanchez;Gary Cahill;Karim Benzema;Lazaros Christodoulopoulos	40
-12	20	Fabian Schar;Martin Demichelis;Ognjen Vukojevi?	30
-12	21	Giannis Fetfatzidis;Ousmane Viera	20
-12	22	Eder	10
-12	23		0
-12	24	Lee Yong;Michael Babatunde;Serge Aurier	30
-12	25	Ogenyi Onazi	10
-12	26	Hugo Lloris;Sofiane Feghouli	20
-12	27		0
-12	28		0
-12	29		0
-12	30	Boubacar Barry;Marcelo Diaz	20
-12	31	Mohammed Rabiu	10
+1	1	OOOKKK&#10;LLPP	16
+1	3	'OOOKKK'	0
+1	4	'OOOKKK'	0
+1	5	'OOOKKK'	0
+1	6	'OOOKKK'	2
+1	7	'OOOKKK'	0
+1	8	'OOOKKK'	9
+1	9	'OOOKKK'	25
+1	10	'OOOKKK'	49
+1	11	'OOOKKK'	57
+1	12	'OOOKKK'	61
+1	13	'OOOKKK'	37
+1	14	'OOOKKK'	66
+1	15	'OOOKKK'	70
+1	16	'OOOKKK'	55
+1	17	'OOOKKK'	51
+1	18	'OOOKKK'	55
+1	19	'OOOKKK'	17
+1	20	'OOOKKK'	20
+1	21	'OOOKKK'	9
+1	22	'OOOKKK'	4
+1	23	'OOOKKK'	0
+2	1	'OOOKKK'	6
+2	2	'OOOKKK'	2
+2	3	'OOOKKK'	0
+2	4	'OOOKKK'	0
+2	5	'OOOKKK'	0
+2	6	'OOOKKK'	2
+2	7	'OOOKKK'	4
+2	8	'OOOKKK'	11
+2	9	'OOOKKK'	28
+2	10	'OOOKKK'	49
+2	11	'OOOKKK'	51
+2	12	'OOOKKK'	47
+2	13	'OOOKKK'	38
+2	14	'OOOKKK'	65
+2	15	'OOOKKK'	60
+2	16	'OOOKKK'	50
+2	17	'OOOKKK'	65
+2	18	'OOOKKK'	50
+2	19	'OOOKKK'	22
+2	20	'OOOKKK'	11
+2	21	'OOOKKK'	12
+2	22	'OOOKKK'	9
+2	23	'OOOKKK'	0
+2	24	'OOOKKK'	13
+3	1	'OOOKKK'	5
+3	2	'OOOKKK'	8
+3	3	'OOOKKK'	8
+3	4	'OOOKKK'	0
+3	5	'OOOKKK'	0
+3	6	'OOOKKK'	2
+3	7	'OOOKKK'	5
+3	8	'OOOKKK'	12
+3	9	'OOOKKK'	34
+3	10	'OOOKKK'	43
+3	11	'OOOKKK'	54
+3	12	'OOOKKK'	44
+3	13	'OOOKKK'	40
+3	14	'OOOKKK'	48
+3	15	'OOOKKK'	54
+3	16	'OOOKKK'	59
+3	17	'OOOKKK'	60
+3	18	'OOOKKK'	51
+3	19	'OOOKKK'	21
+3	20	'OOOKKK'	16
+3	21	'OOOKKK'	9
+3	22	'OOOKKK'	5
+3	23	'OOOKKK'	4
+3	24	'OOOKKK'	7
+4	1	'OOOKKK'	0
+4	2	'OOOKKK'	0
+4	3	'OOOKKK'	0
+4	4	'OOOKKK'	0
+4	5	'OOOKKK'	0
+4	6	'OOOKKK'	2
+4	7	'OOOKKK'	4
+4	8	'OOOKKK'	13
+4	9	'OOOKKK'	26
+4	10	'OOOKKK'	58
+4	11	'OOOKKK'	61
+4	12	'OOOKKK'	59
+4	13	'OOOKKK'	53
+4	14	'OOOKKK'	54
+4	15	'OOOKKK'	64
+4	16	'OOOKKK'	55
+4	17	'OOOKKK'	52
+4	18	'OOOKKK'	53
+4	19	'OOOKKK'	18
+4	20	'OOOKKK'	3
+4	21	'OOOKKK'	9
+4	22	'OOOKKK'	12
+4	23	'OOOKKK'	2
+4	24	'OOOKKK'	8
+5	1	'OOOKKK'	2
+5	2	'OOOKKK'	0
+5	3	'OOOKKK'	8
+5	4	'OOOKKK'	2
+5	5	'OOOKKK'	0
+5	6	'OOOKKK'	2
+5	7	'OOOKKK'	4
+5	8	'OOOKKK'	14
+5	9	'OOOKKK'	31
+5	10	'OOOKKK'	48
+5	11	'OOOKKK'	46
+5	12	'OOOKKK'	50
+5	13	'OOOKKK'	66
+5	14	'OOOKKK'	54
+5	15	'OOOKKK'	56
+5	16	'OOOKKK'	67
+5	17	'OOOKKK'	54
+5	18	'OOOKKK'	23
+5	19	'OOOKKK'	14
+5	20	'OOOKKK'	6
+5	21	'OOOKKK'	8
+5	22	'OOOKKK'	7
+5	23	'OOOKKK'	0
+5	24	'OOOKKK'	8
+6	1	'OOOKKK'	2
+6	2	'OOOKKK'	0
+6	3	'OOOKKK'	2
+6	4	'OOOKKK'	0
+6	5	'OOOKKK'	0
+6	6	'OOOKKK'	0
+6	7	'OOOKKK'	4
+6	8	'OOOKKK'	8
+6	9	'OOOKKK'	8
+6	10	'OOOKKK'	6
+6	11	'OOOKKK'	14
+6	12	'OOOKKK'	12
+6	13	'OOOKKK'	9
+6	14	'OOOKKK'	14
+6	15	'OOOKKK'	0
+6	16	'OOOKKK'	4
+6	17	'OOOKKK'	7
+6	18	'OOOKKK'	6
+6	19	'OOOKKK'	0
+6	20	'OOOKKK'	0
+6	21	'OOOKKK'	0
+6	22	'OOOKKK'	0
+6	23	'OOOKKK'	0
+6	24	'OOOKKK'	0
+7	1	'OOOKKK'	7
+7	2	'OOOKKK'	6
+7	3	'OOOKKK'	0
+7	4	'OOOKKK'	0
+7	5	'OOOKKK'	0
+7	6	'OOOKKK'	0
+7	7	'OOOKKK'	0
+7	8	'OOOKKK'	0
+7	9	'OOOKKK'	0
+7	10	'OOOKKK'	0
+7	11	'OOOKKK'	2
+7	12	'OOOKKK'	2
+7	13	'OOOKKK'	5
+7	14	'OOOKKK'	6
+7	15	'OOOKKK'	0
+7	16	'OOOKKK'	4
+7	17	'OOOKKK'	0
+7	18	'OOOKKK'	2
+7	19	'OOOKKK'	10
+7	20	'OOOKKK'	7
+7	21	'OOOKKK'	0
+7	22	'OOOKKK'	19
+7	23	'OOOKKK'	9
+7	24	'OOOKKK'	4

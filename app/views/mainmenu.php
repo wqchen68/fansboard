@@ -66,7 +66,7 @@
 									</div>
 									<ul style="width:100%">
 										<?=Form::tabi('','Draft Pool','lock')?>
-										<?=Form::tabi('draftplayerAbility','Draft Player Ability')?>
+										<?=Form::tabi('draftplayerAbility','Draft Player Ability','lock')?>
 										<?=Form::tabi('','Draft Data Scatter','lock')?>
 									</ul>	
 
