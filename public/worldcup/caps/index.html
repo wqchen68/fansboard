@@ -8,7 +8,7 @@ text {
 
 </style>
 <body>
-<title>Fansboard - FIFA World Cup 2014</title>
+<title>Caps | 2014 FIFA World Cup | fansboard</title>
 <script src="d3.v3.min.js"></script>
 
 <script>
@@ -32,7 +32,7 @@ d3.json("flare.json", function(error, root) {
   var node = svg.selectAll(".node")
       .data(bubble.nodes(classes(root))
       .filter(function(d) { return !d.children; }))
-    .enter().append("g")
+      .enter().append("g")
       .attr("class", "node")
       .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
@@ -72,7 +72,7 @@ d3.select(self.frameElement).style("height", diameter + "px");
         <img src="figure.png" />
     </div>
       <div style="padding:30px 0 0 300px">
-          <a href="http://www.fansboard.com/worldcup/main/index.html">
+          <a href="/worldcup/index.html">
               <img style="" src="logo.png" />
           </a>
       </div>
