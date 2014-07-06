@@ -115,7 +115,7 @@
 	ul.contact
 	{
 		margin: 0;
-		padding: 2em 0em 0em 0em;
+		padding: 0em 0em 2em 0em;
 		list-style: none;
 	}
 	
@@ -410,12 +410,12 @@
 	
 	#featured img
 	{
-		margin-bottom: 2em;
+		margin-bottom: 0.5em;
 	}
 	
 	#featured .box
 	{
-		padding-bottom: 1.5em;
+		padding-bottom: 0.5em;
 	}
 	
 	#featured .title
@@ -432,7 +432,7 @@
 	
 	#featured .subtitle
 	{
-		padding-bottom: 1em;
+		padding-bottom: 0.5em;
 		font-size: 1.3em;
 		font-weight: 700;
 		color: #333;

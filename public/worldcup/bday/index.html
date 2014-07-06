@@ -9,7 +9,7 @@
       }
 
       text.mono {
-        font-size: 9pt;
+        font-size: 11pt;
         font-family: Consolas, courier;
         fill: #aaa;
       }
@@ -24,27 +24,54 @@
     </style>
     <script src="d3.v3.js"></script>
   </head>
+  <title>Bday | 2014 FIFA World Cup | fansboard</title>
   <body>
-    <div id="chart"></div>
+    <div>
+        <div style="float: left">
+            <div style="padding:0 0 10px 10px">
+                <a href="/worldcup/index.html">
+                <img style="" src="logo.png" />
+                </a>
+            </div>
+            <div style="font-size: 30px;padding: 0 0 10px 20px; color:#003377 ;font-family: 'Open Sans', sans-serif">Which player has the same birthday as you...?</div>
+            <div style="font-size: 20px;padding: 0 0 0 20px; color:#888888 ;font-family: 'Open Sans', sans-serif; font-style: italic">Do you know Neymar Jr. and Cristiano Ronaldo share the same birthday? (Feb 5th)</div>
+            <div id="chart"></div>
+            <div style="font-size: 14px;padding: 0 0 0 50px; color:#003377 ;font-family: 'Open Sans', sans-serif">
+                <span style="padding: 0 60px 0 0">0</span>
+                <span style="padding: 0 60px 0 0">1</span>
+                <span style="padding: 0 60px 0 0">2</span>
+                <span style="padding: 0 60px 0 0">3</span>
+                <span style="padding: 0 60px 0 0">4</span>
+                <span style="padding: 0 60px 0 0">5</span>
+                <span style="padding: 0 60px 0 0">6</span>
+                <span style="padding: 0 60px 0 0">7</span>
+                <span style="padding: 0 0 0 350px"><a href="/worldcup/index.html">back</a></span>
+            </div>
+        </div>
+      <div style="float: left;padding:0px 0 0 0">
+          <img style="" src="figure.png" />
+      </div>
+        <div style="height:0;clear:both"></div>
+    </div>
 
     <script type="text/javascript">
       var margin = { top: 50, right: 0, bottom: 100, left: 30 },
-          width = 1920 - margin.left - margin.right,
-          height = 860 - margin.top - margin.bottom,
-          gridSize = Math.floor(width / 48),
+          width = 1100 - margin.left - margin.right, //1920
+          height = 480 - margin.top - margin.bottom, //860
+          gridSize = Math.floor(width / 32),
           legendElementWidth = gridSize*2,
-          buckets = 9,
-          colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"], // alternatively colorbrewer.YlGnBu[9]
+          buckets = 8,
+          colors = ["#ffffd9","#edf8b1","#c7e9b4","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"], // alternatively colorbrewer.YlGnBu[9],"#7fcdbb"
           days = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
           times = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
 
 
-      d3.tsv("data.tsv",
+      d3.tsv("data3.tsv",
         function(d) {
           return {
-            day: +d.day,
-            hour: +d.hour,
             qqq: d.qqq,
+            day: +d.day,
+            hour: +d.hour,            
             value: +d.value
           };
         },
@@ -103,14 +130,14 @@
 
           legend.append("rect")
             .attr("x", function(d, i) { return legendElementWidth * i; })
-            .attr("y", height)
+            .attr("y", height+80)
             .attr("width", legendElementWidth)
-            .attr("height", gridSize / 2)    
+            .attr("height", gridSize / 2)
             .style("fill", function(d, i) { return colors[i]; });
 
-          legend.append("text")
+          legend.append("text2")
             .attr("class", "mono")
-            .text(function(d) { return "≥ " + Math.round(d); })
+            .text(function(d) { return "≥ " + Math.round(Math.sqrt(d)); })
             .attr("x", function(d, i) { return legendElementWidth * i; })
             .attr("y", height + gridSize);
       });
