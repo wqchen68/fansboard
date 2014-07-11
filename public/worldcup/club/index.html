@@ -1,45 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Club | 2014 FIFA World Cup | fansboard</title>
     <script src="d3.js"></script>
-    <link rel="stylesheet" type="text/css"
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,600">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600"/>
     <link rel="stylesheet" type="text/css" href="sequences.css"/>
-  </head>
-  <body>
-    <div id="main">
-      <div style="padding:0 0 0 0px">
-          <a href="/worldcup/index.html">
-              <img style="" src="logo.png" />
-          </a>
-      </div>
-      <div style="font-size: 30px;padding: 0 0 10px 0">How many players of different clubs have joined 2014 FIFA World Cup?</div>
-      <span style="font-size: 20px">Zone</span>
-      <span style="font-size: 20px;padding:0 0 0 170px">League</span>
-      <span style="font-size: 20px;padding:0 0 0 170px">Club</span>
-      <div id="sequence"></div>
-      <div id="chart" style="float: left">
-        <div id="explanation" style="visibility: hidden;">
-          <span id="percentage2">                      </span> players<br/>
-          joined 2014 FIFA World Cup<br/>
-          (<span id="percentage"></span>)<br/>
+    <style type="text/css">
+        .page 
+        {
+            margin: 0px auto;
+            width: 1200px;             
+        }    
+    </style>
+</head>
+
+<body>
+    <div id="">
+        <div class="page">
+            <a href="/worldcup/index.html"><img style="" src="logo.png" /></a>
         </div>
-      </div>
-      <div style="float: left;padding:0px 0 0 0">
-          <img style="" src="map.png" />
-      </div>
-      <div style="height:0;clear:both"></div>
+
+        <div style="background-color: gold ; height: 100px">                
+            <div style="text-align:center; font-size: 30px;padding: 20px 0 0px 0px; color:#fff ;font-family: 'Open Sans', sans-serif">WORLD CUP</div>
+            <div style="text-align:center; font-size: 20px;padding: 0px 0 10px 0px; color:#fff ;font-family: 'Open Sans', sans-serif">Some Interesting and Visualizing Stat Charts</div>
+        </div>
+
+        <div class="page">
+            <div style="font-size: 30px;padding: 0 0 10px 0">How many players of different clubs have joined 2014 FIFA World Cup?</div>
+            <div>
+                <span style="font-size: 20px">Zone</span>
+                <span style="font-size: 20px;padding:0 0 0 150px">League</span>
+                <span style="font-size: 20px;padding:0 0 0 150px">Club</span>
+            </div>
+
+            <div id="sequence"></div>
+
+            <div id="chart" style="float: left">
+                <div id="explanation" style="visibility: hidden;">
+                    <span id="percentage2">                      </span> players<br/>
+                    joined 2014 FIFA World Cup<br/>
+                    (<span id="percentage"></span>)<br/>
+                </div>
+            </div>
+
+            <div style="float: left;padding:60px 0 0 0">
+                <img style="width: 636px; height: 341px" src="map.png" />
+            </div>
+
+            <div style="height:0;clear:both"></div>
+        </div>            
     </div>
+    
     <div id="sidebar">
       <!--<input type="checkbox" id="togglelegend"> Legend<br/>-->
       <!--<div id="legend" style="visibility: hidden;"></div>-->
     </div>
+    
     <script type="text/javascript" src="sequences.js"></script>
     <script type="text/javascript">
       // Hack to make this example display correctly in an iframe on bl.ocks.org
       d3.select(self.frameElement).style("height", "700px");
     </script>
-  </body>
+    
+</body>
 </html>

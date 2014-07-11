@@ -3,13 +3,13 @@ body {
   font-size: 12px;
   font-weight: 400;
   background-color: #fff;
-  width: 1900px;
-  height: 700px;
+  //width: 1200px;
+  //height: 700px;
 }
 
 #main {
   float: left;
-  width: 1900px;
+  width: 1200px;
 }
 
 #sidebar {
@@ -41,8 +41,8 @@ body {
 
 #explanation {
   position: absolute;
-  top: 260px;
-  left: 305px;
+  top: 200px;
+  left: 205px;
   width: 180px;
   text-align: center;
   color: #666;
