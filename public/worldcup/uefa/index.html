@@ -24,7 +24,7 @@
       viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
     }
     var mapDiv = document.getElementById('googft-mapCanvas');
-    mapDiv.style.width = isMobile ? '100%' : '1200px';
+    mapDiv.style.width = isMobile ? '100%' : '1000px';
     mapDiv.style.height = isMobile ? '100%' : '700px';
     var map = new google.maps.Map(mapDiv, {
       center: new google.maps.LatLng(47.15029676114441, 12.079742648510432),
@@ -85,7 +85,9 @@
         <div style="padding:10px 0 10px 0; float: left; font-family: 'Open Sans', sans-serif; font-size: 24px; color: #003377; font-weight: bold  ">
             Players of the UEFA Football Clubs who participate in 2014 World Cup...FC Bayern, FCB...
         </div>
-        <div id="googft-mapCanvas"><a href="/worldcup/index.html"></a></div>
+        <div id="googft-mapCanvas" style="float:left"></div>
+        <div style="float:left"><img style="width: 200px" src="http://www.fansboard.com/worldcup/uefa/clublogo.png" /></div>
+        <div style="height:0;clear:both"></div>
     </div>
 </body>
 </html>
