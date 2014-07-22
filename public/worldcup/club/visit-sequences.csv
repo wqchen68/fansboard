@@ -3,7 +3,7 @@ Africa-Algeria-CSConstantine,1,1
 Africa-Algeria-USMAlger,1,1
 Africa-Cameroon-CotonSport,2,1
 Africa-Ghana-AduanaStars,1,1
-Africa-IvoryCoast-SeweSport,1,1
+Africa-IvoryCoast-S?w?Sport,1,1
 Africa-Nigeria-EnuguRangers,1,1
 Africa-Nigeria-GombeUnited,1,1
 Africa-Nigeria-SunshineStars,1,1
@@ -11,7 +11,7 @@ Africa-Nigeria-WarriWolves,1,1
 Africa-SouthAfrica-MamelodiSundowns,1,1
 Africa-SouthAfrica-OrlandoPirates,1,1
 Africa-Tunisia-ClubAfricain,1,1
-Africa-Tunisia-Esperance,1,1
+Africa-Tunisia-Esp?rance,1,1
 Asia-Australia-AdelaideUnited,1,2
 Asia-Australia-BrisbaneRoar,2,2
 Asia-Australia-MelbourneVictory,2,2
@@ -54,17 +54,17 @@ Asia-UnitedArabEmirates-AlJazira,1,2
 NorthAmerica-Canada-TorontoFC,2,3
 NorthAmerica-Canada-VancouverWhitecapsFC,1,3
 NorthAmerica-CostaRica-Alajuelense,3,3
-NorthAmerica-CostaRica-Cartagines,1,3
+NorthAmerica-CostaRica-Cartagin?s,1,3
 NorthAmerica-CostaRica-Herediano,4,3
 NorthAmerica-CostaRica-Saprissa,2,3
 NorthAmerica-Honduras-Motagua,2,3
 NorthAmerica-Honduras-Olimpia,4,3
-NorthAmerica-Honduras-RealEspana,4,3
+NorthAmerica-Honduras-RealEspa?a,4,3
 NorthAmerica-Honduras-RealSociedad,1,3
-NorthAmerica-Mexico-America,4,3
+NorthAmerica-Mexico-Am?rica,4,3
 NorthAmerica-Mexico-Atlante,1,3
 NorthAmerica-Mexico-CruzAzul,3,3
-NorthAmerica-Mexico-Leon,3,3
+NorthAmerica-Mexico-Le?n,3,3
 NorthAmerica-Mexico-Monterrey,1,3
 NorthAmerica-Mexico-Morelia,2,3
 NorthAmerica-Mexico-Pachuca,2,3
@@ -77,22 +77,17 @@ NorthAmerica-UnitedStates-ChivasUSA,2,3
 NorthAmerica-UnitedStates-ColumbusCrew,2,3
 NorthAmerica-UnitedStates-HoustonDynamo,2,3
 NorthAmerica-UnitedStates-LosAngelesGalaxy,1,3
-NorthAmerica-UnitedStates-NewPremier League(England)Revolution,1,3
+NorthAmerica-UnitedStates-NewEnglandRevolution,1,3
 NorthAmerica-UnitedStates-NewYorkRedBulls,2,3
 NorthAmerica-UnitedStates-RealSaltLake,2,3
 NorthAmerica-UnitedStates-SanJoseEarthquakes,2,3
 NorthAmerica-UnitedStates-SeattleSoundersFC,2,3
 NorthAmerica-UnitedStates-SportingKansasCity,2,3
-SouthAmerica-Uruguay-Nacional,1,4
-SouthAmerica-Ecuador-Barcelona,3,4
-SouthAmerica-Ecuador-ElNacional,1,4
-SouthAmerica-Ecuador-Emelec,3,4
-SouthAmerica-Ecuador-LDUQuito,1,4
 SouthAmerica-Argentina-BocaJuniors,2,4
 SouthAmerica-Argentina-Newell'sOldBoys,1,4
 SouthAmerica-Argentina-RiverPlate,3,4
 SouthAmerica-Argentina-SanLorenzo,1,4
-SouthAmerica-Brazil-AtleticoMineiro,2,4
+SouthAmerica-Brazil-Atl?ticoMineiro,2,4
 SouthAmerica-Brazil-Botafogo,1,4
 SouthAmerica-Brazil-Corinthians,1,4
 SouthAmerica-Brazil-Flamengo,1,4
@@ -100,22 +95,27 @@ SouthAmerica-Brazil-Fluminense,1,4
 SouthAmerica-Brazil-Internacional,1,4
 SouthAmerica-Brazil-Palmeiras,1,4
 SouthAmerica-Brazil-Santos,1,4
-SouthAmerica-Brazil-SaoPaulo,1,4
+SouthAmerica-Brazil-S?oPaulo,1,4
 SouthAmerica-Brazil-VascodaGama,1,4
 SouthAmerica-Chile-ColoColo,2,4
-SouthAmerica-Chile-UniversidadCatolica,1,4
+SouthAmerica-Chile-UniversidadCat?lica,1,4
 SouthAmerica-Chile-UniversidaddeChile,2,4
-SouthAmerica-Colombia-AtleticoNacional,1,4
+SouthAmerica-Colombia-Atl?ticoNacional,1,4
 SouthAmerica-Colombia-DeportivoCali,1,4
 SouthAmerica-Colombia-SantaFe,2,4
+SouthAmerica-Ecuador-Barcelona,3,4
+SouthAmerica-Ecuador-ElNacional,1,4
+SouthAmerica-Ecuador-Emelec,3,4
+SouthAmerica-Ecuador-LDUQuito,1,4
 SouthAmerica-Paraguay-Libertad,1,4
+SouthAmerica-Uruguay-Nacional,1,4
 Europe-Austria-AustriaWien,1,5
 Europe-Austria-SturmGraz,1,5
 Europe-Belgium-Anderlecht,2,5
 Europe-Belgium-CercleBrugge,1,5
 Europe-Belgium-ClubBrugge,2,5
 Europe-Belgium-Lokeren,1,5
-Europe-Belgium-StandardLiege,3,5
+Europe-Belgium-StandardLi?ge,3,5
 Europe-Belgium-WaaslandBeveren,1,5
 Europe-Belgium-ZulteWaregem,2,5
 Europe-BosniaandHerzegovina-BoracBanjaLuka,1,5
@@ -134,7 +134,7 @@ Europe-Premier League(England)-Everton,6,5
 Europe-Premier League(England)-Fulham,3,5
 Europe-Premier League(England)-HullCity,2,5
 Europe-Premier League(England)-LeicesterCity,1,5
-Europe-Premier League(England)-Liverpool,10,5
+Europe-Premier League(England)-Liverpool,12,5
 Europe-Premier League(England)-ManchesterCity,10,5
 Europe-Premier League(England)-ManchesterUnited,14,5
 Europe-Premier League(England)-Middlesbrough,2,5
@@ -143,7 +143,7 @@ Europe-Premier League(England)-NorwichCity,2,5
 Europe-Premier League(England)-NottinghamForest,1,5
 Europe-Premier League(England)-PrestonNorthEnd,1,5
 Europe-Premier League(England)-QueensParkRangers,2,5
-Europe-Premier League(England)-Southampton,7,5
+Europe-Premier League(England)-Southampton,5,5
 Europe-Premier League(England)-StokeCity,4,5
 Europe-Premier League(England)-Sunderland,2,5
 Europe-Premier League(England)-SwindonTown,1,5
@@ -156,7 +156,7 @@ Europe-Ligue 1(France)-Ajaccio,2,5
 Europe-Ligue 1(France)-ASMonaco,4,5
 Europe-Ligue 1(France)-Bastia,1,5
 Europe-Ligue 1(France)-Bordeaux,1,5
-Europe-Ligue 1(France)-Evian,1,5
+Europe-Ligue 1(France)-?vian,1,5
 Europe-Ligue 1(France)-Lens,1,5
 Europe-Ligue 1(France)-Lille,4,5
 Europe-Ligue 1(France)-Lorient,1,5
@@ -169,27 +169,25 @@ Europe-Ligue 1(France)-Nice,1,5
 Europe-Ligue 1(France)-ParisSaintGermain,10,5
 Europe-Ligue 1(France)-Reims,1,5
 Europe-Ligue 1(France)-Rennes,2,5
-Europe-Ligue 1(France)-SaintEtienne,3,5
+Europe-Ligue 1(France)-Saint?tienne,3,5
 Europe-Ligue 1(France)-Sochaux,1,5
 Europe-Ligue 1(France)-Toulouse,3,5
 Europe-Ligue 1(France)-Valenciennes,2,5
-Europe-Bundesliga(Germany)-1.FCNurnberg,4,5
-Europe-Bundesliga(Germany)-1860Munchen,1,5
+Europe-Bundesliga(Germany)-1.FCN?rnberg,4,5
+Europe-Bundesliga(Germany)-1860M?nchen,1,5
 Europe-Bundesliga(Germany)-1899Hoffenheim,2,5
-Europe-Bundesliga(Germany)-Augsburg,1,5
 Europe-Bundesliga(Germany)-BayerLeverkusen,3,5
 Europe-Bundesliga(Germany)-BayernMunich,14,5
 Europe-Bundesliga(Germany)-BorussiaDortmund,6,5
-Europe-Bundesliga(Germany)-BorussiaMonchengladbac,2,5
+Europe-Bundesliga(Germany)-BorussiaM?nchengladbach,2,5
 Europe-Bundesliga(Germany)-EintrachtBraunschweig,2,5
 Europe-Bundesliga(Germany)-EintrachtFrankfurt,2,5
-Europe-Bundesliga(Germany)-FCAugsburg,2,5
-Europe-Bundesliga(Germany)-FortunaDusseldorf,2,5
+Europe-Bundesliga(Germany)-FCAugsburg,3,5
+Europe-Bundesliga(Germany)-FortunaD?sseldorf,2,5
 Europe-Bundesliga(Germany)-FSVFrankfurt,1,5
 Europe-Bundesliga(Germany)-HamburgerSV,2,5
 Europe-Bundesliga(Germany)-Hannover96,3,5
-Europe-Bundesliga(Germany)-HerthaBerlin,1,5
-Europe-Bundesliga(Germany)-HerthaBSC,1,5
+Europe-Bundesliga(Germany)-HerthaBSC,2,5
 Europe-Bundesliga(Germany)-Mainz05,5,5
 Europe-Bundesliga(Germany)-SCFreiburg,4,5
 Europe-Bundesliga(Germany)-Schalke04,7,5
@@ -200,7 +198,7 @@ Europe-Greece-Olympiacos,5,5
 Europe-Greece-Panathinaikos,3,5
 Europe-Greece-PAOK,4,5
 Europe-Greece-Platanias,1,5
-Europe-Hungary-Ferencvaros,1,5
+Europe-Hungary-Ferencv?ros,1,5
 Europe-Israel-Ashdod,1,5
 Europe-Israel-HapoelBe'erSheva,1,5
 Europe-Serie A(Italy)-Atalanta,2,5
@@ -235,56 +233,57 @@ Europe-Netherlands-Utrecht,1,5
 Europe-Netherlands-Vitesse,2,5
 Europe-Norway-Aalesund,1,5
 Europe-Norway-Rosenborg,2,5
-Europe-Norway-Stabak,1,5
-Europe-Norway-Stromsgodset,1,5
-Europe-Norway-Valerenga,1,5
-Europe-Portugal-Academica,1,5
+Europe-Norway-Stab?k,1,5
+Europe-Norway-Str?msgodset,1,5
+Europe-Norway-V?lerenga,1,5
+Europe-Portugal-Acad?mica,1,5
 Europe-Portugal-Benfica,5,5
 Europe-Portugal-Braga,3,5
 Europe-Portugal-Porto,9,5
-Europe-Portugal-SportingCovilha,1,5
+Europe-Portugal-SportingCovilh?,1,5
 Europe-Portugal-SportingCP,4,5
+Europe-Russia-AmkarPerm,1,5
 Europe-Russia-AnzhiMakhachkala,1,5
 Europe-Russia-CSKAMoscow,6,5
 Europe-Russia-DynamoMoscow,7,5
 Europe-Russia-KubanKrasnodar,2,5
 Europe-Russia-LokomotivMoscow,2,5
 Europe-Russia-Rostov,1,5
-Europe-Russia-RubinKazan,4,5
+Europe-Russia-RubinKazan,3,5
 Europe-Russia-SpartakMoscow,2,5
 Europe-Russia-TerekGrozny,1,5
 Europe-Russia-ZenitSaintPetersburg,8,5
 Europe-Scotland-Celtic,4,5
-Europe-Liga BBVA(Spain)-Almeria,1,5
-Europe-Liga BBVA(Spain)-AtleticoMadrid,9,5
-Europe-Liga BBVA(Spain)-Barcelona,13,5
-Europe-Liga BBVA(Spain)-CeltaVigo,2,5
-Europe-Liga BBVA(Spain)-Elche,1,5
-Europe-Liga BBVA(Spain)-Espanyol,2,5
-Europe-Liga BBVA(Spain)-Getafe,2,5
-Europe-Liga BBVA(Spain)-Granada,3,5
-Europe-Liga BBVA(Spain)-LasPalmas,1,5
-Europe-Liga BBVA(Spain)-Levante,2,5
-Europe-Liga BBVA(Spain)-Mallorca,1,5
-Europe-Liga BBVA(Spain)-Osasuna,1,5
-Europe-Liga BBVA(Spain)-RealMadrid,12,5
-Europe-Liga BBVA(Spain)-RealSociedad,3,5
-Europe-Liga BBVA(Spain)-Sevilla,4,5
-Europe-Liga BBVA(Spain)-Valencia,5,5
-Europe-Liga BBVA(Spain)-Villarreal,2,5
+Europe-La Liga(Spain)-Almer?a,1,5
+Europe-La Liga(Spain)-Atl?ticoMadrid,9,5
+Europe-La Liga(Spain)-Barcelona,13,5
+Europe-La Liga(Spain)-CeltaVigo,2,5
+Europe-La Liga(Spain)-Elche,1,5
+Europe-La Liga(Spain)-Espanyol,2,5
+Europe-La Liga(Spain)-Getafe,2,5
+Europe-La Liga(Spain)-Granada,3,5
+Europe-La Liga(Spain)-LasPalmas,1,5
+Europe-La Liga(Spain)-Levante,2,5
+Europe-La Liga(Spain)-Mallorca,1,5
+Europe-La Liga(Spain)-Osasuna,1,5
+Europe-La Liga(Spain)-RealMadrid,12,5
+Europe-La Liga(Spain)-RealSociedad,3,5
+Europe-La Liga(Spain)-Sevilla,4,5
+Europe-La Liga(Spain)-Valencia,5,5
+Europe-La Liga(Spain)-Villarreal,2,5
 Europe-Sweden-AIK,1,5
-Europe-Sweden-MalmoFF,1,5
+Europe-Sweden-Malm?FF,1,5
 Europe-Switzerland-Basel,6,5
 Europe-Switzerland-Grasshopper,2,5
 Europe-Switzerland-Luzern,1,5
 Europe-Switzerland-Sion,1,5
 Europe-Switzerland-YoungBoys,1,5
-Europe-Switzerland-Zurich,1,5
+Europe-Switzerland-Z?rich,1,5
 Europe-Turkey-Antalyaspor,1,5
 Europe-Turkey-Be?ikta?,3,5
-Europe-Turkey-CaykurRizespor,2,5
+Europe-Turkey-?aykurRizespor,2,5
 Europe-Turkey-Elaz??spor,1,5
-Europe-Turkey-Fenerbahce,5,5
+Europe-Turkey-Fenerbah?e,5,5
 Europe-Turkey-Fethiyespor,1,5
 Europe-Turkey-Galatasaray,5,5
 Europe-Turkey-Gaziantepspor,1,5

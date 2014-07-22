@@ -18,7 +18,7 @@ var colors = {
 "Premier League(England)":"red",
 "Serie A(Italy)":"green",
 "Bundesliga(Germany)":"gold",
-"Liga BBVA(Spain)":"orange",
+"La Liga(Spain)":"orange",
 "Ligue 1(France)":"blue",
 "Russia":"#A20055",
 "Turkey":"#AA0000",
