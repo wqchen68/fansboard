@@ -12,23 +12,18 @@ and open the template in the editor.
         <link href="../statpage.css" rel="stylesheet"/>
     </head>
     <body>
-        <? include("../headblock.html"); ?>
+        <? include("../include_head.html"); ?>
         
         <div class="pagewidth">
-            <div style="font-size: 30px;padding: 10px 0 10px 0px; color:#003377 ;font-family: 'Open Sans', sans-serif">Football Team Network</div>
-            <div style="font-size: 20px;padding: 0 0 10px 0; color:#888888 ;font-family: 'Open Sans', sans-serif; font-style: italic">Which countries have more players from Premier League, Liga BBVA, Serie A, Ligue 1 or Bundesliga?</div>
             
-            <div id="fb-root"></div>
-            <script>
-                (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
-                fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
-            </script>
-            <div class="fb-like" data-href="http://www.fansboard.com/worldcup/network/index.html" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" style=""></div>
+            <div class="font1">
+                Football Team Network
+            </div>
+            <div class="font2">
+                Which countries have more players from Premier League, Liga BBVA, Serie A, Ligue 1 or Bundesliga?
+            </div>
+            
+            <? include("../include_fb.php"); ?>
             
             <div style="padding:0 0 0 200px"><img style="width: 890px; height: 627px" src="final.png" /></div>
         </div>

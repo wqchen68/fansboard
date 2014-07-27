@@ -8,4 +8,7 @@
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-<div class="fb-like" data-href= "<?=Request::url()?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" style="float:left"></div>
+<div class="fb-like" data-href= "<?='http://www.fansboard.com'.$_SERVER['REQUEST_URI']?>" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" style=""></div>
+
+
+

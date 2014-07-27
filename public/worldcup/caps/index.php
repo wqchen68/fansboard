@@ -11,22 +11,15 @@
 <script src="d3.v3.min.js"></script>
 
 <body>
-    <? include("../headblock.html"); ?>
+    <? include("../include_head.html"); ?>
 
     <div class="pagewidth">
-        <div style="font-size: 30px;padding: 10px 0 10px 0; color:#003377 ;font-family: 'Open Sans', sans-serif">Which football player joined 2014 FIFA world cup has more caps?</div>
+        
+        <div class="font1">
+            Which football player joined 2014 FIFA world cup has more caps?
+        </div>
 
-        <div id="fb-root"></div>
-         <script>
-             (function(d, s, id) {
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) return;
-             js = d.createElement(s); js.id = id;
-             js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
-             fjs.parentNode.insertBefore(js, fjs);
-             }(document, 'script', 'facebook-jssdk'));
-         </script>
-         <div class="fb-like" data-href="http://www.fansboard.com/worldcup/caps/index.html" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" style=""></div>
+        <? include("../include_fb.php"); ?>
         
         <div id="chart" style="float:left"></div>
 
