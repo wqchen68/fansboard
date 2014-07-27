@@ -10,13 +10,7 @@ and open the template in the editor.
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     
-    <style type="text/css">
-        .page 
-        {
-            margin: 0px auto;
-            width: 1200px;             
-        }    
-    </style>
+    <link href="../statpage.css" rel="stylesheet"/>
 
     <script type="text/javascript" src="jquery-1.9.1.js"></script>
     <script src="highcharts.js"></script>
@@ -139,19 +133,16 @@ and open the template in the editor.
 
 
 <body>
-    <div class="page">
-        <a href="/worldcup/index.html"><img style="" src="logo.png" /></a>
-    </div>
+    <? include("../headblock.html"); ?>
 
-    <div style="background-color: gold ; height: 100px">                
-        <div style="text-align:center; font-size: 30px;padding: 20px 0 0px 0px; color:#fff ;font-family: 'Open Sans', sans-serif">WORLD CUP</div>
-        <div style="text-align:center; font-size: 20px;padding: 0px 0 10px 0px; color:#fff ;font-family: 'Open Sans', sans-serif">Some Interesting and Visualizing Stat Charts</div>
-    </div>
+    <div class="pagewidth">
 
-    <div class="page">
-
-        <div style="font-size: 30px;padding: 10px 0 10px 0px; color:#003377 ;font-family: 'Open Sans', sans-serif">Numbers and Positions of the Football Players</div>
-        <div style="font-size: 20px;padding: 0 0 0 0px; color:#888888 ;font-family: 'Open Sans', sans-serif; font-style: italic">Messi, Neymar, Rooney and Benzema are number 10 in the National Team...and Who Else?...</div>
+        <div class="font1">
+            Numbers and Positions of the Football Players
+        </div>
+        <div class="font2">
+            Messi, Neymar, Rooney and Benzema are number 10 in the National Team...and Who Else?...
+        </div>
                 
         <div id="fb-root"></div>
         <script>

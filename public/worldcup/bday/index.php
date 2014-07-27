@@ -21,31 +21,34 @@
         text.axis-worktime {
           fill: #000;
         }
-        .page 
-        {
-            margin: 0px auto;
-            width: 1200px;             
-        }
     </style>
+    <link href="../statpage.css" rel="stylesheet"/>
     <script src="d3.v3.js"></script>
 </head>
 
 <title>Bday | 2014 FIFA World Cup | fansboard</title>
 
 <body>
-    <div class="page">
-        <a href="/worldcup/index.html"><img style="" src="logo.png" /></a>
-    </div>
+    <? include("../headblock.html"); ?>
     
-    <div style="background-color: gold ; height: 100px">                
-        <div style="text-align:center; font-size: 30px;padding: 20px 0 0px 0px; color:#fff ;font-family: 'Open Sans', sans-serif">WORLD CUP</div>
-        <div style="text-align:center; font-size: 20px;padding: 0px 0 10px 0px; color:#fff ;font-family: 'Open Sans', sans-serif">Some Interesting and Visualizing Stat Charts</div>
-    </div>
-    
-    <div class="page">
+    <div class="pagewidth">
         <div style="float: left;padding:0px 0 0 0">
             <div style="font-size: 30px;padding: 10px 0 10px 0px; color:#003377 ;font-family: 'Open Sans', sans-serif">Which player has the same birthday as you...?</div>
-            <div style="font-size: 20px;padding: 0 0 0 0px; color:#888888 ;font-family: 'Open Sans', sans-serif; font-style: italic">Do you know Neymar Jr. and Cristiano Ronaldo share the same birthday? (Feb 5th)</div>
+            <div style="font-size: 20px;padding: 0 0 10px 0; color:#888888 ;font-family: 'Open Sans', sans-serif; font-style: italic">Do you know Neymar Jr. and Cristiano Ronaldo share the same birthday? (Feb 5th)</div>
+            
+            <div id="fb-root"></div>
+            <script>
+                (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div class="fb-like" data-href="http://www.fansboard.com/worldcup/bday/index.html" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" style="float:left"></div>
+
+            
             <div id="chart"></div>
             <div style="font-size: 14px;padding: 0 0 0 50px; color:#003377 ;font-family: 'Open Sans', sans-serif">
                 <span style="padding: 0 40px 0 0">0</span>
@@ -59,7 +62,7 @@
             </div>
         </div>
     
-        <div style="float: left;padding:15px 0 0 0">
+        <div style="float: left;padding:50px 0 0 0">
             <img style="width: 359px; height: 427px;" src="figure.png" />
         </div>
         <div style="height:0;clear:both"></div>

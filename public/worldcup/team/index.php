@@ -2,15 +2,8 @@
 <html>
 <head>
 <meta name="viewport"></meta>
-<title>UEFA | 2014 FIFA World Cup | fansboard</title>
-<style type="text/css">
-
-.page 
-{
-    margin: 0px auto;
-    width: 1200px;             
-} 
-</style>
+<title>32 Teams | 2014 FIFA World Cup | fansboard</title>
+<link href="../statpage.css" rel="stylesheet"/>
 
 <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&amp;v=3"></script>
 
@@ -24,11 +17,11 @@
       viewport.setAttribute('content', 'initial-scale=1.0, user-scalable=no');
     }
     var mapDiv = document.getElementById('googft-mapCanvas');
-    mapDiv.style.width = isMobile ? '100%' : '1000px';
+    mapDiv.style.width = isMobile ? '100%' : '1200px';
     mapDiv.style.height = isMobile ? '100%' : '700px';
     var map = new google.maps.Map(mapDiv, {
-      center: new google.maps.LatLng(47.15029676114441, 12.079742648510432),
-      zoom: 5,
+      center: new google.maps.LatLng(20.292382596493237, 13.141824062500064),
+      zoom: 3,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(document.getElementById('googft-legend-open'));
@@ -38,13 +31,13 @@
       map: map,
       heatmap: { enabled: false },
       query: {
-        select: "col2",
-        from: "1aZ-CavdfACBaHJQoar4pCtm1OEunHL13a7kK4Zbi",
+        select: "col0",
+        from: "1mb0BrzUsVc-qz2reMwwpncT3cvMeFSOqVsqgQBh4",
         where: ""
       },
       options: {
         styleId: 2,
-        templateId: 3
+        templateId: 2
       }
     });
 
@@ -71,23 +64,28 @@
 </head>
 
 <body>
-    <div class="page">
-        <a href="/worldcup/index.html"><img style="" src="logo.png" /></a>
-    </div>
-
-    <div style="background-color: gold ; height: 100px">
-
-        <div style="text-align:center; font-size: 30px;padding: 20px 0 0px 0px; color:#fff ;font-family: 'Open Sans', sans-serif">WORLD CUP</div>
-        <div style="text-align:center; font-size: 20px;padding: 0px 0 10px 0px; color:#fff ;font-family: 'Open Sans', sans-serif">Some Interesting and Visualizing Stat Charts</div>
-
-    </div>
-    <div class="page">
+    <? include("../headblock.html"); ?>
+    
+    <div class="pagewidth">
         <div style="padding:10px 0 10px 0; float: left; font-family: 'Open Sans', sans-serif; font-size: 24px; color: #003377; font-weight: bold  ">
-            Players of the UEFA Football Clubs who participate in 2014 World Cup...FC Bayern, FCB...
+            In Each National Team, Where are the 23 Players From? (Football League)
         </div>
-        <div id="googft-mapCanvas" style="float:left"></div>
-        <div style="float:left"><img style="width: 200px" src="http://www.fansboard.com/worldcup/uefa/clublogo.png" /></div>
-        <div style="height:0;clear:both"></div>
+        
+        <div id="fb-root"></div>
+         <script>
+             (function(d, s, id) {
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) return;
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
+             fjs.parentNode.insertBefore(js, fjs);
+             }(document, 'script', 'facebook-jssdk'));
+         </script>
+         <div class="fb-like" data-href="http://www.fansboard.com/worldcup/team/index.html" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" style=""></div>
+        
+        <div id="googft-mapCanvas"></div>
     </div>
 </body>
 </html>
+
+

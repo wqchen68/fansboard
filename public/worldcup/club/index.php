@@ -6,34 +6,33 @@
     <script src="d3.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600"/>
     <link rel="stylesheet" type="text/css" href="sequences.css"/>
-    <style type="text/css">
-        .page 
-        {
-            margin: 0px auto;
-            width: 1200px;             
-        }    
-    </style>
+    <link href="../statpage.css" rel="stylesheet"/>
 </head>
 
 <body>
     <div id="">
-        <div class="page">
-            <a href="/worldcup/index.html"><img style="" src="logo.png" /></a>
-        </div>
+        <? include("../headblock.html"); ?>
 
-        <div style="background-color: gold ; height: 100px">                
-            <div style="text-align:center; font-size: 30px;padding: 20px 0 0px 0px; color:#fff ;font-family: 'Open Sans', sans-serif">WORLD CUP</div>
-            <div style="text-align:center; font-size: 20px;padding: 0px 0 10px 0px; color:#fff ;font-family: 'Open Sans', sans-serif">Some Interesting and Visualizing Stat Charts</div>
-        </div>
-
-        <div class="page">
+        <div class="pagewidth">
             <div style="font-size: 30px;padding: 0 0 10px 0">How many players of different clubs have joined 2014 FIFA World Cup?</div>
+            
+            <div id="fb-root"></div>
+            <script>
+                (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div class="fb-like" data-href="http://www.fansboard.com/worldcup/club/index.html" data-layout="standard" data-action="like" data-show-faces="true" data-share="true" style=""></div>
+            
             <div>
                 <span style="font-size: 20px">Zone</span>
                 <span style="font-size: 20px;padding:0 0 0 150px">League</span>
                 <span style="font-size: 20px;padding:0 0 0 150px">Club</span>
             </div>
-
             <div id="sequence"></div>
 
             <div id="chart" style="float: left">

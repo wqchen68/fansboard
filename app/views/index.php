@@ -362,7 +362,6 @@ $(document).ready(function(){
             <div style="position: absolute ; top:0; left:1600px">
                 <?
                     $url = Request::url().'?'.Input::get('player');
-                    echo $url;
                 ?>
                 <div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                 <div id="fb-root"></div>
