@@ -159,16 +159,21 @@ function creatRadarChart(){
 	});	
 }
 
+(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=251984733230&version=v2.0";
+fjs.parentNode.insertBefore(js, fjs);    
+}(document, 'script', 'facebook-jssdk'));
+
 function changeFb(){
+    $('.fb-like').empty();
     $('.fb-like').attr('data-href', window.location.toString());
     console.log($('.fb-like').attr('data-href'));
-    (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+    
+
+    FB.XFBML.parse();
 }
 
 $(document).ready(function(){
