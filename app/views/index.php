@@ -359,10 +359,12 @@ $(document).ready(function(){
 	
 	<div id="testi">
         <div class="move active" index="0"><?=$testi?>
-            <div style="position: absolute ; top:0; left:1600px">
+            <div style="position: absolute ; top:10px; left:1550px">
+                
                 <?
-                    $url = Request::url().'?'.Input::get('player');
+                    $url2 = Request::url().'?'.Input::get('player');
                 ?>
+                
                 <div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                 <div id="fb-root"></div>
                     <script>(function(d, s, id) {

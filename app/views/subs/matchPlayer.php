@@ -81,7 +81,7 @@
 					
 					<div  style="padding:10px">
 						
-						<div style="color:red;font-weight:bold;padding:0px 5px 5px 5px">Best Similar Player</div>
+						<div style="color:red;font-weight:bold;padding:0px 5px 5px 5px">Most Similar Player</div>
 
 						<div class="majorboxN">
 							<div class="majorbox playercardsmall highlight" style="box-shadow:0 0 20px rgba(255,255,255,0.9)">
