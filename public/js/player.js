@@ -60,6 +60,8 @@ $(function () {
 			$(e.delegateTarget).removeClass('active');
 		if( funcArray[pageIndex].hasOwnProperty('reflash') )
 			funcArray[pageIndex].reflash();
+        
+        changeFb();
 	});
 
 	
