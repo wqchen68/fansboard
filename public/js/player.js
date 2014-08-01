@@ -47,7 +47,9 @@ $(function () {
 		$(this).children('.muti-btn').addClass('active');
 		if( funcArray[pageIndex].hasOwnProperty('reflash') )
 			funcArray[pageIndex].reflash();
-	});
+	
+		changeFb();
+        });
 	$('.modelBox .playerList-combo').on('click','.muti-btn',function(e){
 		e.stopPropagation();
 		$(this).toggleClass('active');
@@ -61,7 +63,7 @@ $(function () {
 		if( funcArray[pageIndex].hasOwnProperty('reflash') )
 			funcArray[pageIndex].reflash();
         
-        changeFb();
+        	changeFb();
 	});
 
 	
