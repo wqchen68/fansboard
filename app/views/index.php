@@ -160,34 +160,20 @@ function creatRadarChart(){
 }
 
 (function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=251984733230&version=v2.0";
-fjs.parentNode.insertBefore(js, fjs);    
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=251984733230&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);    
 }(document, 'script', 'facebook-jssdk'));
 
-window.fbAsyncInit = function() {
-console.log(FB);
-FB.XFBML.parse(); 
-};
 function changeFb(){
     $('.fb-like').empty();
     $('.fb-like').attr('data-href', window.location.toString());
-    console.log($('.fb-like').attr('data-href'));
     
-    if( typeof(FB)=='object' ){
+    if( typeof(FB)==='object' ){
         FB.XFBML.parse();
     }
-   
-//(function(d, s, id) {
-//var js, fjs = d.getElementsByTagName(s)[0];
-//if (d.getElementById(id)) return;
-//js = d.createElement(s); js.id = id;
-//js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=251984733230&version=v2.0";
-//fjs.parentNode.insertBefore(js, fjs);
-//}(document, 'script', 'facebook-jssdk'));
-
 }
 
 $(document).ready(function(){
@@ -401,6 +387,7 @@ $(document).ready(function(){
                 ?>
                 
                 <div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                <div class="fb-comments" data-href="" data-width="300" data-numposts="5" data-colorscheme="light"></div>
                 <div id="fb-root"></div>
                     <script>
                     </script>
