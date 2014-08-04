@@ -170,6 +170,9 @@ function creatRadarChart(){
 function changeFb(){
     $('.fb-like').empty();
     $('.fb-like').attr('data-href', window.location.toString());
+    $('.fb-comments').empty();
+    $('.fb-comments').attr('data-href', window.location.toString());
+    
     
     if( typeof(FB)==='object' ){
         FB.XFBML.parse();
@@ -386,11 +389,10 @@ $(document).ready(function(){
                     $url2 = Request::url().'?'.Input::get('player');
                 ?>
                 
-                <div class="fb-like" data-href="" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                <div class="fb-like" data-href="" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                 <div class="fb-comments" data-href="" data-width="300" data-numposts="5" data-colorscheme="light"></div>
                 <div id="fb-root"></div>
-                    <script>
-                    </script>
+
             </div>            
         </div>
     </div>
