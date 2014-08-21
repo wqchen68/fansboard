@@ -68,7 +68,7 @@ $(function(){
 	var color36 = ['rgba(0,187,255,0.4)','rgba(255,0,136,0.4)','rgba(0,255,0,0.4)','rgba(255,255,255,0.4)'];
 
 	var chart_box = pageobj.find('.chart_box');
-	var show36 = $('<div style="position:absolute;top:0;right:0"><input class="show36" id="show36" type="checkbox" checked="checked" /><label for="show36"> Show 36 mins  </label></div>');
+	var show36 = $('<div style="position:absolute;top:25px;right:240px"><input class="show36" id="show36" type="checkbox" checked="checked" /><label for="show36"> Show 36 mins  </label></div>');
 	var isShow36 = show36.children('input').is(':checked');
 	
 	show36.on('click','input',function(e){
@@ -98,7 +98,7 @@ $(function(){
 
         $.getJSON('data/getCareerStats',{player: player,items: pageobj.find('.items').val()},function(data){
 
-			pageobj.find('.link-playerAbility').changePlayerImg(data['card'][0]);
+            pageobj.find('.link-playerAbility').changePlayerImg(data['card'][0]);
 
 			/*pageobj.find('.basic1').html(data.basic[0]);
 			pageobj.find('.basic2').html(data.basic[1]+'&nbsp-&nbsp'+data.basic[2]);
@@ -182,16 +182,39 @@ $(function(){
 			
 			if( pageobj.find('.items').val()==='ceff' ){
 				chartCareerStats.yAxis[0].update({
-					tickPositions: [0,5,10,15,20,25,30,35]
-				});		
+					tickPositions: [0,5,10,15,20,25,30,35],
+                    min: -13.3                    
+				});
+            }else if( pageobj.find('.items').val()==='cfgp' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0.3,0.4,0.5,0.6],
+                    min: 0.185
+				});
+            }else if( pageobj.find('.items').val()==='cftp' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0.5,0.6,0.7,0.8,0.9,1],
+                    min: 0.315
+				});
+            }else if( pageobj.find('.items').val()==='c3ptp' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5],
+                    min: -0.185
+				});
+            }else if( pageobj.find('.items').val()==='catr' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,1,2,3,4,5],
+                    min: -1.85
+				});                
 			}else{
 				chartCareerStats.yAxis[0].update({
-					tickPositions: [0,5,10,15,20,25,data['valueMax']]
-				});	
+					tickPositions: [0,data['valueMax']/4,data['valueMax']/2,3*data['valueMax']/4,data['valueMax']],
+                    min: -0.38*data['valueMax'] //0.38是比例                    
+				});            
 			}
 			
 			chartCareerStats.redraw();
-			
+            
+			chartCareerStats.options.exporting.filename='CareerStats#'+player[0].fbid;
 			
 		}).error(function(e){
 		});
@@ -203,8 +226,8 @@ $(function(){
            chart: {
 			   renderTo: chart_box.get(0),
 				alignTicks: false,				
-	            //width: 1100,
-	            height: 600,
+                width: 895,        
+                height: 600,                
                 zoomType: 'xy',
                 borderColor: 'rgba(0,0,0,0.0)',
     	        borderRadius: 0,
@@ -212,7 +235,7 @@ $(function(){
                 type: 'column',
                 plotBorderColor: '#888',
                 plotBorderWidth: 1,
-				backgroundColor: 'rgba(0,0,0,0.0)'
+				backgroundColor: 'rgba(0,0,0,0.6)'
             },
 			credits: {
                 enabled: false
@@ -340,16 +363,43 @@ $(function(){
                 }],
 				opposite: true
 			}],
-			exporting: {
-				enabled: true,
-				buttons: {
-					contextButton: {
-						menuItems: [{
-							text: 'Export to PNG (small)'
-						}]
-					}
-				}
-			}
+            exporting: {
+                buttons: {
+                    contextButton: {
+                        menuItems: [{
+                            text: 'Download the Graph (PNG)',
+                            onclick: function () {
+                                this.exportChart({
+                                    width: 896,
+                                    type: 'image/png'
+                                });
+                            }
+                        },{
+                            text: 'Download the Graph (JPG)',
+                            onclick: function () {
+                                this.exportChart({
+                                    width: 896,
+                                    type: 'image/jpeg'
+                                });
+                            }
+                        }]
+                    }
+                },
+            },
+            navigation: {
+                buttonOptions: {
+                    enabled: true,
+//                    align: 'center',
+//                    x:100,
+    //                height: 20,
+    //                width: 24,
+    //                symbolSize: 14,
+    //                symbolX: 12.5,
+    //                symbolY: 10.5,
+    //                symbolStroke: '#666',
+    //                symbolStrokeWidth: 1,
+                }
+            },
 		});
 		
 		show36.appendTo(chartCareerStats.container);

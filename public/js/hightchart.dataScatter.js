@@ -85,7 +85,7 @@ $(function () {
 				dashStyle: 'ShortDash'
             }],
 			title: {
-				text: 'Summation of UP items'
+				text: 'Summation of Above items'
 			}
 		},
 		yAxis: {
@@ -109,7 +109,7 @@ $(function () {
 				dashStyle: 'ShortDash'
             }],
 			title: {
-				text: 'Summation of LEFT items'
+				text: 'Summation of Left items'
 			}
 		},
 	    plotOptions: {

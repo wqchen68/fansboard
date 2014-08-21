@@ -6,7 +6,7 @@ div.playerlistblock{
 	text-align:left;
 }
 div.chartblock{
-	background-color:rgba(0,0,0,0.6);
+	background-color:rgba(0,0,0,0.0);
 	min-height:600px; 
 }
 /*下拉式選單*/
@@ -22,10 +22,10 @@ div.chartblock{
 /*表格*/
 div.tablebackground{
 	background-color:rgba(0,0,0,0.2);
-        padding: 10px;
+        padding: 0px;
 }
 div.tableupdate{
-	margin:5px 0 0 0;
+	padding:5px;
         font-size: 12px;
 }
 tr.report-detail {

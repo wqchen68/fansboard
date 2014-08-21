@@ -44,7 +44,7 @@
 										<?=Form::tabi('realtimeBox','Real-Time Box')?>
 										<?=Form::tabi('hotcoldplayer','Hot & Cold Player')?>	
 										<?=Form::tabi('matchPlayer','Similar Player')?>
-                                                                                <?=Form::tabi('playerSalary','Player Salary','lock')?>
+                                        <?=Form::tabi('playerSalary','Player Salary')?>
 										<?=Form::tabi('tradeCompare','Trade Compare','lock')?>
 										<?=Form::tabi('','Player Status','lock')?>
 									</ul>	

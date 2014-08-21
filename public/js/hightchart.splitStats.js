@@ -147,7 +147,7 @@ $(function(){
 			borderWidth: 0,
 			plotBorderColor: '#888',
 			plotBorderWidth: 1,
-			backgroundColor: 'rgba(0,0,0,0.0)'
+			backgroundColor: 'rgba(0,0,0,0.6)'
 		},
 		title: {
 			align: 'center'
@@ -159,6 +159,43 @@ $(function(){
 				allowPointSelect: false
 			}
     	},
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [{
+                        text: 'Download the Graph (PNG)',
+                        onclick: function () {
+                            this.exportChart({
+                                width: 896,
+                                type: 'image/png'
+                            });
+                        }
+                    },{
+                        text: 'Download the Graph (JPG)',
+                        onclick: function () {
+                            this.exportChart({
+                                width: 896,
+                                type: 'image/jpeg'
+                            });
+                        }
+                    }]
+                }
+            },
+        },
+        navigation: {
+            buttonOptions: {
+                enabled: true,
+//                align: 'center',
+//                x:100,
+//                height: 20,
+//                width: 24,
+//                symbolSize: 14,
+//                symbolX: 12.5,
+//                symbolY: 10.5,
+//                symbolStroke: '#666',
+//                symbolStrokeWidth: 1,
+            }
+        },        
 		xAxis: {
 			tickWidth: 0,
 			tickmarkPlacement: 'on',

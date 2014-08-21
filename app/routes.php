@@ -174,3 +174,6 @@ Route::any('future_get_stocks', function(){
 Route::any('future_get_price', function(){	
 	return View::make('future.getPrice');
 });
+Route::post('exporting/get', function(){
+	return View::make('exporting.index');
+});

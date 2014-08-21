@@ -127,61 +127,63 @@
 
 
 		<div class="onerow" style="padding:10px 0 10px 0">
-			<div class="col-1p3 note" style="float:left;padding:0 0 20px 0">
-			
-				<div>Legend</div>
+            <div style="background-color:rgba(0,0,0,0.2);padding:10px 0 10px 0">
+                <div class="col-1p3 note" style="float:left;padding:0 0 20px 0">
 
-				<div style="text-align:left;margin:10px 0 0 0">
-					<table cellpadding="6" cellspacing="0" style="font-size:12px;clear: both;color:#fff">
-					<thead>
-						<tr>
-						<td width="5%">Game EFF</td>
-						<td width="20%">: Efficency per game</td>
-						</tr>
-						
-						<tr>
-						<td width="5%">Short-Term</td>
-						<td width="20%">: Last 3 Games EFF Average</td>
-						</tr>
-						
-						<tr>
-						<td width="5%">Mid-Term</td>
-						<td width="20%">: Last 6 Games EFF Average</td>
-						</tr>
-						
-						<tr>
-						<td width="5%">Long-Term</td>
-						<td width="20%">: Last 9 Games EFF Average</td>
-						</tr>
-					</thead>
-					</table>
-				</div>
-			</div>
-			
-			<div class="col-1p9 note last" style="float:left">
-				<div >Example</div>
-				<div class="exfig" style="background-image:url(images/gamelogex1.png)">
-					<div style="padding: 210px 0 0 65px;color:#000;font-size:14px">
-					<p style="line-height: 25px">Kevin Durant (OKC - SF,PF)</br>
-					High and Stable Efficiency</p>
-					</div>
-				</div>
-				<div class="exfig" style="background-image:url(images/gamelogex2.png)">
-					<div style="padding: 210px 0 0 65px;color:#000;font-size:14px">
-					<p style="line-height: 25px">Kyrie Irving (Cle – PG,SG)</br>
-					Buy Low Sell High Trade</p>
-					</div>
-				</div>
-				<div class="exfig" style="background-image:url(images/gamelogex3.png)">
-					<div style="padding: 210px 0 0 65px;color:#000;font-size:14px">
-					<p style="line-height: 25px">Dwyane Wade (Mia – PG,SG)</br>
-					Low Frequency of Games</p>
-					</div>
-				</div>
-				<div style="height:0;clear:both"></div>
-			</div>
-			
-			<div style="height:0;clear:both"></div>
+                    <div style="padding:0px 0 0px 10px">Legend</div>
+
+                    <div style="text-align:left;margin:10px 0 0 0">
+                        <table cellpadding="6" cellspacing="0" style="font-size:12px;clear: both;color:#fff">
+                        <thead>
+                            <tr>
+                            <td width="5%">Game EFF</td>
+                            <td width="20%">: Efficency per game</td>
+                            </tr>
+
+                            <tr>
+                            <td width="5%">Short-Term</td>
+                            <td width="20%">: Last 3 Games EFF Average</td>
+                            </tr>
+
+                            <tr>
+                            <td width="5%">Mid-Term</td>
+                            <td width="20%">: Last 6 Games EFF Average</td>
+                            </tr>
+
+                            <tr>
+                            <td width="5%">Long-Term</td>
+                            <td width="20%">: Last 9 Games EFF Average</td>
+                            </tr>
+                        </thead>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="col-1p9 note last" style="float:left">
+                    <div >Example</div>
+                    <div class="exfig" style="background-image:url(images/gamelogex1.png)">
+                        <div style="padding: 210px 0 0 65px;color:#000;font-size:14px">
+                        <p style="line-height: 25px">Kevin Durant (OKC - SF,PF)</br>
+                        High and Stable Efficiency</p>
+                        </div>
+                    </div>
+                    <div class="exfig" style="background-image:url(images/gamelogex2.png)">
+                        <div style="padding: 210px 0 0 65px;color:#000;font-size:14px">
+                        <p style="line-height: 25px">Kyrie Irving (Cle – PG,SG)</br>
+                        Buy Low Sell High Trade</p>
+                        </div>
+                    </div>
+                    <div class="exfig" style="background-image:url(images/gamelogex3.png)">
+                        <div style="padding: 210px 0 0 65px;color:#000;font-size:14px">
+                        <p style="line-height: 25px">Dwyane Wade (Mia – PG,SG)</br>
+                        Low Frequency of Games</p>
+                        </div>
+                    </div>
+                    <div style="height:0;clear:both"></div>
+                </div>
+
+                <div style="height:0;clear:both"></div>
+            </div>
 		</div>
 		
 
@@ -208,7 +210,5 @@ div.exfig{
 
 </style>
 
-
-
-
 <span class="javascript" src="js/hightchart.gamelog.js"></span>
+

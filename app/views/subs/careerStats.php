@@ -53,28 +53,35 @@
 
 			<div class="col-1p9 last">
 				
-				<select class="items" style="position:absolute;margin: 5px 0 0 5px;z-index:1;padding:5px;background-color:rgba(255,255,255,1);color:#000;border:1px;border-radius: 3px">
-					<option value="ceff">EFF</option>
-					<option value="cmin">MIN</option>
-					<option value="cfgm">FGM</option>
-					<option value="cfga">FGA</option>
-					<option value="cfgp">FG%</option>
-					<option value="cftm">FTM</option>
-					<option value="cfta">FTA</option>
-					<option value="cftp">FT%</option>
-					<option value="c3ptm">3PTM</option>
-					<option value="c3pta">3PTA</option>
-					<option value="c3ptp">3PT%</option>
-					<option value="coreb">OREB</option>
-					<option value="cdreb">DREB</option>
-					<option value="ctreb">REB</option>
-					<option value="cast">AST</option>
-					<option value="cto">TO</option>
-					<option value="catr">A/T</option>
-					<option value="cst">ST</option>
-					<option value="cblk">BLK</option>
-					<option value="cpf">PF</option>					
-					<option value="cpts">PTS</option>
+				<select class="items" style="width:100px;position:absolute;margin: 5px 0 0 5px;z-index:1;padding:5px;background-color:rgba(255,255,255,1);color:#000;border:1px;border-radius: 3px">
+                    <optgroup label="General">
+                        <option value="ceff">EFF</option>
+                        <option value="cmin">MIN</option>                    
+                        <option value="cpts">PTS</option>
+                    <optgroup label="Field Goal">
+                        <option value="cfgm" style="background-color:">FGM</option>
+                        <option value="cfga" style="background-color:">FGA</option>
+                        <option value="cfgp" style="background-color:">FG%</option>
+                    <optgroup label="Free Throw">                        
+                        <option value="cftm">FTM</option>
+                        <option value="cfta">FTA</option>
+                        <option value="cftp">FT%</option>
+                    <optgroup label="3 points">
+                        <option value="c3ptm">3PTM</option>
+                        <option value="c3pta">3PTA</option>
+                        <option value="c3ptp">3PT%</option>
+                    <optgroup label="Rebounds">
+                        <option value="coreb">OREB</option>
+                        <option value="cdreb">DREB</option>
+                        <option value="ctreb">REB</option>
+                    <optgroup label="Assists">                    
+                        <option value="cast">AST</option>
+                        <option value="cto">TO</option>
+                        <option value="catr">A/T</option>
+                    <optgroup label="Misc">                    
+                        <option value="cst">ST</option>
+                        <option value="cblk">BLK</option>
+                        <option value="cpf">PF</option>
 				</select>
 				
 				<div class="chart_box highlight chartblock"></div>
@@ -93,7 +100,7 @@
 		<div class="onerow">
 			<div class="col-1p12">
 
-				<div class="tablebackground" style="border:0px solid #fff;padding:10px;margin:10px 0 0 0; text-align:left">
+				<div class="tablebackground" style="margin:10px 0 0 0">
 					<table id="tablecareerstat" cellpadding="6" cellspacing="0" style="width:100%;margin-left:0;font-size:12px;clear: both">
 					<thead>
 
@@ -111,7 +118,7 @@
 						<tr>
 						<th class="report-detail-midd" width="5%">Season</th>
 						<th class="report-detail-midd" width="5%">Team</th>							
-						<th class="report-detail-midd" width="2%">Start</th>
+						<th class="report-detail-midd" width="2%">GP</th>
 						<th class="report-detail-midd" width="4%">MIN</th>
 						<th class="report-detail-dark" width="3%">FGM</th>
 						<th class="report-detail-dark" width="3%">FGA</th>
@@ -176,3 +183,5 @@
 
 
 <span class="javascript" src="js/hightchart.careerStats.js"></span>
+
+<!--<script src="http://code.highcharts.com/modules/exporting.js"></script>-->

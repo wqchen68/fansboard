@@ -233,15 +233,15 @@
 							echo '<div> Last updated: ' .$lastupdate->updatetime. '</div>';
 						?>
 					</div>
-					<div class="tableupdate">Exclude only played one game player.</div>
+					<div class="tableupdate">Players with only one game are excluded.</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="onerow" style="height: 750px">
-			<div class="col-1p12">				
+			<div class="col-1p12" style="background-color:rgba(0,0,0,0.2);margin-top:10px">
 
-				<div style="font-size:12px;margin:50px 0 0 200px;color:#fff">What it Means</div>
+				<div style="font-size:12px;margin:30px 0 0 200px;color:#fff">What it Means</div>
 		
 				<div style="font-size:12px;margin:10px 0 0 210px;text-align:left;color:#fff;clear: both">
 					<table cellpadding="6" cellspacing="0">
@@ -405,3 +405,5 @@ div.samewidth{
 </style>
 
 <span class="javascript" src="js/hightchart.playerAbility.js"></span>
+
+<!--<script src="http://code.highcharts.com/modules/exporting.js"></script>-->

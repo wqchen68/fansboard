@@ -140,7 +140,7 @@
 
 	<div class="onepcssgrid-1200">
 		<div class="onerow">
-			<div style="margin:0 0 50px 70px;color:#fff;font-size: 12px">
+			<div style="margin:5px 0 20px 60px;color:#fff;font-size: 12px">
 				<?
 					$lastupdate = DB::table('syncdataframe')
 							->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime'))
@@ -150,14 +150,15 @@
 					echo '<div>Last Updated : ' .$lastupdate->updatetime. '</div>';
 				?>
 			</div>
-			<div class="col12" style="color:#fff; text-align:left">
-				Note: FG%, FT%, 3PT%, A/T were adjusted.<br />
-			</div>
-			<div class="col12" style="color:#b8860b; text-align:left">
-				Colors of Player Name means: <br />
-				More Red  - Shoote'R' style  <br />
-				More Green- Pure Point 'G'uard style <br />
-				More Blue - 'B'ig man style <br /><br />
+			<div class="col12" style="color:#fff; text-align:left;font-size: 14px;padding-left: 100px;line-height: 25px">
+				Note:<br />
+                1. All categories have been standardized, so PTS and AST can be compared on the same base, and can even be summed up.<br /> 
+                <!--// for a comprehensive comparison-->
+                2. FG%, FT%, 3PT% and A/T were adjusted. (weighted NUMBER of Shots.)<br />
+				3. Colors of Player Name means: <br />
+                <span style="color:rgba(255,0,0,1);padding-left: 18px">More Red  - Shoote'R' style</span> <br />
+				<span style="color:rgba(0,255,0,1);padding-left: 18px">More Green- Pure Point 'G'uard style</span> <br />
+				<span style="color:rgba(0,0,255,1);padding-left: 18px">More Blue - 'B'ig man style</span> <br /><br />
 			</div>
 		</div>
 		<div style="height:0;clear:both"></div>	
@@ -165,8 +166,8 @@
 	
 	<div class="onepcssgrid-1200">
 		<div class="onerow">			
-			<div class="col12" style="color:#b8860b; text-align:left">
-				How to use the scatter chart? We suggest 4 basic way: <br /><br />
+			<div class="col12">
+                <div style="color:gold; text-align:left;font-size: 25px;padding-left: 200px;line-height: 80px;font-weight: bold">How to use the scatter chart? We suggest 4 basic way: </div>
 				<img src="images/scatter1.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
 				<img src="images/scatter2.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
 				<img src="images/scatter3.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />

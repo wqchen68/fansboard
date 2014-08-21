@@ -149,7 +149,19 @@ Highcharts.theme = {
             },
             stroke: '#000000'
          }
-      }
+      },
+      menuStyle: {
+         background: 'rgba(255,255,255,0.3)'
+      },
+      menuItemStyle: {
+         fontWeight: 'normal',
+         background: 'none'
+      },
+      menuItemHoverStyle: {
+         fontWeight: 'normal',
+         background: 'gold',
+         color: 'black'
+      }      
    },
 
    // scroll charts
@@ -202,12 +214,12 @@ Highcharts.theme = {
       },
       labelStyle: {
          color: 'silver'
-      }
+      },
    },
 
    navigator: {
       handles: {
-         backgroundColor: '#666',
+         backgroundColor: 'red',
          borderColor: '#AAA'
       },
       outlineColor: '#CCC',
@@ -215,7 +227,7 @@ Highcharts.theme = {
       series: {
          color: '#7798BF',
          lineColor: '#A6C7ED'
-      }
+      },
    },
 
    scrollbar: {

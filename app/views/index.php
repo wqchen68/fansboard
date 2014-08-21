@@ -24,6 +24,7 @@
 <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
 <script type="text/javascript" src="js/Highcharts-3.0.7/js/highcharts.js"></script>
 <script type="text/javascript" src="js/Highcharts-3.0.7/js/highcharts-more.js"></script>
+<script type="text/javascript" src="js/Highcharts-3.0.7/js/modules/exporting.src.js"></script>
 <script type="text/javascript" src="js/highcharts.theme.js"></script>
 <script type="text/javascript" src="js/player.js"></script>
 <script type="text/javascript" src="js/module.js"></script>
@@ -55,6 +56,7 @@ function creatRadarChart(){
             },
             borderColor: '#fff',
 			height:600,
+            width:600,
             borderRadius: 0,
             borderWidth: 0
 	    },
@@ -83,6 +85,44 @@ function creatRadarChart(){
 	        startAngle: 0,
 	        endAngle: 360
 	    },
+        
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [{
+                        text: 'Download the Graph (PNG)',
+                        onclick: function () {
+                            this.exportChart({
+                                width: 600,
+                                type: 'image/png'
+                            });
+                        }
+                    },{
+                        text: 'Download the Graph (JPG)',
+                        onclick: function () {
+                            this.exportChart({
+                                width: 600,
+                                type: 'image/jpeg'
+                            });
+                        }
+                    }]
+                }
+            },
+        },
+        navigation: {
+            buttonOptions: {
+                enabled: true,
+//                align: 'center',
+//                x:100,
+//                height: 20,
+//                width: 24,
+//                symbolSize: 14,
+//                symbolX: 12.5,
+//                symbolY: 10.5,
+//                symbolStroke: '#666',
+//                symbolStrokeWidth: 1,
+            }
+        },       
 	
 	    xAxis: {
 	        tickInterval: 45,
@@ -94,8 +134,9 @@ function creatRadarChart(){
 	        		return anglename[this.value];
 	        	},
 				style: {
-					color: '#fff',
-					fontWeight: 'normal'
+					color: '#CCC',
+					fontWeight: 'normal',
+                    fontSize: 12,
 				}
 	        }
 			

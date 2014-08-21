@@ -16,8 +16,8 @@ $(function () {
 
 	
 	$(document).keydown(function(e){
-		e.stopPropagation();
-		var height = $('.playerList-combo').find('td.active').outerHeight();
+        e.stopPropagation();
+        var height = $('.playerList-combo').find('td.active').outerHeight();
 		var scroll = $('.playerList-combo').parent().scrollTop();		
 		switch(e.which){
 		case 38:

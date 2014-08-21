@@ -102,7 +102,7 @@
 						<tr>
 						<th class="report-detail-midd" width="4%">Season</th>
 						<th class="report-detail-midd" width="10%">Condition</th>							
-						<th class="report-detail-midd" width="2%">Games</th>
+						<th class="report-detail-midd" width="2%">GP</th>
 						<th class="report-detail-midd" width="4%">MIN</th>
 						<th class="report-detail-dark" width="3%">FGM</th>
 						<th class="report-detail-dark" width="3%">FGA</th>
