@@ -55,7 +55,7 @@ $(function () {
                 if( radarChart.series[0] )
                 radarChart.series[0].remove(false);
             }
-            radarChart.counters.color = 0;
+            radarChart.colorCounter = 0;
         }
     };	
     funcArray[pageIndex].reflash = reflash;	
@@ -73,7 +73,7 @@ $(function () {
             if( radarChart.series[0] )
             radarChart.series[0].remove(false);
         }
-        radarChart.counters.color = 0;
+        radarChart.colorCounter = 0;
 
         pageobj.find('.ability-detail').children('tbody').empty();
         pageobj.find('.basic00,.basic01,.basic02,.basic10,.basic11,.basic12').empty();

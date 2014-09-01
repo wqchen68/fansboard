@@ -36,7 +36,7 @@ $(function () {
             borderWidth: 1,
 	        borderRadius: 7,
             shadow: false,
-			hideDelay: 0,
+			hideDelay: 0
 			//formatter: function() {
             //    return 'The value for <b>'+ this.x +'</b> is <b>'+ this.y +'</b>';
             //}

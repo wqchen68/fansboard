@@ -20,11 +20,11 @@
 <meta property="og:site_name" content="Fansboard"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
-<script type="text/javascript" src="js/Highcharts-3.0.7/js/highcharts.js"></script>
-<script type="text/javascript" src="js/Highcharts-3.0.7/js/highcharts-more.js"></script>
-<script type="text/javascript" src="js/Highcharts-3.0.7/js/modules/exporting.src.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/Highcharts-4.0.3/js/highcharts.js"></script>
+<script type="text/javascript" src="js/Highcharts-4.0.3/js/highcharts-more.js"></script>
+<script type="text/javascript" src="js/Highcharts-4.0.3/js/modules/exporting.src.js"></script>
 <script type="text/javascript" src="js/highcharts.theme.js"></script>
 <script type="text/javascript" src="js/player.js"></script>
 <script type="text/javascript" src="js/module.js"></script>
@@ -361,7 +361,7 @@ $(document).ready(function(){
 	
 	
 	
-	
+	/*
 	$(document).scroll(function(){
 		var top = $(this).scrollTop();
 		var topIs = $(this).data('top');		
@@ -382,6 +382,7 @@ $(document).ready(function(){
 			});
 		}
 	});
+    */    
 	
 	/*
 	 * 

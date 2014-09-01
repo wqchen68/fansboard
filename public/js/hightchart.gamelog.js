@@ -66,7 +66,7 @@ $(function(){
         $.getJSON('data/getLog',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
 			
             pageobj.find('.link-playerAbility').changePlayerImg(data[0]['card'][0]);
-			console.log(data);
+			
             /*pageobj.find('.basic1').html(data[0].card[0]);
             pageobj.find('.basic2').html(data[0].basic[1]+'&nbsp-&nbsp'+data[0].basic[2]);
             pageobj.find('.basic3').html(data[0].basic[3]);

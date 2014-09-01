@@ -108,7 +108,6 @@ $(function () {
 			pageobj.find('.link-playerAbility6').attr('href','playerAbility?player='+cards[5].fbid);
 			
 			ability = data.ability;
-			console.log(ability);
 			
 			var ability_draw = {
 				name: [ability.name[0],ability.name[1]],
@@ -133,7 +132,7 @@ $(function () {
 			if( radarChart.series[0] )
 			radarChart.series[0].remove(false);
 		}
-		radarChart.counters.color = 0;
+		radarChart.colorCounter = 0;
 		for( var i in ability.value ){
 			radarChart.addSeries({ 	
 				type: 'area',

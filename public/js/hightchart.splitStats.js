@@ -90,7 +90,7 @@ $(function(){
 					if( chartHomeAway.series[0] )
 						chartHomeAway.series[0].remove(false);
 				}
-			chartHomeAway.counters.color = 0;
+			chartHomeAway.colorCounter = 0;
 			chartHomeAway.addSeries({
                 name: '',
                 data: data.spstat.HomeAway
@@ -102,7 +102,7 @@ $(function(){
 					if( chartDayNight.series[0] )
 						chartDayNight.series[0].remove(false);
 				}
-			chartDayNight.counters.color = 0;
+			chartDayNight.colorCounter = 0;
 			chartDayNight.addSeries({
                 name: '',
                 data: data.spstat.dayNight
@@ -114,7 +114,7 @@ $(function(){
 					if( chartRestDays.series[0] )
 						chartRestDays.series[0].remove(false);
 				}
-			chartRestDays.counters.color = 0;
+			chartRestDays.colorCounter = 0;
 			chartRestDays.addSeries({
                 name: '',
                 data: data.spstat.Rest
@@ -126,7 +126,7 @@ $(function(){
 					if( chartOppo.series[0] )
 						chartOppo.series[0].remove(false);
 				}
-			chartOppo.counters.color = 0;
+			chartOppo.colorCounter = 0;
 			chartOppo.addSeries({
                 name: player[0]['name'],
                 data: data.spstat.VS
