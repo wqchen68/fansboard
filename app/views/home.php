@@ -248,8 +248,35 @@ $(document).ready(function(){
 								<div class="home-main-image"></div>
 						
 								<?
-								$realtime = Player::gethotcoldPlayer()->getData()->todaybo;
+								//$realtime = Player::gethotcoldPlayer()->getData()->todaybo;
 								?>
+                                
+                                <?
+                                $realtime = DB::table('log_data')
+                                ->select(DB::raw('parameter AS fbid,COUNT(parameter) AS trend,syncdataframe.pwmin AS min2,syncdataframe.pweff,syncdataframe.pwpts AS pts2,syncdataframe.pwtreb AS treb2,syncdataframe.pwast AS ast2,syncplayerlist.player,syncplayerlist.team,syncplayerlist.position'))
+                                ->leftJoin('syncdataframe','log_data.parameter','=','syncdataframe.fbid')
+                                ->leftJoin('syncplayerlist','log_data.parameter','=','syncplayerlist.fbid')
+                                ->where(DB::raw('TIMESTAMPDIFF( MINUTE , datetime , NOW( ))'),'<',1440)
+                                ->whereRaw('parameter NOT LIKE "%+%"')
+                                ->where('syncdataframe.datarange','=','ALL')
+                                ->where('syncplayerlist.datarange','=','ALL')
+                                ->orderBy(DB::raw('COUNT(parameter)'),'DESC')
+                                ->groupBy('parameter')->get();                              
+
+                                
+                                //$realtime
+                                foreach ($realtime as $key => $value) {
+                                    $value->pts2 = round($value->pts2,1);
+                                    $value->treb2 = round($value->treb2,1);
+                                    $value->ast2 = round($value->ast2,1);
+                                    $value->min2 = round($value->min2,1);
+                                    $value->trend = round($value->trend,1);
+                                    $realtime[$key] = $value;
+                                }
+                                
+                                        
+                                ?>                                
+
 								
 								<div class="majorbox" style="position:relative;top:30px;left:50px;width:200px">									
 										

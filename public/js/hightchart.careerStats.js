@@ -183,17 +183,20 @@ $(function(){
 			if( pageobj.find('.items').val()==='ceff' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,5,10,15,20,25,30,35],
-                    min: -13.3                    
+                    min: -13.3,
+                    text: 'EFF Value'
 				});
             }else if( pageobj.find('.items').val()==='cfgp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0.3,0.4,0.5,0.6],
-                    min: 0.185
+                    min: 0.185,
+                    text: 'Field Goal%'
 				});
             }else if( pageobj.find('.items').val()==='cftp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0.5,0.6,0.7,0.8,0.9,1],
-                    min: 0.315
+                    min: 0.315,
+                    text: 'Feww Throw%'
 				});
             }else if( pageobj.find('.items').val()==='c3ptp' ){
 				chartCareerStats.yAxis[0].update({
@@ -203,12 +206,14 @@ $(function(){
             }else if( pageobj.find('.items').val()==='catr' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,1,2,3,4,5],
-                    min: -1.85
+                    min: -1.85,
+                    text: '3-Points Throw%'
 				});                
 			}else{
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,data['valueMax']/4,data['valueMax']/2,3*data['valueMax']/4,data['valueMax']],
-                    min: -0.38*data['valueMax'] //0.38是比例                    
+                    min: -0.38*data['valueMax'], //0.38是比例
+                    text: 'Value'
 				});            
 			}
 			
