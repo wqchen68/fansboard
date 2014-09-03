@@ -38,10 +38,10 @@ $(function () {
         playerInit = $.map(player,function(value, index){
             return value.fbid;
         });
-        url = playerInit.length>0
-            ? window.location.toString().split('?')[0]+'?player='+playerInit.join('+')
-            : window.location.toString().split('?')[0];
-        window.history.pushState('', '', url);			
+        //url = playerInit.length>0
+        //    ? window.location.toString().split('?')[0]+'?player='+playerInit.join('+')
+        //    : window.location.toString().split('?')[0];
+        //window.history.pushState('', '', url);			
         if( player.length>0 ){	
             change();
             changePlayerImg();
@@ -78,7 +78,7 @@ $(function () {
         pageobj.find('.ability-detail').children('tbody').empty();
         pageobj.find('.basic00,.basic01,.basic02,.basic10,.basic11,.basic12').empty();
 
-        $.getJSON('data/getAbility',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
+        $.getJSON('../data/getAbility',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
 
             reFlashNews();
 
@@ -138,7 +138,7 @@ $(function () {
             return $(a).val(); 
         });	
 
-        $.getJSON('data/getRank',{get_array:get_array,player:player,datarange:$('.player_season').val()},function(data){
+        $.getJSON('../data/getRank',{get_array:get_array,player:player,datarange:$('.player_season').val()},function(data){
             pageobj.find('.rank1').html(data[0]);
             if(data.length>1)
                 pageobj.find('.rank2').html(data[1]);			
@@ -149,13 +149,13 @@ $(function () {
     function changePlayerImg(){		
         pageobj.find('img.face').css('background-image','url(images/help1.png)');
         if( player.length>0 ){
-            pageobj.find('.face.player0').css({'background-image':'url(player/'+player[0].fbid+'.png)','background-size': '60px 72px'});
+            pageobj.find('.face.player0').css({'background-image':'url(../player/'+player[0].fbid+'.png)','background-size': '60px 72px'});
             pageobj.find('.link-gameLog1').attr('href','gameLog?player='+player[0].fbid);
             pageobj.find('.link-splitStats1').attr('href','splitStats?player='+player[0].fbid);
             pageobj.find('.link-careerStats1').attr('href','careerStats?player='+player[0].fbid);
             pageobj.find('.link-matchPlayer1').attr('href','matchPlayer?player='+player[0].fbid);
             if( player.length>1 ){
-                pageobj.find('.face.player1').css({'background-image':'url(player/'+player[1].fbid+'.png)','background-size': '60px 72px'});
+                pageobj.find('.face.player1').css({'background-image':'url(../player/'+player[1].fbid+'.png)','background-size': '60px 72px'});
                 pageobj.find('.link-gameLog1').attr('href','gameLog?player='+player[0].fbid);
                 pageobj.find('.link-gameLog2').attr('href','gameLog?player='+player[1].fbid);
                 pageobj.find('.link-splitStats1').attr('href','splitStats?player='+player[0].fbid);
@@ -177,7 +177,7 @@ $(function () {
 	
     function reFlashNews(){
         pageobj.find('.newsbox').empty();
-        $.get('data/getNews',{player:player},function(data){
+        $.get('../data/getNews',{player:player},function(data){
             pageobj.find('.newsbox.player1').append(data[0][0]+'<br />'+data[0][1]+'<br />'+data[0][2]);
             if( player.length>1 )
                 pageobj.find('.newsbox.player2').append(data[1][0]+'<br />'+data[1][1]+'<br />'+data[1][2]);

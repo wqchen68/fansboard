@@ -43,7 +43,7 @@ $(function(){
             url = playerInit.length>0
                 ? window.location.toString().split('?')[0]+'?player='+playerInit.join('+')
                 : window.location.toString().split('?')[0];
-            window.history.pushState('', '', url);
+            //window.history.pushState('', '', url);
 
             changePlayerImg();		
             change();
@@ -53,17 +53,17 @@ $(function(){
 	
 	
     function changePlayerImg(){		
-        pageobj.find('.majorbox img.face').attr('src','player/none.jpg');
+        pageobj.find('.majorbox img.face').attr('src','../player/none.jpg');
         if( player.length>0 ){
-            pageobj.find('.majorbox .face').attr('src','player/'+player[0].fbid+'.png');
-            pageobj.find('.link-playerAbility').attr('href','playerAbility?player='+player[0].fbid);
+            pageobj.find('.majorbox .face').attr('src','../player/'+player[0].fbid+'.png');
+            pageobj.find('.link-playerAbility').attr('href','../playerAbility?player='+player[0].fbid);
         }
     };
 	
     pageobj.find('.basic1,.basic2,.basic3,.stat').empty();
 	
     function change(){
-        $.getJSON('data/getLog',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
+        $.getJSON('../data/getLog',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
 			
             pageobj.find('.link-playerAbility').changePlayerImg(data[0]['card'][0]);
 			

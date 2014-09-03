@@ -68,7 +68,14 @@ Route::any('sort/{name}', 'HomeController@showSort');
 
 Route::get('user/{name}', array('before'=>'id','uses'=>'HomeController@test'))->where('name', '[A-Za-z]+');
 
-Route::get('/{pagename}', function($pagename = null){
+Route::get('/{pagename}', function($pagename){
+    $player = Input::get('player','')!='' ? explode(' ',Input::get('player','')) : ['Kevin-Durant'];
+    $player = array_diff( $player, array('') );
+    $player = array_slice( $player, 0 );
+    return Redirect::to($pagename . '/' . implode(',', $player));
+});
+
+Route::get('/{pagename}/{players}', function($pagename = null, $players = null){
 	if (empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
 		$myip = $_SERVER['REMOTE_ADDR'];  
 	} else {  
@@ -112,22 +119,24 @@ Route::get('/{pagename}', function($pagename = null){
 	Form::macro('tabi', function($pagename_input,$pagenametext,$state='') use($pagename) { 
 		return '<li class="tabi"><a href="'.$pagename_input.'" '.($pagename==$pagename_input?'index="0"':'').' class="menu-tab-link button '.$state.($pagename==$pagename_input?' init':'').'" acsrc="'.$pagename_input.'"  title="'.Lang::get('description.'.$pagename_input).'">'.$pagenametext.'</a></li>';
 	}); 
-	$url_add = Input::get('player','')!=''?'?player='.Input::get('player',''):'';
-	
-	$player = Input::get('player','')!='' ? explode(' ',Input::get('player','')) : ['Kevin-Durant'];
-	
-	$player = array_diff($player, array(''));
-	$player = array_slice( $player, 0 );
+    
+    if( !is_null($players) ){
+        $player = explode(',', $players);
+    }else{
+        $player = ['Kevin-Durant'];
+    }
+    
+    $full_url = $pagename . '/' . $players;
 	
 	$og_image = '';
 	foreach( $player as $p ){
 		if( is_file('player/'.$p.'.png') ){
-			$og_image .= '<meta property="og:image" content="http://www.fansboard.com/player/'.$p.'.png" />'."\n";
+			$og_image .= '<meta property="og:image" content="'.asset('player/'.$p.'.png').'" />'."\n";
 		}		
 	}
 
 	View::share('pagename', $pagename);
-	$contents = View::make('index',array('og_image'=>$og_image,'url_add'=>$url_add,'full_url'=>$pagename.$url_add,'player'=>json_encode($player)))
+	$contents = View::make('index',array('og_image'=>$og_image, 'full_url'=>$full_url, 'player'=>json_encode($player)))
 			->nest('addin','addin')
 			->nest('mainmenu', $mobile_browser ? 'mainmenu_mobile' : 'mainmenu',array('pagename'=>$pagename))
 			->nest('testi','subs.'.$pagename)

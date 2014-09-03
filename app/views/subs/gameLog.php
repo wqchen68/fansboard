@@ -21,9 +21,9 @@
 								$hotcold_data = Player::gethotcoldPlayer()->getData();
 								$livevalue = $hotcold_data->livemark;
 								if (count($livevalue)==1 & $livevalue[0]->livemark=='Final'){
-									echo '<div class="newsbox-icon" style="background-image:url(images/fig_3_realtimeBox2.png)"></div>';
+									echo '<div class="newsbox-icon" style="background-image:url('.asset('images/fig_3_realtimeBox2.png').'"></div>';
 								}else{
-									echo '<div class="newsbox-icon" style="background-image:url(images/fig_3_realtimeBox3.png);box-shadow:0 0 50px rgba(255,0,0,0.9);padding:0"></div>';
+									echo '<div class="newsbox-icon" style="background-image:url('.asset('images/fig_3_realtimeBox3.png').');box-shadow:0 0 50px rgba(255,0,0,0.9);padding:0"></div>';
 								}
 							?>							
 						</a>
@@ -36,7 +36,7 @@
 					<a class="link-playerAbility">
 					<div class="majorbox playercardsmall highlight">
 						<div style="float:left">
-							<img class="face" style="width:60px;height:72px;display:block" src="images/help1.png" />
+							<img class="face" style="width:60px;height:72px;display:block" src="<?=asset('images/help1.png')?>" />
 						</div>
 						<div class="playercardsmall-news">
 							<div>
@@ -161,19 +161,19 @@
 
                 <div class="col-1p9 note last" style="float:left">
                     <div >Example</div>
-                    <div class="exfig" style="background-image:url(images/gamelogex1.png)">
+                    <div class="exfig" style="background-image:url(<?=asset('images/gamelogex1.png')?>">
                         <div style="padding: 210px 0 0 65px;color:#000;font-size:14px">
                         <p style="line-height: 25px">Kevin Durant (OKC - SF,PF)</br>
                         High and Stable Efficiency</p>
                         </div>
                     </div>
-                    <div class="exfig" style="background-image:url(images/gamelogex2.png)">
+                    <div class="exfig" style="background-image:url(<?=asset('images/gamelogex2.png')?>)">
                         <div style="padding: 210px 0 0 65px;color:#000;font-size:14px">
                         <p style="line-height: 25px">Kyrie Irving (Cle – PG,SG)</br>
                         Buy Low Sell High Trade</p>
                         </div>
                     </div>
-                    <div class="exfig" style="background-image:url(images/gamelogex3.png)">
+                    <div class="exfig" style="background-image:url(<?=asset('images/gamelogex3.png')?>)">
                         <div style="padding: 210px 0 0 65px;color:#000;font-size:14px">
                         <p style="line-height: 25px">Dwyane Wade (Mia – PG,SG)</br>
                         Low Frequency of Games</p>
@@ -210,5 +210,5 @@ div.exfig{
 
 </style>
 
-<span class="javascript" src="js/hightchart.gamelog.js"></span>
+<span class="javascript" src="<?=asset('js/hightchart.gamelog.js')?>"></span>
 

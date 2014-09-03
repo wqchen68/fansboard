@@ -20,23 +20,23 @@
 <meta property="og:site_name" content="Fansboard"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/Highcharts-4.0.3/js/highcharts.js"></script>
-<script type="text/javascript" src="js/Highcharts-4.0.3/js/highcharts-more.js"></script>
-<script type="text/javascript" src="js/Highcharts-4.0.3/js/modules/exporting.src.js"></script>
-<script type="text/javascript" src="js/highcharts.theme.js"></script>
-<script type="text/javascript" src="js/player.js"></script>
-<script type="text/javascript" src="js/module.js"></script>
-<!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
+<script type="text/javascript" src="<?=asset('js/jquery-1.11.1.min.js')?>"></script>
+<script type="text/javascript" src="<?=asset('js/jquery-ui.min.js')?>"></script>
+<script type="text/javascript" src="<?=asset('js/Highcharts-4.0.3/js/highcharts.js')?>"></script>
+<script type="text/javascript" src="<?=asset('js/Highcharts-4.0.3/js/highcharts-more.js')?>"></script>
+<script type="text/javascript" src="<?=asset('js/Highcharts-4.0.3/js/modules/exporting.src.js')?>"></script>
+<script type="text/javascript" src="<?=asset('js/highcharts.theme.js')?>"></script>
+<script type="text/javascript" src="<?=asset('js/player.js')?>"></script>
+<script type="text/javascript" src="<?=asset('js/module.js')?>"></script>
+<!--[if lt IE 9]><script src="<?=asset('js/html5shiv.js')?>"></script><![endif]-->
 
-<link rel="stylesheet" href="css/onepcssgrid.css" />
-<link rel="stylesheet" href="css/onepcssgrid-1p.css" />
-<link rel="stylesheet" href="css/index.css" />
-<link rel="stylesheet" href="css/share.css" />
-<link rel="stylesheet" href="js/smoothness/jquery-ui-1.10.3/jquery-ui-1.10.3.custom.min.css" />
+<link rel="stylesheet" href="<?=asset('css/onepcssgrid.css')?>" />
+<link rel="stylesheet" href="<?=asset('css/onepcssgrid-1p.css')?>" />
+<link rel="stylesheet" href="<?=asset('css/index.css')?>" />
+<link rel="stylesheet" href="<?=asset('css/share.css')?>" />
+<link rel="stylesheet" href="<?=asset('js/smoothness/jquery-ui-1.10.3/jquery-ui-1.10.3.custom.min.css')?>" />
 <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">-->
-<link rel="stylesheet" href="css/font-awesome.css" />
+<link rel="stylesheet" href="<?=asset('css/font-awesome.css')?>" />
 
 <script type="text/javascript">
 var pageobj;
@@ -262,10 +262,11 @@ $(document).ready(function(){
 					insertList();
 				});
 			}
+
 			url = window.location.toString().split('?').length>1
 				? acsrc+'?'+window.location.toString().split('?')[1]
 				: acsrc;		
-			window.history.pushState('', '', url);	
+			window.history.pushState('', '', '<?=asset('')?>'+url);	
 			
 			$('title').html(c.text()+' - Fansboard');
             
