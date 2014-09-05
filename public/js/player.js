@@ -89,7 +89,7 @@ $(function () {
 				player_season: pageobj.find('.player_season').val()
 			};
 			var target = $(this);
-			$.getJSON('../data/getPlayer2',input,function(data){
+			$.getJSON('../data/getPlayer2',input,function(data){                
 				target.find('tr').remove();
 				var list = $(data.playlist);
 				if( playerInit.length>0 )
@@ -108,7 +108,7 @@ $(function () {
 	
 	$.fn.extend({
 		changePlayerImg: function(card){
-			$(this).find('.face').attr({src:'../player/'+card['fbid']+'.png',fbid:card['fbid']});
+			$(this).find('.face').attr({src:'http://'+location.host+'/player/'+card['fbid']+'.png',fbid:card['fbid']});
 			$(this).find('.cardplayer').html(card['cardplayer']);
 			$(this).find('.cardteamposi').html(card['cardteamposi']);
 			$(this).find('.cardinjna').html(card['cardinjna']);

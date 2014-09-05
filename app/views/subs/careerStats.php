@@ -9,44 +9,13 @@
 
 					<div style="margin:0px 0 0 0"></div>
 					
-					<div style="float:left;padding:0 0 10px 10px;height:35px">
-						<a  href="realtimeBox" class="link-realtimeBox" title='Real-Time Efficiency Rank Box'>
-							<?
-								$hotcold_data = Player::gethotcoldPlayer()->getData();
-								$livevalue = $hotcold_data->livemark;
-								if (count($livevalue)==1 & $livevalue[0]->livemark=='Final'){
-									echo '<div class="newsbox-icon" style="background-image:url(images/fig_3_realtimeBox2.png)"></div>';
-								}else{
-									echo '<div class="newsbox-icon" style="background-image:url(images/fig_3_realtimeBox3.png);box-shadow:0 0 50px rgba(255,0,0,0.9);padding:0"></div>';
-								}
-							?>
-						</a>
-					</div>
+                    <? include('include_link2realtimeBox.php'); ?>
 					
 					<div style="height:0;clear:both"></div>
-					
-					
-					
+									
 					<div class="modelBox" mid="5" style="height:420px;padding:0 0 10px 0;margin:0 0 24px 0"></div>						
 								
-					<a class="link-playerAbility">
-					<div class="majorbox playercardsmall highlight">
-
-						<div style="float:left">
-							<img class="face" style="width:60px;height:72px;display: block" src="images/help1.png" />
-						</div>
-						<div class="playercardsmall-news">
-							<div class="cardplayer"></div>
-							<div>								
-								<div class="cardteamposi" style="float:left;padding:0 5px 0 0"></div>
-								<div class="cardinjna"></div>
-								<div style="height:0;clear:both"></div>
-							</div>
-							<div class="cardstat"></div>
-						</div>
-						<div style="height:0;clear:both"></div>
-					</div>
-					</a>
+					<? include('include_link2playerAbility.php'); ?>
 					
 				</div>				
 			</div>
@@ -55,33 +24,33 @@
 				
 				<select class="items" style="width:100px;position:absolute;margin: 5px 0 0 5px;z-index:1;padding:5px;background-color:rgba(255,255,255,1);color:#000;border:1px;border-radius: 3px">
                     <optgroup label="General">
-                        <option value="ceff">EFF</option>
-                        <option value="cmin">MIN</option>                    
-                        <option value="cpts">PTS</option>
+                        <option value="ceff" <?=(Input::get('cate')=='ceff'?'selected="selected"':'')?>>EFF</option>
+                        <option value="cmin" <?=(Input::get('cate')=='cmin'?'selected="selected"':'')?>>MIN</option>
+                        <option value="cpts" <?=(Input::get('cate')=='cpts'?'selected="selected"':'')?>>PTS</option>
                     <optgroup label="Field Goal">
-                        <option value="cfgm" style="background-color:">FGM</option>
-                        <option value="cfga" style="background-color:">FGA</option>
-                        <option value="cfgp" style="background-color:">FG%</option>
+                        <option value="cfgm" <?=(Input::get('cate')=='cfgm'?'selected="selected"':'')?>>FGM</option>
+                        <option value="cfga" <?=(Input::get('cate')=='cfga'?'selected="selected"':'')?>>FGA</option>
+                        <option value="cfgp" <?=(Input::get('cate')=='cfgp'?'selected="selected"':'')?>>FG%</option>
                     <optgroup label="Free Throw">                        
-                        <option value="cftm">FTM</option>
-                        <option value="cfta">FTA</option>
-                        <option value="cftp">FT%</option>
+                        <option value="cftm" <?=(Input::get('cate')=='cftm'?'selected="selected"':'')?>>FTM</option>
+                        <option value="cfta" <?=(Input::get('cate')=='cfta'?'selected="selected"':'')?>>FTA</option>
+                        <option value="cftp" <?=(Input::get('cate')=='cftp'?'selected="selected"':'')?>>FT%</option>
                     <optgroup label="3 points">
-                        <option value="c3ptm">3PTM</option>
-                        <option value="c3pta">3PTA</option>
-                        <option value="c3ptp">3PT%</option>
+                        <option value="c3ptm" <?=(Input::get('cate')=='c3ptm'?'selected="selected"':'')?>>3PTM</option>
+                        <option value="c3pta" <?=(Input::get('cate')=='c3pta'?'selected="selected"':'')?>>3PTA</option>
+                        <option value="c3ptp" <?=(Input::get('cate')=='c3ptp'?'selected="selected"':'')?>>3PT%</option>
                     <optgroup label="Rebounds">
-                        <option value="coreb">OREB</option>
-                        <option value="cdreb">DREB</option>
-                        <option value="ctreb">REB</option>
+                        <option value="coreb" <?=(Input::get('cate')=='coreb'?'selected="selected"':'')?>>OREB</option>
+                        <option value="cdreb" <?=(Input::get('cate')=='cdreb'?'selected="selected"':'')?>>DREB</option>
+                        <option value="ctreb" <?=(Input::get('cate')=='ctreb'?'selected="selected"':'')?>>REB</option>
                     <optgroup label="Assists">                    
-                        <option value="cast">AST</option>
-                        <option value="cto">TO</option>
-                        <option value="catr">A/T</option>
+                        <option value="cast" <?=(Input::get('cate')=='cast'?'selected="selected"':'')?>>AST</option>
+                        <option value="cto" <?=(Input::get('cate')=='cto'?'selected="selected"':'')?>>TO</option>
+                        <option value="catr" <?=(Input::get('cate')=='catr'?'selected="selected"':'')?>>A/T</option>
                     <optgroup label="Misc">                    
-                        <option value="cst">ST</option>
-                        <option value="cblk">BLK</option>
-                        <option value="cpf">PF</option>
+                        <option value="cst" <?=(Input::get('cate')=='cst'?'selected="selected"':'')?>>ST</option>
+                        <option value="cblk" <?=(Input::get('cate')=='cblk'?'selected="selected"':'')?>>BLK</option>
+                        <option value="cpf" <?=(Input::get('cate')=='cpf'?'selected="selected"':'')?>>PF</option>
 				</select>
 				
 				<div class="chart_box highlight chartblock"></div>
@@ -153,8 +122,7 @@
 						<?
 							$lastupdate = DB::table('syncdataframe')
 							->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime'))
-							->where('datarange','ALL')
-							->where('fbid','LeBron-James')->first();
+							->first();
 							echo '<div> Last updated: ' .$lastupdate->updatetime. '</div>';
 						?>
 					</div>
@@ -182,6 +150,6 @@
 
 
 
-<span class="javascript" src="js/hightchart.careerStats.js"></span>
+<span class="javascript" src="<?=asset('js/hightchart.careerStats.js')?>"></span>
 
 <!--<script src="http://code.highcharts.com/modules/exporting.js"></script>-->

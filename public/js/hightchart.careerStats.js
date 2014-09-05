@@ -17,7 +17,7 @@ $(function(){
 			target.children('.muti-btn').addClass('active');
 			reflash();
 		}
-	});		
+	});
 	
 	pageobj.on('change','.items',function(){
 			if( player.length>0 )
@@ -38,11 +38,12 @@ $(function(){
 				playerInit[0] = player[0].fbid;
 			}
 				
-			url = playerInit.length>0
-				? window.location.toString().split('?')[0]+'?player='+playerInit.join('+')
-				: window.location.toString().split('?')[0];
-			window.history.pushState('', '', url);
-			
+            var location = window.location;            
+            url = playerInit.length>0
+                ? ('http://'+location.host+'/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?cate='+pageobj.find('.items').val()
+                : location.toString();
+            window.history.pushState('', '', url);
+            
 			changePlayerImg();		
 			change();
 		}
@@ -68,7 +69,7 @@ $(function(){
 	var color36 = ['rgba(0,187,255,0.4)','rgba(255,0,136,0.4)','rgba(0,255,0,0.4)','rgba(255,255,255,0.4)'];
 
 	var chart_box = pageobj.find('.chart_box');
-	var show36 = $('<div style="position:absolute;top:25px;right:240px"><input class="show36" id="show36" type="checkbox" checked="checked" /><label for="show36"> Show 36 mins  </label></div>');
+	var show36 = $('<div style="position:absolute; top:8px; right:120px; font-size:12px"><input class="show36" id="show36" type="checkbox" checked="checked" /><label for="show36">Show 36 Mins (Transparent Line)</label></div>');
 	var isShow36 = show36.children('input').is(':checked');
 	
 	show36.on('click','input',function(e){
@@ -85,19 +86,19 @@ $(function(){
 	});	
     
 	function changePlayerImg(){		
-		pageobj.find('.majorbox img.face').attr('src','player/none.jpg');
+		pageobj.find('.majorbox img.face').attr('src','http://'+window.location.host+'/player/none.jpg');
 		if( player.length>0 ){
-			pageobj.find('.majorbox .face').attr('src','player/'+player[0].fbid+'.png');
-			pageobj.find('.link-playerAbility').attr('href','playerAbility?player='+player[0].fbid);
+			pageobj.find('.majorbox .face').attr('src','http://'+window.location.host+'/player/'+player[0].fbid+'.png');
+			pageobj.find('.link-playerAbility').attr('href','http://'+window.location.host+'/playerAbility/'+player[0].fbid);
 		}
 	};
 
 	pageobj.find('.basic1,.basic2,.basic3,.stat').empty();
-	
+    
     function change(){
 
-        $.getJSON('data/getCareerStats',{player: player,items: pageobj.find('.items').val()},function(data){
-
+        $.getJSON('http://'+window.location.host+'/data/getCareerStats',{player: player,items: pageobj.find('.items').val()},function(data){
+                        
             pageobj.find('.link-playerAbility').changePlayerImg(data['card'][0]);
 
 			/*pageobj.find('.basic1').html(data.basic[0]);
@@ -184,36 +185,49 @@ $(function(){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,5,10,15,20,25,30,35],
                     min: -13.3,
-                    text: 'EFF Value'
+                    title:{
+                        text: 'Efficiency'
+                    }                    
 				});
             }else if( pageobj.find('.items').val()==='cfgp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0.3,0.4,0.5,0.6],
                     min: 0.185,
-                    text: 'Field Goal%'
+                    title:{
+                        text: 'Field Goal (%)'                        
+                    }                    
 				});
             }else if( pageobj.find('.items').val()==='cftp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0.5,0.6,0.7,0.8,0.9,1],
                     min: 0.315,
-                    text: 'Feww Throw%'
+                    title:{
+                        text: 'Feww Throw (%)'                        
+                    }
 				});
             }else if( pageobj.find('.items').val()==='c3ptp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5],
-                    min: -0.185
+                    min: -0.185,
+                    title:{
+                        text: '3-Points Throw (%)'
+                    }
 				});
             }else if( pageobj.find('.items').val()==='catr' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,1,2,3,4,5],
                     min: -1.85,
-                    text: '3-Points Throw%'
+                    title:{
+                        text: 'Assist Turnover Ratio '
+                    }                    
 				});                
 			}else{
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,data['valueMax']/4,data['valueMax']/2,3*data['valueMax']/4,data['valueMax']],
                     min: -0.38*data['valueMax'], //0.38是比例
-                    text: 'Value'
+                    title:{
+                        text: 'Value'
+                    }
 				});            
 			}
 			
@@ -222,6 +236,7 @@ $(function(){
 			chartCareerStats.options.exporting.filename='CareerStats#'+player[0].fbid;
 			
 		}).error(function(e){
+            console.log(e);
 		});
     }
 	
@@ -248,20 +263,15 @@ $(function(){
             title: {
                 text: 'Season Performance'
             },
-			subtitle: {
-                text: '(Transparent Line: 36 Mins EFF)'
-            },
+//			subtitle: {
+//                text: '(Transparent Line: 36 Mins EFF)'
+//            },
             legend: {
-                borderColor: '#fff',
-                borderWidth: 1,
-                borderRadius: 0,
-                backgroundColor: '#000',
                 //layout: 'vertical',
                 align: 'right',
                 verticalAlign: 'top',
-                floating: true,
                 x: -60,
-                y: 60
+                y: 40
             },
 			plotOptions: {
 				column: {
@@ -320,8 +330,7 @@ $(function(){
                 gridLineColor: '#888',
                 gridLineDashStyle: 'Dot',
                 gridLineWidth: 1,
-                staggerLines: 2,
-                lineWidth: 0
+                staggerLines: 2
             },
             yAxis: [{
 				id: 0,

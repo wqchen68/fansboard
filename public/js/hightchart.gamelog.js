@@ -40,10 +40,11 @@ $(function(){
                 playerInit[0] = player[0].fbid;
             }
 
+            var location = window.location;        
             url = playerInit.length>0
-                ? window.location.toString().split('?')[0]+'?player='+playerInit.join('+')
-                : window.location.toString().split('?')[0];
-            //window.history.pushState('', '', url);
+                ? ('http://'+location.host+'/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')
+                : location.toString();
+            window.history.pushState('', '', url);
 
             changePlayerImg();		
             change();
@@ -56,7 +57,7 @@ $(function(){
         pageobj.find('.majorbox img.face').attr('src','../player/none.jpg');
         if( player.length>0 ){
             pageobj.find('.majorbox .face').attr('src','../player/'+player[0].fbid+'.png');
-            pageobj.find('.link-playerAbility').attr('href','../playerAbility?player='+player[0].fbid);
+            pageobj.find('.link-playerAbility').attr('href','../playerAbility/'+player[0].fbid);
         }
     };
 	
@@ -165,6 +166,7 @@ $(function(){
 
             chart.addSeries({ 	
                 name: 'Bench',
+                showInLegend: false,
                 color: '#c0504d',//'#008866'
                 type: 'column',
                 data: data[0].min2,
@@ -208,7 +210,8 @@ $(function(){
             enabled: false
         },
         title: {
-            text: 'Game Performance'
+            text: 'Game Performance',
+            y: 20
         },        
         exporting: {
             buttons: {
@@ -238,6 +241,7 @@ $(function(){
                 enabled: true,
                 align: 'center',
                 x:100,
+                y:3
 //                height: 20,
 //                width: 24,
 //                symbolSize: 14,
@@ -248,14 +252,12 @@ $(function(){
             }
         },
         legend: {
-            borderColor: '#fff',
-            borderWidth: 1,
-            borderRadius: 0,
-            backgroundColor: 'rgba(255,255,255,0.1)',
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'top',
-            floating: true,
+            borderWidth: 1,
+            borderColor: '#FFF',
+            backgroundColor: 'rgba(255,255,255,0.1)',
             x: 0,
             y: 0
         },
@@ -263,7 +265,7 @@ $(function(){
             items: [{
                 html: 'Hot',
                 style: {
-                    left: '60px',
+                    left: '65px',
                     top: '5px',
                     color: 'rgba(255,0,0,1)',
                     fontWeight: 'bold',
@@ -271,8 +273,8 @@ $(function(){
                 },{
                 html: 'Cold',
                 style: {
-                    left: '60px',
-                    top: '350px',
+                    left: '65px',
+                    top: '345px',
                     color: 'rgba(0,187,255,1)',
                     fontWeight: 'bold',
                     fontSize: 12}
@@ -341,8 +343,7 @@ $(function(){
             gridLineWidth: 1,
             staggerLines: 1,
             max: 81,
-            min: 0, 
-            lineWidth: 0
+            min: 0
         }],
         yAxis: [{ // performance line
             id: 0,
@@ -359,7 +360,7 @@ $(function(){
                 style: { color: '#888' }
             },
             tickPositions: [0,10,20,30,40],
-            min: -13,
+            min: -12.7,
             startOnTick: false,
             gridLineColor: '#888',
             gridLineDashStyle: 'Dot',
@@ -386,7 +387,7 @@ $(function(){
                 style: { color: '#888' }
             },
             tickPositions: [0,12,24,36,48],	
-            max: 200,	
+            max: 200,
             //showLastLabel: false,
             endOnTick: false,
             gridLineColor: '#888',
@@ -394,7 +395,7 @@ $(function(){
             gridLineWidth: 1,
             plotLines: [{
                 color: '#fff',
-                width: 2,
+                width: 1,
                 value: 48
             }],
             opposite: true

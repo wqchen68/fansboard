@@ -40,10 +40,11 @@ $(function () {
 				playerInit[0] = player[0].fbid;
 			}
 				
-			url = playerInit.length>0
-				? window.location.toString().split('?')[0]+'?player='+playerInit.join('+')
-				: window.location.toString().split('?')[0];
-			window.history.pushState('', '', url);			
+            var location = window.location;        
+            url = playerInit.length>0
+                ? ('http://'+location.host+'/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')
+                : location.toString();
+            window.history.pushState('', '', url);		
 			
 			change();
 		}
@@ -80,7 +81,7 @@ $(function () {
 			datarange: pageobj.find('.player_season').val(),
 			matchMethod: pageobj.find('select.matchMethod').val()
 		};
-		$.getJSON('data/getMatch', input, function(data){			
+		$.getJSON('../data/getMatch', input, function(data){			
 			cards = data.card;
 			
 			pageobj.find('.ability-detail').children('tbody').empty();
@@ -95,17 +96,17 @@ $(function () {
 			for( var i in cards){				
 				if( i==cards.length-1 ){					
 					pageobj.find('.faceCardMajor').changePlayerImg(cards[i]);
-					pageobj.find('.link-playerAbility').attr('href','playerAbility?player='+player[0].fbid);
+					pageobj.find('.link-playerAbility').attr('href','../playerAbility/'+player[0].fbid);
 				}else{
 					$('.majorboxN').eq(i).changePlayerImg(cards[i]);
 				}
 			}
-			pageobj.find('.link-playerAbility1').attr('href','playerAbility?player='+cards[0].fbid);
-			pageobj.find('.link-playerAbility2').attr('href','playerAbility?player='+cards[1].fbid);
-			pageobj.find('.link-playerAbility3').attr('href','playerAbility?player='+cards[2].fbid);
-			pageobj.find('.link-playerAbility4').attr('href','playerAbility?player='+cards[3].fbid);
-			pageobj.find('.link-playerAbility5').attr('href','playerAbility?player='+cards[4].fbid);
-			pageobj.find('.link-playerAbility6').attr('href','playerAbility?player='+cards[5].fbid);
+			pageobj.find('.link-playerAbility1').attr('href','../playerAbility/'+cards[0].fbid);
+			pageobj.find('.link-playerAbility2').attr('href','../playerAbility/'+cards[1].fbid);
+			pageobj.find('.link-playerAbility3').attr('href','../playerAbility/'+cards[2].fbid);
+			pageobj.find('.link-playerAbility4').attr('href','../playerAbility/'+cards[3].fbid);
+			pageobj.find('.link-playerAbility5').attr('href','../playerAbility/'+cards[4].fbid);
+			pageobj.find('.link-playerAbility6').attr('href','../playerAbility/'+cards[5].fbid);
 			
 			ability = data.ability;
 			

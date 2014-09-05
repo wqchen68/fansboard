@@ -7,7 +7,7 @@
 			</div>
 		</div>
 		<div class="transparent" style="height:100%; overflow-y:scroll;border:1px solid #fff;font-size: 14px">	
-			<table class="plist playerList-combo" cellspacing="0"><?=Player::getPlayer2()->getData()->playlist?></table>
+			<table class="plist playerList-combo" cellspacing="0"><?=Player::getPlayer2()->getData()->playlist;?></table>
 		</div>
 	</div>
 
@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<div class="transparent" style="height:100%; overflow-y:scroll;border:1px solid #fff;font-size: 14px">	
-			<table class="plist playerList-combo" cellspacing="0"><?=Player::getPlayer2()->getData()->playlist?></table>
+			<table class="plist playerList-combo" cellspacing="0"><?//=Player::getPlayer2()->getData()->playlist?></table>
 		</div>
 	</div>
     

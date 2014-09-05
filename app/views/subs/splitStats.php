@@ -15,50 +15,21 @@
 							<option value="2011">2011-12 Season</option>
 						</select>
 					</div>
-					<div style="float:left;padding:0 0 10px 10px;height:35px">
-						<a  href="realtimeBox" class="link-realtimeBox" title='Real-Time Efficiency Rank Box'>
-							<?
-								$hotcold_data = Player::gethotcoldPlayer()->getData();
-								$livevalue = $hotcold_data->livemark;
-								if (count($livevalue)==1 & $livevalue[0]->livemark=='Final'){
-									echo '<div class="newsbox-icon" style="background-image:url(images/fig_3_realtimeBox2.png)"></div>';
-								}else{
-									echo '<div class="newsbox-icon" style="background-image:url(images/fig_3_realtimeBox3.png);box-shadow:0 0 50px rgba(255,0,0,0.9);padding:0"></div>';
-								}
-							?>
-						</a>
-					</div>
+
+                    <? include('include_link2realtimeBox.php'); ?>
 					
 					<div style="height:0;clear:both"></div>
 					
-					
-					
-					<div class="modelBox" mid="5"  style="height:420px;padding:0 0 10px 0;margin:0 0 24px 0"></div>
+					<div class="modelBox" mid="5" style="height:420px;padding:0 0 10px 0;margin:0 0 24px 0"></div>
 
-					<a class="link-playerAbility">
-					<div class="majorbox playercardsmall highlight">
-						<div style="float:left">
-							<img class="face" style="width:60px;height:72px;display:block" src="images/help1.png" />
-						</div>
-						<div class="playercardsmall-news">
-							<div class="cardplayer"></div>
-							<div>								
-								<div class="cardteamposi" style="float:left;padding:0 5px 0 0"></div>
-								<div class="cardinjna"></div>
-								<div style="height:0;clear:both"></div>
-							</div>
-							<div class="cardstat"></div>
-						</div>
-						<div style="height:0;clear:both"></div>
-					</div>
-					</a>
+					<? include('include_link2playerAbility.php'); ?>
 					
 				</div>
 			</div>
 
 			<div class="col-1p9 last highlight">
 				
-				<div class="chartblock">
+				<div class="chartblock" style="background-color: rgba(0,0,0,0.6)">
 					<div class="">
 						<div class="col-1p4">
 							<div id="chart_splitstats1"></div>
@@ -137,9 +108,7 @@
 						<?
 							$lastupdate = DB::table('splitdata')
 							->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime'))
-							->where('spcate','Total')
-							->where('season','2013')
-							->where('fbid','LeBron-James')->first();
+                            ->first();
 							echo '<div> Last updated: ' .$lastupdate->updatetime. '</div>';
 						?>
 					</div>
@@ -162,7 +131,7 @@
 </style>
 
 
-<span class="javascript" src="js/hightchart.splitStats.js"></span>
+<span class="javascript" src="<?=asset('js/hightchart.splitStats.js')?>"></span>
 
 
 

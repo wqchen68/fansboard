@@ -40,10 +40,11 @@ $(function(){
 				playerInit[0] = player[0].fbid;
 			}
 				
-			url = playerInit.length>0
-				? window.location.toString().split('?')[0]+'?player='+playerInit.join('+')
-				: window.location.toString().split('?')[0];
-			window.history.pushState('', '', url);
+            var location = window.location;        
+            url = playerInit.length>0
+                ? ('http://'+location.host+'/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')
+                : location.toString();
+            window.history.pushState('', '', url);
 			
 			changePlayerImg();		
 			change();
@@ -52,17 +53,17 @@ $(function(){
 	funcArray[pageIndex].reflash = reflash;	
 	
 	function changePlayerImg(){		
-		pageobj.find('.majorbox img.face').attr('src','player/none.jpg');
+		pageobj.find('.majorbox img.face').attr('src','../player/none.jpg');
 		if( player.length>0 ){
-			pageobj.find('.majorbox .face').attr('src','player/'+player[0].fbid+'.png');
-			pageobj.find('.link-playerAbility').attr('href','playerAbility?player='+player[0].fbid);
+			pageobj.find('.majorbox .face').attr('src','../player/'+player[0].fbid+'.png');
+			pageobj.find('.link-playerAbility').attr('href','../playerAbility/'+player[0].fbid);
 		}
 	};
 	
 	pageobj.find('.basic1,.basic2,.basic3,.stat').empty();
 	
 	function change() {
-		$.getJSON('data/getSplitStats',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
+		$.getJSON('../data/getSplitStats',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
 			
 			
 			pageobj.find('.link-playerAbility').changePlayerImg(data['card'][0]);
@@ -147,7 +148,7 @@ $(function(){
 			borderWidth: 0,
 			plotBorderColor: '#888',
 			plotBorderWidth: 1,
-			backgroundColor: 'rgba(0,0,0,0.6)'
+			backgroundColor: 'rgba(0,0,0,0.0)'
 		},
 		title: {
 			align: 'center'
@@ -289,6 +290,13 @@ $(function(){
             },
             title: {
                 text: 'vs 29 Teams'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -100,
+                y: 0,
             },
             xAxis: {
 				labels: {

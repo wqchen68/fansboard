@@ -29,42 +29,17 @@
 							<option value="Y-2">2011-12 Season</option>
 						</select>
 					</div>
-					<div style="float:left;padding:0 0 10px 10px;height:35px">
-						<a  href="realtimeBox" class="link-realtimeBox" title='Real-Time Efficiency Rank Box'>
-							<?
-								$hotcold_data = Player::gethotcoldPlayer()->getData();
-								$livevalue = $hotcold_data->livemark;
-								if (count($livevalue)==1 & $livevalue[0]->livemark=='Final'){
-									echo '<div class="newsbox-icon" style="background-image:url(images/fig_3_realtimeBox2.png)"></div>';
-								}else{
-									echo '<div class="newsbox-icon" style="background-image:url(images/fig_3_realtimeBox3.png);box-shadow:0 0 50px rgba(255,0,0,0.9);padding:0"></div>';
-								}
-							?>
-						</a>
-					</div>
+                    
+                    @include('subs.include_link2realtimeBox')
+                    <? // include('include_link2realtimeBox.php'); ?>
 					
 					<div style="height:0;clear:both"></div>
 					
 					
 					<div class="modelBox" mid="5" style="height:420px;padding:0 0 10px 0;margin:0 0 24px 0"></div>
 					
-					<a class="link-playerAbility faceCardMajor">
-					<div class="majorbox playercardsmall highlight">
-						<div style="float:left">
-							<img class="face" style="width:60px;height:72px;display:block" src="images/help1.png" />
-						</div>
-						<div class="playercardsmall-news">
-							<div class="cardplayer"></div>
-							<div>								
-								<div class="cardteamposi" style="float:left;padding:0 5px 0 0"></div>
-								<div class="cardinjna"></div>
-								<div style="height:0;clear:both"></div>
-							</div>
-							<div class="cardstat"></div>
-						</div>
-						<div style="height:0;clear:both"></div>
-					</div>
-					</a>
+                    @include('subs.include_link2playerAbility')
+					<? // include('include_link2playerAbility.php'); ?>
 					
 				</div>				
 			</div>
@@ -86,7 +61,7 @@
 						<div class="majorboxN">
 							<div class="majorbox playercardsmall highlight" style="box-shadow:0 0 20px rgba(255,255,255,0.9)">
 								<div style="float:left">
-									<img class="face" style="width:60px;height:72px;display:block" src="images/help1.png" />
+									<img class="face" style="width:60px;height:72px;display:block" src="<?=asset('images/help1.png')?>" />
 								</div>
 								<div class="playercardsmall-news">
 									<div style="float:left;width:83%">
@@ -109,7 +84,38 @@
 						
 						<div style="padding:5px">Relative Players</div>
 						
-						<div class="majorboxN">
+                       
+                        @for ($i = 0; $i < 5; $i++)
+                            <div class="majorboxN">
+                                <div class="majorbox playercardsmall highlight">
+                                    <div style="float:left">
+                                        <img class="face" style="width:60px;height:72px;display:block" src="../images/help1.png" />
+                                    </div>
+                                    <div class="playercardsmall-news">
+                                        <div style="float:left;width:83%">
+                                            <div class="cardplayer"></div>
+                                            <div>										
+                                                <div class="cardteamposi" style="float:left;padding:0 5px 0 0"></div>
+                                                <div class="cardinjna"></div>									
+                                                <div style="height:0;clear:both"></div>
+                                            </div>
+                                        </div>
+                                        <a class="link-playerAbility{{ $i }}" title='Player Ability (Radar Chart)'>
+                                            <div class="newsbox-icon" style="float:left;width:33px;height:35px;padding:0;background-size:33px 35px;background-image:url(../images/fig_1_playerAbility2.png)"></div>
+                                        </a>
+                                        <div style="height:0;clear:both"></div>
+                                        <div class="cardstat"></div>
+                                    </div>
+                                    <div style="height:0;clear:both"></div>
+                                </div>
+                            </div>
+                         @endfor
+                                        
+                        
+                        
+                        
+                        
+<!--                        <div class="majorboxN">
 							<div class="majorbox playercardsmall highlight">
 								<div style="float:left">
 									<img class="face" style="width:60px;height:72px;display:block" src="images/help1.png" />
@@ -227,7 +233,7 @@
 								</div>
 								<div style="height:0;clear:both"></div>
 							</div>
-						</div>
+						</div>-->
 						
 					</div>						
 				</div>
@@ -289,8 +295,7 @@
 						<?
 							$lastupdate = DB::table('syncdataframe')
 							->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime'))
-							->where('datarange','ALL')
-							->where('fbid','LeBron-James')->first();
+                            ->first();
 							echo '<div> Last updated: ' .$lastupdate->updatetime. '</div>';
 						?>
 					</div>
@@ -314,4 +319,4 @@ div.majorboxN{
 
 </style>
 
-<span class="javascript" src="js/hightchart.matchPlayer.js"></span>
+<span class="javascript" src="<?=asset('js/hightchart.matchPlayer.js')?>"></span>

@@ -9,7 +9,7 @@
 
                         <div style="float:left;margin:0 5px 0 0;font-size: 25px;color:gold;font-weight:bold;font-style:italic">PLAYOFFS</div>
 
-                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(0,0,0,0.3)">
+<!--                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(0,0,0,0.3)">
 
                             <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
@@ -53,10 +53,10 @@
                             </div>
 
                             <div style="height:0;clear:both"></div>
-                        </div>
+                        </div>-->
 
 
-                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(0,0,0,0.3)">
+<!--                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(0,0,0,0.3)">
 
                             <div style="float:left;font-size:12px;background-color:rgba(255,255,255,0.2);border-radius:3px;margin:3px;text-align:center">
                                 <div style="padding:5px">
@@ -100,14 +100,14 @@
                             </div>
 
                             <div style="height:0;clear:both"></div>
-                        </div>
+                        </div>-->
 
                     </div>
                     <div style="height:0;clear:both"></div>
 		</div>      
 
             
-                <div class="onerow">
+<!--                <div class="onerow">
                     <div style="background-color:rgba(0,0,0,0);padding:0 0 0 30px">
 
                         <div style="float:left;margin:0 5px 0 160px;padding: 2px;background-color:rgba(0,0,0,0.3)">
@@ -174,10 +174,10 @@
 
                     </div>
                     <div style="height:0;clear:both"></div>
-		</div>           
+		</div>           -->
             
    
-                <div class="onerow">
+<!--                <div class="onerow">
                     <div style="background-color:rgba(0,0,0,0);padding:0 0 0 160px">
 
                         <div style="float:left;margin:0 5px 0 150px;padding: 2px;background-color:rgba(0,0,0,0.3)">
@@ -230,7 +230,7 @@
 
                     </div>
                     <div style="height:0;clear:both"></div>
-		</div>         
+		</div>         -->
             
            
             

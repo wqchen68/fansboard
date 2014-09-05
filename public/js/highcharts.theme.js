@@ -35,6 +35,7 @@ Highcharts.theme = {
    },
    xAxis: {
       gridLineWidth: 1,
+      linwidth: 1,
 	  //gridLineDashStyle: 'longdash',
       lineColor: '#999',
       tickColor: '#999',
@@ -80,7 +81,10 @@ Highcharts.theme = {
       },
       itemHiddenStyle: {
          color: '#333'
-      }
+      },
+      floating: true,
+      borderWidth: 0,
+      backgroundColor: 'rgba(0,0,0,0)',
    },
    labels: {
       style: {

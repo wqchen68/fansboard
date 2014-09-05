@@ -65,12 +65,8 @@ function creatRadarChart(){
                 layout: 'vertical',
                 align: 'right',
                 verticalAlign: 'bottom',
-                x: 0,
-                y: 0,
-                floating: true,
-                borderWidth: 1,
-                backgroundColor: '#000',
-                shadow: false
+                x: -10,
+                y: -20,
         },
 		
 		credits: {

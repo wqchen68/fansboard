@@ -9,31 +9,21 @@
 
 					<div style="float:left;padding:0 0 10px 0">
 						<select class="selectForm player_season" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.0)">
-							<option value="ALL" selected="selected">2013-14 Season</option>
-							<option value="D30">Last 4 weeks</option>
-							<option value="D14">Last 2 weeks</option>
-							<option value="D07">Lest 1 week</option>
-							<option value="Y-1">2012-13 Season</option>
-							<option value="Y-2">2011-12 Season</option>
+							<option value="ALL" selected="selected" <?=(Input::get('data')=='ALL'?'selected="selected"':'')?>>2013-14 Season</option>
+							<option value="D30" <?=(Input::get('data')=='D30'?'selected="selected"':'')?>>Last 4 weeks</option>
+							<option value="D14" <?=(Input::get('data')=='D14'?'selected="selected"':'')?>>Last 2 weeks</option>
+							<option value="D07" <?=(Input::get('data')=='D07'?'selected="selected"':'')?>>Lest 1 week</option>
+							<option value="Y-1" <?=(Input::get('data')=='Y-1'?'selected="selected"':'')?>>2012-13 Season</option>
+							<option value="Y-2" <?=(Input::get('data')=='Y-2'?'selected="selected"':'')?>>2011-12 Season</option>
 						</select>
 					</div>
-					<div style="float:left;padding:0 0 10px 10px;height:35px">
-						<a  href="realtimeBox" class="link-realtimeBox" title='Real-Time Efficiency Rank Box'>
-							<?
-								$hotcold_data = Player::gethotcoldPlayer()->getData();
-								$livevalue = $hotcold_data->livemark;
-								if (count($livevalue)==1 & $livevalue[0]->livemark=='Final'){
-									echo '<div class="newsbox-icon" style="background-image:url(../images/fig_3_realtimeBox2.png)"></div>';
-								}else{
-									echo '<div class="newsbox-icon" style="background-image:url(../images/fig_3_realtimeBox3.png);box-shadow:0 0 50px rgba(255,0,0,0.9);padding:0"></div>';
-								}
-							?>
-						</a>
-					</div>
+                    
+                    <? include('include_link2realtimeBox.php'); ?>
+                    
 					<div style="height:0;clear:both"></div>
 
 					<div class="modelBox" mid="5" style="height:513px"></div>
-
+                    
 				</div>
 			</div>
 							
@@ -49,7 +39,7 @@
 					<div style="padding:10px 10px 10px 0">
 
 						<div style="text-align:left;padding:0 0 10px 0">
-							<img style="width:16px;line-height:16px;float:left" src="../images/medal_gold_1.png" /><span style="font-size: 12px">Custom Rank (Default public 9 cates)</span>
+                            <img style="width:16px;line-height:16px;float:left" src="<?=asset('images/medal_gold_1.png')?>" /><span style="font-size: 12px">Custom Rank (Default public 9 cates)</span>
 
 							<div class="samewidth">
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwfgm" id="zwfgm" /><label for="zwfgm">FGM</label></div>
@@ -83,7 +73,7 @@
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwtech" id="zwtech" /><label for="zwtech">-TECH</label></div>
 								<div style="text-align:right;float:right;width:180px;padding:10px 0 0 0">
 									<img style="width:16px;line-height:16px;float:right" src="<?=asset('images/medal_gold_1.png')?>" />
-									<div style="font-size: 12px;line-height:16px;float:right"><a href="dataScatter" style="color:#fff">Who is Rank 1 ?</a></div>
+									<div style="font-size: 12px;line-height:16px;float:right"><a href="<?=asset('dataScatter')?>" style="color:#fff">Who is Rank 1 ?</a></div>
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -95,10 +85,10 @@
 							<div style="width:25%;float:left">
 								<div style="background-color:rgba(0,0,0,0.8);width:60px">
 									<div style="height:20px">
-										<img style="width:16px;line-height:16px;float:left" src="../images/medal_gold_1.png" />
+										<img style="width:16px;line-height:16px;float:left" src="<?=asset('images/medal_gold_1.png')?>" />
 										<div class="rank1" style="font-size:12px;margin:0 0 0 5px;line-height:20px;float:left;text-align:center"></div>
 									</div>
-									<div class="face player0" style="width:60px;height:72px;background:url(../images/help1.png) no-repeat center"></div>																		
+									<div class="face player0" style="width:60px;height:72px;background:url(<?=asset('images/help1.png')?>) no-repeat center"></div>																		
 									<div style="height:0;clear:both"></div>
 								</div>
 								<div class="basic00" style="font-size:12px;text-align:left;margin:10px 0 0 0"></div>
@@ -111,16 +101,16 @@
 								<div class="newsbox player1"></div>
 								<div style="width:100%;height:35px">
 									<a class="link-gameLog1" title='Game Logs'>
-										<div class="newsbox-icon" style="background-image:url(../images/fig_6_gameLog2.png)"></div>
+										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_6_gameLog2.png')?>)"></div>
 									</a>
 									<a class="link-splitStats1" title='Spilit Data'>
-										<div class="newsbox-icon" style="background-image:url(../images/fig_8_splitStat2.png)"></div>
+										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_8_splitStat2.png')?>)"></div>
 									</a>
 									<a class="link-careerStats1" title='Career Stats'>
-										<div class="newsbox-icon" style="background-image:url(../images/fig_7_careerStat2.png)"></div>
+										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_7_careerStat2.png')?>)"></div>
 									</a>
 									<a class="link-matchPlayer1" title='Similar Player'>
-										<div class="newsbox-icon" style="padding:0;background-image:url(../images/fig_5_similarPlayer2.png)"></div>
+										<div class="newsbox-icon" style="padding:0;background-image:url(<?=asset('images/fig_5_similarPlayer2.png')?>)"></div>
 									</a>
 								</div>
 							</div>
@@ -133,10 +123,10 @@
 							<div style="width:25%;float:left">
 								<div style="background-color:rgba(0,0,0,0.8);width:60px">
 									<div style="height:20px">
-										<img style="width:16px;line-height:16px;float:left" src="../images/medal_gold_1.png" />
+										<img style="width:16px;line-height:16px;float:left" src="<?=asset('images/medal_gold_1.png')?>" />
 										<div class="rank2" style="font-size: 12px;margin:0 0 0 5px;line-height:20px;float:left;text-align:center"></div>
 									</div>
-									<div class="face player1" style="width:60px;height:72px;background:url(../images/help1.png) no-repeat center"></div>									
+									<div class="face player1" style="width:60px;height:72px;background:url(<?=asset('images/help1.png')?>) no-repeat center"></div>									
 									<div style="height:0;clear:both"></div>
 								</div>
 								<div class="basic10" style="font-size:12px;text-align:left;margin:10px 0 0 0"></div>
@@ -149,7 +139,7 @@
 								<div class="newsbox player2"></div>
 								<div style="width:100%;height:35px">
 									<a class="link-gameLog2" title='Game Logs'>
-										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_6_gameLog2.png')?>"></div>
+										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_6_gameLog2.png')?>)"></div>
 									</a>
 									<a class="link-splitStats2" title='Spilit Data'>
 										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_8_splitStat2.png')?>)"></div>
@@ -166,9 +156,9 @@
 							<div style="height:0;clear:both"></div>
 
 						</div>
-						<div style="padding:10px 0 0 0">
+                        <!--<div style="padding:10px 0 0 0">
 							<img style="width:24px;float:right" src="<?=asset('images/question.png')?>" />
-						</div>
+						</div>-->
 						
 					</div>
 					
@@ -228,8 +218,7 @@
 						<?
 							$lastupdate = DB::table('syncdataframe')
 							->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime'))
-							->where('datarange','ALL')
-							->where('fbid','LeBron-James')->first();
+							->first();
 							echo '<div> Last updated: ' .$lastupdate->updatetime. '</div>';
 						?>
 					</div>

@@ -75,7 +75,7 @@ Route::get('/{pagename}', function($pagename){
     return Redirect::to($pagename . '/' . implode(',', $player));
 });
 
-Route::get('/{pagename}/{players}', function($pagename = null, $players = null){
+Route::get('/{pagename}/{players}/{cate?}', function($pagename = null, $players = null, $cate = null){
 	if (empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
 		$myip = $_SERVER['REMOTE_ADDR'];  
 	} else {  

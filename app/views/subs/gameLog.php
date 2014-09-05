@@ -15,40 +15,14 @@
 							<option value="2011">2011-12 Season</option>
 						</select>
 					</div>
-					<div style="float:left;padding:0 0 10px 10px;height:35px">
-						<a  href="realtimeBox" class="link-realtimeBox" title='Real-Time Efficiency Rank Box'>							
-							<?
-								$hotcold_data = Player::gethotcoldPlayer()->getData();
-								$livevalue = $hotcold_data->livemark;
-								if (count($livevalue)==1 & $livevalue[0]->livemark=='Final'){
-									echo '<div class="newsbox-icon" style="background-image:url('.asset('images/fig_3_realtimeBox2.png').'"></div>';
-								}else{
-									echo '<div class="newsbox-icon" style="background-image:url('.asset('images/fig_3_realtimeBox3.png').');box-shadow:0 0 50px rgba(255,0,0,0.9);padding:0"></div>';
-								}
-							?>							
-						</a>
-					</div>
+
+                    <? include('include_link2realtimeBox.php'); ?>
 					
 					<div style="height:0;clear:both"></div>
 					
 					<div class="modelBox" mid="5" style="height:420px;padding:0 0 10px 0;margin:0 0 24px 0"></div>
 
-					<a class="link-playerAbility">
-					<div class="majorbox playercardsmall highlight">
-						<div style="float:left">
-							<img class="face" style="width:60px;height:72px;display:block" src="<?=asset('images/help1.png')?>" />
-						</div>
-						<div class="playercardsmall-news">
-							<div>
-								<div class="cardplayer"></div>
-								<div class="cardteamposi" style="float:left;padding:0 5px 0 0"></div><div class="cardinjna"></div>
-								<div style="height:0;clear:both"></div>
-							</div>
-							<div class="cardstat"></div>
-						</div>
-						<div style="height:0;clear:both"></div>
-					</div>
-					</a>
+					<? include('include_link2playerAbility.php'); ?>
 					
 				</div>
 			</div>

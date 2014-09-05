@@ -1,7 +1,7 @@
 $(function () {
 	
     var player = []
-    var changing_index = 0;	
+    var changing_index = 0;
 	
     pageobj.bind('startjs',function(){
             pageobj.trigger('init');
@@ -19,8 +19,8 @@ $(function () {
             reflash();
         }
     });
-	
-    $('input[name=cate]').click(function(){		
+    
+    $('input[name=cate]').click(function(){
         if( player.length>0 )
             getRank();
     });
@@ -29,8 +29,9 @@ $(function () {
         pageobj.find('.playerList-combo tr').remove();
         $('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
             if( player.length>0 )
-                change();
-        });		
+//                change();
+                reflash();
+        });
     });
 
     var reflash = function(){
@@ -38,18 +39,23 @@ $(function () {
         playerInit = $.map(player,function(value, index){
             return value.fbid;
         });
-        //url = playerInit.length>0
-        //    ? window.location.toString().split('?')[0]+'?player='+playerInit.join('+')
-        //    : window.location.toString().split('?')[0];
-        //window.history.pushState('', '', url);			
-        if( player.length>0 ){	
+
+        var location = window.location;
+        url = playerInit.length>0
+            ? ('http://'+location.host+'/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?data='+pageobj.find('.player_season').val()
+            : location.toString();
+        window.history.pushState('', '', url);
+        
+//        alert(pageobj.find('.player_season').val());
+        
+        if( player.length>0 ){
             change();
             changePlayerImg();
         }else{
             pageobj.find('.ability-detail').children('tbody').empty();
-            pageobj.find('.face').css('background-image','url(images/help1.png)');
+            pageobj.find('.face').css('background-image','url(http://'+ window.location.host + '/images/help1.png)');
             pageobj.find('.rank1,.rank2,.basic11,.newsbox').empty();
-            var series_size = radarChart.series.length;	
+            var series_size = radarChart.series.length;
             if( series_size>0 )
             for( i=0;i<series_size;i++ ){
                 if( radarChart.series[0] )
@@ -57,9 +63,10 @@ $(function () {
             }
             radarChart.colorCounter = 0;
         }
-    };	
-    funcArray[pageIndex].reflash = reflash;	
-	
+    };
+    funcArray[pageIndex].reflash = reflash;   
+    
+    
     function change(){
 			
         getRank();
@@ -78,7 +85,7 @@ $(function () {
         pageobj.find('.ability-detail').children('tbody').empty();
         pageobj.find('.basic00,.basic01,.basic02,.basic10,.basic11,.basic12').empty();
 
-        $.getJSON('../data/getAbility',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
+        $.getJSON('http://'+window.location.host+'/data/getAbility',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
 
             reFlashNews();
 
@@ -121,9 +128,7 @@ $(function () {
                 pageobj.find('.basic12').html(data.basic[1][2]);
                 
                 radarChart.options.exporting.filename='RadarChart#'+player[0].fbid+'&'+player[1].fbid;
-            }
-        
-            
+            }            
         
         }).error(function(e){
         });
@@ -138,39 +143,39 @@ $(function () {
             return $(a).val(); 
         });	
 
-        $.getJSON('../data/getRank',{get_array:get_array,player:player,datarange:$('.player_season').val()},function(data){
+        $.getJSON('http://'+window.location.host+'/data/getRank',{get_array:get_array,player:player,datarange:$('.player_season').val()},function(data){
             pageobj.find('.rank1').html(data[0]);
             if(data.length>1)
-                pageobj.find('.rank2').html(data[1]);			
+                pageobj.find('.rank2').html(data[1]);
         }).error(function(e){
         });
     }
 	
     function changePlayerImg(){		
-        pageobj.find('img.face').css('background-image','url(images/help1.png)');
+        pageobj.find('img.face').css('background-image','url(../images/help1.png)');
         if( player.length>0 ){
             pageobj.find('.face.player0').css({'background-image':'url(../player/'+player[0].fbid+'.png)','background-size': '60px 72px'});
-            pageobj.find('.link-gameLog1').attr('href','gameLog?player='+player[0].fbid);
-            pageobj.find('.link-splitStats1').attr('href','splitStats?player='+player[0].fbid);
-            pageobj.find('.link-careerStats1').attr('href','careerStats?player='+player[0].fbid);
-            pageobj.find('.link-matchPlayer1').attr('href','matchPlayer?player='+player[0].fbid);
+            pageobj.find('.link-gameLog1').attr('href','../gameLog/'+player[0].fbid);
+            pageobj.find('.link-splitStats1').attr('href','../splitStats/'+player[0].fbid);
+            pageobj.find('.link-careerStats1').attr('href','../careerStats/'+player[0].fbid);
+            pageobj.find('.link-matchPlayer1').attr('href','../matchPlayer/'+player[0].fbid);
             if( player.length>1 ){
                 pageobj.find('.face.player1').css({'background-image':'url(../player/'+player[1].fbid+'.png)','background-size': '60px 72px'});
-                pageobj.find('.link-gameLog1').attr('href','gameLog?player='+player[0].fbid);
-                pageobj.find('.link-gameLog2').attr('href','gameLog?player='+player[1].fbid);
-                pageobj.find('.link-splitStats1').attr('href','splitStats?player='+player[0].fbid);
-                pageobj.find('.link-splitStats2').attr('href','splitStats?player='+player[1].fbid);
-                pageobj.find('.link-careerStats1').attr('href','careerStats?player='+player[0].fbid);
-                pageobj.find('.link-careerStats2').attr('href','careerStats?player='+player[1].fbid);
-                pageobj.find('.link-matchPlayer1').attr('href','matchPlayer?player='+player[0].fbid);
-                pageobj.find('.link-matchPlayer2').attr('href','matchPlayer?player='+player[1].fbid);
+                pageobj.find('.link-gameLog1').attr('href','../gameLog/'+player[0].fbid);
+                pageobj.find('.link-gameLog2').attr('href','../gameLog/'+player[1].fbid);
+                pageobj.find('.link-splitStats1').attr('href','../splitStats/'+player[0].fbid);
+                pageobj.find('.link-splitStats2').attr('href','../splitStats/'+player[1].fbid);
+                pageobj.find('.link-careerStats1').attr('href','../careerStats/'+player[0].fbid);
+                pageobj.find('.link-careerStats2').attr('href','../careerStats/'+player[1].fbid);
+                pageobj.find('.link-matchPlayer1').attr('href','../matchPlayer/'+player[0].fbid);
+                pageobj.find('.link-matchPlayer2').attr('href','../matchPlayer/'+player[1].fbid);
                 pageobj.find('#player2').css("visibility", "visible");
             }else{
                 pageobj.find('#player2').css("visibility", "hidden");
-                pageobj.find('.link-gameLog1').attr('href','gameLog?player='+player[0].fbid);
-                pageobj.find('.link-splitStats1').attr('href','splitStats?player='+player[0].fbid);
-                pageobj.find('.link-careerStats1').attr('href','careerStats?player='+player[0].fbid);
-                pageobj.find('.link-matchPlayer1').attr('href','matchPlayer?player='+player[0].fbid);
+                pageobj.find('.link-gameLog1').attr('href','../gameLog/'+player[0].fbid);
+                pageobj.find('.link-splitStats1').attr('href','../splitStats/'+player[0].fbid);
+                pageobj.find('.link-careerStats1').attr('href','../careerStats/'+player[0].fbid);
+                pageobj.find('.link-matchPlayer1').attr('href','../matchPlayer/'+player[0].fbid);
             }
         }
     };
