@@ -4,7 +4,7 @@
 
 				<div class="onerow">
 					<div class="col-1p3">
-						<a class="" href="./" style="width:241px;height:48px;display:inline-block;float:left;color:#fff;background:url(<?=asset('images/home-logo.png')?>;background-repeat:no-repeat;background-size: 241px 48px;background-position:center"></a>
+						<a class="" href="/" style="width:241px;height:48px;display:inline-block;float:left;color:#fff;background:url('/images/home-logo.png');background-repeat:no-repeat;background-size: 241px 48px;background-position:center"></a>
 					</div>
 					<div class="col-1p9 last" style="height:48px;line-height:48px;background-color:#000;margin-bottom:0;padding:0">
 						

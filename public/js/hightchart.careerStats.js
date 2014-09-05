@@ -40,7 +40,7 @@ $(function(){
 				
             var location = window.location;            
             url = playerInit.length>0
-                ? ('http://'+location.host+'/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?cate='+pageobj.find('.items').val()
+                ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?cate='+pageobj.find('.items').val()
                 : location.toString();
             window.history.pushState('', '', url);
             
@@ -86,10 +86,10 @@ $(function(){
 	});	
     
 	function changePlayerImg(){		
-		pageobj.find('.majorbox img.face').attr('src','http://'+window.location.host+'/player/none.jpg');
+		pageobj.find('.majorbox img.face').attr('src','/player/none.jpg');
 		if( player.length>0 ){
-			pageobj.find('.majorbox .face').attr('src','http://'+window.location.host+'/player/'+player[0].fbid+'.png');
-			pageobj.find('.link-playerAbility').attr('href','http://'+window.location.host+'/playerAbility/'+player[0].fbid);
+			pageobj.find('.majorbox .face').attr('src','/player/'+player[0].fbid+'.png');
+			pageobj.find('.link-playerAbility').attr('href','/playerAbility/'+player[0].fbid);
 		}
 	};
 
@@ -97,7 +97,7 @@ $(function(){
     
     function change(){
 
-        $.getJSON('http://'+window.location.host+'/data/getCareerStats',{player: player,items: pageobj.find('.items').val()},function(data){
+        $.getJSON('/data/getCareerStats',{player: player,items: pageobj.find('.items').val()},function(data){
                         
             pageobj.find('.link-playerAbility').changePlayerImg(data['card'][0]);
 

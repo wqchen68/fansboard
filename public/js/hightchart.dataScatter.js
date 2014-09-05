@@ -242,7 +242,7 @@ $(function () {
 			
 		};
 		if( input.category_x.length>0 && input.category_y.length>0 )
-			$.post('data/getScatter',input,function(data){
+			$.post('/data/getScatter',input,function(data){
 				$('.rankList').find('tr').remove();
 				fbid_to_index = data.bv_fbid;
 				for( var i in data.bv_a ){		

@@ -61,7 +61,7 @@
 						<div class="majorboxN">
 							<div class="majorbox playercardsmall highlight" style="box-shadow:0 0 20px rgba(255,255,255,0.9)">
 								<div style="float:left">
-									<img class="face" style="width:60px;height:72px;display:block" src="<?=asset('images/help1.png')?>" />
+									<img class="face" style="width:60px;height:72px;display:block" src="/images/help1.png" />
 								</div>
 								<div class="playercardsmall-news">
 									<div style="float:left;width:83%">
@@ -73,7 +73,7 @@
 										</div>
 									</div>
 									<a class="link-playerAbility1" title='Player Ability (Radar Chart)'>
-										<div class="newsbox-icon" style="float:left;width:33px;height:35px;padding:0;background-size:33px 35px;background-image:url(images/fig_1_playerAbility2.png)"></div>
+										<div class="newsbox-icon" style="float:left;width:33px;height:35px;padding:0;background-size:33px 35px;background-image:url(/images/fig_1_playerAbility2.png)"></div>
 									</a>
 									<div style="height:0;clear:both"></div>
 									<div class="cardstat"></div>
@@ -89,7 +89,7 @@
                             <div class="majorboxN">
                                 <div class="majorbox playercardsmall highlight">
                                     <div style="float:left">
-                                        <img class="face" style="width:60px;height:72px;display:block" src="../images/help1.png" />
+                                        <img class="face" style="width:60px;height:72px;display:block" src="/images/help1.png" />
                                     </div>
                                     <div class="playercardsmall-news">
                                         <div style="float:left;width:83%">
@@ -101,7 +101,7 @@
                                             </div>
                                         </div>
                                         <a class="link-playerAbility{{ $i }}" title='Player Ability (Radar Chart)'>
-                                            <div class="newsbox-icon" style="float:left;width:33px;height:35px;padding:0;background-size:33px 35px;background-image:url(../images/fig_1_playerAbility2.png)"></div>
+                                            <div class="newsbox-icon" style="float:left;width:33px;height:35px;padding:0;background-size:33px 35px;background-image:url(/images/fig_1_playerAbility2.png)"></div>
                                         </a>
                                         <div style="height:0;clear:both"></div>
                                         <div class="cardstat"></div>
@@ -319,4 +319,4 @@ div.majorboxN{
 
 </style>
 
-<span class="javascript" src="<?=asset('js/hightchart.matchPlayer.js')?>"></span>
+<span class="javascript" src="/js/hightchart.matchPlayer.js"></span>

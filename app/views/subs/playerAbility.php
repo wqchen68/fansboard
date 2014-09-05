@@ -39,7 +39,7 @@
 					<div style="padding:10px 10px 10px 0">
 
 						<div style="text-align:left;padding:0 0 10px 0">
-                            <img style="width:16px;line-height:16px;float:left" src="<?=asset('images/medal_gold_1.png')?>" /><span style="font-size: 12px">Custom Rank (Default public 9 cates)</span>
+                            <img style="width:16px;line-height:16px;float:left" src="/images/medal_gold_1.png" /><span style="font-size: 12px">Custom Rank (Default public 9 cates)</span>
 
 							<div class="samewidth">
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwfgm" id="zwfgm" /><label for="zwfgm">FGM</label></div>
@@ -72,8 +72,8 @@
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwpts" id="zwpts" checked="checked" /><label for="zwpts">PTS</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwtech" id="zwtech" /><label for="zwtech">-TECH</label></div>
 								<div style="text-align:right;float:right;width:180px;padding:10px 0 0 0">
-									<img style="width:16px;line-height:16px;float:right" src="<?=asset('images/medal_gold_1.png')?>" />
-									<div style="font-size: 12px;line-height:16px;float:right"><a href="<?=asset('dataScatter')?>" style="color:#fff">Who is Rank 1 ?</a></div>
+									<img style="width:16px;line-height:16px;float:right" src="/images/medal_gold_1.png" />
+									<div style="font-size: 12px;line-height:16px;float:right"><a href="/dataScatter" style="color:#fff">Who is Rank 1 ?</a></div>
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -85,10 +85,10 @@
 							<div style="width:25%;float:left">
 								<div style="background-color:rgba(0,0,0,0.8);width:60px">
 									<div style="height:20px">
-										<img style="width:16px;line-height:16px;float:left" src="<?=asset('images/medal_gold_1.png')?>" />
+										<img style="width:16px;line-height:16px;float:left" src="/images/medal_gold_1.png" />
 										<div class="rank1" style="font-size:12px;margin:0 0 0 5px;line-height:20px;float:left;text-align:center"></div>
 									</div>
-									<div class="face player0" style="width:60px;height:72px;background:url(<?=asset('images/help1.png')?>) no-repeat center"></div>																		
+									<div class="face player0" style="width:60px;height:72px;background:url(/images/help1.png) no-repeat center"></div>																		
 									<div style="height:0;clear:both"></div>
 								</div>
 								<div class="basic00" style="font-size:12px;text-align:left;margin:10px 0 0 0"></div>
@@ -101,16 +101,16 @@
 								<div class="newsbox player1"></div>
 								<div style="width:100%;height:35px">
 									<a class="link-gameLog1" title='Game Logs'>
-										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_6_gameLog2.png')?>)"></div>
+										<div class="newsbox-icon" style="background-image:url(/images/fig_6_gameLog2.png)"></div>
 									</a>
 									<a class="link-splitStats1" title='Spilit Data'>
-										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_8_splitStat2.png')?>)"></div>
+										<div class="newsbox-icon" style="background-image:url(/images/fig_8_splitStat2.png)"></div>
 									</a>
 									<a class="link-careerStats1" title='Career Stats'>
-										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_7_careerStat2.png')?>)"></div>
+										<div class="newsbox-icon" style="background-image:url(/images/fig_7_careerStat2.png)"></div>
 									</a>
 									<a class="link-matchPlayer1" title='Similar Player'>
-										<div class="newsbox-icon" style="padding:0;background-image:url(<?=asset('images/fig_5_similarPlayer2.png')?>)"></div>
+										<div class="newsbox-icon" style="padding:0;background-image:url(/images/fig_5_similarPlayer2.png)"></div>
 									</a>
 								</div>
 							</div>
@@ -123,10 +123,10 @@
 							<div style="width:25%;float:left">
 								<div style="background-color:rgba(0,0,0,0.8);width:60px">
 									<div style="height:20px">
-										<img style="width:16px;line-height:16px;float:left" src="<?=asset('images/medal_gold_1.png')?>" />
+										<img style="width:16px;line-height:16px;float:left" src="/images/medal_gold_1.png" />
 										<div class="rank2" style="font-size: 12px;margin:0 0 0 5px;line-height:20px;float:left;text-align:center"></div>
 									</div>
-									<div class="face player1" style="width:60px;height:72px;background:url(<?=asset('images/help1.png')?>) no-repeat center"></div>									
+									<div class="face player1" style="width:60px;height:72px;background:url(/images/help1.png) no-repeat center"></div>									
 									<div style="height:0;clear:both"></div>
 								</div>
 								<div class="basic10" style="font-size:12px;text-align:left;margin:10px 0 0 0"></div>
@@ -139,16 +139,16 @@
 								<div class="newsbox player2"></div>
 								<div style="width:100%;height:35px">
 									<a class="link-gameLog2" title='Game Logs'>
-										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_6_gameLog2.png')?>)"></div>
+										<div class="newsbox-icon" style="background-image:url(/images/fig_6_gameLog2.png)"></div>
 									</a>
 									<a class="link-splitStats2" title='Spilit Data'>
-										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_8_splitStat2.png')?>)"></div>
+										<div class="newsbox-icon" style="background-image:url(/images/fig_8_splitStat2.png)"></div>
 									</a>
 									<a class="link-careerStats2" title='Career Stats'>
-										<div class="newsbox-icon" style="background-image:url(<?=asset('images/fig_7_careerStat2.png')?>)"></div>
+										<div class="newsbox-icon" style="background-image:url(/images/fig_7_careerStat2.png)"></div>
 									</a>
 									<a class="link-matchPlayer2" title='Similar Player'>
-										<div class="newsbox-icon" style="padding:0;background-image:url(<?=asset('images/fig_5_similarPlayer2.png')?>)"></div>
+										<div class="newsbox-icon" style="padding:0;background-image:url(/images/fig_5_similarPlayer2.png)"></div>
 									</a>
 								</div>
 								
@@ -157,7 +157,7 @@
 
 						</div>
                         <!--<div style="padding:10px 0 0 0">
-							<img style="width:24px;float:right" src="<?=asset('images/question.png')?>" />
+							<img style="width:24px;float:right" src="/images/question.png" />
 						</div>-->
 						
 					</div>
@@ -393,6 +393,7 @@ div.samewidth{
 
 </style>
 
-<span class="javascript" src="<?=asset('js/hightchart.playerAbility.js')?>"></span>
+<span class="javascript" src="/js/hightchart.playerAbility.js"></span>
+<span class="javascript-other" src="'/js/hightchart.creatRadarChart.js"></span>
 
 <!--<script src="http://code.highcharts.com/modules/exporting.js"></script>-->

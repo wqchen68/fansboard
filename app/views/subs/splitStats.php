@@ -131,7 +131,7 @@
 </style>
 
 
-<span class="javascript" src="<?=asset('js/hightchart.splitStats.js')?>"></span>
+<span class="javascript" src="/js/hightchart.splitStats.js"></span>
 
 
 

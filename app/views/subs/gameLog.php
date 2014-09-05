@@ -184,5 +184,5 @@ div.exfig{
 
 </style>
 
-<span class="javascript" src="<?=asset('js/hightchart.gamelog.js')?>"></span>
+<span class="javascript" src="/js/hightchart.gamelog.js"></span>
 

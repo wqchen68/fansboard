@@ -27,30 +27,37 @@
                         <option value="ceff" <?=(Input::get('cate')=='ceff'?'selected="selected"':'')?>>EFF</option>
                         <option value="cmin" <?=(Input::get('cate')=='cmin'?'selected="selected"':'')?>>MIN</option>
                         <option value="cpts" <?=(Input::get('cate')=='cpts'?'selected="selected"':'')?>>PTS</option>
+                     </optgroup>
                     <optgroup label="Field Goal">
                         <option value="cfgm" <?=(Input::get('cate')=='cfgm'?'selected="selected"':'')?>>FGM</option>
                         <option value="cfga" <?=(Input::get('cate')=='cfga'?'selected="selected"':'')?>>FGA</option>
                         <option value="cfgp" <?=(Input::get('cate')=='cfgp'?'selected="selected"':'')?>>FG%</option>
+                     </optgroup>
                     <optgroup label="Free Throw">                        
                         <option value="cftm" <?=(Input::get('cate')=='cftm'?'selected="selected"':'')?>>FTM</option>
                         <option value="cfta" <?=(Input::get('cate')=='cfta'?'selected="selected"':'')?>>FTA</option>
                         <option value="cftp" <?=(Input::get('cate')=='cftp'?'selected="selected"':'')?>>FT%</option>
+                    </optgroup>
                     <optgroup label="3 points">
                         <option value="c3ptm" <?=(Input::get('cate')=='c3ptm'?'selected="selected"':'')?>>3PTM</option>
                         <option value="c3pta" <?=(Input::get('cate')=='c3pta'?'selected="selected"':'')?>>3PTA</option>
                         <option value="c3ptp" <?=(Input::get('cate')=='c3ptp'?'selected="selected"':'')?>>3PT%</option>
+                    </optgroup>
                     <optgroup label="Rebounds">
                         <option value="coreb" <?=(Input::get('cate')=='coreb'?'selected="selected"':'')?>>OREB</option>
                         <option value="cdreb" <?=(Input::get('cate')=='cdreb'?'selected="selected"':'')?>>DREB</option>
                         <option value="ctreb" <?=(Input::get('cate')=='ctreb'?'selected="selected"':'')?>>REB</option>
+                    </optgroup>
                     <optgroup label="Assists">                    
                         <option value="cast" <?=(Input::get('cate')=='cast'?'selected="selected"':'')?>>AST</option>
                         <option value="cto" <?=(Input::get('cate')=='cto'?'selected="selected"':'')?>>TO</option>
                         <option value="catr" <?=(Input::get('cate')=='catr'?'selected="selected"':'')?>>A/T</option>
+                    </optgroup>
                     <optgroup label="Misc">                    
                         <option value="cst" <?=(Input::get('cate')=='cst'?'selected="selected"':'')?>>ST</option>
                         <option value="cblk" <?=(Input::get('cate')=='cblk'?'selected="selected"':'')?>>BLK</option>
                         <option value="cpf" <?=(Input::get('cate')=='cpf'?'selected="selected"':'')?>>PF</option>
+                    </optgroup>
 				</select>
 				
 				<div class="chart_box highlight chartblock"></div>
@@ -150,6 +157,6 @@
 
 
 
-<span class="javascript" src="<?=asset('js/hightchart.careerStats.js')?>"></span>
+<span class="javascript" src="/js/hightchart.careerStats.js"></span>
 
 <!--<script src="http://code.highcharts.com/modules/exporting.js"></script>-->

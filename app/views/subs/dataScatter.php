@@ -61,7 +61,7 @@
 			
 			<div style="padding: 0 0 10px 0">
 				<div style="float: left;width: 55px;text-align: left">
-					<button class="plot" id="plotbtn" style="width: 45px;height: 35px;padding: 4px" title="Plot"><img src="images/search.png" style="width: 24px" /></button>
+					<button class="plot" id="plotbtn" style="width: 45px;height: 35px;padding: 4px" title="Plot"><img src="/images/search.png" style="width: 24px" /></button>
 				</div>
 
 				<div id="x-category" style="float: left;padding: 10px 0 0 0">	
@@ -168,10 +168,10 @@
 		<div class="onerow">			
 			<div class="col12">
                 <div style="color:gold; text-align:left;font-size: 25px;padding-left: 200px;line-height: 80px;font-weight: bold">How to use the scatter chart? We suggest 4 basic way: </div>
-				<img src="images/scatter1.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
-				<img src="images/scatter2.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
-				<img src="images/scatter3.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
-				<img src="images/scatter4.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
+				<img src="/images/scatter1.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
+				<img src="/images/scatter2.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
+				<img src="/images/scatter3.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
+				<img src="/images/scatter4.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
 			</div>
 		</div>
 		<div style="height:0;clear:both"></div>	
@@ -257,4 +257,4 @@ tr.ranklist.active td {
 }
 </style>
 
-<span class="javascript" src="js/hightchart.dataScatter.js"></span>
+<span class="javascript" src="/js/hightchart.dataScatter.js"></span>

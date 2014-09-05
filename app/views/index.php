@@ -20,23 +20,23 @@
 <meta property="og:site_name" content="Fansboard"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-<script type="text/javascript" src="<?=asset('js/jquery-1.11.1.min.js')?>"></script>
-<script type="text/javascript" src="<?=asset('js/jquery-ui.min.js')?>"></script>
-<script type="text/javascript" src="<?=asset('js/Highcharts-4.0.3/js/highcharts.js')?>"></script>
-<script type="text/javascript" src="<?=asset('js/Highcharts-4.0.3/js/highcharts-more.js')?>"></script>
-<script type="text/javascript" src="<?=asset('js/Highcharts-4.0.3/js/modules/exporting.src.js')?>"></script>
-<script type="text/javascript" src="<?=asset('js/highcharts.theme.js')?>"></script>
-<script type="text/javascript" src="<?=asset('js/player.js')?>"></script>
-<script type="text/javascript" src="<?=asset('js/module.js')?>"></script>
-<!--[if lt IE 9]><script src="<?=asset('js/html5shiv.js')?>"></script><![endif]-->
+<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/Highcharts-4.0.3/js/highcharts.js"></script>
+<script type="text/javascript" src="/js/Highcharts-4.0.3/js/highcharts-more.js"></script>
+<script type="text/javascript" src="/js/Highcharts-4.0.3/js/modules/exporting.src.js"></script>
+<script type="text/javascript" src="/js/highcharts.theme.js"></script>
+<script type="text/javascript" src="/js/player.js"></script>
+<script type="text/javascript" src="/js/module.js"></script>
+<!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
 
-<link rel="stylesheet" href="<?=asset('css/onepcssgrid.css')?>" />
-<link rel="stylesheet" href="<?=asset('css/onepcssgrid-1p.css')?>" />
-<link rel="stylesheet" href="<?=asset('css/index.css')?>" />
-<link rel="stylesheet" href="<?=asset('css/share.css')?>" />
-<link rel="stylesheet" href="<?=asset('js/smoothness/jquery-ui-1.10.3/jquery-ui-1.10.3.custom.min.css')?>" />
+<link rel="stylesheet" href="/css/onepcssgrid.css" />
+<link rel="stylesheet" href="/css/onepcssgrid-1p.css" />
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/share.css" />
+<link rel="stylesheet" href="/js/smoothness/jquery-ui-1.10.3/jquery-ui-1.10.3.custom.min.css" />
 <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">-->
-<link rel="stylesheet" href="<?=asset('css/font-awesome.css')?>" />
+<link rel="stylesheet" href="/css/font-awesome.css" />
 
 <script type="text/javascript">
 var pageobj;
@@ -44,157 +44,6 @@ var radarChart;
 var playerInit = <?=$player?>;
 var funcArray = [];
 var pageIndex = 0;
-function creatRadarChart(){
-	var anglename = {0:'FT% *',45:'3PTM',90:'AST',135:'ST',180:'FG% *',225:'BLK',270:'REB',315:'PTS'};
-	return new Highcharts.Chart({
-		
-	    chart: {
-			renderTo: $('#container1').get(0),
-	        polar: true,
-			animation: {
-                duration: 500
-            },
-            borderColor: '#fff',
-			height:600,
-            width:600,
-            borderRadius: 0,
-            borderWidth: 0
-	    },
-
-		legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'bottom',
-                x: -10,
-                y: -20,
-        },
-		
-		credits: {
-            enabled: false
-        },
-	    
-	    title: {
-	        text: ''
-	    },
-	    
-	    pane: {
-	        startAngle: 0,
-	        endAngle: 360
-	    },
-        
-        exporting: {
-            buttons: {
-                contextButton: {
-                    menuItems: [{
-                        text: 'Download the Graph (PNG)',
-                        onclick: function () {
-                            this.exportChart({
-                                width: 600,
-                                type: 'image/png'
-                            });
-                        }
-                    },{
-                        text: 'Download the Graph (JPG)',
-                        onclick: function () {
-                            this.exportChart({
-                                width: 600,
-                                type: 'image/jpeg'
-                            });
-                        }
-                    }]
-                }
-            },
-        },
-        navigation: {
-            buttonOptions: {
-                enabled: true,
-//                align: 'center',
-//                x:100,
-//                height: 20,
-//                width: 24,
-//                symbolSize: 14,
-//                symbolX: 12.5,
-//                symbolY: 10.5,
-//                symbolStroke: '#666',
-//                symbolStrokeWidth: 1,
-            }
-        },       
-	
-	    xAxis: {
-	        tickInterval: 45,
-			gridLineDashStyle: 'Dot',
-	        min: 0,
-	        max: 360,
-	        labels: {
-				formatter: function () {					
-	        		return anglename[this.value];
-	        	},
-				style: {
-					color: '#CCC',
-					fontWeight: 'normal',
-                    fontSize: 12,
-				}
-	        }
-			
-	    },
-	        
-	    yAxis: {
-	        tickInterval: 5,
-            showFirstLabel: false,
-	        min: 0,
-			max: 5,
-			plotBands: [{
-                from: 0,
-                to: 360,
-                color: 'rgba(0, 0, 0, 0.6)'
-            }]
-	    },
-	    
-	    plotOptions: {
-	        series:{
-	            pointStart: 0,
-	            pointInterval: 45,
-                lineWidth: 1,
-                shadow: false,
-				animation:{
-					duration: 100
-				}
-			},
-	        column:{
-	            pointPadding: 0,
-	            groupPadding: 0
-			},
-			area:{
-				//fillOpacity:0.0
-			}			
-		},
-		
-		tooltip: {
-	        snap: 5,
-			animation: false,
-	        backgroundColor: '#000',
-	        borderColor: '#fff',
-            borderWidth: 1,
-			positioner: function () {				
-            	return { x: 10, y: 10 };
-            },
-            shadow: false,
-			hideDelay: 0,			
-			shared: true,
-			formatter: function () {				
-				var s = '<b>'+ anglename[this.x] +'</b>';
-				$.each(this.points, function(i, point) {
-				s += '<br/><span style="color:'+point.series.color+'">'+ point.series.name +'</span>: '+
-				point.y;
-                });
-				return s;
-			}
-		},
-		
-		series: [0]
-		
-	});	
-}
 
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -303,6 +152,12 @@ $(document).ready(function(){
 	$.getScript(pageobj.find('.javascript').attr('src'),function(){
 		pageobj.trigger('startjs');
 	});
+
+    pageobj.find('.javascript-other').each(function(){
+        alert($(this).attr('src'));
+        $.getScript($(this).attr('src'), function(){});
+    });
+    
 	$('a.menu-tab-link.init').trigger('click');
     
 
