@@ -100,18 +100,15 @@ $(document).ready(function(){
 				index++;
 				pageobj = newmove;
 
-				newmove.load('subs/'+acsrc,function(){	
+				newmove.load('/subs/'+acsrc, function(){	
 					pageIndex = index_current;
 					funcArray[pageIndex] = new Object();
 					move(true,index_current);
 					insertList();
 				});
 			}
-
-			url = window.location.toString().split('?').length>1
-				? acsrc+'?'+window.location.toString().split('?')[1]
-				: acsrc;		
-			window.history.pushState('', '', '<?=asset('')?>'+url);	
+	
+			window.history.pushState('', '', '/'+acsrc);	
 			
 			$('title').html(c.text()+' - Fansboard');
             
@@ -152,11 +149,6 @@ $(document).ready(function(){
 	$.getScript(pageobj.find('.javascript').attr('src'),function(){
 		pageobj.trigger('startjs');
 	});
-
-    pageobj.find('.javascript-other').each(function(){
-        alert($(this).attr('src'));
-        $.getScript($(this).attr('src'), function(){});
-    });
     
 	$('a.menu-tab-link.init').trigger('click');
     

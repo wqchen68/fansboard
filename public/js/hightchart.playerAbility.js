@@ -134,7 +134,7 @@ $(function () {
         }).error(function(e){
         });
     }
-    
+
     if( typeof(radarChart)==='undefined' ) {
         var radarChart = creatRadarChart();  
     }

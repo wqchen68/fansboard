@@ -394,6 +394,5 @@ div.samewidth{
 </style>
 
 <span class="javascript" src="/js/hightchart.playerAbility.js"></span>
-<span class="javascript-other" src="'/js/hightchart.creatRadarChart.js"></span>
 
-<!--<script src="http://code.highcharts.com/modules/exporting.js"></script>-->
+<script src="/js/hightchart.creatRadarChart.js"></script>
