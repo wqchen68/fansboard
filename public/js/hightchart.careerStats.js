@@ -1,7 +1,6 @@
 $(function(){
 	
 	var player = [];
-
 	
 	pageobj.bind('startjs',function(){		
 		pageobj.trigger('init');
@@ -44,7 +43,7 @@ $(function(){
                 : location.toString();
             window.history.pushState('', '', url);
             
-			changePlayerImg();		
+			changePlayerImg();
 			change();
 		}
 	};
@@ -230,7 +229,13 @@ $(function(){
                     }
 				});            
 			}
-			
+            
+            chartCareerStats.xAxis[0].update({
+                labels:{
+                    step: (data.label.length>12 ? 2 : 1)
+                }                    
+            });            
+            
 			chartCareerStats.redraw();
             
 			chartCareerStats.options.exporting.filename='CareerStats#'+player[0].fbid;
@@ -254,7 +259,7 @@ $(function(){
 	            borderWidth: 0,
                 type: 'column',
                 plotBorderColor: '#888',
-                plotBorderWidth: 1,
+                plotBorderWidth: 0,
 				backgroundColor: 'rgba(0,0,0,0.6)'
             },
 			credits: {
@@ -281,7 +286,7 @@ $(function(){
 					borderWidth: 2
 				},
             	series: {
-					lineWidth: 3,				
+					lineWidth: 3,
 					allowPointSelect: false,
 					marker: {
 						symbol: 'circle',
@@ -319,56 +324,32 @@ $(function(){
             xAxis: {
                 labels: {
                     rotation: 0,
-					style: {
-						color: '#fff'
-					}
+					style: {},
+                    staggerLines: 1
                 },
-                tickWidth: 0,
                 tickmarkPlacement: 'on',
-		        startOnTick: true,
-                endOnTick: true,                
-                gridLineColor: '#888',
-                gridLineDashStyle: 'Dot',
-                gridLineWidth: 1,
-                staggerLines: 2
             },
             yAxis: [{
 				id: 0,
 				title: {
 					text: 'Value',
-					style: {
-						color: '#fff'
-					},
+					style: {},
 					align: 'high',
-					//rotation: 0,
-	                y: 120	
+	                y: 120
                 },
 				tickPositions: [0,5,10,15,20,25,30,35],
 		        startOnTick: false,
-                tickWidth: 0,
-                gridLineColor: '#888',
-                gridLineDashStyle: 'Dot',
-                gridLineWidth: 1,
-                lineWidth: 0,
                 min: -13.3
             },{
 				id: 1,
 				title: {
 					text: 'Games',
-					style: {
-						color: '#fff'
-					},
+					style: {},
 					align: 'low',
-					//rotation: 0,
 	                y: -100		
                 },
 				tickPositions: [0,20,40,60,82],
                 endOnTick: false,
-                tickWidth: 0,
-                gridLineColor: '#888',
-                gridLineDashStyle: 'Dot',
-                gridLineWidth: 1,
-                lineWidth: 0,
 				max: 300,
 				plotLines: [{
                     color: '#fff',

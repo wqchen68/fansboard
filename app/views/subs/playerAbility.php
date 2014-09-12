@@ -8,14 +8,16 @@
 				<div class="playerlistblock">
 
 					<div style="float:left;padding:0 0 10px 0">
-						<select class="selectForm player_season" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.0)">
-							<option value="ALL" selected="selected" <?=(Input::get('data')=='ALL'?'selected="selected"':'')?>>2013-14 Season</option>
-							<option value="D30" <?=(Input::get('data')=='D30'?'selected="selected"':'')?>>Last 4 weeks</option>
-							<option value="D14" <?=(Input::get('data')=='D14'?'selected="selected"':'')?>>Last 2 weeks</option>
-							<option value="D07" <?=(Input::get('data')=='D07'?'selected="selected"':'')?>>Lest 1 week</option>
-							<option value="Y-1" <?=(Input::get('data')=='Y-1'?'selected="selected"':'')?>>2012-13 Season</option>
-							<option value="Y-2" <?=(Input::get('data')=='Y-2'?'selected="selected"':'')?>>2011-12 Season</option>
-						</select>
+                            
+                            <?=Form::select('', array(
+                                'Full' => '2014-15 Season',
+                                'D30' => 'Last 30 Days',
+                                'D14' => 'Last 14 Days',
+                                'D07' => 'Last 7 Days',
+                                'Y-1' => '2013-14 Season',
+                                'Y-2' => '2012-13 Season'
+                                ), Input::get('data', 'Y-1'), array('class' => 'selectForm player_season', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)'))?>
+
 					</div>
                     
                     <? include('include_link2realtimeBox.php'); ?>

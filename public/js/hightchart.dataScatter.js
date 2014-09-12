@@ -77,7 +77,6 @@ $(function () {
             maxPadding: 0.05, //0.1
             minPadding: 0.05,
 			opposite: true,
-            tickWidth: 0,
 			plotLines: [{
                 color: '#FFFFFF',
                 width: 2,//2
@@ -100,8 +99,7 @@ $(function () {
             startOnTick: false, //強制座標軸開始在grid
             endOnTick: false, //強制座標軸結束在grid
             maxPadding: 0.02, //0.05
-            minPadding: 0.02,
-            tickWidth: 0,			
+            minPadding: 0.02,		
 			plotLines: [{
                 color: '#FFFFFF',
                 width: 2,//2

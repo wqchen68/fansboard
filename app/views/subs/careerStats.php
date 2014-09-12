@@ -66,11 +66,7 @@
 
 			</div>
 
-
 			<div style="height:0;clear:both"></div>
-
-
-
 		</div>
 		
 		<div class="onerow">

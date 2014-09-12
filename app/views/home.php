@@ -257,7 +257,7 @@ $(document).ready(function(){
                                 ->select(DB::raw('parameter AS fbid,COUNT(parameter) AS trend,syncdataframe.pwmin AS min2,syncdataframe.pweff,syncdataframe.pwpts AS pts2,syncdataframe.pwtreb AS treb2,syncdataframe.pwast AS ast2,syncplayerlist.player,syncplayerlist.team,syncplayerlist.position'))
                                 ->leftJoin('syncdataframe','log_data.parameter','=','syncdataframe.fbid')
                                 ->leftJoin('syncplayerlist','log_data.parameter','=','syncplayerlist.fbid')
-                                ->where(DB::raw('TIMESTAMPDIFF( MINUTE , datetime , NOW( ))'),'<',1440)
+                                ->where(DB::raw('TIMESTAMPDIFF( MINUTE , datetime , NOW( ))'),'<',14400000)
                                 ->whereRaw('parameter NOT LIKE "%+%"')
                                 ->where('syncdataframe.datarange','=','ALL')
                                 ->where('syncplayerlist.datarange','=','ALL')

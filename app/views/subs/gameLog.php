@@ -9,11 +9,14 @@
 				<div class="playerlistblock">
 						
 					<div style="float:left;padding:0 0 10px 0">
-						<select class="selectForm player_season">
-							<option value="ALL" selected="selected">2013-14 Season</option>
-							<option value="2012">2012-13 Season</option>
-							<option value="2011">2011-12 Season</option>
-						</select>
+                        
+                        <?=Form::select('player_season', array(
+                            '1415' => '2014-15 Season',
+                            '1314' => '2013-14 Season',
+                            '1213' => '2012-13 Season',
+                            '1112' => '2011-12 Season'
+                            ), Input::get('season', '1314'), array('class' => 'selectForm', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.0)'))?>
+                        
 					</div>
 
                     <? include('include_link2realtimeBox.php'); ?>
@@ -135,7 +138,7 @@
 
                 <div class="col-1p9 note last" style="float:left">
                     <div >Example</div>
-                    <div class="exfig" style="background-image:url(<?=asset('images/gamelogex1.png')?>">
+                    <div class="exfig" style="background-image:url(<?=asset('images/gamelogex1.png')?>)">
                         <div style="padding: 210px 0 0 65px;color:#000;font-size:14px">
                         <p style="line-height: 25px">Kevin Durant (OKC - SF,PF)</br>
                         High and Stable Efficiency</p>

@@ -85,11 +85,13 @@ $(function () {
 	$.fn.extend({
 		getPlayerList2: function(player,callback){
 			callback = callback || function(){};
+            
 			var input = {
-				player_season: pageobj.find('.player_season').val()
+				data: pageobj.find('.player_season').val()
 			};
 			var target = $(this);
-			$.getJSON('/data/getPlayer2',input,function(data){                
+			$.getJSON('/data/getPlayer2',input,function(data){   
+                console.log(data);
 				target.find('tr').remove();
 				var list = $(data.playlist);
 				if( playerInit.length>0 )
@@ -101,6 +103,8 @@ $(function () {
 				target.append(list);
 				callback(target);
 			}).error(function(e){
+                console.log(1);
+                console.log(e);
 			});
 			return target;
 		}

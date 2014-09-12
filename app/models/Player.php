@@ -326,7 +326,7 @@ class Player {
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
 					->where('syncplayerlist.datarange','=','ALL')
 					->where('A1.datarange','=','ALL')
-					->where('A2.datarange','=','D07')					
+					->where('A2.datarange','=','L1W')					
 					->orderBy('trend','DESC')->take(15)->get();
 
 		$recentcold = DB::table('syncdataframe AS A1')
@@ -348,7 +348,7 @@ class Player {
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
 					->where('syncplayerlist.datarange','=','ALL')
 					->where('A1.datarange','=','ALL')
-					->where('A2.datarange','=','D07')
+					->where('A2.datarange','=','L1W')
 					->orderBy('trend','ASC')->take(15)->get();
 		
 		$livemark = DB::table('realtimeeff')
@@ -375,9 +375,9 @@ class Player {
 			array_push($playerB,$p['fbid']);
 		}
 				
-		$valueA = DB::table('syncdataframe')->whereIn('fbid',$playerA)->where('datarange','Y-1')
+		$valueA = DB::table('syncdataframe')->whereIn('fbid',$playerA)->where('datarange','YM1')
 				->select(DB::raw('SUM(pwmin) AS Spwmin,SUM(pwfgm) AS Spwfgm,SUM(pwfga) AS Spwfga,SUM(pwfgm)/SUM(pwfga) AS Spwfgp,SUM(pw3ptm) AS Spw3ptm,SUM(pw3pta) AS Spw3pta,SUM(pw3ptm)/SUM(pw3pta) AS Spw3ptp,SUM(pwftm) AS  Spwftm,SUM(pwfta) AS  Spwfta,SUM(pwftm)/SUM(pwfta) AS Spwftp,SUM(pworeb) AS Spworeb,SUM(pwdreb) AS Spwdreb,SUM(pwtreb) AS Spwtreb,SUM(pwast) AS Spwast,SUM(pwto) AS Spwto,SUM(pwast)/SUM(pwto) AS Spwatr ,SUM(pwst) AS Spwst ,SUM(pwblk) AS Spwblk,SUM(pwpts) AS Spwpts,AVG(swfgp) AS ASwfgp,AVG(sw3ptm) AS ASw3ptm,AVG(swftp) AS ASwftp,AVG(swtreb) AS ASwtreb,AVG(swast) AS ASwast,AVG(swst) AS ASwst ,AVG(swblk) AS ASwblk,AVG(swpts) AS ASwpts'))->first();
-		$valueB = DB::table('syncdataframe')->whereIn('fbid',$playerB)->where('datarange','Y-1')
+		$valueB = DB::table('syncdataframe')->whereIn('fbid',$playerB)->where('datarange','YM1')
 				->select(DB::raw('SUM(pwmin) AS Spwmin,SUM(pwfgm) AS Spwfgm,SUM(pwfga) AS Spwfga,SUM(pwfgm)/SUM(pwfga) AS Spwfgp,SUM(pw3ptm) AS Spw3ptm,SUM(pw3pta) AS Spw3pta,SUM(pw3ptm)/SUM(pw3pta) AS Spw3ptp,SUM(pwftm) AS  Spwftm,SUM(pwfta) AS  Spwfta,SUM(pwftm)/SUM(pwfta) AS Spwftp,SUM(pworeb) AS Spworeb,SUM(pwdreb) AS Spwdreb,SUM(pwtreb) AS Spwtreb,SUM(pwast) AS Spwast,SUM(pwto) AS Spwto,SUM(pwast)/SUM(pwto) AS Spwatr ,SUM(pwst) AS Spwst ,SUM(pwblk) AS Spwblk,SUM(pwpts) AS Spwpts,AVG(swfgp) AS ASwfgp,AVG(sw3ptm) AS ASw3ptm,AVG(swftp) AS ASwftp,AVG(swtreb) AS ASwtreb,AVG(swast) AS ASwast,AVG(swst) AS ASwst ,AVG(swblk) AS ASwblk,AVG(swpts) AS ASwpts'))->first();
 		
 		$tradecompareA = array(
@@ -513,11 +513,11 @@ class Player {
 								FORMAT(cpf,1),
 								FORMAT(cpts,1),
 								FORMAT(ceff,1),
-								FORMAT(ceff36,1)'))->get();
+								FORMAT(ceff36,1)'))->orderBy('dataorder')->get();
 								
 		$table_array2 = DB::table('syncdataframe')->leftJoin('syncplayerlist','syncdataframe.fbido','=','syncplayerlist.fbido')
 												->where('syncdataframe.fbid','=',$inputid)
-												->where('syncdataframe.datarange','=','ALL')
+												->where('syncdataframe.datarange','=','ALL2') //開季後把2拿掉
 												->where('syncplayerlist.datarange','=','ALL')
 												->select(DB::raw('"2013",syncplayerlist.team,wgp,FORMAT(pwmin,1),
 								FORMAT(pwfgm,1),
@@ -545,7 +545,7 @@ class Player {
 		$table_array = array_merge($table_array1,$table_array2);
 		$table_array=array_reverse($table_array,false);
 		
-		array_push($uniseason,'2013');
+		array_push($uniseason,'2014-15');
 		foreach($uniteam as $unit){
 			$pickteam = $unit->cteam;
 			
@@ -723,11 +723,11 @@ class Player {
 		
 		$db_map_datarange = array(
 			'ALL'=>'ALL',
-			'D30'=>'D30',
-			'D14'=>'D14',
-			'D07'=>'D07',									
-			'Y-1'=>'Y-1',
-			'Y-2'=>'Y-2'
+			'L4W'=>'L4W',
+			'L2W'=>'L2W',
+			'L1W'=>'L1W',									
+			'YM1'=>'YM1',
+			'YM2'=>'YM2'
 		);
 		
 		$db_map_position = array(
@@ -1038,8 +1038,8 @@ class Player {
 			array_push($stat_array,"---");
 		}*/
 				
-		if ($inputseason=='ALL'){
-			$resultAry = DB::table('allgamelog')->where('fbid','=',$inputid)->where('season','=','2013')->orderby('gdate')->select('*',DB::raw('UPPER(goppo) AS goppo'),'bxeff AS colsum')->get();
+		if ($inputseason=='1314'){
+			$resultAry = DB::table('allgamelog')->where('fbid','=',$inputid)->where('season','=',$inputseason)->orderby('gdate')->select('*',DB::raw('UPPER(goppo) AS goppo'),'bxeff AS colsum')->get();
 			$game_length = count($resultAry);
 			foreach($resultAry as $key => $gd){
 
@@ -1118,7 +1118,6 @@ class Player {
 		}		
 	
 		///轉換array///
-       
 
 			
 		///計算MA///
@@ -1197,8 +1196,8 @@ class Player {
 	}
 	
 	public static function getPlayer2() {
-		$season = Input::get('player_season','ALL');		
-		$season=='ALL' && $season = 'Full';
+		$season = Input::get('data', 'Y-1');
+        //$season=='ALL' && $season = 'Full';
 		
 		$resultAry = DB::table('syncplayerlist')
 				->leftJoin('biodata','syncplayerlist.fbido','=','biodata.fbido')
@@ -1209,7 +1208,7 @@ class Player {
 			foreach($resultAry as $player)
 			$player_option .= '<tr><td class="sign-btn" value ="'.$player->fbid.'" team="'.$player->team.'">'.$player->player.'<div class="muti-btn" /></td></tr>';
 		}
-		$queryLog = DB::getQueryLog();		
+		$queryLog = DB::getQueryLog();	
 		return Response::json(array('playlist'=>$player_option,'query'=>json_encode($queryLog)));
 	}
 

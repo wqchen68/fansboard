@@ -17,9 +17,10 @@ Highcharts.theme = {
 	  backgroundColor: 'rgba(0,0,0,0)',
       borderWidth: 0,
       borderRadius: 15,
-      plotBackgroundColor: null,
+      plotBackgroundColor: null,      
+      plotBorderColor: '#888',
+      plotBorderWidth: 0,
       plotShadow: false,
-      plotBorderWidth: 0
    },
    title: {
       style: {
@@ -33,48 +34,53 @@ Highcharts.theme = {
          font: '12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
       }
    },
-   xAxis: {
+   xAxis: {      
       gridLineWidth: 1,
-      linwidth: 1,
-	  //gridLineDashStyle: 'longdash',
-      lineColor: '#999',
-      tickColor: '#999',
+      gridLineDashStyle: 'Dot',
+      gridLineColor: 'rgba(255,255,255,0.3)',
+      lineColor: '#888',
+      lineWidth: 0,
+      tickColor: '#888',
+      tickWidth: 0,
       labels: {
          style: {
-            color: '#999',
-            fontWeight: 'bold'
-         }
+            color: '#888',
+            fontWeight: 'normal'
+         },
       },
       title: {
          style: {
-            color: '#AAA',
+            color: '#fff',
             font: 'bold 12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
          }
       }
    },
    yAxis: {
-      alternateGridColor: null,
-      minorTickInterval: null,
-      gridLineColor: 'rgba(255, 255, 255, .1)',
-      minorGridLineColor: 'rgba(255,255,255,0.07)',
+      gridLineWidth: 1,
+      gridLineDashStyle: 'Dot',
+      gridLineColor: 'rgba(255,255,255,0.3)',
+      lineColor: '#888',
       lineWidth: 0,
+      tickColor: '#888',
       tickWidth: 0,
       labels: {
          style: {
-            color: '#999',
-            fontWeight: 'bold'
-         }
+            color: '#888',
+            fontWeight: 'normal'
+         },
+         staggerLines: 1, //並排成幾行
       },
       title: {
          style: {
-            color: '#AAA',
+            color: '#fff',
             font: 'bold 12px Lucida Grande, Lucida Sans Unicode, Verdana, Arial, Helvetica, sans-serif'
          }
       }
    },
    legend: {
       itemStyle: {
-         color: '#CCC'
+          color: '#CCC',
+          fontWeight: 'normal'
       },
       itemHoverStyle: {
          color: '#FFF'

@@ -22,10 +22,10 @@ $(function () {
 	pageobj.on('change','.player_season',function(){
 		$('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
 			if( player.length>0 )
-				change();
+				reflash();
 		});
 	});	
-	
+		
 	var reflash = function(){	
 		player = pageobj.find('.playerList-combo td.active').getPlayer();
 		if( player.length>0 ){
@@ -42,9 +42,9 @@ $(function () {
 				
             var location = window.location;        
             url = playerInit.length>0
-                ? ('http://'+location.host+'/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')
+                ? ('http://'+location.host+'/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?data='+pageobj.find('.player_season').val()
                 : location.toString();
-            window.history.pushState('', '', url);		
+            window.history.pushState('', '', url);	
 			
 			change();
 		}
@@ -55,7 +55,7 @@ $(function () {
 	
 	pageobj.find('select.matchMethod').change(function(){
 		if( player.length>0 )
-			change();
+			reflash();
 	});
 
 	pageobj.find('.majorboxN').click(function(){
@@ -81,7 +81,7 @@ $(function () {
 			datarange: pageobj.find('.player_season').val(),
 			matchMethod: pageobj.find('select.matchMethod').val()
 		};
-		$.getJSON('../data/getMatch', input, function(data){			
+		$.getJSON('/data/getMatch', input, function(data){
 			cards = data.card;
 			
 			pageobj.find('.ability-detail').children('tbody').empty();
@@ -96,17 +96,17 @@ $(function () {
 			for( var i in cards){				
 				if( i==cards.length-1 ){					
 					pageobj.find('.faceCardMajor').changePlayerImg(cards[i]);
-					pageobj.find('.link-playerAbility').attr('href','../playerAbility/'+player[0].fbid);
+					pageobj.find('.link-playerAbility').attr('href','/playerAbility/'+player[0].fbid);
 				}else{
 					$('.majorboxN').eq(i).changePlayerImg(cards[i]);
 				}
 			}
-			pageobj.find('.link-playerAbility1').attr('href','../playerAbility/'+cards[0].fbid);
-			pageobj.find('.link-playerAbility2').attr('href','../playerAbility/'+cards[1].fbid);
-			pageobj.find('.link-playerAbility3').attr('href','../playerAbility/'+cards[2].fbid);
-			pageobj.find('.link-playerAbility4').attr('href','../playerAbility/'+cards[3].fbid);
-			pageobj.find('.link-playerAbility5').attr('href','../playerAbility/'+cards[4].fbid);
-			pageobj.find('.link-playerAbility6').attr('href','../playerAbility/'+cards[5].fbid);
+			pageobj.find('.link-playerAbility1').attr('href','/playerAbility/'+cards[0].fbid);
+			pageobj.find('.link-playerAbility2').attr('href','/playerAbility/'+cards[1].fbid);
+			pageobj.find('.link-playerAbility3').attr('href','/playerAbility/'+cards[2].fbid);
+			pageobj.find('.link-playerAbility4').attr('href','/playerAbility/'+cards[3].fbid);
+			pageobj.find('.link-playerAbility5').attr('href','/playerAbility/'+cards[4].fbid);
+			pageobj.find('.link-playerAbility6').attr('href','/playerAbility/'+cards[5].fbid);
 			
 			ability = data.ability;
 			
@@ -125,7 +125,7 @@ $(function () {
 	}
 	if( typeof(radarChart)==='undefined' )
 		radarChart = creatRadarChart();
-	
+
 	function drawRadar(ability){
 		var series_size = radarChart.series.length;			
 		if( series_size>0 )

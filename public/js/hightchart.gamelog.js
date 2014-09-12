@@ -19,11 +19,12 @@ $(function(){
         }
     });
 	
-    pageobj.on('change','.player_season',function(){
-        $('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
-            if( player.length>0 )
-                change();
-        });
+    pageobj.on('change','select[name=player_season]',function(){
+        if( player.length>0 )
+            reflash();
+        //$('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
+            
+        //});
     });	
 	
     var reflash = function(){	
@@ -42,7 +43,7 @@ $(function(){
 
             var location = window.location;        
             url = playerInit.length>0
-                ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')
+                ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?season='+pageobj.find('select[name=player_season]').val()
                 : location.toString();
             window.history.pushState('', '', url);
 
@@ -64,7 +65,7 @@ $(function(){
     pageobj.find('.basic1,.basic2,.basic3,.stat').empty();
 	
     function change(){
-        $.getJSON('/data/getLog',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
+        $.getJSON('/data/getLog',{player:player,datarange:pageobj.find('select[name=player_season]').val()},function(data){
 			
             pageobj.find('.link-playerAbility').changePlayerImg(data[0]['card'][0]);
 			
@@ -202,7 +203,7 @@ $(function(){
             borderWidth: 0,
             type: 'line',
             plotBorderColor: '#888',
-            plotBorderWidth: 1,
+            plotBorderWidth: 0,
             backgroundColor: 'rgba(0,0,0,0.6)',
             marginTop: 50
         },
@@ -274,7 +275,7 @@ $(function(){
                 html: 'Cold',
                 style: {
                     left: '65px',
-                    top: '345px',
+                    top: '335px',
                     color: 'rgba(0,187,255,1)',
                     fontWeight: 'bold',
                     fontSize: 12}
@@ -328,20 +329,13 @@ $(function(){
                 //y: 18,
                 step: 1,
                 style: {
-                    color: '#888',
-                    fontWeight: 200,
-                    fontSize: 5,
-                    fontFamily: 'Verdana'
+                    fontSize: 5
                 }
             },
-            tickWidth: 0,
-            tickmarkPlacement: 'on',
-            tickInterval: 5,
             startOnTick: true,
-            gridLineColor: '#888',
-            gridLineDashStyle: 'Dot',
-            gridLineWidth: 1,
-            staggerLines: 1,
+            tickInterval: 5,
+            tickWidth: 0.3,
+            tickmarkPlacement: 'on',            
             max: 81,
             min: 0
         }],
@@ -349,21 +343,15 @@ $(function(){
             id: 0,
             title: {
                 text: 'EFF Value',
-                style: {
-                color: '#fff'
-                },
-                //align: 'high',
-                //rotation: 0,
+                style: {},
                 y: -100					
             },
             labels: {
-                style: { color: '#888' }
             },
             tickPositions: [0,10,20,30,40],
-            min: -12.7,
+            min: -13.333333333333,
             startOnTick: false,
-            gridLineColor: '#888',
-            gridLineDashStyle: 'Dot',
+            endOnTick: true,
             plotBands: [{
                 from: 20,
                 to: 40,
@@ -372,27 +360,20 @@ $(function(){
                 from: 0,
                 to: 20,
                 color: 'rgba(0, 128, 128, 0.1)'
-            }],			
-            gridLineWidth: 1
+            }],
         },{ // time bar
             id: 1,
             title: {
                 text: 'Time',
-                style: {color: '#fff' },
-                //align: 'low',
-                //rotation: 0,
-                y: 180										
+                style: {},
+                y: 180
             },
             labels: {
-                style: { color: '#888' }
             },
-            tickPositions: [0,12,24,36,48],	
-            max: 200,
-            //showLastLabel: false,
+            tickPositions: [0,12,24,36,48],
+            max: 192,
+            startOnTick: true,
             endOnTick: false,
-            gridLineColor: '#888',
-            gridLineDashStyle: 'Dot',
-            gridLineWidth: 1,
             plotLines: [{
                 color: '#fff',
                 width: 1,

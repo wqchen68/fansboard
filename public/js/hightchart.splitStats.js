@@ -147,7 +147,7 @@ $(function(){
 			borderRadius: 0,
 			borderWidth: 0,
 			plotBorderColor: '#888',
-			plotBorderWidth: 1,
+			plotBorderWidth: 0,
 			backgroundColor: 'rgba(0,0,0,0.0)'
 		},
 		title: {
@@ -209,7 +209,6 @@ $(function(){
 			title: {
 				text: 'EFF Value',
 				style: {
-						color: '#fff'
 				},
 			},
 			tickPositions: [0,5,10,15,20,25,30,35],
@@ -301,9 +300,7 @@ $(function(){
             xAxis: {
 				labels: {
                     rotation: 0,
-					style:{
-						fontWeight: 'normal'
-					}
+					style:{},
 				},
                 categories: []
             },

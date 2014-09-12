@@ -55,8 +55,8 @@
 										<h4 style="left:100%"></h4>
 									</div>
 									<ul style="width:100%">
-										<?=Form::tabi('','Motion Chart','lock')?>
-										<?=Form::tabi('','Split Stats','lock')?>
+										<?=Form::tabi('orankList','O-Rank List')?>
+										<?=Form::tabi('','---','lock')?>
 									</ul>	
 								</li>
 								<li class="tab">

@@ -16,11 +16,11 @@ function creatRadarChart(){
 	    },
 
 		legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'bottom',
-                x: -10,
-                y: -20
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'bottom',
+            x: -10,
+            y: -20
         },
 		
 		credits: {
@@ -76,20 +76,19 @@ function creatRadarChart(){
 	
 	    xAxis: {
 	        tickInterval: 45,
-			gridLineDashStyle: 'Dot',
+            gridLineColor: 'rgba(255,255,255,0.6)',
 	        min: 0,
 	        max: 360,
+            lineColor: '#CCC',
+            lineWidth: 1,
 	        labels: {
 				formatter: function () {					
 	        		return anglename[this.value];
 	        	},
 				style: {
-					color: '#CCC',
-					fontWeight: 'normal',
-                    fontSize: 12,
-				}
-	        }
-			
+                    color:'#CCC',
+                }
+	        }			
 	    },
 	        
 	    yAxis: {
