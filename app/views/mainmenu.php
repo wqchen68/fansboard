@@ -1,3 +1,12 @@
+<?	
+	Form::macro('tabi', function($pagename_input,$pagenametext,$state='') use($pagename) { 
+		return 
+            '<li class="tabi">' . 
+            '<a href="'.$pagename_input.'" '.($pagename==$pagename_input?'index="0"':'').' class="menu-tab-link button '.$state.($pagename==$pagename_input?' init':'').'" acsrc="'.$pagename_input.'"  title="'.Lang::get('description.'.$pagename_input).'">' . 
+                $pagenametext . 
+            '</a></li>';
+	}); 
+?>
 <div class="onepcssgrid-full" id="topbar" style="position:relative;z-index:10">
 	<div class="onerow" style="border-bottom: 1px solid #444; background-color: #000">
 		<div class="onepcssgrid-1p-1200">

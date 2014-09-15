@@ -20,14 +20,14 @@
 <meta property="og:site_name" content="Fansboard"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-<script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/js/Highcharts-4.0.3/js/highcharts.js"></script>
-<script type="text/javascript" src="/js/Highcharts-4.0.3/js/highcharts-more.js"></script>
-<script type="text/javascript" src="/js/Highcharts-4.0.3/js/modules/exporting.src.js"></script>
-<script type="text/javascript" src="/js/highcharts.theme.js"></script>
-<script type="text/javascript" src="/js/player.js"></script>
-<script type="text/javascript" src="/js/module.js"></script>
+<script src="/js/jquery-1.11.1.min.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/Highcharts-4.0.3/js/highcharts.js"></script>
+<script src="/js/Highcharts-4.0.3/js/highcharts-more.js"></script>
+<script src="/js/Highcharts-4.0.3/js/modules/exporting.src.js"></script>
+<script src="/js/highcharts.theme.js"></script>
+<script src="/js/player.js"></script>
+<script src="/js/module.js"></script>
 <!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
 
 <link rel="stylesheet" href="/css/onepcssgrid.css" />
@@ -198,67 +198,9 @@ $(document).ready(function(){
 		pre.removeClass('active');
 		now.addClass('active');	
 	};
-	
-
-	
-	//$('a.menu-tab-link.init').click();
-	
-	
-	
-	/*
-	$(document).scroll(function(){
-		var top = $(this).scrollTop();
-		var topIs = $(this).data('top');		
-		
-		if( top<300 && !topIs){
-			$(this).data('top',true);	
-			$('#topbar').css({
-				'position':'static',
-				'box-shadow': 'none'
-			});	
-		}
-		if( top>300 && topIs ){
-			$(this).data('top',false);
-			$('#topbar').css({
-				'position':'fixed',
-				'width':'100%',
-				'box-shadow': '40px 40px 30px rgba(20%,20%,40%,0.5)'
-			});
-		}
-	});
-    */    
-	
-	/*
-	 * 
-	$('.msg').mouseover(function(){
-		if( $(this).hasClass('small') ){
-			$(this).animate({
-				left: '80%',
-				width: '19%'
-			});
-			console.log(1);
-			$(this).removeClass('small');
-		}
-	}).mouseleave(function(){
-		if( !$(this).hasClass('small') ){
-			$(this).animate({
-				left: '93%',
-				width: '6%'
-			});
-			console.log(2);
-			$(this).addClass('small');
-		}
-	});
-	 *
-	 */
-
-
 
 });
 </script>
-<style>
-
-</style>
 </head>
 
 <body>
@@ -270,10 +212,6 @@ $(document).ready(function(){
 	<div id="testi">
         <div class="move active" index="0"><?=$testi?>
             <div style="position: absolute ; top:10px; left:1550px">
-                
-                <?
-                    $url2 = Request::url().'?'.Input::get('player');
-                ?>
                 
                 <div class="fb-like" data-href="" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                 <div class="fb-comments" data-href="" data-width="300" data-numposts="5" data-colorscheme="light"></div>
@@ -296,15 +234,6 @@ $(document).ready(function(){
 </div>
 	
 <?=$addin?>
-
-		<!--
-		<div class="msg small" style="position:absolute;border:1px solid #fff;z-index:20;left:93%;width:6%">
-			<div style="border-bottom:1px solid #fff;margin:5px;height:50px"></div>
-			<div style="border-bottom:1px solid #fff;margin:5px;height:50px"></div>
-			<div style="border-bottom:1px solid #fff;margin:5px;height:50px"></div>
-			<div style="margin:5px;height:50px"></div>
-		</div>
-		-->
 	
 </body>
 </html>

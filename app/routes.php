@@ -10,45 +10,19 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-//dtesttim
 Route::any('test', function(){	
-    //test
-	$player = Player::getRealtime()->getData()->value;
-	$root1 = rand(0,2);
-	
-	if( $root1==0 ){
-		$player0 = $player[0];
-		$player1 = $player[1];
-		$player[0] = $player1;
-		$player[1] = $player0;
-	}elseif( $root1==1 ){
-		$player0 = $player[2];
-		$player1 = $player[3];
-		$player[2] = $player1;
-		$player[3] = $player0;
-	}else{
-		$player0 = $player[4];
-		$player1 = $player[5];
-		$player[4] = $player1;
-		$player[5] = $player0;	
-	}
-
-	$output = array();
-	for($i=0;$i<20;$i++){
-		array_push($output,$player[$i]);
-	}
-	
-	return Response::json($output);	
+    return;
 });
 
 Route::get('/', function(){
 	
-	if( !in_array($_SERVER['REMOTE_ADDR'],array('140.122.118.208','140.122.118.147')) )
-	DB::table('log_view')->insert(array(
-		'datetime' => date('Y-m-d H:i:s'),
-		'ip' => $_SERVER['REMOTE_ADDR'],
-		'query' => 'home'
-	));
+	if( !in_array($_SERVER['REMOTE_ADDR'],array('140.122.118.208','140.122.118.147')) ){
+        DB::table('log_view')->insert(array(
+            'datetime' => date('Y-m-d H:i:s'),
+            'ip' => $_SERVER['REMOTE_ADDR'],
+            'query' => 'home'
+        ));
+    }
 	
 
 	$contents = View::make('home')			
@@ -68,14 +42,14 @@ Route::any('sort/{name}', 'HomeController@showSort');
 
 Route::get('user/{name}', array('before'=>'id','uses'=>'HomeController@test'))->where('name', '[A-Za-z]+');
 
-Route::get('/{pagename}', function($pagename){
+Route::get('{pagename}', function($pagename){
     $player = Input::get('player','')!='' ? explode(' ',Input::get('player','')) : ['Kevin-Durant'];
     $player = array_diff( $player, array('') );
     $player = array_slice( $player, 0 );
     return Redirect::to($pagename . '/' . implode(',', $player));
 });
 
-Route::get('/{pagename}/{players}/{cate?}', function($pagename = null, $players = null, $cate = null){
+Route::get('{pagename}/{players}', function($pagename = null, $players = null){
 	if (empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
 		$myip = $_SERVER['REMOTE_ADDR'];  
 	} else {  
@@ -110,15 +84,8 @@ Route::get('/{pagename}/{players}/{cate?}', function($pagename = null, $players 
 	
 
 	
-
-	//App::setLocale('zh-tw');	
-	
 	Session::put('verifier', Input::get('oauth_verifier',''));
 	Session::put('request_token', Input::get('oauth_token',''));
-	
-	Form::macro('tabi', function($pagename_input,$pagenametext,$state='') use($pagename) { 
-		return '<li class="tabi"><a href="'.$pagename_input.'" '.($pagename==$pagename_input?'index="0"':'').' class="menu-tab-link button '.$state.($pagename==$pagename_input?' init':'').'" acsrc="'.$pagename_input.'"  title="'.Lang::get('description.'.$pagename_input).'">'.$pagenametext.'</a></li>';
-	}); 
     
     if( !is_null($players) ){
         $player = explode(',', $players);
