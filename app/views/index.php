@@ -44,6 +44,7 @@ var radarChart;
 var playerInit = <?=$player?>;
 var funcArray = [];
 var pageIndex = 0;
+var jsfiles = ['playerAbility'];
 
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -116,9 +117,7 @@ $(document).ready(function(){
 		}else{
 			c.addClass('active');
 			c.removeClass('init');
-		}
-	
-        changeFb();
+		}        
                       
 		$('a.menu-tab-link.active').removeClass('active');
 		c.addClass('active');
@@ -126,33 +125,22 @@ $(document).ready(function(){
 		
 		d.siblings().find('h4').eq(0).css('left', '');
 		d.siblings().find('h4').eq(1).css('left', '100%');
-
-
-		d.children('ul').hide(function(){
-			
-			d.find('h4').eq(0).stop().animate({
-				left: '100%'//_width
-			}).end().eq(1).css('left', '-100%').html(c.text()).stop().animate({
-				left: '0%'
-			},function(){
-				d.children('ul').css('display','');				
-			});
-			
-		});	
+        
+        d.find('h4').html(c.text());
+        
+        changeFb();
 		
 	});
 	
 	funcArray[pageIndex] = new Object();
 	pageobj = $('#testi div.move.active');	
 	insertList();	
-	if( typeof pageobj.find('.javascript').attr('src') !== 'undefined' )
-	$.getScript(pageobj.find('.javascript').attr('src'),function(){
-		pageobj.trigger('startjs');
-	});
+
+    getScript(function(){
+        pageobj.trigger('startjs');
+    });
     
 	$('a.menu-tab-link.init').trigger('click');
-    
-
     
 	function insertList(){
 		pageobj.find('.modelBox').each(function(){
@@ -170,34 +158,38 @@ $(document).ready(function(){
 	}
 		
 	var move = function(init,index){
-		_width = $('#testi .move').width();
+		var width = $('#testi .move').width();
 		
 		var pre = $('#testi .move.active');
 		var now = $('#testi .move[index='+index+']');
 		
 		pre.stop().hide();
-
-		if( init ){
-			//now.css('left', '0%').show();
-			//pageobj.trigger('init');
-			now.css('left', _width).show().stop().animate({
-				left: '0%'
-			},200,function(){			
-				$.getScript(pageobj.find('.javascript').attr('src'),function(){
-					pageobj.trigger('startjs');
-				});	
-			});
-		}else{		
-			now.css('left', _width).show().stop().animate({
-				left: '0%'
-			},200,function(){
-				pageobj.trigger('init');				
-			});
-		}
-		
+        
+        now.css('left', width).show().stop().animate({
+            left: '0%'
+        },200,function(){		
+            getScript(function(){
+                if( init ){
+                    pageobj.trigger('startjs');
+                }else{
+                    pageobj.trigger('init');
+                }
+            });
+        });
+        
 		pre.removeClass('active');
 		now.addClass('active');	
 	};
+    
+    function getScript(handle) {
+        jQuery.ajaxSetup({
+          cache: true
+        });
+        var script = '/js/hightchart.' + location.pathname.split('/')[1] + '.js';
+        $.getScript(script, function(){                    
+            handle();
+        });
+    }
 
 });
 </script>

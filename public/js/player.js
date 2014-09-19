@@ -39,24 +39,25 @@ $(function () {
 	
 
 	$('.modelBox .playerList-combo').on('click','.sign-btn',function(e){
+                var player = $(e.target);
 		if( $(e.delegateTarget).is('.muti') )
 			$(e.delegateTarget).addClass('active');
 		$('.sign-btn').removeClass('active');
 		$('.muti-btn').removeClass('active');
-		$(this).addClass('active');
-		$(this).children('.muti-btn').addClass('active');
+		player.addClass('active');
+		player.children('.muti-btn').addClass('active');
 		if( funcArray[pageIndex].hasOwnProperty('reflash') )
 			funcArray[pageIndex].reflash();
 	
 		changeFb();
         });
-	$('.modelBox .playerList-combo').on('click','.muti-btn',function(e){
-		e.stopPropagation();
-		$(this).toggleClass('active');
-		if( $(this).is('.active') ){
-			$(this).parent().addClass('active');
+	$('.modelBox .playerList-combo').on('click','.muti-btn',function(e){		
+                var player = $(e.target);
+		player.toggleClass('active');
+		if( player.is('.active') ){
+			player.parent().addClass('active');
 		}else{
-			$(this).parent().removeClass('active');
+			player.parent().removeClass('active');
 		}
 		if( $(e.delegateTarget).find('.muti-btn.active').length===0 )
 			$(e.delegateTarget).removeClass('active');
@@ -64,6 +65,8 @@ $(function () {
 			funcArray[pageIndex].reflash();
         
         	changeFb();
+                
+                e.stopPropagation();
 	});
 
 	
@@ -91,7 +94,7 @@ $(function () {
 			};
 			var target = $(this);
 			$.getJSON('/data/getPlayer2',input,function(data){   
-                console.log(data);
+                                console.log(data);
 				target.find('tr').remove();
 				var list = $(data.playlist);
 				if( playerInit.length>0 )
@@ -103,8 +106,8 @@ $(function () {
 				target.append(list);
 				callback(target);
 			}).error(function(e){
-                console.log(1);
-                console.log(e);
+                            console.log(1);
+                            console.log(e);
 			});
 			return target;
 		}

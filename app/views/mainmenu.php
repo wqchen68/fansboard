@@ -22,7 +22,7 @@
 							<ul class="tabindex" style="margin:0 auto;padding:0">
 								<li class="tab">
 									<div class="tab-title">
-										<h4>Player Board</h4>
+										<h4 class="title-default">Player Board</h4>
 										<h4 class="empty" style="left:100%"></h4>
 									</div>
 									<ul style="width:100%">
