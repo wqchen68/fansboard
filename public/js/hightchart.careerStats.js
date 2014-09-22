@@ -259,7 +259,7 @@ $(function(){
 	            borderWidth: 0,
                 type: 'column',
                 plotBorderColor: '#888',
-                plotBorderWidth: 0,
+                plotBorderWidth: 1,
 				backgroundColor: 'rgba(0,0,0,0.6)'
             },
 			credits: {

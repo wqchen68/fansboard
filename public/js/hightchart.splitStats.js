@@ -19,13 +19,22 @@ $(function(){
 		}
 	});
 	
-	pageobj.on('change','.player_season',function(){
-		$('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
-			if( player.length>0 )
-				change();
-		});
-	});
+//	pageobj.on('change','.player_season',function(){
+//		$('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
+//			if( player.length>0 )
+//				reflash();
+//		});
+//	});
 	
+    pageobj.on('change','select[name=player_season]',function(){
+        if( player.length>0 )
+            reflash();
+        //$('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
+            
+        //});
+    });	  
+    
+    
 	var reflash = function(){	
 		player = pageobj.find('.playerList-combo td.active').getPlayer();
 		if( player.length>0 ){
@@ -40,11 +49,18 @@ $(function(){
 				playerInit[0] = player[0].fbid;
 			}
 				
+//            var location = window.location;        
+//            url = playerInit.length>0
+//                ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')
+//                : location.toString();
+//            window.history.pushState('', '', url);
+            
             var location = window.location;        
             url = playerInit.length>0
-                ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')
+                ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?season='+pageobj.find('select[name=player_season]').val()
                 : location.toString();
             window.history.pushState('', '', url);
+            
 			
 			changePlayerImg();		
 			change();
@@ -63,9 +79,10 @@ $(function(){
 	pageobj.find('.basic1,.basic2,.basic3,.stat').empty();
 	
 	function change() {
-		$.getJSON('/data/getSplitStats',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
+		$.getJSON('/data/getSplitStats',{player:player,datarange:pageobj.find('select[name=player_season]').val()},function(data){
 			
-			
+			console.log(data);
+            
 			pageobj.find('.link-playerAbility').changePlayerImg(data['card'][0]);
 			
 			/*pageobj.find('.basic1').html(data.basic[0]);
@@ -108,7 +125,19 @@ $(function(){
                 name: '',
                 data: data.spstat.dayNight
 			},true);
-			
+
+			var series_size = chartRestStarter.series.length;
+			if( series_size>0 )
+				for( i=0;i<series_size;i++ ){
+					if( chartRestStarter.series[0] )
+						chartRestStarter.series[0].remove(false);
+				}
+			chartRestStarter.colorCounter = 0;
+			chartRestStarter.addSeries({
+                name: '',
+                data: data.spstat.Starter
+			},true); 
+            
 			var series_size = chartRestDays.series.length;
 			if( series_size>0 )
 				for( i=0;i<series_size;i++ ){
@@ -119,8 +148,8 @@ $(function(){
 			chartRestDays.addSeries({
                 name: '',
                 data: data.spstat.Rest
-			},true);
-			
+			},true);           
+            
 			var series_size = chartOppo.series.length;
 			if( series_size>0 )
 				for( i=0;i<series_size;i++ ){
@@ -142,12 +171,12 @@ $(function(){
 		chart: {
 			type: 'column',
 			height: 270,
-			width: 293,
+            width: 220,
 			borderColor: 'rgba(0,0,0,0.0)',
 			borderRadius: 0,
 			borderWidth: 0,
 			plotBorderColor: '#888',
-			plotBorderWidth: 0,
+			plotBorderWidth: 1,
 			backgroundColor: 'rgba(0,0,0,0.0)'
 		},
 		title: {
@@ -181,11 +210,11 @@ $(function(){
                         }
                     }]
                 }
-            },
+            }
         },
         navigation: {
             buttonOptions: {
-                enabled: true,
+                enabled: true
 //                align: 'center',
 //                x:100,
 //                height: 20,
@@ -206,11 +235,6 @@ $(function(){
 			lineWidth: 0                
 		},
 		yAxis: {
-			title: {
-				text: 'EFF Value',
-				style: {
-				},
-			},
 			tickPositions: [0,5,10,15,20,25,30,35],
 			max: 35,
 			min: 0,
@@ -240,6 +264,11 @@ $(function(){
             xAxis: {
                 categories: ['@Home', '@Away']              
             },
+            yAxis: {
+                title: {
+                    text: 'EFF Value'
+                }
+            },            
             series: []
 		})
 	);		
@@ -258,10 +287,38 @@ $(function(){
             xAxis: {
                 categories: ['Day', 'Night']            
             },
+            yAxis: {
+                title: {
+                    text: '　'
+                }
+            },             
             series: []
 		})
 	);
 		
+	var chartRestStarter = new Highcharts.Chart( 
+		$.extend(true,{}, columnOption, {
+            chart: {
+                renderTo: $('#chart_splitstats5').get(0)
+            },
+            title: {
+                text: 'Starter'
+            },
+			legend: {
+				enabled: false
+			},			
+            xAxis: {
+                categories: ['Starter', 'Sub']
+            },
+            yAxis: {
+                title: {
+                    text: '　'
+                }
+            }, 
+            series: []
+		})
+	);       
+        
 	var chartRestDays = new Highcharts.Chart( 
 		$.extend(true,{}, columnOption, {
             chart: {
@@ -274,8 +331,13 @@ $(function(){
 				enabled: false
 			},			
             xAxis: {
-                categories: ['0', '1', '2', '3+']           
+                categories: ['0', '1', '2', '3+']
             },
+            yAxis: {
+                title: {
+                    text: ''
+                }
+            },             
             series: []
 		})
 	);
@@ -295,19 +357,22 @@ $(function(){
                 align: 'right',
                 verticalAlign: 'top',
                 x: -100,
-                y: 0,
+                y: 0
             },
             xAxis: {
 				labels: {
                     rotation: 0,
-					style:{},
+					style:{}
 				},
                 categories: []
             },
             yAxis: {
                 tickPositions: [0,5,10,15,20,25,30,35,40,45,50],
                 max: 50,
-                min: 0
+                min: 0,
+                title: {
+                    text: 'EFF Value'
+                }                
             },
             series: []
 		})

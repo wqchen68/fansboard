@@ -7,8 +7,7 @@
 			<div class="col-1p3 modelCol">				
 				<div class="playerlistblock">
 
-					<div style="float:left;padding:0 0 10px 0">
-                            
+					<div style="float:left;padding:0 0 10px 0">                            
                             <?=Form::select('', array(
                                 'Full' => '2014-15 Season',
                                 'D30' => 'Last 30 Days',
@@ -17,7 +16,6 @@
                                 'Y-1' => '2013-14 Season',
                                 'Y-2' => '2012-13 Season'
                                 ), Input::get('data', 'Y-1'), array('class' => 'selectForm player_season', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)'))?>
-
 					</div>
                     
                     <? include('include_link2realtimeBox.php'); ?>

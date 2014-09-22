@@ -7,13 +7,16 @@
 				
 				<div style="float:left">
 					<select class="selectForm" name="datarange" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.0)">
-						<option value="ALL" selected="selected">2013-14 Season</option>
-						<option value="L4W">Last 4 Weeks</option>
-						<option value="L2W">Last 2 Weeks</option>
-						<option value="L1W">Last 1 Week</option>
-						<option value="YM1">2012-13 Season</option>
-						<option value="YM2">2011-12 Season</option>
+						<option value="ALL">2013-14 Season</option>
+						<option value="D30">Last 4 Weeks</option>
+						<option value="D14">Last 2 Weeks</option>
+						<option value="D07">Last 1 Week</option>
+						<option value="Y-1" selected="selected">2012-13 Season</option>
+						<option value="Y-2">2011-12 Season</option>
 					</select>
+
+
+                    
 				</div>
 				
 				<div style="float:left">
@@ -141,14 +144,12 @@
 	<div class="onepcssgrid-1200">
 		<div class="onerow">
 			<div style="margin:5px 0 20px 60px;color:#fff;font-size: 12px">
-				<?
-					$lastupdate = DB::table('syncdataframe')
+						<?
+							$lastupdate = DB::table('syncdataframe')
 							->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime'))
-							->where('datarange','ALL')
-							->where('fbid','LeBron-James')
 							->first();
-					echo '<div>Last Updated : ' .$lastupdate->updatetime. '</div>';
-				?>
+							echo '<div> Last updated: ' .$lastupdate->updatetime. '</div>';
+						?>
 			</div>
 			<div class="col12" style="color:#fff; text-align:left;font-size: 14px;padding-left: 100px;line-height: 25px">
 				Note:<br />

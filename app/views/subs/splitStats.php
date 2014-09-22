@@ -9,11 +9,12 @@
 				<div class="playerlistblock">
 				
 					<div style="float:left;padding:0 0 10px 0">
-						<select class="selectForm player_season">
-							<option value="ALL" selected="selected">2013-14 Season</option>
-							<option value="2012">2012-13 Season</option>
-							<option value="2011">2011-12 Season</option>
-						</select>
+                        <?=Form::select('player_season', array(
+                            '2014' => '2014-15 Season',
+                            '2013' => '2013-14 Season',
+                            '2012' => '2012-13 Season',
+                            '2011' => '2011-12 Season'
+                            ), Input::get('season', '2013'), array('class' => 'selectForm', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.0)'))?>
 					</div>
 
                     <? include('include_link2realtimeBox.php'); ?>
@@ -31,15 +32,18 @@
 				
 				<div class="chartblock" style="background-color: rgba(0,0,0,0.6)">
 					<div class="">
-						<div class="col-1p4">
+						<div class="col-1p3">
 							<div id="chart_splitstats1"></div>
 						</div>
-						<div class="col-1p4">
+						<div class="col-1p3">
 							<div id="chart_splitstats3"></div>
 						</div>
-						<div class="col-1p4 last">
+						<div class="col-1p3">
+							<div id="chart_splitstats5"></div>
+						</div>                        
+						<div class="col-1p3 last">
 							<div id="chart_splitstats2"></div>
-						</div>				
+						</div>	                        
 					</div>
 					<div class="">
 						<div class="col-1p12 last">

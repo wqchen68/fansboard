@@ -8,15 +8,13 @@
 				
 				<div class="playerlistblock">
 						
-					<div style="float:left;padding:0 0 10px 0">
-                        
+					<div style="float:left;padding:0 0 10px 0">                        
                         <?=Form::select('player_season', array(
-                            '1415' => '2014-15 Season',
-                            '1314' => '2013-14 Season',
-                            '1213' => '2012-13 Season',
-                            '1112' => '2011-12 Season'
-                            ), Input::get('season', '1314'), array('class' => 'selectForm', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.0)'))?>
-                        
+                            '2014' => '2014-15 Season',
+                            '2013' => '2013-14 Season',
+                            '2012' => '2012-13 Season',
+                            '2011' => '2011-12 Season'
+                            ), Input::get('season', '2013'), array('class' => 'selectForm', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.0)'))?>                        
 					</div>
 
                     <? include('include_link2realtimeBox.php'); ?>

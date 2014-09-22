@@ -62,6 +62,7 @@ class Player {
 		$spstat = array(
 			'dayNight'=>array(0,0),
 			'HomeAway'=>array(0,0),
+            'Starter'=>array(0,0),
 			'Rest'=>array(0,0,0,0),
 			'VSTeam'=>array(),
 			'VS'=>array()
@@ -80,6 +81,12 @@ class Player {
 				case 'Night':
 					$spstat['dayNight'][1] = $d->speff*1;
 				break;
+				case 'As Starter':
+					$spstat['Starter'][0] = $d->speff*1;
+				break;
+				case 'As Sub':
+					$spstat['Starter'][1] = $d->speff*1;
+				break;            
 				case '0 Days Rest':
 					$spstat['Rest'][0] = $d->speff*1;
 				break;
@@ -723,11 +730,11 @@ class Player {
 		
 		$db_map_datarange = array(
 			'ALL'=>'ALL',
-			'L4W'=>'L4W',
-			'L2W'=>'L2W',
-			'L1W'=>'L1W',									
-			'YM1'=>'YM1',
-			'YM2'=>'YM2'
+			'D30'=>'D30',
+			'D14'=>'D14',
+			'D07'=>'D07',									
+			'Y-1'=>'Y-1',
+			'Y-2'=>'Y-2'
 		);
 		
 		$db_map_position = array(
@@ -1038,7 +1045,7 @@ class Player {
 			array_push($stat_array,"---");
 		}*/
 				
-		if ($inputseason=='1314'){
+		if ($inputseason=='2013'){
 			$resultAry = DB::table('allgamelog')->where('fbid','=',$inputid)->where('season','=',$inputseason)->orderby('gdate')->select('*',DB::raw('UPPER(goppo) AS goppo'),'bxeff AS colsum')->get();
 			$game_length = count($resultAry);
 			foreach($resultAry as $key => $gd){
