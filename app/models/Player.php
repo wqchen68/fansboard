@@ -1203,7 +1203,7 @@ class Player {
 	}
 	
 	public static function getPlayer2() {
-		$season = Input::get('data', 'Y-1');
+		$season = Input::get('range', 'Y-1');
         //$season=='ALL' && $season = 'Full';
 		
 		$resultAry = DB::table('syncplayerlist')

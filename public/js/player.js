@@ -90,7 +90,7 @@ $(function () {
 			callback = callback || function(){};
             
 			var input = {
-				data: pageobj.find('.player_season').val()
+				range: pageobj.find('select[name=range]').val()
 			};
 			var target = $(this);
 			$.getJSON('/data/getPlayer2',input,function(data){   

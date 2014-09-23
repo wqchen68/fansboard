@@ -25,7 +25,7 @@ $(function () {
             getRank();
     });
 
-    pageobj.on('change','.player_season',function(){
+    pageobj.on('change','select[name=range]',function(){
         pageobj.find('.playerList-combo tr').remove();
         $('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
             if( player.length>0 )
@@ -42,7 +42,7 @@ $(function () {
 
         var location = window.location;        
         url = playerInit.length>0
-            ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?data='+pageobj.find('.player_season').val()
+            ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?data='+pageobj.find('select[name=range]').val()
             : location.toString();
         window.history.pushState('', '', url);
         
@@ -85,7 +85,7 @@ $(function () {
         pageobj.find('.ability-detail').children('tbody').empty();
         pageobj.find('.basic00,.basic01,.basic02,.basic10,.basic11,.basic12').empty();
 
-        $.getJSON('/data/getAbility',{player:player,datarange:pageobj.find('.player_season').val()},function(data){
+        $.getJSON('/data/getAbility',{player:player,datarange:pageobj.find('select[name=range]').val()},function(data){
 
             reFlashNews();
 

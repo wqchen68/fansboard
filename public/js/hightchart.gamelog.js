@@ -19,12 +19,12 @@ $(function(){
         }
     });
 	
-    pageobj.on('change','select[name=player_season]',function(){
-        if( player.length>0 )
-            reflash();
-        //$('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
+    pageobj.on('change','select[name=range]',function(){
+        //if( player.length>0 )
+            //reflash();
+        $('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
             
-        //});
+        });
     });	
 	
     var reflash = function(){	
@@ -43,7 +43,7 @@ $(function(){
 
             var location = window.location;        
             url = playerInit.length>0
-                ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?season='+pageobj.find('select[name=player_season]').val()
+                ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?season='+pageobj.find('select[name=range]').val()
                 : location.toString();
             window.history.pushState('', '', url);
 
@@ -65,7 +65,7 @@ $(function(){
     pageobj.find('.basic1,.basic2,.basic3,.stat').empty();
 	
     function change(){
-        $.getJSON('/data/getLog',{player:player,datarange:pageobj.find('select[name=player_season]').val()},function(data){
+        $.getJSON('/data/getLog',{player:player,datarange:pageobj.find('select[name=range]').val()},function(data){
 			
             pageobj.find('.link-playerAbility').changePlayerImg(data[0]['card'][0]);
 			
