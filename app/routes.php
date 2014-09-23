@@ -42,14 +42,7 @@ Route::any('sort/{name}', 'HomeController@showSort');
 
 Route::get('user/{name}', array('before'=>'id','uses'=>'HomeController@test'))->where('name', '[A-Za-z]+');
 
-Route::get('{pagename}', function($pagename){
-    $player = Input::get('player','')!='' ? explode(' ',Input::get('player','')) : ['Kevin-Durant'];
-    $player = array_diff( $player, array('') );
-    $player = array_slice( $player, 0 );
-    return Redirect::to($pagename . '/' . implode(',', $player));
-});
-
-Route::get('{pagename}/{players}', function($pagename = null, $players = null){
+Route::get('{pagename}/{players?}', array('before'=>'oldUrl', function($pagename = null, $players = null){
 	if (empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
 		$myip = $_SERVER['REMOTE_ADDR'];  
 	} else {  
@@ -113,7 +106,7 @@ Route::get('{pagename}/{players}', function($pagename = null, $players = null){
 	$response->header('Pragma', 'no-cache');
 	$response->header('Last-Modified', gmdate( 'D, d M Y H:i:s' ).' GMT');
 	return $response;
-});
+}));
 
 
 Route::filter('player', function() {
@@ -152,4 +145,13 @@ Route::any('future_get_price', function(){
 });
 Route::post('exporting/get', function(){
 	return View::make('exporting.index');
+});
+
+Route::filter('oldUrl', function($route) {
+    $player = Input::get('player','')!='' ? explode(' ',Input::get('player','')) : [];
+    if( count($player)>0 ){
+        $player = array_diff( $player, array('') );
+        $player = array_slice( $player, 0 );
+        return Redirect::to($route->getParameter('pagename') . '/' . implode(',', $player));
+    }
 });
