@@ -64,7 +64,7 @@
 										<h4 style="left:100%"></h4>
 									</div>
 									<ul style="width:100%">
-										<?=Form::tabi('orankList','O-Rank List')?>
+										<?=Form::tabi('orankList','O-Rank List','lock')?>
 										<?=Form::tabi('','---','lock')?>
 									</ul>	
 								</li>

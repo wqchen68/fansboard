@@ -9,7 +9,7 @@
 				<div class="playerlistblock">
 				
 					<div style="float:left;padding:0 0 10px 0">
-                        <?=Form::select('player_season', array(
+                        <?=Form::select('range', array(
                             '2014' => '2014-15 Season',
                             '2013' => '2013-14 Season',
                             '2012' => '2012-13 Season',

@@ -221,8 +221,8 @@ class Player {
 									realtimeeff.bxst AS st2,
 									realtimeeff.bxblk AS blk2,
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
-					->where('syncdataframe.datarange','=','ALL')
-					->where('syncplayerlist.datarange','=','ALL')
+					->where('syncdataframe.datarange','=','Y-1')
+					->where('syncplayerlist.datarange','=','Y-1')
 					->orderBy('trend','DESC')->take(15)->get();
 		
 		if ( empty($todaybo) ){
@@ -275,8 +275,8 @@ class Player {
 									realtimeeff.bxst AS st2,
 									realtimeeff.bxblk AS blk2,									
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
-					->where('syncdataframe.datarange','=','ALL')
-					->where('syncplayerlist.datarange','=','ALL')
+					->where('syncdataframe.datarange','=','Y-1')
+					->where('syncplayerlist.datarange','=','Y-1')
 					//->where('realtimeeff.livemark','=','Final')					
 					->where('realtimeeff.bxeff','!=','NULL')
 					->orderBy('trend','ASC')->take(15)->get();
@@ -331,9 +331,9 @@ class Player {
 									FORMAT(A2.pwtreb,1) AS treb2,
 									FORMAT(A2.pwast,1) AS ast2,
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
-					->where('syncplayerlist.datarange','=','ALL')
-					->where('A1.datarange','=','ALL')
-					->where('A2.datarange','=','L1W')					
+					->where('syncplayerlist.datarange','=','Y-1')
+					->where('A1.datarange','=','Y-2')
+					->where('A2.datarange','=','Y-1')
 					->orderBy('trend','DESC')->take(15)->get();
 
 		$recentcold = DB::table('syncdataframe AS A1')
@@ -353,9 +353,9 @@ class Player {
 									FORMAT(A2.pwtreb,1) AS treb2,
 									FORMAT(A2.pwast,1) AS ast2,
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
-					->where('syncplayerlist.datarange','=','ALL')
-					->where('A1.datarange','=','ALL')
-					->where('A2.datarange','=','L1W')
+					->where('syncplayerlist.datarange','=','Y-1')
+					->where('A1.datarange','=','Y-2')
+					->where('A2.datarange','=','Y-1')
 					->orderBy('trend','ASC')->take(15)->get();
 		
 		$livemark = DB::table('realtimeeff')

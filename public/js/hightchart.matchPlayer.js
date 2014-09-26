@@ -19,7 +19,7 @@ $(function () {
 			reflash();
 		}});		
 	
-	pageobj.on('change','.player_season',function(){
+	pageobj.on('change','select[name=range]',function(){
 		$('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
 			if( player.length>0 )
 				reflash();
@@ -42,7 +42,7 @@ $(function () {
 				
             var location = window.location;        
             url = playerInit.length>0
-                ? ('http://'+location.host+'/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?data='+pageobj.find('.player_season').val()
+                ? ('http://'+location.host+'/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?data='+pageobj.find('select[name=range]').val()
                 : location.toString();
             window.history.pushState('', '', url);	
 			
@@ -78,7 +78,7 @@ $(function () {
 		
 		var input = {
 			player: player,
-			datarange: pageobj.find('.player_season').val(),
+			datarange: pageobj.find('select[name=range]').val(),
 			matchMethod: pageobj.find('select.matchMethod').val()
 		};
 		$.getJSON('/data/getMatch', input, function(data){

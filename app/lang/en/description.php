@@ -14,15 +14,14 @@ return array(
 	*/
 
 	'home' => 'Fansboard - Easy, Fast and Smart to analyze your NBA Fantasy basketball players.',
-	'playerAbility' => 'Radar Chart. NBA players\' ability on 8 category, custom ranking, and players\' news.',	
-	'gameLog' => 'Players\' performance every game, short-term, long-term trends, like the stock quotes software.',
-	'splitStats' => 'Players\' performance under different conditions, including home/away, v.s. 29 teams, etc.',
-	'careerStats' => 'Active NBA players each season\'s performance. The player traded, games played chart.',	
-	'dataScatter' => 'Scatter chart of NBA players\' stat data, professional fans\' best dashboard.',
-	'realtimeBox' => 'Real-Time NBA players\' performance, like Billboard rank chart.',
+	'playerAbility' => 'Radar Chart. NBA player ability on 8 categories, custom ranking, and player news.',	
+	'gameLog' => 'Player performance every game, short-term, long-term trends, like the stock quotes software.',
+	'splitStats' => 'Player performance under different conditions, including home/away, v.s. 29 teams, etc.',
+	'careerStats' => 'Active NBA players season performance. The player traded, games played(healthy) chart.',
+	'dataScatter' => 'Scatter Chart of NBA players\' data, the best data dashboard for professional fans.',
+	'realtimeBox' => 'Real-Time NBA player performance, like Billboard rank chart.',
 	'matchPlayer' => 'Similar Shape to help you find similar player, replacement or trade indicators.',
 	'tradeCompare' => '2 for 1, or more for more trade, multiple players comparison.',
 	'hotcoldplayer' => 'Recent performance excellent players, of course, there are recent poors.',
-
 
 );

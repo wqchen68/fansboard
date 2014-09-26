@@ -13,10 +13,7 @@
 						<option value="D07">Last 1 Week</option>
 						<option value="Y-1" selected="selected">2012-13 Season</option>
 						<option value="Y-2">2011-12 Season</option>
-					</select>
-
-
-                    
+					</select>                    
 				</div>
 				
 				<div style="float:left">

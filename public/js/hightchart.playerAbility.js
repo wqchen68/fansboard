@@ -46,7 +46,6 @@ $(function () {
             : location.toString();
         window.history.pushState('', '', url);
         
-//        alert(pageobj.find('.player_season').val());
         
         if( player.length>0 ){
             change();
@@ -144,7 +143,7 @@ $(function () {
             return $(a).val(); 
         });	
 
-        $.getJSON('/data/getRank',{get_array:get_array,player:player,datarange:$('.player_season').val()},function(data){
+        $.getJSON('/data/getRank',{get_array:get_array,player:player,datarange:$('select[name=range]').val()},function(data){
             pageobj.find('.rank1').html(data[0]);
             if(data.length>1)
                 pageobj.find('.rank2').html(data[1]);
