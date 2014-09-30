@@ -914,7 +914,7 @@ class Player {
 		 */
 		$player_basic_query = DB::table('syncplayerlist AS sl1')
 							->leftJoin('syncdataframe AS sd',function($join){
-								$join->on('sl1.fbido','=','sd.fbido')->on('sd.datarange','=',DB::raw('\'ALL\''));
+								$join->on('sl1.fbido','=','sd.fbido')->on('sd.datarange','=',DB::raw('\'Y-1\''));
 							})							
 							->where('sl1.datarange','=','Full')	
 							->whereIn('sl1.fbid',$player);

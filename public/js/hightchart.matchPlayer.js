@@ -118,6 +118,9 @@ $(function () {
 			
 			pageobj.find('.majorboxN .playercardsmall').removeClass('active');
 			$('.majorboxN').eq(0).find('.playercardsmall').addClass('active');
+            
+//            drawRadar.options.exporting.filename='MatchPlayer#'+player[0].fbid;
+            
 		}).error(function(e){
 		});
 

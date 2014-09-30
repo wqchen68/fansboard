@@ -117,11 +117,9 @@
 					<div class="checkbox ycate"><input type="checkbox" name="y" value="yPF" id="yPF" /><label for="yPF">-PF</label></div>
 					<div class="checkbox ycate"><input type="checkbox" name="y" value="yPTS" id="yPTS" checked="checked"/><label for="yPTS">PTS</label></div>
 					<div class="checkbox ycate"><input type="checkbox" name="y" value="yTECH" id="yTECH" /><label for="yTECH">-TECH</label></div>				
-				</div>
-
-
-				<div id="container3" class="highlight" style="float:left;border:1px solid #fff;margin: 0;height:680px;background:-webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(59,103,153,0.8)),color-stop(10%,rgba(255,255,255,0.0)),color-stop(90%,rgba(255,255,255,0.0)), color-stop(100%,rgba(211,84,84,0.8)))"></div>
-
+				</div>        
+                
+                <div id="container3" class="highlight" style="float:left;border:1px solid #fff;margin: 0;height:680px;background:-webkit-gradient(linear, left bottom, right top, color-stop(0%,rgba(59,103,153,0.8)),color-stop(10%,rgba(255,255,255,0.0)),color-stop(90%,rgba(255,255,255,0.0)), color-stop(100%,rgba(211,84,84,0.8)))"></div>
 			
 				<div style="float:left;width:230px;height:680px;display:none" id="testlist">
 						<div class="transparent" style="border:1px solid #fff;background-color:rgba(0,0,0,0.0);padding:0;margin:0 0 0 2px;height:100%; text-align:left;overflow-y:scroll">

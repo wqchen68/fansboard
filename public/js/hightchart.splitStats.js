@@ -114,14 +114,14 @@ $(function(){
                 data: data.spstat.dayNight
 			},true);
 
-			var series_size = chartRestStarter.series.length;
+			var series_size = chartStarter.series.length;
 			if( series_size>0 )
 				for( i=0;i<series_size;i++ ){
-					if( chartRestStarter.series[0] )
-						chartRestStarter.series[0].remove(false);
+					if( chartStarter.series[0] )
+						chartStarter.series[0].remove(false);
 				}
-			chartRestStarter.colorCounter = 0;
-			chartRestStarter.addSeries({
+			chartStarter.colorCounter = 0;
+			chartStarter.addSeries({
                 name: '',
                 data: data.spstat.Starter
 			},true); 
@@ -151,6 +151,12 @@ $(function(){
 			},true);
 			
 			chartOppo.xAxis[0].setCategories(data.spstat.VSTeam);
+            
+            chartHomeAway.options.exporting.filename='SplitStat#'+player[0].fbid;
+            chartDayNight.options.exporting.filename='SplitStat#'+player[0].fbid;
+            chartRestDays.options.exporting.filename='SplitStat#'+player[0].fbid;
+            chartStarter.options.exporting.filename='SplitStat#'+player[0].fbid;
+            chartOppo.options.exporting.filename='SplitStat#'+player[0].fbid;
 			
 		});
 	}
@@ -181,7 +187,7 @@ $(function(){
             buttons: {
                 contextButton: {
                     menuItems: [{
-                        text: 'Download the Graph (PNG)',
+                        text: 'Download Graph (PNG)',
                         onclick: function () {
                             this.exportChart({
                                 width: 896,
@@ -189,11 +195,11 @@ $(function(){
                             });
                         }
                     },{
-                        text: 'Download the Graph (JPG)',
+                        text: 'Download Graph (PDF)',
                         onclick: function () {
                             this.exportChart({
                                 width: 896,
-                                type: 'image/jpeg'
+                                type: 'application/pdf'
                             });
                         }
                     }]
@@ -284,7 +290,7 @@ $(function(){
 		})
 	);
 		
-	var chartRestStarter = new Highcharts.Chart( 
+	var chartStarter = new Highcharts.Chart( 
 		$.extend(true,{}, columnOption, {
             chart: {
                 renderTo: $('#chart_splitstats5').get(0)

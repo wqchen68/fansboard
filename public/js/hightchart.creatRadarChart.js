@@ -40,7 +40,7 @@ function creatRadarChart(){
             buttons: {
                 contextButton: {
                     menuItems: [{
-                        text: 'Download the Graph (PNG)',
+                        text: 'Download Graph (PNG)',
                         onclick: function () {
                             this.exportChart({
                                 width: 600,
@@ -48,11 +48,11 @@ function creatRadarChart(){
                             });
                         }
                     },{
-                        text: 'Download the Graph (JPG)',
+                        text: 'Download Graph (PDF)',
                         onclick: function () {
                             this.exportChart({
                                 width: 600,
-                                type: 'image/jpeg'
+                                type: 'application/pdf'
                             });
                         }
                     }]

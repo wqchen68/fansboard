@@ -362,7 +362,7 @@ $(function(){
                 buttons: {
                     contextButton: {
                         menuItems: [{
-                            text: 'Download the Graph (PNG)',
+                            text: 'Download Graph (PNG)',
                             onclick: function () {
                                 this.exportChart({
                                     width: 896,
@@ -370,11 +370,11 @@ $(function(){
                                 });
                             }
                         },{
-                            text: 'Download the Graph (JPG)',
+                            text: 'Download Graph (PDF)',
                             onclick: function () {
                                 this.exportChart({
                                     width: 896,
-                                    type: 'image/jpeg'
+                                    type: 'application/pdf'
                                 });
                             }
                         }]

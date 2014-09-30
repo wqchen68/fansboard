@@ -17,7 +17,8 @@ $(function () {
             borderRadius: 0,
             borderWidth: 0,
             plotBorderColor: '#222222',
-            plotBorderWidth: 1
+            plotBorderWidth: 1,
+            margin: [30, 10, 10, 30]
 	    },
 
 	    title: {
@@ -46,7 +47,7 @@ $(function () {
 			items: [{
 				html: 'Better',
 				style: {
-					left: '790px',
+					left: '805px',
 					top: '-25px',
 					color: 'rgba(255,0,0,1)',
 					fontWeight: 'bold',
@@ -55,7 +56,7 @@ $(function () {
 			},{
 				html: 'Worse',
 				style: {
-					left: '-30px',
+					left: '-25px',
 					top: '630px',
 					color: 'rgba(0,187,255,1)',
 					fontWeight: 'bold',
@@ -84,7 +85,8 @@ $(function () {
 				dashStyle: 'ShortDash'
             }],
 			title: {
-				text: 'Summation of Above items'
+				text: 'Summation of Above items',
+                margin: 10
 			}
 		},
 		yAxis: {
@@ -149,6 +151,47 @@ $(function () {
             }
         },
 		
+        exporting: {
+            buttons: {
+                    contextButton: {
+                        menuItems: [{
+                            text: 'Download Graph (PNG)',
+                            onclick: function () {
+                                this.exportChart({
+                                    scale: 2,
+                                    type: 'image/png',
+                                    filename: 'Data_Scatter'
+                                });
+                            }
+                        },{
+                            text: 'Download Graph (PDF)',
+                            onclick: function () {
+                                this.exportChart({
+                                    scale: 2,
+                                    type: 'application/pdf',
+                                    filename: 'Data_Scatter'
+                                });
+                            }
+                        }]
+                    }
+            },
+        },
+        navigation: {
+            buttonOptions: {
+                enabled: true,
+                align: 'center',
+                x:110,
+                y:-5
+//                height: 20,
+//                width: 24,
+//                symbolSize: 14,
+//                symbolX: 12.5,
+//                symbolY: 10.5,
+//                symbolStroke: '#666',
+//                symbolStrokeWidth: 1,
+            }
+        },
+        
 		credits: {
 			enabled: false
 		},
@@ -265,8 +308,7 @@ $(function () {
 									radius: 5
 								}
 							}
-						}				
-
+						}
 					},false);
 
 					$('.rankList').append('<tr class="ranklist"><td class="index">'+(i*1+1)+'</td><td>'+data.bv_name[i]+'</td><td>'+data.player_info[i].position+'</td></tr>');
@@ -289,6 +331,7 @@ $(function () {
 		}
 		chart2.redraw();
 		$('#testlist').hide('slide', {direction: 'left'}, 300, insertData);
+        
 	});
 	
 	
