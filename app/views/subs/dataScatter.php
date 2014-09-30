@@ -6,7 +6,7 @@
 			<div style="padding:10px 0 10px 55px">
 				
 				<div style="float:left">
-					<select class="selectForm" name="datarange" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.0)">
+					<select class="selectForm" name="datarange" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)">
 						<option value="ALL">2013-14 Season</option>
 						<option value="D30">Last 4 Weeks</option>
 						<option value="D14">Last 2 Weeks</option>

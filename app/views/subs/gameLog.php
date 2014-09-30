@@ -14,7 +14,7 @@
                             '2013' => '2013-14 Season',
                             '2012' => '2012-13 Season',
                             '2011' => '2011-12 Season'
-                            ), Input::get('season', '2013'), array('class' => 'selectForm', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.0)'))?>                        
+                            ), Input::get('season', '2013'), array('class' => 'selectForm', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)'))?>                        
 					</div>
 
                     <? include('include_link2realtimeBox.php'); ?>
