@@ -1,11 +1,9 @@
 <div class="insidemove" style="color:#fff">
-
 	<div class="onepcssgrid-1p-1200">		
 		
 		<div class="onerow">
 
-			<div class="col-1p3 modelCol">
-				
+			<div class="col-1p3 modelCol">				
 				<div class="playerlistblock">
 				
 					<div style="float:left;padding:0 0 10px 0">
@@ -119,16 +117,9 @@
 				</div>					
 			</div>
 			<div style="height:0;clear:both"></div>
-		</div>
-		
-		
-		
-		
-		
-		
+		</div>		
 		
 	</div>
-
 </div>
 
 <style>

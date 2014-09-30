@@ -14,14 +14,14 @@ return array(
 	*/
 
 	'home' => 'Fansboard - Easy, Fast and Smart to analyze your NBA Fantasy basketball players.',
-	'playerAbility' => 'Radar Chart. NBA player ability on 8 categories, custom ranking, and player news.',	
-	'gameLog' => 'Player performance every game, short-term, long-term trends, like the stock quotes software.',
-	'splitStats' => 'Player performance under different conditions, including home/away, v.s. 29 teams, etc.',
-	'careerStats' => 'Active NBA players season performance. The player traded, games played(healthy) chart.',
-	'dataScatter' => 'Scatter Chart of NBA players\' data, the best data dashboard for professional fans.',
-	'realtimeBox' => 'Real-Time NBA player performance, like Billboard rank chart.',
-	'matchPlayer' => 'Similar Shape to help you find similar player, replacement or trade indicators.',
-	'tradeCompare' => '2 for 1, or more for more trade, multiple players comparison.',
-	'hotcoldplayer' => 'Recent performance excellent players, of course, there are recent poors.',
+	'playerAbility' => 'Present NBA players\' ability in a Radar Chart with 8 stat categories, and offer information about players\' News and custom ranking.',	
+	'gameLog' => 'Show players\' performance of every game, short-term and long-term trends in stock quotes software style.',
+	'splitStats' => 'Study players\' performance in different situation, such as home/away, vs. 29 teams, etc.',
+	'careerStats' => 'Visualize players\' career stats and team changes.',
+	'dataScatter' => 'Experience Moneyball on a scatter plot of NBA players\' stats.',
+	'realtimeBox' => 'Get real-time NBA players\' performance at any time, from anywhere.',
+	'matchPlayer' => 'Explore similar players to compare for fantasy basketball managers.',
+	'tradeCompare' => 'Trading analysis for fantasy basketball managers.',
+	'hotcoldplayer' => 'Calculate hot and cold players by recent stats.',
 
 );

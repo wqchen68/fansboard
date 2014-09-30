@@ -19,19 +19,9 @@ $(function(){
 		}
 	});
 	
-//	pageobj.on('change','.player_season',function(){
-//		$('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
-//			if( player.length>0 )
-//				reflash();
-//		});
-//	});
-	
     pageobj.on('change','select[name=range]',function(){
         if( player.length>0 )
             reflash();
-        //$('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
-            
-        //});
     });	  
     
     
@@ -80,9 +70,7 @@ $(function(){
 	
 	function change() {
 		$.getJSON('/data/getSplitStats',{player:player,datarange:pageobj.find('select[name=range]').val()},function(data){
-			
-			console.log(data);
-            
+			           
 			pageobj.find('.link-playerAbility').changePlayerImg(data['card'][0]);
 			
 			/*pageobj.find('.basic1').html(data.basic[0]);

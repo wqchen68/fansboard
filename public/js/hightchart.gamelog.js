@@ -20,10 +20,8 @@ $(function(){
     });
 	
     pageobj.on('change','select[name=range]',function(){
-        //if( player.length>0 )
-            //reflash();
         $('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
-            
+            reflash();
         });
     });	
 	
