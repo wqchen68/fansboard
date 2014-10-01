@@ -598,7 +598,7 @@ class Player {
 				: 'pweff';
 		///撈SQL並計算sum///	
 		$careerstats = DB::table('careerstats')->where('fbid',$inputid)->orderBy('dataorder')->select($items.' AS colsum','ceff36','cseason','cteam','cgame')->get();
-		$valueMax = DB::table('careerstats')->max($items);
+		$valueMax = DB::table('careerstats')->where('cseason','2013-14')->max($items);
 		if (empty($table_array2)){
 			$valueMaxNow = DB::table('syncdataframe')->where('datarange','Full')->max($itemsNow);
 			$thisyearstats = DB::table('syncdataframe')->where('fbid',$inputid)->where('datarange','Full')->select($itemsNow.' AS pweff','pweff36','wgp')->first();	

@@ -68,7 +68,7 @@ $(function(){
 	var color36 = ['rgba(0,187,255,0.4)','rgba(255,0,136,0.4)','rgba(0,255,0,0.4)','rgba(255,255,255,0.4)'];
 
 	var chart_box = pageobj.find('.chart_box');
-	var show36 = $('<div style="position:absolute; top:8px; right:120px; font-size:12px"><input class="show36" id="show36" type="checkbox" checked="checked" /><label for="show36">Show 36 Mins (Transparent Line)</label></div>');
+	var show36 = $('<div style="position:absolute; top:20px; right:70px; font-size:12px"><input class="show36" id="show36" type="checkbox" checked="checked" /><label for="show36">Show 36 Mins (Transparent Line)</label></div>');
 	var isShow36 = show36.children('input').is(':checked');
 	
 	show36.on('click','input',function(e){
@@ -193,7 +193,7 @@ $(function(){
 					tickPositions: [0.3,0.4,0.5,0.6],
                     min: 0.185,
                     title:{
-                        text: 'Field Goal (%)'                        
+                        text: 'Field Goal (%)'
                     }                    
 				});
             }else if( pageobj.find('.items').val()==='cftp' ){
@@ -201,7 +201,7 @@ $(function(){
 					tickPositions: [0.5,0.6,0.7,0.8,0.9,1],
                     min: 0.315,
                     title:{
-                        text: 'Feww Throw (%)'                        
+                        text: 'Feww Throw (%)'
                     }
 				});
             }else if( pageobj.find('.items').val()==='c3ptp' ){
@@ -228,14 +228,22 @@ $(function(){
                         text: 'Steals'
                     }
 				});
-            }else if( pageobj.find('.items').val()==='catr' ){
+            }else if( pageobj.find('.items').val()==='ctreb' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,3,6,9,12,15],
+                    min: -5.7,
+                    title:{
+                        text: 'Rebounds'
+                    }
+				});                
+            }else if( pageobj.find('.items').val()==='catr' || pageobj.find('.items').val()==='cpf'  || pageobj.find('.items').val()==='cto' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,1,2,3,4,5],
                     min: -1.85,
                     title:{
-                        text: 'Assist Turnover Ratio '
+                        text: 'Value'
                     }                    
-				});                
+				});
 			}else{
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,data['valueMax']/4,data['valueMax']/2,3*data['valueMax']/4,data['valueMax']],
@@ -276,13 +284,15 @@ $(function(){
                 type: 'column',
                 plotBorderColor: '#888',
                 plotBorderWidth: 1,
-				backgroundColor: 'rgba(0,0,0,0.6)'
+				backgroundColor: 'rgba(0,0,0,0.6)',
+                marginTop: 50
             },
 			credits: {
                 enabled: false
             },
             title: {
-                text: 'Season Performance'
+                text: 'Season Performance',
+                y: 20,
             },
 //			subtitle: {
 //                text: '(Transparent Line: 36 Mins EFF)'
