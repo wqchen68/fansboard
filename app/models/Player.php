@@ -588,9 +588,10 @@ class Player {
 			'catr'=>'watr',
 			'cst'=>'pwst',
 			'cblk'=>'pwblk',
+            'cpf'=>'pwpf',
 			'cpts'=>'pwpts'
 		);
-		if ( !in_array($items,array('ceff','cfgm','cfga','cfgp','cftm','cfta','cftp','c3ptm','c3pta','c3ptp','coreb','cdreb','ctreb','cast','cto','catr','cst','cblk','cpts')) )
+		if ( !in_array($items,array('ceff','cfgm','cfga','cfgp','cftm','cfta','cftp','c3ptm','c3pta','c3ptp','coreb','cdreb','ctreb','cast','cto','catr','cst','cblk','cpf','cpts')) )
 				$items = 'ceff';
 		$itemsNow = isset($itemsMap[$items])
 				? $itemsMap[$items]

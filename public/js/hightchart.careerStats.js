@@ -212,6 +212,22 @@ $(function(){
                         text: '3-Points Throw (%)'
                     }
 				});
+            }else if( pageobj.find('.items').val()==='cblk' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,1,2,3,4],
+                    min: -1.5,
+                    title:{
+                        text: 'Blocks'
+                    }
+				});
+            }else if( pageobj.find('.items').val()==='cst' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,1,2,3],
+                    min: -1.13,
+                    title:{
+                        text: 'Steals'
+                    }
+				});
             }else if( pageobj.find('.items').val()==='catr' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,1,2,3,4,5],
