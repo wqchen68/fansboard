@@ -81,7 +81,7 @@
 						<div style="padding:5px">Relative Players</div>
 						
                        
-                        @for ($i = 0; $i < 5; $i++)
+                        @for ($i = 2; $i < 7; $i++)
                             <div class="majorboxN">
                                 <div class="majorbox playercardsmall highlight">
                                     <div style="float:left">
