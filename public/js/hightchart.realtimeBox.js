@@ -153,7 +153,7 @@ $(function(){
 
 					var rankline = $('<div class="effrank new wait" fbid="'+fbid+'" rank="'+i+'" style="display:none;width:100%;height:20px;margin: 7px"></div>');
 					rankline.append('<div style="float:left;width:30px">'+(i*1+1)+'.</div>');
-					rankline.append('<div style="float:left;width:190px"><a href="gameLog?player='+fbid+'" style="text-decoration:none;color:#fff">'+data[i].player+'</a></div>');
+					rankline.append('<div style="float:left;width:190px"><a href="playerAbility?player='+fbid+'" style="text-decoration:none;color:#fff">'+data[i].player+'</a></div>');
 					rankline.append('<div style="float:left;width:34px;border-radius: 3px;line-height:20px;font-size:12px;font-weight:bold;text-align:center;background-color:'+data[i].colorback+';color:'+data[i].colorfont+'">'+data[i].team+'</div>');
 					rankline.append('<div style="float:left;width:50px;margin-left:10px">'+data[i].oppo+'</div>');
 					rankline.append('<div style="float:left;width:40px;margin-left:10px">'+data[i].startfive+'</div>');

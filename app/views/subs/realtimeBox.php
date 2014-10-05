@@ -288,7 +288,7 @@
 						echo '<span class="effrank_t"></span>';
 						echo '<div class="effrank new wait" fbid="'.$r->fbid.'" rank="'.$index.'" style="width:100%;height:20px;margin: 7px">';
 						echo '<div style="float:left;width:30px">'.($index+1).'.</div>';
-						echo '<div style="float:left;width:190px"><a href="gameLog?player='.$r->fbid.'" style="text-decoration:none;color:#fff">'.$r->player.'</a></div>';
+						echo '<div style="float:left;width:190px"><a href="playerAbility?player='.$r->fbid.'" style="text-decoration:none;color:#fff">'.$r->player.'</a></div>';
 						echo '<div style="float:left;width:34px;border-radius: 3px;line-height:20px;font-size:12px;font-weight:bold;text-align:center;background-color:'.$r->colorback.';color:'.$r->colorfont.'">'.$r->team.'</div>';
 						echo '<div style="float:left;width:50px;margin-left:10px">'.$r->oppo.'</div>';
 						echo '<div style="float:left;width:40px;margin-left:10px;text-align: left">'.$r->startfive.'</div>';
