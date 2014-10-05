@@ -41,7 +41,7 @@
 									<ul style="width:100%">
 										<?=Form::tabi('dataScatter','Data Scatter')?>
 										<?=Form::tabi('','Stable Analysis','lock')?>
-										<?=Form::tabi('','Motion Chart','lock')?>
+										<?=Form::tabi('','---','lock')?>
 									</ul>	
 								</li>
 								<li class="tab">

@@ -229,8 +229,11 @@
 
 		<div class="onerow" style="height: 750px">
 			<div class="col-1p12" style="background-color:rgba(0,0,0,0.2);margin-top:10px">
+                
+<!--                <img src="/images/radar1.png" style="margin:0 auto;display:block;width:70%" />
+                <img src="/images/radar2.png" style="margin:0 auto;display:block;width:70%" />-->
 
-				<div style="font-size:12px;margin:30px 0 0 200px;color:#fff">What it Means</div>
+				<div style="font-size:12px;margin:30px 0 0 200px;color:#fff">What it Means?</div>
 		
 				<div style="font-size:12px;margin:10px 0 0 210px;text-align:left;color:#fff;clear: both">
 					<table cellpadding="6" cellspacing="0">
@@ -351,25 +354,6 @@
 			</div>
 		</div>
 	</div>
-<?	
-	/*<div class="onepcssgrid-1p-1200" style="background-color:rgba(0,0,0,0.0);border-radius: 0px">
-		<div class="onerow" style="padding:10px 0 0 0">	
-			<div class="col-1p12" style="background-color:rgba(0,0,0,0.1)">
-
-				<div class="colm" style="margin:50px auto 0 auto;height:0;border-top:1px solid #666;border-bottom:1px solid #999"></div>
-				<div class="colm" style="margin:50px auto 0 auto;min-height:600px;background-color:rgba(0,0,0,0.6);border-radius: 25px;">
-
-					<img src="images/radar1.png" style="margin:0 auto;display:block;width:100%" />
-					<img src="images/radar2.png" style="margin:0 auto;display:block;width:100%" />
-
-					<img src="images/hist.png" style="margin:0 auto 0 auto;display:block;width:80%" />
-				</div>
-			</div>
-			<div style="height:0;clear:both"></div>
-		</div>		
-	</div>*/
-?>
-
 </div>
 
 

@@ -11,7 +11,7 @@ $(function () {
 
     });
 	
-    function changePlayerImg(){		
+    function changePlayerImg(){
         pageobj.find('img.face').css('background-image','url(/images/help1.png)');
         if( player.length>0 ){
             pageobj.find('.face.player0').css({'background-image':'url(/player/'+player[0].fbid+'.png)','background-size': '60px 72px'});

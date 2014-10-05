@@ -7,7 +7,7 @@
                 <div class="onerow">
                     <div style="background-color:rgba(0,0,0,0);padding:10px 0 0 0">
 
-                        <div style="float:left;margin:0 5px 0 0;font-size: 25px;color:gold;font-weight:bold;font-style:italic">PLAYOFFS</div>
+                        <div style="float:left;margin:0 5px 0 0;font-size: 25px;color:gold;font-weight:bold;font-style:italic">2014-15 Pre-Season</div>
 
 <!--                        <div style="float:left;margin:0 5px 0 0;padding: 2px;background-color:rgba(0,0,0,0.3)">
 
