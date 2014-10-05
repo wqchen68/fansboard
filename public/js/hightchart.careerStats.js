@@ -188,6 +188,14 @@ $(function(){
                         text: 'Efficiency'
                     }                    
 				});
+            }else if( pageobj.find('.items').val()==='cmin' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,12,24,36,48],
+                    min: -18,
+                    title:{
+                        text: 'Minutes'
+                    }                    
+				});                
             }else if( pageobj.find('.items').val()==='cfgp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0.3,0.4,0.5,0.6],
