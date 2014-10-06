@@ -1,4 +1,4 @@
-<div style="background-color:rgba(0,0,0,0.5);margin: 0;min-height:800px">
+<div style="background-color:rgba(0,0,0,0.5);margin: 0;min-height:1200px">
 
 	<div class="onepcssgrid-1p-1200" style="background-color:rgba(0,0,0,0.0);border-radius: 0px">		
 
