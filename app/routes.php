@@ -152,6 +152,6 @@ Route::filter('oldUrl', function($route) {
     if( count($player)>0 ){
         $player = array_diff( $player, array('') );
         $player = array_slice( $player, 0 );
-        return Redirect::to($route->getParameter('pagename') . '/' . implode(',', $player));
+        return Redirect::to($route->getParameter('pagename') . '/' . implode(',', $player), 301);
     }
 });
