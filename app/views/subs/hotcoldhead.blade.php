@@ -41,7 +41,7 @@
 				<?// $r = $subviewdata[$index] ?>
 				<? if ( $index > 5) break ?>
 				<div class="prcard-resize" style="float:left">
-					<a href="gameLog?player={{ $r->fbid }}" style="text-decoration:none;color:#fff">
+					<a href="careerStats?player={{ $r->fbid }}" style="text-decoration:none;color:#fff">
 					<div class="prcard" style="position:relative">
 						<div style="float:left;padding:5px">
 							<div class="{{ $tablename }}-face{{ $index }}" style="width:48px;height:60px;background-image:url(player/{{ $r->fbid }}.png);background-size: 48px 60px">
@@ -53,7 +53,7 @@
 							<div class="{{ $tablename }}-today{{ $index }} {{ $tablename }}-stat">{{ $r->pts2 }} PTS, {{ $r->treb2 }} REB, {{ $r->ast2 }} AST</div>
 							<div style="float:right">
 								<span class="{{ $tablename }}-min{{ $index }} {{ $tablename }}-stat" >Min {{ $r->min2 }}, </span>
-								<span class="{{ $tablename }}-eff{{ $index }}" style="color:gold">EFF {{ $tablesign }}{{ number_format($r->trend) }}</span>
+								<span class="{{ $tablename }}-eff{{ $index }}" style="color:gold">EFF {{ $tablesign }}{{ number_format($r->trend,1) }}</span>
 							</div>
 							<div class="mask{{ $tablename }} {{ $tablename }}-mask{{ $index }}" style="position:absolute;width:100%;height:100%;top:0px;left:0px">
 								<div style="padding:5px">Season: {{ $r->pts1 }} PTS, {{ $r->treb1 }} REB, {{ $r->ast1 }} AST</div>
@@ -98,12 +98,12 @@
 					<? if ( $index > 5){ ?>
 					<tr class="report-detail">
 					<td>{{ $index +1}}</td>
-					<td style="text-align:left"><a href="gameLog?player={{ $r->fbid }}" style="text-decoration:none;color:#fff">{{ $r->player }} ({{ $r->team }} - {{ $r->position }})</a></td>					
+					<td style="text-align:left"><a href="careerStats?player={{ $r->fbid }}" style="text-decoration:none;color:#fff">{{ $r->player }} ({{ $r->team }} - {{ $r->position }})</a></td>					
 					<td>{{ $r->min2 }}</td>
 					<td>{{ $r->pts2 }}</td>
 					<td>{{ $r->treb2 }}</td>
 					<td>{{ $r->ast2 }}</td>
-					<td>{{ $tablesign }}{{ $r->trend }}</td>
+					<td>{{ $tablesign }}{{ number_format($r->trend,1) }}</td>
 					</tr>
 					<? } ?>					
 				@endforeach
