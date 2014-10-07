@@ -1,4 +1,4 @@
-<div style="background-color:rgba(0,0,0,0.5);margin: 0;min-height:1200px">
+<div style="background-color:rgba(0,0,0,0.5);margin: 0;min-height:900px">
 
 	<div class="onepcssgrid-1p-1200" style="background-color:rgba(0,0,0,0.0);border-radius: 0px">		
 
@@ -235,16 +235,16 @@
            
             
 		<div class="onerow">
-                    <div style="float:left;width:80px;margin:0 0 0 600px"><div class="reflashtime"></div></div>
-                    <div style="float:left;margin:20px 0 0 300px;font-size: 14px;color:#fff">
-                            <?
-                                    $lastupdate = DB::table('realtimeeff')
-                                    ->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime2'))
-                                    ->orderBy('updatetime','desc')
-                                    ->first();
-                                    echo '<div>' .$lastupdate->updatetime2. '</div>';
-                            ?>
-                    </div>
+            <div style="float:left;width:80px;margin:0 0 0 600px"><div class="reflashtime"></div></div>
+            <div style="float:left;margin:20px 0 0 300px;font-size: 14px;color:#fff">
+                <?
+                    $lastupdate = DB::table('realtimeeff')
+                    ->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime2'))
+                    ->orderBy('updatetime','desc')
+                    ->first();
+                    echo '<div>' .$lastupdate->updatetime2. '</div>';
+                ?>
+            </div>
 		</div>       
             
 		

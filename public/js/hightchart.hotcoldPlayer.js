@@ -92,12 +92,12 @@ $(function(){
 			pageobj.find('.todaybo-today4').html(data.todaybo[4]['pts2']+' PTS, '+data.todaybo[4]['treb2']+' REB, '+data.todaybo[4]['ast2']+' AST');
 			pageobj.find('.todaybo-today5').html(data.todaybo[5]['pts2']+' PTS, '+data.todaybo[5]['treb2']+' REB, '+data.todaybo[5]['ast2']+' AST');
 						
-			pageobj.find('.todaybo-eff0').html('EFF +'+data.todaybo[0]['trend']);
-			pageobj.find('.todaybo-eff1').html('EFF +'+data.todaybo[1]['trend']);
-			pageobj.find('.todaybo-eff2').html('EFF +'+data.todaybo[2]['trend']);
-			pageobj.find('.todaybo-eff3').html('EFF +'+data.todaybo[3]['trend']);
-			pageobj.find('.todaybo-eff4').html('EFF +'+data.todaybo[4]['trend']);
-			pageobj.find('.todaybo-eff5').html('EFF +'+data.todaybo[5]['trend']);
+			pageobj.find('.todaybo-eff0').html('EFF +'+data.todaybo[0]['trend'].toFixed(1));
+			pageobj.find('.todaybo-eff1').html('EFF +'+data.todaybo[1]['trend'].toFixed(1));
+			pageobj.find('.todaybo-eff2').html('EFF +'+data.todaybo[2]['trend'].toFixed(1));
+			pageobj.find('.todaybo-eff3').html('EFF +'+data.todaybo[3]['trend'].toFixed(1));
+			pageobj.find('.todaybo-eff4').html('EFF +'+data.todaybo[4]['trend'].toFixed(1));
+			pageobj.find('.todaybo-eff5').html('EFF +'+data.todaybo[5]['trend'].toFixed(1));
 			
 			pageobj.find('.todaybo-min0').html('Min '+data.todaybo[0]['min2']+', ');
 			pageobj.find('.todaybo-min1').html('Min '+data.todaybo[1]['min2']+', ');
@@ -128,7 +128,7 @@ $(function(){
 				scoreTable.append('<td>'+tablerow['pts2']+'</td>');
 				scoreTable.append('<td>'+tablerow['treb2']+'</td>');
 				scoreTable.append('<td>'+tablerow['ast2']+'</td>');
-				scoreTable.append('<td>+'+tablerow['trend']+'</td>');
+				scoreTable.append('<td>+'+tablerow['trend'].toFixed(1)+'</td>');
 			}
 			
 			
@@ -154,12 +154,12 @@ $(function(){
 			pageobj.find('.todaysg-today4').html(data.todaysg[4]['pts2']+' PTS, '+data.todaysg[4]['treb2']+' REB, '+data.todaysg[4]['ast2']+' AST');
 			pageobj.find('.todaysg-today5').html(data.todaysg[5]['pts2']+' PTS, '+data.todaysg[5]['treb2']+' REB, '+data.todaysg[5]['ast2']+' AST');
 						
-			pageobj.find('.todaysg-eff0').html('EFF '+data.todaysg[0]['trend']);
-			pageobj.find('.todaysg-eff1').html('EFF '+data.todaysg[1]['trend']);
-			pageobj.find('.todaysg-eff2').html('EFF '+data.todaysg[2]['trend']);
-			pageobj.find('.todaysg-eff3').html('EFF '+data.todaysg[3]['trend']);
-			pageobj.find('.todaysg-eff4').html('EFF '+data.todaysg[4]['trend']);
-			pageobj.find('.todaysg-eff5').html('EFF '+data.todaysg[5]['trend']);
+			pageobj.find('.todaysg-eff0').html('EFF '+data.todaysg[0]['trend'].toFixed(1));
+			pageobj.find('.todaysg-eff1').html('EFF '+data.todaysg[1]['trend'].toFixed(1));
+			pageobj.find('.todaysg-eff2').html('EFF '+data.todaysg[2]['trend'].toFixed(1));
+			pageobj.find('.todaysg-eff3').html('EFF '+data.todaysg[3]['trend'].toFixed(1));
+			pageobj.find('.todaysg-eff4').html('EFF '+data.todaysg[4]['trend'].toFixed(1));
+			pageobj.find('.todaysg-eff5').html('EFF '+data.todaysg[5]['trend'].toFixed(1));
 			
 			pageobj.find('.todaysg-min0').html('Min '+data.todaysg[0]['min2']+', ');
 			pageobj.find('.todaysg-min1').html('Min '+data.todaysg[1]['min2']+', ');
@@ -188,7 +188,7 @@ $(function(){
 				scoreTable.append('<td>'+tablerow['pts2']+'</td>');
 				scoreTable.append('<td>'+tablerow['treb2']+'</td>');
 				scoreTable.append('<td>'+tablerow['ast2']+'</td>');
-				scoreTable.append('<td>'+tablerow['trend']+'</td>');
+				scoreTable.append('<td>'+tablerow['trend'].toFixed(1)+'</td>');
 			}
 
 
@@ -219,12 +219,12 @@ $(function(){
 			pageobj.find('.recenthot-today4').html(data.recenthot[4]['pts2']+' PTS, '+data.recenthot[4]['treb2']+' REB, '+data.recenthot[4]['ast2']+' AST');
 			pageobj.find('.recenthot-today5').html(data.recenthot[5]['pts2']+' PTS, '+data.recenthot[5]['treb2']+' REB, '+data.recenthot[5]['ast2']+' AST');
 						
-			pageobj.find('.recenthot-eff0').html('EFF +'+data.recenthot[0]['trend']);
-			pageobj.find('.recenthot-eff1').html('EFF +'+data.recenthot[1]['trend']);
-			pageobj.find('.recenthot-eff2').html('EFF +'+data.recenthot[2]['trend']);
-			pageobj.find('.recenthot-eff3').html('EFF +'+data.recenthot[3]['trend']);
-			pageobj.find('.recenthot-eff4').html('EFF +'+data.recenthot[4]['trend']);
-			pageobj.find('.recenthot-eff5').html('EFF +'+data.recenthot[5]['trend']);
+			pageobj.find('.recenthot-eff0').html('EFF +'+data.recenthot[0]['trend'].toFixed(1));
+			pageobj.find('.recenthot-eff1').html('EFF +'+data.recenthot[1]['trend'].toFixed(1));
+			pageobj.find('.recenthot-eff2').html('EFF +'+data.recenthot[2]['trend'].toFixed(1));
+			pageobj.find('.recenthot-eff3').html('EFF +'+data.recenthot[3]['trend'].toFixed(1));
+			pageobj.find('.recenthot-eff4').html('EFF +'+data.recenthot[4]['trend'].toFixed(1));
+			pageobj.find('.recenthot-eff5').html('EFF +'+data.recenthot[5]['trend'].toFixed(1));
 			
 			/*****hover*****/
 			pageobj.find('.recenthot-mask0 div').html('Season: '+data.recenthot[0]['pts1']+' PTS, '+data.recenthot[0]['treb1']+' REB, '+data.recenthot[0]['ast1']+' AST');
@@ -247,7 +247,7 @@ $(function(){
 				scoreTable.append('<td>'+tablerow['pts2']+'</td>');
 				scoreTable.append('<td>'+tablerow['treb2']+'</td>');
 				scoreTable.append('<td>'+tablerow['ast2']+'</td>');
-				scoreTable.append('<td>+'+tablerow['trend']+'</td>');
+				scoreTable.append('<td>+'+tablerow['trend'].toFixed(1)+'</td>');
 			}
 			
 			
@@ -275,12 +275,12 @@ $(function(){
 			pageobj.find('.recentcold-today4').html(' '+data.recentcold[4]['pts2']+' PTS, '+data.recentcold[4]['treb2']+' REB, '+data.recentcold[4]['ast2']+' AST');
 			pageobj.find('.recentcold-today5').html(' '+data.recentcold[5]['pts2']+' PTS, '+data.recentcold[5]['treb2']+' REB, '+data.recentcold[5]['ast2']+' AST');
 						
-			pageobj.find('.recentcold-eff0').html('EFF '+data.recentcold[0]['trend']);
-			pageobj.find('.recentcold-eff1').html('EFF '+data.recentcold[1]['trend']);
-			pageobj.find('.recentcold-eff2').html('EFF '+data.recentcold[2]['trend']);
-			pageobj.find('.recentcold-eff3').html('EFF '+data.recentcold[3]['trend']);
-			pageobj.find('.recentcold-eff4').html('EFF '+data.recentcold[4]['trend']);
-			pageobj.find('.recentcold-eff5').html('EFF '+data.recentcold[5]['trend']);
+			pageobj.find('.recentcold-eff0').html('EFF '+data.recentcold[0]['trend'].toFixed(1));
+			pageobj.find('.recentcold-eff1').html('EFF '+data.recentcold[1]['trend'].toFixed(1));
+			pageobj.find('.recentcold-eff2').html('EFF '+data.recentcold[2]['trend'].toFixed(1));
+			pageobj.find('.recentcold-eff3').html('EFF '+data.recentcold[3]['trend'].toFixed(1));
+			pageobj.find('.recentcold-eff4').html('EFF '+data.recentcold[4]['trend'].toFixed(1));
+			pageobj.find('.recentcold-eff5').html('EFF '+data.recentcold[5]['trend'].toFixed(1));
 
 			/*****hover*****/
 			pageobj.find('.recentcold-mask0 div').html('Mins: '+data.recentcold[0]['min2']+',</br> FG: '+data.recentcold[0]['fgm2']+'-'+data.recentcold[0]['fga2']+', '+data.recentcold[0]['fgp2']+'%');
@@ -302,7 +302,7 @@ $(function(){
 				scoreTable.append('<td>'+tablerow['pts2']+'</td>');
 				scoreTable.append('<td>'+tablerow['treb2']+'</td>');
 				scoreTable.append('<td>'+tablerow['ast2']+'</td>');
-				scoreTable.append('<td>'+tablerow['trend']+'</td>');
+				scoreTable.append('<td>'+tablerow['trend'].toFixed(1)+'</td>');
 			}			
 			
 			

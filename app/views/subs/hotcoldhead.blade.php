@@ -53,7 +53,7 @@
 							<div class="{{ $tablename }}-today{{ $index }} {{ $tablename }}-stat">{{ $r->pts2 }} PTS, {{ $r->treb2 }} REB, {{ $r->ast2 }} AST</div>
 							<div style="float:right">
 								<span class="{{ $tablename }}-min{{ $index }} {{ $tablename }}-stat" >Min {{ $r->min2 }}, </span>
-								<span class="{{ $tablename }}-eff{{ $index }}" style="color:gold">EFF {{ $tablesign }}{{ $r->trend }}</span>
+								<span class="{{ $tablename }}-eff{{ $index }}" style="color:gold">EFF {{ $tablesign }}{{ number_format($r->trend) }}</span>
 							</div>
 							<div class="mask{{ $tablename }} {{ $tablename }}-mask{{ $index }}" style="position:absolute;width:100%;height:100%;top:0px;left:0px">
 								<div style="padding:5px">Season: {{ $r->pts1 }} PTS, {{ $r->treb1 }} REB, {{ $r->ast1 }} AST</div>

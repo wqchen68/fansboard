@@ -21,8 +21,13 @@
             
             <?
                 $rankplayer = DB::table('syncplayerlist')
-                ->select('fbid')->where('datarange','=','ALL')->where('orank','<','26')->orderBy('orank','ASC')->get();
-                echo '<div>'.$rankplayer->fbid.'</div>';
+                    ->select('biodata.player')
+                    ->leftJoin('biodata','biodata.fbido','=','syncplayerlist.fbido')
+                    ->where('datarange','=','ALL')
+                    ->where('orank','<','26')
+                    ->orderBy('orank','ASC')->get();
+                var_dump($rankplayer[0]->player);
+//                echo '<div>'.$rankplayer[1]->fbid.'</div>';                
             ?>
 
             @for ($i = 0; $i < 25; $i++)
@@ -46,7 +51,9 @@
                 </div>
             
                 <div class="col-1p3"> <!--news-->
-                    <div style="background-color: #fff;margin: 5px;width: 200px;height: 100px "></div>
+                    <!--<div style="background-color: #fff;margin: 5px;width: 100px;height: 100px ">-->
+                        <div class="modelBox" mid="3"></div>
+                    <!--</div>-->
                 </div>
                 
                 <div class="col-1p6 last">

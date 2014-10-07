@@ -50,7 +50,7 @@
 			
 			<div class="col-1p6 ">
 				<? 
-				$tabletitle='Recent Hot';
+				$tabletitle='Last Season Hot';
 				$subviewdata = $hotcold_data->recenthot;
 				$tablename = 'recenthot';
 				$tablesign = '+';
@@ -62,7 +62,7 @@
 			<div class="col-1p6 last">
 				
 				<? 
-				$tabletitle='Recent Cold';
+				$tabletitle='Last Season Cold';
 				$subviewdata = $hotcold_data->recentcold;
 				$tablename = 'recentcold';
 				$tablesign = '';

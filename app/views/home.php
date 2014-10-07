@@ -299,7 +299,7 @@ $(document).ready(function(){
 													<div class="todaybo-today0" style="color:red"><?=$realtime[0]->pts2.' PTS, '.$realtime[0]->treb2.' REB, '.$realtime[0]->ast2.' AST'?></div>
 													<div style="float:right">
 														<span class="todaybo-min0" style="color:red"><?='Min '.$realtime[0]->min2.', '?></span>
-														<span class="todaybo-eff0" style="color:gold"><?='EFF +'.$realtime[0]->trend?></span>
+														<span class="todaybo-eff0" style="color:gold"><?='EFF +'.number_format($realtime[0]->trend)?></span>
 													</div>
 												</div>
 												<div style="height:0;clear:both"></div>
@@ -317,7 +317,7 @@ $(document).ready(function(){
 													<div class="todaybo-today1" style="color:red"><?=$realtime[1]->pts2.' PTS, '.$realtime[1]->treb2.' REB, '.$realtime[1]->ast2.' AST'?></div>
 													<div style="float:right">
 														<span class="todaybo-min1" style="color:red"><?='Min '.$realtime[1]->min2.', '?></span>
-														<span class="todaybo-eff1" style="color:gold"><?='EFF +'.$realtime[1]->trend?></span>
+														<span class="todaybo-eff1" style="color:gold"><?='EFF +'.number_format($realtime[1]->trend)?></span>
 													</div>
 												</div>
 												<div style="height:0;clear:both"></div>
