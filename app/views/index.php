@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" lang="en" xml:lang="en">
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xmlns:ng="http://angularjs.org" lang="en" xml:lang="en" ng-app="app">
 	
 <head>
 	
@@ -28,6 +28,7 @@
 <script src="/js/highcharts.theme.js"></script>
 <script src="/js/player.js"></script>
 <script src="/js/module.js"></script>
+<script src="/js/angular.min.js"></script>
 <!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
 
 <link rel="stylesheet" href="/css/onepcssgrid.css" />
@@ -45,6 +46,7 @@ var playerInit = <?=$player?>;
 var funcArray = [];
 var pageIndex = 0;
 var jsfiles = ['playerAbility'];
+var app = angular.module('app', []);
 
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
