@@ -172,48 +172,48 @@
 
 				<div class="tablebackground">
 					<table class="ability-detail" cellpadding="6" cellspacing="0" style="width:100%;margin-left:0;font-size:12px;clear: both">
-					<thead>
+                        <thead>
 
-						<tr>
-						<th colspan="3" class="report-detail-midd">STATS per game</th>
-						<th colspan="3" class="report-detail-dark">Field Goals</th>
-						<th colspan="3" class="report-detail-midd">3-Point Throws</th>
-						<th colspan="3" class="report-detail-dark">Free Throws</th>
-						<th colspan="3" class="report-detail-midd">Rebounds</th>
-						<th colspan="3" class="report-detail-dark">Assist/Turnover</th>
-						<th colspan="4" class="report-detail-midd">Miscellaneous</th>
-						<th colspan="2" class="report-detail-dark">Efficiency</th>						
-						</tr>
+                            <tr>
+                            <th colspan="3" class="report-detail-midd">STATS per game</th>
+                            <th colspan="3" class="report-detail-dark">Field Goals</th>
+                            <th colspan="3" class="report-detail-midd">3-Point Throws</th>
+                            <th colspan="3" class="report-detail-dark">Free Throws</th>
+                            <th colspan="3" class="report-detail-midd">Rebounds</th>
+                            <th colspan="3" class="report-detail-dark">Assist/Turnover</th>
+                            <th colspan="4" class="report-detail-midd">Miscellaneous</th>
+                            <th colspan="2" class="report-detail-dark">Efficiency</th>						
+                            </tr>
 
-						<tr>
-						<th class="report-detail-midd" width="15%">PLAYER</th>
-						<th class="report-detail-midd" width="2%">GP</th>
-						<th class="report-detail-midd" width="4%">MIN</th>
-						<th class="report-detail-dark" width="3%">FGM</th>
-						<th class="report-detail-dark" width="3%">FGA</th>
-						<th class="report-detail-dark" width="4%">FG%</th>
-						<th class="report-detail-midd" width="3%">3PTM</th>
-						<th class="report-detail-midd" width="3%">3PTA</th>
-						<th class="report-detail-midd" width="4%">3PT%</th>
-						<th class="report-detail-dark" width="3%">FTM</th>
-						<th class="report-detail-dark" width="3%">FTA</th>
-						<th class="report-detail-dark" width="4%">FT%</th>
-						<th class="report-detail-midd" width="4%">OREB</th>
-						<th class="report-detail-midd" width="4%">DREB</th>
-						<th class="report-detail-midd" width="4%" style="color:gold;font-weight:bold">REB</th>
-						<th class="report-detail-dark" width="4%" style="color:gold;font-weight:bold">AST</th>
-						<th class="report-detail-dark" width="4%">TO</th>
-						<th class="report-detail-dark" width="4%">A/T</th>
-						<th class="report-detail-midd" width="4%">ST</th>
-						<th class="report-detail-midd" width="4%">BLK</th>
-						<th class="report-detail-midd" width="3%">PF</th>
-						<th class="report-detail-midd" width="4%" style="color:gold;font-weight:bold">PTS</th>
-						<th class="report-detail-yell" width="4%">EFF</th>
-						<th class="report-detail-yell" width="4%">EFF36</th>
-						</tr>
-					</thead>					
-					<tbody>
-					</tbody>
+                            <tr>
+                            <th class="report-detail-midd" width="15%">PLAYER</th>
+                            <th class="report-detail-midd" width="2%">GP</th>
+                            <th class="report-detail-midd" width="4%">MIN</th>
+                            <th class="report-detail-dark" width="3%">FGM</th>
+                            <th class="report-detail-dark" width="3%">FGA</th>
+                            <th class="report-detail-dark" width="4%">FG%</th>
+                            <th class="report-detail-midd" width="3%">3PTM</th>
+                            <th class="report-detail-midd" width="3%">3PTA</th>
+                            <th class="report-detail-midd" width="4%">3PT%</th>
+                            <th class="report-detail-dark" width="3%">FTM</th>
+                            <th class="report-detail-dark" width="3%">FTA</th>
+                            <th class="report-detail-dark" width="4%">FT%</th>
+                            <th class="report-detail-midd" width="4%">OREB</th>
+                            <th class="report-detail-midd" width="4%">DREB</th>
+                            <th class="report-detail-midd" width="4%" style="color:gold;font-weight:bold">REB</th>
+                            <th class="report-detail-dark" width="4%" style="color:gold;font-weight:bold">AST</th>
+                            <th class="report-detail-dark" width="4%">TO</th>
+                            <th class="report-detail-dark" width="4%">A/T</th>
+                            <th class="report-detail-midd" width="4%">ST</th>
+                            <th class="report-detail-midd" width="4%">BLK</th>
+                            <th class="report-detail-midd" width="3%">PF</th>
+                            <th class="report-detail-midd" width="4%" style="color:gold;font-weight:bold">PTS</th>
+                            <th class="report-detail-yell" width="4%">EFF</th>
+                            <th class="report-detail-yell" width="4%">EFF36</th>
+                            </tr>
+                        </thead>					
+                        <tbody>
+                        </tbody>
 					</table>
 					<div class="tableupdate">
 						<?
