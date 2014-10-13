@@ -53,7 +53,7 @@
                     </div>                    
                 </div>                
 
-                <div class="col-1p5 last">
+                <div class="col-1p5">
                     <div style="margin: 0 0 0 0">
                         <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwfgp'; reverse=true">FG%</a></div>
                         <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwftp'; reverse=true">FT%</a></div>
@@ -73,7 +73,7 @@
             
             <div ng-repeat="rankplayer in rankplayers | orderBy:predicate:reverse | filter:searchText | startFrom:(page-1)*limit | limitTo:limit" class="col-1p12 last rankbox" style="margin:1px; background-color: rgba(0,0,0,0.4)" ng-hide="">
 
-                <a href="playerAbility?player={{rankplayer.fbid}}" class="tooltip">
+                <a href="playerAbility?player={{rankplayer.fbid}}" target="_blank" class="tooltip">
                 <div class="col-1p3">
                     <div style="margin:5px;text-align:center">
                         <div style="float:left;width:10px;text-align: center;padding:30px 20px 0px 0px">
@@ -97,7 +97,7 @@
                     </div>
                 </div>
 
-                <span style="margin:10px">{{rankplayer.report}}</span>
+                <div class="report" style="margin:10px">{{rankplayer.report}}</div>
                 </a>
 
                 <div class="col-1p1">
@@ -176,21 +176,29 @@
     a.tooltip {outline:none;color:white}
     /*a.tooltip strong {line-height:30px;}*/
     /*a.tooltip:hover {text-decoration:none;color:white}*/ 
-    a.tooltip span {
-        z-index:10;display:none; padding:14px 20px;
-        margin-top:-30px; margin-left:28px;
-        width:300px; line-height:16px;
+    a.tooltip .report {
+        z-index:10;
+        display:none;
+        padding:14px 20px;
+        margin:-30px 0 0 28px;
+        width:300px;
+        line-height:16px;
     }
-    a.tooltip:hover span{
-        display:inline; position:absolute; color:#111;
-        border:1px solid #DCA; background:#fffAF0;}
+    a.tooltip:hover .report{
+        display:inline;
+        position:absolute;
+        color:#111;
+        border:1px solid #DCA;
+        /*background:#fffAF0;*/
+        background:rgba(255,255,255,1);
+    }
     .callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}
 
     /*CSS3 extras*/
-    a.tooltip span
+    a.tooltip .report
     {
-        border-radius:4px;
-        box-shadow: 5px 5px 8px #CCC;
+/*        border-radius:4px;
+        box-shadow: 5px 5px 8px #CCC;*/
     }
 
 </style>

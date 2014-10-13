@@ -41,7 +41,7 @@
 				<?// $r = $subviewdata[$index] ?>
 				<? if ( $index > 5) break ?>
 				<div class="prcard-resize" style="float:left">
-					<a href="careerStats?player={{ $r->fbid }}" style="text-decoration:none;color:#fff">
+					<a href="careerStats?player={{ $r->fbid }}" target="_blank" style="text-decoration:none;color:#fff">
 					<div class="prcard" style="position:relative">
 						<div style="float:left;padding:5px">
 							<div class="{{ $tablename }}-face{{ $index }}" style="width:48px;height:60px;background-image:url(player/{{ $r->fbid }}.png);background-size: 48px 60px">

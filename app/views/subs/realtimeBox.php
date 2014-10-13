@@ -288,7 +288,7 @@
 						echo '<span class="effrank_t"></span>';
 						echo '<div class="effrank new wait" fbid="'.$r->fbid.'" rank="'.$index.'" style="width:100%;height:20px;margin: 7px">';
 						echo '<div style="float:left;width:30px">'.($index+1).'.</div>';
-						echo '<div style="float:left;width:190px"><a href="playerAbility?player='.$r->fbid.'" style="text-decoration:none;color:#fff">'.$r->player.'</a></div>';
+						echo '<div style="float:left;width:190px"><a href="playerAbility?player='.$r->fbid.'" target="_blank" style="text-decoration:none;color:#fff">'.$r->player.'</a></div>';
 						echo '<div style="float:left;width:34px;border-radius: 3px;line-height:20px;font-size:12px;font-weight:bold;text-align:center;background-color:'.$r->colorback.';color:'.$r->colorfont.'">'.$r->team.'</div>';
 						echo '<div style="float:left;width:50px;margin-left:10px">'.$r->oppo.'</div>';
 						echo '<div style="float:left;width:40px;margin-left:10px;text-align: left">'.$r->startfive.'</div>';
@@ -296,14 +296,44 @@
 						echo '<div style="float:left;width:80px;text-align:center" class="">'.$r->livemark.'</div>';
 						echo '<div style="float:left;width:50px;text-align:right">'.$min.':'.str_pad($sec,2,'0',STR_PAD_LEFT).'</div>';
 						echo '<div style="float:left;width:50px;text-align:right">'.$r->bxfgm.'-'.$r->bxfga.'</div>';
-						echo '<div style="float:left;width:35px;text-align:right">'.$r->bxpts.'</div>';
-						echo '<div style="float:left;width:35px;text-align:right">'.$r->bxtreb.'</div>';
-						echo '<div style="float:left;width:35px;text-align:right">'.$r->bxast.'</div>';
-						echo '<div style="float:left;width:35px;text-align:right">'.$r->bxst.'</div>';
-						echo '<div style="float:left;width:35px;text-align:right">'.$r->bxblk.'</div>';
-						echo '<div style="float:left;width:35px;text-align:right">'.$r->bx3ptm.'</div>';					
 						
-						echo '</div>';						
+                        if ($r->bxpts > 14){
+                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxpts.'</div>';
+                        }else{
+                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bxpts.'</div>';
+                        }  						
+                        
+                        if ($r->bxtreb > 9){
+                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxtreb.'</div>';
+                        }else{
+                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bxtreb.'</div>';
+                        }                        
+                        
+                        if ($r->bxast > 5){
+                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxast.'</div>';
+                        }else{
+                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bxast.'</div>';
+                        }
+                        
+                        if ($r->bxst > 2){
+                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxst.'</div>';
+                        }else{
+                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bxst.'</div>';
+                        }
+                        
+                        if ($r->bxblk > 1){
+                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxblk.'</div>';
+                        }else{
+                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bxblk.'</div>';
+                        }
+						
+                        if ($r->bx3ptm > 2){
+                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bx3ptm.'</div>';
+                        }else{
+                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bx3ptm.'</div>';
+                        }
+						
+						echo '</div>';
 					}					
 					?>
 				</div>

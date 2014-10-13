@@ -153,7 +153,7 @@ $(function(){
 
 					var rankline = $('<div class="effrank new wait" fbid="'+fbid+'" rank="'+i+'" style="display:none;width:100%;height:20px;margin: 7px"></div>');
 					rankline.append('<div style="float:left;width:30px">'+(i*1+1)+'.</div>');
-					rankline.append('<div style="float:left;width:190px"><a href="playerAbility?player='+fbid+'" style="text-decoration:none;color:#fff">'+data[i].player+'</a></div>');
+					rankline.append('<div style="float:left;width:190px"><a href="playerAbility?player='+fbid+'" target="_blank" style="text-decoration:none;color:#fff">'+data[i].player+'</a></div>');
 					rankline.append('<div style="float:left;width:34px;border-radius: 3px;line-height:20px;font-size:12px;font-weight:bold;text-align:center;background-color:'+data[i].colorback+';color:'+data[i].colorfont+'">'+data[i].team+'</div>');
 					rankline.append('<div style="float:left;width:50px;margin-left:10px">'+data[i].oppo+'</div>');
 					rankline.append('<div style="float:left;width:40px;margin-left:10px">'+data[i].startfive+'</div>');
@@ -162,12 +162,43 @@ $(function(){
 					rankline.append('<div style="float:left;width:80px;text-align:center" class="'+state2+'">'+data[i].livemark+'</div>');
 					rankline.append('<div style="float:left;width:50px;text-align:right">'+min+':'+secText+'</div>');
 					rankline.append('<div style="float:left;width:50px;text-align:right">'+data[i].bxfgm+'-'+data[i].bxfga+'</div>');
-					rankline.append('<div style="float:left;width:35px;text-align:right">'+data[i].bxpts+'</div>');	
-					rankline.append('<div style="float:left;width:35px;text-align:right">'+data[i].bxtreb+'</div>');
-					rankline.append('<div style="float:left;width:35px;text-align:right">'+data[i].bxast+'</div>');
-					rankline.append('<div style="float:left;width:35px;text-align:right">'+data[i].bxst+'</div>');
-					rankline.append('<div style="float:left;width:35px;text-align:right">'+data[i].bxblk+'</div>');
-					rankline.append('<div style="float:left;width:35px;text-align:right">'+data[i].bx3ptm+'</div>');					
+					
+                    if (data[i].bxpts>14){
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxpts+'</div>');
+                    }else{
+                        rankline.append('<div style="float:left;width:35px;text-align:right">'+data[i].bxpts+'</div>');	
+                    }
+                    
+                    if (data[i].bxtreb>9){
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxtreb+'</div>');
+                    }else{
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxtreb+'</div>');
+                    }
+                    
+                    if (data[i].bxast>5){
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxast+'</div>');
+                    }else{
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxast+'</div>');
+                    }
+                    
+                    if (data[i].bxst>2){
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxst+'</div>');
+                    }else{
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxst+'</div>');
+                    }
+					
+                    if(data[i].bxblk>1){
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxblk+'</div>');
+                    }else{
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxblk+'</div>');
+                    }                    
+                    
+                    if (data[i].bx3ptm>2){
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bx3ptm+'</div>');
+                    }else{
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bx3ptm+'</div>');
+                    }
+					
 
 					if( $('.effrank').is('[fbid='+fbid+']') ){
 						
