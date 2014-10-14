@@ -6,7 +6,7 @@
 			<div style="padding:10px 0 10px 55px">
 				
 				<div style="float:left">
-					<select class="selectForm" name="datarange" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)">
+					<select class="selectForm" name="datarange" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9);margin:0 5px 0 0">
 						<option value="ALL">2013-14 Season</option>
 						<option value="D30">Last 4 Weeks</option>
 						<option value="D14">Last 2 Weeks</option>
@@ -36,7 +36,7 @@
 					<div class="checkbox horizontal position"><input type="checkbox" name="position" checked="checked" value="C" id="C"/><label for="C" style="height:25px;line-height:25px">C</label></div>
 				</div>
 				
-				<div id="b-shortcuts" style="float:left;padding:5px">
+				<div id="b-shortcuts" style="float:left;padding:4px">
 					<div style="float:left;line-height: 25px;color:#fff;font-size:12px">Shortcut:</div>
 					<div class="checkbox horizontal shortcut"><input type="checkbox" name="shortcuts" value="ovStat" id="ovStat" checked="checked"/>
 													 <label for="ovStat" style="height:25px;line-height:25px;width:65px">Overall</label></div>
