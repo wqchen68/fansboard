@@ -142,9 +142,9 @@ $(function () {
 								top: (40-y)+'%'
 							});
 						});
-						$('.optionMenu').find('div').eq(0).children('a').attr('href','playerAbility?player='+fbid);
-						$('.optionMenu').find('div').eq(1).children('a').attr('href','gameLog?player='+fbid);
-						$('.optionMenu').find('div').eq(2).children('a').attr('href','matchPlayer?player='+fbid);
+						$('.optionMenu').find('div').eq(0).children('a').attr('href','playerAbility?player='+fbid).attr('target','_blank');
+						$('.optionMenu').find('div').eq(1).children('a').attr('href','gameLog?player='+fbid).attr('target','_blank');
+						$('.optionMenu').find('div').eq(2).children('a').attr('href','matchPlayer?player='+fbid).attr('target','_blank');
 					}
 				},	
                 animation: false

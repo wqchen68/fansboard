@@ -160,44 +160,59 @@ $(function(){
 					//rankline.append('<div style="float:left;width:24px;height:100%" class="'+state2+'"></div>');
 					rankline.append('<div class="real-bar-eff"><div style="background-color:rgba(0,187,255,1);height:100%;width:'+(data[i].bxeff*500/50)+'px">'+data[i].bxeff+'</div></div>');
 					rankline.append('<div style="float:left;width:80px;text-align:center" class="'+state2+'">'+data[i].livemark+'</div>');
-					rankline.append('<div style="float:left;width:50px;text-align:right">'+min+':'+secText+'</div>');
-					rankline.append('<div style="float:left;width:50px;text-align:right">'+data[i].bxfgm+'-'+data[i].bxfga+'</div>');
 					
-                    if (data[i].bxpts>14){
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxpts+'</div>');
+
+                    if (data[i].livemark='Fianl' && min>25 && data[i].bxeff<10){
+                        rankline.append('<div style="float:left;width:50px;text-align:right;color:#FF3333;font-weight:bold">'+min+':'+secText+'</div>');
+                        rankline.append('<div style="float:left;width:50px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxfgm+'-'+data[i].bxfga+'</div>');
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxpts+'</div>');
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxtreb+'</div>');
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxast+'</div>');
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxst+'</div>');
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxblk+'</div>');
+                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bx3ptm+'</div>');
                     }else{
-                        rankline.append('<div style="float:left;width:35px;text-align:right">'+data[i].bxpts+'</div>');	
+                        rankline.append('<div style="float:left;width:50px;text-align:right">'+min+':'+secText+'</div>');
+                        rankline.append('<div style="float:left;width:50px;text-align:right">'+data[i].bxfgm+'-'+data[i].bxfga+'</div>');
+                        if (data[i].bxpts>14){
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxpts+'</div>');
+                        }else{
+                            rankline.append('<div style="float:left;width:35px;text-align:right">'+data[i].bxpts+'</div>');	
+                        }
+
+                        if (data[i].bxtreb>9){
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxtreb+'</div>');
+                        }else{
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxtreb+'</div>');
+                        }
+
+                        if (data[i].bxast>5){
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxast+'</div>');
+                        }else{
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxast+'</div>');
+                        }
+
+                        if (data[i].bxst>2){
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxst+'</div>');
+                        }else{
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxst+'</div>');
+                        }
+
+                        if(data[i].bxblk>2){
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxblk+'</div>');
+                        }else{
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxblk+'</div>');
+                        }                    
+
+                        if (data[i].bx3ptm>2){
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bx3ptm+'</div>');
+                        }else{
+                            rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bx3ptm+'</div>');
+                        }
                     }
+                
+                
                     
-                    if (data[i].bxtreb>9){
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxtreb+'</div>');
-                    }else{
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxtreb+'</div>');
-                    }
-                    
-                    if (data[i].bxast>5){
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxast+'</div>');
-                    }else{
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxast+'</div>');
-                    }
-                    
-                    if (data[i].bxst>2){
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxst+'</div>');
-                    }else{
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxst+'</div>');
-                    }
-					
-                    if(data[i].bxblk>1){
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxblk+'</div>');
-                    }else{
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxblk+'</div>');
-                    }                    
-                    
-                    if (data[i].bx3ptm>2){
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bx3ptm+'</div>');
-                    }else{
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bx3ptm+'</div>');
-                    }
 					
 
 					if( $('.effrank').is('[fbid='+fbid+']') ){

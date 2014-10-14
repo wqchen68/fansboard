@@ -294,44 +294,57 @@
 						echo '<div style="float:left;width:40px;margin-left:10px;text-align: left">'.$r->startfive.'</div>';
 						echo '<div class="real-bar-eff"><div style="background-color:rgba(0,187,255,1);height:100%;width:'.($r->bxeff*500/50).'px">'.$r->bxeff.'</div></div>';
 						echo '<div style="float:left;width:80px;text-align:center" class="">'.$r->livemark.'</div>';
-						echo '<div style="float:left;width:50px;text-align:right">'.$min.':'.str_pad($sec,2,'0',STR_PAD_LEFT).'</div>';
-						echo '<div style="float:left;width:50px;text-align:right">'.$r->bxfgm.'-'.$r->bxfga.'</div>';
-						
-                        if ($r->bxpts > 14){
-                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxpts.'</div>';
+
+                        if ($r->livemark = 'Final' && $min>25 && $r->bxeff<10){                            
+                            echo '<div style="float:left;width:50px;text-align:right;color:#FF3333;font-weight:bold">'.$min.':'.str_pad($sec,2,'0',STR_PAD_LEFT).'</div>';
+                            echo '<div style="float:left;width:50px;text-align:right;color:#FF3333;font-weight:bold">'.$r->bxfgm.'-'.$r->bxfga.'</div>';                            
+                            echo '<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'.$r->bxpts.'</div>';
+                            echo '<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'.$r->bxtreb.'</div>';
+                            echo '<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'.$r->bxast.'</div>';
+                            echo '<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'.$r->bxst.'</div>';
+                            echo '<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'.$r->bxblk.'</div>';
+                            echo '<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'.$r->bx3ptm.'</div>';
                         }else{
-                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bxpts.'</div>';
-                        }  						
+                            echo '<div style="float:left;width:50px;text-align:right">'.$min.':'.str_pad($sec,2,'0',STR_PAD_LEFT).'</div>';
+                            echo '<div style="float:left;width:50px;text-align:right">'.$r->bxfgm.'-'.$r->bxfga.'</div>';                            
+                            if ($r->bxpts > 14){
+                                echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxpts.'</div>';
+                            }else{
+                                echo '<div style="float:left;width:35px;text-align:right">'.$r->bxpts.'</div>';
+                            }  						
+
+                            if ($r->bxtreb > 9){
+                                echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxtreb.'</div>';
+                            }else{
+                                echo '<div style="float:left;width:35px;text-align:right">'.$r->bxtreb.'</div>';
+                            }                        
+
+                            if ($r->bxast > 5){
+                                echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxast.'</div>';
+                            }else{
+                                echo '<div style="float:left;width:35px;text-align:right">'.$r->bxast.'</div>';
+                            }
+
+                            if ($r->bxst > 2){
+                                echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxst.'</div>';
+                            }else{
+                                echo '<div style="float:left;width:35px;text-align:right">'.$r->bxst.'</div>';
+                            }
+
+                            if ($r->bxblk > 2){
+                                echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxblk.'</div>';
+                            }else{
+                                echo '<div style="float:left;width:35px;text-align:right">'.$r->bxblk.'</div>';
+                            }
+
+                            if ($r->bx3ptm > 2){
+                                echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bx3ptm.'</div>';
+                            }else{
+                                echo '<div style="float:left;width:35px;text-align:right">'.$r->bx3ptm.'</div>';
+                            }
+                        }                         
                         
-                        if ($r->bxtreb > 9){
-                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxtreb.'</div>';
-                        }else{
-                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bxtreb.'</div>';
-                        }                        
                         
-                        if ($r->bxast > 5){
-                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxast.'</div>';
-                        }else{
-                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bxast.'</div>';
-                        }
-                        
-                        if ($r->bxst > 2){
-                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxst.'</div>';
-                        }else{
-                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bxst.'</div>';
-                        }
-                        
-                        if ($r->bxblk > 1){
-                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bxblk.'</div>';
-                        }else{
-                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bxblk.'</div>';
-                        }
-						
-                        if ($r->bx3ptm > 2){
-                            echo '<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'.$r->bx3ptm.'</div>';
-                        }else{
-                            echo '<div style="float:left;width:35px;text-align:right">'.$r->bx3ptm.'</div>';
-                        }
 						
 						echo '</div>';
 					}					

@@ -50,8 +50,8 @@
                         'PF' => 'PF',
                         'C' => 'C',
                         ), Input::get('position', 'ALL'), array('class' => 'selectForm player_season', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)', 'ng-model' => 'position'))?>                    
-                    </div>                    
-                </div>                
+                    </div>
+                </div>
 
                 <div class="col-1p5">
                     <div style="margin: 0 0 0 0">
@@ -101,7 +101,7 @@
                 </a>
 
                 <div class="col-1p1">
-                    <div style="float:left; background-color:#fff; margin:5px; width:70px; height:70px">
+                    <div style="float:left; background-color:#; margin:5px; width:70px; height:70px">
                     </div>
                 </div>
 
@@ -136,7 +136,7 @@
                 </div>                
 
                 <div class="col-1p3 last">                    
-                    <div style="float:left; background-color:#fff; margin:5px; width:200px; height:70px"></div>                    
+                    <div style="float:left; background-color:#; margin:5px; width:200px; height:70px"></div>                    
 
                 </div>
 
@@ -151,56 +151,55 @@
 </div>
 
 <style>
-    .rankbox{
-        font-size: 12px;
-    }
-    .ranktable{
-        float: left;
-        width: 11%;
-        padding: 8px 0 8px 0;
-        text-align: center;
-    }
-    .orderbutton{
-        font-size: 12px;
-        float: left;
-        width: 52.2px;
-        color: black;
-        text-align: center;
-        font-weight: bold;
-        border-radius: 5px;
-        background-color: gold;
-        line-height: 20px;
-        margin: 1px;
-    }
-    
-    a.tooltip {outline:none;color:white}
-    /*a.tooltip strong {line-height:30px;}*/
-    /*a.tooltip:hover {text-decoration:none;color:white}*/ 
-    a.tooltip .report {
-        z-index:10;
-        display:none;
-        padding:14px 20px;
-        margin:-30px 0 0 28px;
-        width:300px;
-        line-height:16px;
-    }
-    a.tooltip:hover .report{
-        display:inline;
-        position:absolute;
-        color:#111;
-        border:1px solid #DCA;
-        /*background:#fffAF0;*/
-        background:rgba(255,255,255,1);
-    }
-    .callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}
+.rankbox{
+    font-size: 12px;
+}
+.ranktable{
+    float: left;
+    width: 11%;
+    padding: 8px 0 8px 0;
+    text-align: center;
+}
+.orderbutton{
+    font-size: 12px;
+    float: left;
+    width: 52.2px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: gold;
+    line-height: 20px;
+    margin: 1px;
+}
 
-    /*CSS3 extras*/
-    a.tooltip .report
-    {
+a.tooltip {outline:none;color:white}
+/*a.tooltip strong {line-height:30px;}*/
+/*a.tooltip:hover {text-decoration:none;color:white}*/ 
+a.tooltip .report {
+    z-index:10;
+    display:none;
+    padding:14px 20px;
+    margin:-30px 0 0 28px;
+    width:300px;
+    line-height:16px;
+}
+a.tooltip:hover .report{
+    display:inline;
+    position:absolute;
+    color:#111;
+    border:1px solid #DCA;
+    /*background:#fffAF0;*/
+    background:rgba(255,255,255,1);
+}
+/*.callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}*/
+
+/*CSS3 extras*/
+a.tooltip .report
+{
 /*        border-radius:4px;
-        box-shadow: 5px 5px 8px #CCC;*/
-    }
-
+    box-shadow: 5px 5px 8px #CCC;*/
+}
 </style>
 
 
