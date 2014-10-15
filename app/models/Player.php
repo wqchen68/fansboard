@@ -163,11 +163,18 @@ class Player {
 					'realtimeeff.bxpts',
 					'realtimeeff.bxfgm',
 					'realtimeeff.bxfga',
+					'realtimeeff.bxftm',
+					'realtimeeff.bxfta',
+					'realtimeeff.bx3ptm',
+					'realtimeeff.bx3pta',
+                    'realtimeeff.bxoreb',
+                    'realtimeeff.bxdreb',
 					'realtimeeff.bxtreb',
 					'realtimeeff.bxast',
 					'realtimeeff.bxst',
 					'realtimeeff.bxblk',
-					'realtimeeff.bx3ptm',						
+                    'realtimeeff.bxto',
+                    'realtimeeff.bxpf',					
 					'biodata.player',
 					DB::raw('UPPER(teamlist.team) AS team'),
 					'teamlist.colorback',
@@ -190,9 +197,27 @@ class Player {
 		if( is_array($teamdata) )
 		foreach($teamdata as $key=>$rt){
 			if($rt->livemark=='LIVE!'){
-				$teambox .= '<div style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center"><div style="padding:5px 0 0 0"><span style="background-color:'.$rt->cbo.';color:'.$rt->cfo.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->oppo.'</span> @ <span style="background-color:'.$rt->cbt.';color:'.$rt->cft.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->team.'<span></div><div style="padding:5px"><span style="padding:0px">'.$rt->score.'</span><span style="margin:0 0 0 2px;padding:0 0 0 1px;color:#fff;background-color:red">'.$rt->livemark.'</span></div></div>';
+				$teambox .= '<div style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center">'
+                                . '<div style="padding:5px 0 0 0">'
+                                    . '<span style="background-color:'.$rt->cbo.';color:'.$rt->cfo.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->oppo.'</span> @ '
+                                    . '<span style="background-color:'.$rt->cbt.';color:'.$rt->cft.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->team.'</span>'
+                                . '</div>'
+                                . '<div style="padding:5px">'
+                                    . '<span style="padding:0px">'.$rt->score.'</span>'
+                                    . '<span style="margin:0 0 0 2px;padding:0 0 0 1px;color:#fff;background-color:red">'.$rt->livemark.'</span>'
+                                . '</div>'
+                            . '</div>';
 			}else{
-				$teambox .= '<div style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center"><div style="padding:5px 0 0 0"><span style="background-color:'.$rt->cbo.';color:'.$rt->cfo.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->oppo.'</span> @ <span style="background-color:'.$rt->cbt.';color:'.$rt->cft.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->team.'<span></div><div style="padding:5px"><span style="padding:0px">'.$rt->score.'</span><span style="padding:0 0 0 5px">'.$rt->livemark.'</span></div></div>';
+				$teambox .= '<div style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center">'
+                                . '<div style="padding:5px 0 0 0">'
+                                    . '<span style="background-color:'.$rt->cbo.';color:'.$rt->cfo.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->oppo.'</span> @ '
+                                    . '<span style="background-color:'.$rt->cbt.';color:'.$rt->cft.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->team.'<span>'
+                                . '</div>'
+                                . '<div style="padding:5px">'
+                                    . '<span style="padding:0px">'.$rt->score.'</span>'
+                                    . '<span style="padding:0 0 0 5px">'.$rt->livemark.'</span>'
+                                . '</div>'
+                            . '</div>';
 			}
 		}
 		return Response::json(array('value'=>$valueA,'efflv'=>$efflv->efflv,'teambox'=>$teambox));

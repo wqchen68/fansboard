@@ -152,62 +152,61 @@ $(function(){
 					var secText = new Array(2-sec.toString().length+1).join("0")+sec;
 
 					var rankline = $('<div class="effrank new wait" fbid="'+fbid+'" rank="'+i+'" style="display:none;width:100%;height:20px;margin: 7px"></div>');
-					rankline.append('<div style="float:left;width:30px">'+(i*1+1)+'.</div>');
-					rankline.append('<div style="float:left;width:190px"><a href="playerAbility?player='+fbid+'" target="_blank" style="text-decoration:none;color:#fff">'+data[i].player+'</a></div>');
-					rankline.append('<div style="float:left;width:34px;border-radius: 3px;line-height:20px;font-size:12px;font-weight:bold;text-align:center;background-color:'+data[i].colorback+';color:'+data[i].colorfont+'">'+data[i].team+'</div>');
-					rankline.append('<div style="float:left;width:50px;margin-left:10px">'+data[i].oppo+'</div>');
-					rankline.append('<div style="float:left;width:40px;margin-left:10px">'+data[i].startfive+'</div>');
-					//rankline.append('<div style="float:left;width:24px;height:100%" class="'+state2+'"></div>');
-					rankline.append('<div class="real-bar-eff"><div style="background-color:rgba(0,187,255,1);height:100%;width:'+(data[i].bxeff*500/50)+'px">'+data[i].bxeff+'</div></div>');
-					rankline.append('<div style="float:left;width:80px;text-align:center" class="'+state2+'">'+data[i].livemark+'</div>');
+					rankline.append('<div class="rbxlist0 smallwidth" style="text-align:left">'+(i*1+1)+'</div>');
+					rankline.append('<div class="playerwidth" style="float:left;width:18%;text-align:left;overflow : hidden; text-overflow : ellipsis; white-space : nowrap"><a href="playerAbility?player='+fbid+'" target="_blank" style="text-decoration:none;color:#fff">'+data[i].player+'</a></div>');
+					rankline.append('<div class="rbxlist0 smallwidth" style="border-radius: 3px;line-height:20px;font-size:12px;font-weight:bold;text-align:center;background-color:'+data[i].colorback+';color:'+data[i].colorfont+'">'+data[i].team+'</div>');
+					rankline.append('<div class="rbxlist0 midwidth" style="text-align:left;margin-left:5px">'+data[i].oppo+'</div>');
+					rankline.append('<div class="rbxlist0 smallwidth" style="text-align:left">'+data[i].startfive+'</div>');
+					rankline.append('<div class="real-bar-eff"><div style="float:left;text-align:left;background-color:rgba(0,187,255,1);height:100%;font-weight:bold;width:'+(data[i].bxeff*500/50)+'px">'+data[i].bxeff+'</div></div>');
+					rankline.append('<div class="rbxlist0 midwidth" style="text-align:center" class="'+state2+'">'+data[i].livemark+'</div>');
 					
 
                     if (data[i].livemark='Fianl' && min>25 && data[i].bxeff<10){
-                        rankline.append('<div style="float:left;width:50px;text-align:right;color:#FF3333;font-weight:bold">'+min+':'+secText+'</div>');
-                        rankline.append('<div style="float:left;width:50px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxfgm+'-'+data[i].bxfga+'</div>');
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxpts+'</div>');
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxtreb+'</div>');
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxast+'</div>');
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxst+'</div>');
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bxblk+'</div>');
-                        rankline.append('<div style="float:left;width:35px;text-align:right;color:#FF3333;font-weight:bold">'+data[i].bx3ptm+'</div>');
+                        rankline.append('<div class="rbxlist1 midwidth" style="color:#FF3333;">'+min+':'+secText+'</div>');
+                        rankline.append('<div class="rbxlist1 midwidth" style="color:#FF3333;">'+data[i].bxfgm+'-'+data[i].bxfga+'</div>');
+                        rankline.append('<div class="rbxlist1 smallwidth" style="color:#FF3333;">'+data[i].bxpts+'</div>');
+                        rankline.append('<div class="rbxlist1 smallwidth" style="color:#FF3333;">'+data[i].bxtreb+'</div>');
+                        rankline.append('<div class="rbxlist1 smallwidth" style="color:#FF3333;">'+data[i].bxast+'</div>');
+                        rankline.append('<div class="rbxlist1 smallwidth" style="color:#FF3333;">'+data[i].bxst+'</div>');
+                        rankline.append('<div class="rbxlist1 smallwidth" style="color:#FF3333;">'+data[i].bxblk+'</div>');
+                        rankline.append('<div class="rbxlist1 smallwidth" style="color:#FF3333;">'+data[i].bx3ptm+'</div>');
                     }else{
-                        rankline.append('<div style="float:left;width:50px;text-align:right">'+min+':'+secText+'</div>');
-                        rankline.append('<div style="float:left;width:50px;text-align:right">'+data[i].bxfgm+'-'+data[i].bxfga+'</div>');
+                        rankline.append('<div class="rbxlist0 midwidth">'+min+':'+secText+'</div>');
+                        rankline.append('<div class="rbxlist0 midwidth">'+data[i].bxfgm+'-'+data[i].bxfga+'</div>');
                         if (data[i].bxpts>14){
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxpts+'</div>');
+                            rankline.append('<div class="rbxlist1 smallwidth" style="color:gold;">'+data[i].bxpts+'</div>');
                         }else{
-                            rankline.append('<div style="float:left;width:35px;text-align:right">'+data[i].bxpts+'</div>');	
+                            rankline.append('<div class="rbxlist0 smallwidth">'+data[i].bxpts+'</div>');	
                         }
 
                         if (data[i].bxtreb>9){
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxtreb+'</div>');
+                            rankline.append('<div class="rbxlist1 smallwidth" style="color:gold;">'+data[i].bxtreb+'</div>');
                         }else{
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxtreb+'</div>');
+                            rankline.append('<div class="rbxlist0 smallwidth">'+data[i].bxtreb+'</div>');
                         }
 
                         if (data[i].bxast>5){
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxast+'</div>');
+                            rankline.append('<div class="rbxlist1 smallwidth" style="color:gold;">'+data[i].bxast+'</div>');
                         }else{
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxast+'</div>');
+                            rankline.append('<div class="rbxlist0 smallwidth">'+data[i].bxast+'</div>');
                         }
 
                         if (data[i].bxst>2){
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxst+'</div>');
+                            rankline.append('<div class="rbxlist1 smallwidth" style="color:gold;">'+data[i].bxst+'</div>');
                         }else{
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxst+'</div>');
+                            rankline.append('<div class="rbxlist0 smallwidth">'+data[i].bxst+'</div>');
                         }
 
                         if(data[i].bxblk>2){
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bxblk+'</div>');
+                            rankline.append('<div class="rbxlist1 smallwidth" style="color:gold;">'+data[i].bxblk+'</div>');
                         }else{
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bxblk+'</div>');
+                            rankline.append('<div class="rbxlist0 smallwidth">'+data[i].bxblk+'</div>');
                         }                    
 
                         if (data[i].bx3ptm>2){
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:gold;font-weight:bold">'+data[i].bx3ptm+'</div>');
+                            rankline.append('<div class="rbxlist1 smallwidth" style="color:gold;">'+data[i].bx3ptm+'</div>');
                         }else{
-                            rankline.append('<div style="float:left;width:35px;text-align:right;color:white">'+data[i].bx3ptm+'</div>');
+                            rankline.append('<div class="rbxlist0 smallwidth">'+data[i].bx3ptm+'</div>');
                         }
                     }
                 
