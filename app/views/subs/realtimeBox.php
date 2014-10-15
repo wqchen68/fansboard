@@ -261,9 +261,6 @@
     .realtime{
         font-size: 6px;
     }
-    .rbxlist1.smallwidth{
-/*        clear:both;*/
-    }
 }
 @media all and (max-width: 375px) {
 
