@@ -24,7 +24,7 @@
 
 			<div class="col-1p1 realtime">
 				<div style="">
-					<div class="teambox">
+                    <div class="teambox">
                         <?=Player::getRealtime()->getData()->teambox?>
                         <div style="height:0;clear:both"></div>
                     </div>
@@ -51,10 +51,12 @@
 					<div class="rbxlist0 smallwidth">3PM</div>					
 				</div>
 					
-				<div class="ranklist">
+				<div class="ranklist" ng-controller="realtimeBoxController">
+                    <div ng-repeat="player in realtimeBox">{{ player.fbid }}</div>
 					<?
-					$realtime = Player::getRealtime()->getData()->value;
-					if( is_array($realtime) )
+					//$realtime = Player::getRealtime()->getData()->value;
+                    
+					if( false && is_array($realtime) )
 					foreach( $realtime as $index => $r ){
 						$secAll = round($r->bxmin*60);
 						$sec = (round($r->bxmin*60)) % 60;
@@ -267,5 +269,14 @@
 }
 </style>
 
+<script>
+angular.module('app', []).filter('startFrom',function(){
+    return function(input, start){
+        return input.slice(start);
+    };
+}).controller('realtimeBoxController', function($scope){
+    $scope.realtimeBox = angular.fromJson(<?=json_encode(Player::getRealtime()->getData()->value)?>);
 
-<span class="javascript" src="js/hightchart.realtimeBox22.js"></span>
+    console.log($scope.realtimeBox);;
+});
+</script>
