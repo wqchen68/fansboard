@@ -28,10 +28,10 @@
 
 			<div class="col-1p1 realtime">
                 <a href="hotcoldplayer" target="_blank" style="text-decoration:none;color:#fff">
-                    <div style="padding:8px;margin:0 0 10px 0;background-color:rgba(255,255,255,0.4);border-radius:3px;color:gold;font-weight:bold;font-size:12px;box-shadow: 0 0 10px gold;">
+                    <div style="padding:3px;margin:0 0 10px 0;background-color:rgba(255,255,255,0.4);border-radius:3px;color:gold;font-weight:bold;font-size:14px;box-shadow: 0 0 10px gold;">
                         Today</br> Hot & cold
-                        <img style="width:35px" src="images/hcp_hot.png" />
-                        <img style="width:35px" src="images/hcp_cold.png" />
+                        <img style="width:39px" src="images/hcp_hot.png" />
+                        <img style="width:39px" src="images/hcp_cold.png" />
                     </div>
                 </a>
                 <div class="order-btn" style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center" ng-repeat="game in realtimeBox.gamedata" ng-click="searchText.gameid=game.gameid;select(game)" ng-class="{selected:game.selected}">
@@ -71,6 +71,76 @@
                     
                 <div class="effrank new wait" fbid="{{ player.fbid*3.5 }}" rank="{{ index }}" style="width:100%;height:20px;padding:4px 7px 4px 7px;color:#fff" ng-repeat="player in realtimeBox.rtstats | orderBy:predicate:reverse | filter:searchText">
 
+                    <span>
+                        <div style="float:left">
+                            <div style="color:gold;margin-bottom: 2px">EFF {{ Math.round(player.pweff*10)/10}}</div>
+                            <div style="width:60px;height:72px;background:url(/player/{{player.fbid}}.png) no-repeat center; background-size: 60px 72px"></div>
+                        </div>
+                        
+                        <div style="float:left;padding:0 4px 0 4px">
+                            <div style="padding-left:20px;margin-bottom: 2px">2014-15 Season Average</div>
+                            <div>
+                                <div class="hovercard1">Min</div>
+                                <div class="hovercard1">FGM</div>
+                                <div class="hovercard1">FGA</div>
+                                <div class="hovercard1">FG%</div>
+                                <div class="hovercard1">3PM</div>
+                                <div class="hovercard1">3PA</div>
+                                <div class="hovercard1">3P%</div>
+                                <div class="hovercard1">FTM</div>
+                                <div class="hovercard1">FTA</div>
+                                <div class="hovercard1">FT%</div>
+                                <div style="height:0;clear:both"></div>
+                            </div>
+                            <div>
+                                <div class="hovercard">{{ Math.round(player.pwmin*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pwfgm*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pwfga*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.wfgp*1000)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pw3ptm*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pw3pta*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.w3ptp*1000)/10}}</div>                                
+                                <div class="hovercard">{{ Math.round(player.pwftm*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pwfta*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.wftp*1000)/10}}</div>
+                                <div style="height:0;clear:both"></div>
+                            </div>                            
+                            <div>
+                                <div class="hovercard1">Off</div>
+                                <div class="hovercard1">Def</div>
+                                <div class="hovercard1">REB</div>
+                                <div class="hovercard1">AST</div>
+                                <div class="hovercard1">TO</div>
+                                <div class="hovercard1">A/T</div>
+                                <div class="hovercard1">ST</div>
+                                <div class="hovercard1">BLK</div>
+                                <div class="hovercard1">PF</div>
+                                <div class="hovercard1">PTS</div>
+                                <div style="height:0;clear:both"></div>
+                            </div>
+                            <div>
+                                <div class="hovercard">{{ Math.round(player.pworeb*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pwdreb*10)/10}}</div>
+                                
+                                <div class="hovercard">{{ Math.round(player.pwtreb*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pwast*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pwto*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.watr*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pwst*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pwblk*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pwpf*10)/10}}</div>
+                                <div class="hovercard">{{ Math.round(player.pwpts*10)/10}}</div>
+                                
+                                <div style="height:0;clear:both"></div>
+                            </div>  
+                        </div>
+                        <div style="height:0;clear:both"></div>
+                    </span>
+                    
+                    
+                    
+                    
+                    
                     <div class="rtbvarL smallwidth">{{ $index+1 }}</div>
                     <a href="playerAbility?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
                         <div class="rtbvarL playerwidth">{{ player.player }}</div>
@@ -117,14 +187,21 @@
 	font-family: 'Verdana';
 	font-size: 14px;
 }
-.effrank{
-	color: #fff;	
-}
 .effrank:hover{
 	background-color: rgba(0,0,0,0.5);
 }
 .hovercard{
     float: left;
+    width:40px;
+    text-align: right;
+    margin:1px;
+}
+.hovercard1{
+    float: left;
+    width:40px;
+    text-align: center;
+    margin:1px;
+    background-color: rgba(255,255,255,0.3)
 }
 
 .effrank {outline:none;color:white}
@@ -133,9 +210,9 @@
 .effrank span {
     z-index:10;
     display:none;
-    padding:14px 20px;
-    margin:20px 0 0 150px;
-    width:400px;
+    padding:10px;
+    margin:24px 0 0 200px;
+    width:490px;
     line-height:16px;
 }
 .effrank:hover span{
