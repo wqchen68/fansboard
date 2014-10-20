@@ -102,68 +102,7 @@
                     <div style="height:0;clear:both"></div>
 
                 </div>
-                    
-					<?
-//					$realtime = Player::getRealtime()->getData()->rtstats;
-                    
-					if( false && is_array($realtime) )
-					foreach( $realtime as $index => $r ){
-						$secAll = round($r->bxmin*60);
-						$sec = (round($r->bxmin*60)) % 60;
-						$min = ($secAll-$sec)/60;
-						echo '<span class="effrank_t"></span>';
-                        echo '<div class="effrank new wait" fbid="'.$r->fbid.'" rank="'.$index.'" style="width:100%;height:20px">';
-//						echo '<a href="playerAbility?player='.$r->fbid.'" target="_blank" style="text-decoration:none;color:#fff"><div class="effrank new wait" fbid="'.$r->fbid.'" rank="'.$index.'" style="width:100%;height:20px;margin: 7px">'
-//                                .'<span>'
-//                                    .'<div style="float:left;width:60px;height:72px;background:url(/player/'.$r->fbid.'.png) no-repeat center; background-size: 60px 72px"></div>'
-//                                    .'<div style="float:left">'
-//                                        .'<div>'
-//                                            .'<div class="hovercard">FGM</div>'
-//                                            .'<div class="hovercard">FGA</div>'
-//                                            .'<div class="hovercard">FG%</div>'
-//                                            .'<div class="hovercard">FTM</div>'
-//                                            .'<div class="hovercard">FTA</div>'
-//                                            .'<div class="hovercard">FT%</div>'
-//                                            .'<div class="hovercard">3PTM</div>'
-//                                            .'<div class="hovercard">3PTA</div>'
-//                                            .'<div class="hovercard">3PT%</div>'                                
-//                                            .'<div style="height:0;clear:both"></div>'
-//                                        .'</div>'
-//                                        .'<div>'
-//                                            .'<div class="hovercard">'.$r->bxfgm.'-'.$r->bxfga.'</div>'
-//                                            .'<div class="hovercard">'.$r->bxftm.'-'.$r->bxfta.'</div>'
-//                                            .'<div class="hovercard">'.$r->bx3ptm.'-'.$r->bx3pta.'</div>'
-//                                            .'<div class="hovercard">'.$r->bxfgm.'-'.$r->bxfga.'</div>'
-//                                            .'<div class="hovercard">'.$r->bxftm.'-'.$r->bxfta.'</div>'
-//                                            .'<div class="hovercard">'.$r->bx3ptm.'-'.$r->bx3pta.'</div>'
-//                                            .'<div class="hovercard">'.$r->bxfgm.'-'.$r->bxfga.'</div>'
-//                                            .'<div class="hovercard">'.$r->bxftm.'-'.$r->bxfta.'</div>'
-//                                            .'<div class="hovercard">'.$r->bx3ptm.'-'.$r->bx3pta.'</div>'
-//                                            .'<div style="height:0;clear:both"></div>'
-//                                        .'</div>'
-//                                        .'<div style="height:0;clear:both"></div>'
-//                                    .'</div>'
-//                                .'</span>'
-//                            .'</a>';
-						echo '<div class="switchview rbxlist0 smallwidth" style="text-align:left">'.($index+1).'</div>';
-						echo '<div class="playerwidth" style="float:left;text-align:left;overflow : hidden; text-overflow : ellipsis; white-space : nowrap"><a href="playerAbility?player='.$r->fbid.'" target="_blank" style="text-decoration:none;color:#fff">'.$r->player.'</a></div>';
-						echo '<div class="rbxlist0 smallwidth" style="border-radius:3px;line-height:20px;font-size:12px;font-weight:bold;text-align:center;background-color:'.$r->colorback.';color:'.$r->colorfont.'">'.$r->team.'</div>';
-						echo '<div class="switchview rbxlist0 midwidth " style="text-align:left;margin-left:5px">'.$r->oppo.'</div>';
-						echo '<div class="rbxlist0 smallwidth" style="text-align:left">'.$r->startfive.'</div>';
-						echo '<div class="real-bar-eff">'
-                                . '<div style="text-align:left;background-color:rgba(0,187,255,1);height:100%;font-weight:bold;width:'.($r->bxeff*3).'%">'
-                                    .$r->bxeff.''
-                                . '</div>'
-                            . '</div>';
-						echo '<div class="rbxlist0 midwidth" style="text-align:center">'.$r->livemark.'</div>';                       
-                        
-						
-						echo '</div>';
-					}					
-					?>
-
-
-			</div>	
+            </div>	
 			
 			<div style="height:0;clear:both"></div>
 	
@@ -326,12 +265,12 @@ angular.module('app', []).filter('startFrom',function(){
     return function(input, start){
         return input.slice(start);
     };
-}).controller('realtimeBoxController', function($scope, $filter){
-    $scope.realtimeBox = angular.fromJson(<?=json_encode(Player::getRealtime()->getData())?>);
+}).controller('realtimeBoxController', function($scope, $filter, $http){  
+    alert();
     $scope.Math = Math;
     $scope.searchText = {};
     $scope.style = function(value){
-        if (value.livemark == 'Final' && value.bxmin >25 && value.bxeff <10){
+        if (value.livemark === 'Final' && value.bxmin >25 && value.bxeff <10){
             return {color:'#FF3333','font-weight':'bold'};
         };
     };
@@ -341,10 +280,18 @@ angular.module('app', []).filter('startFrom',function(){
             value.selected = false;
         });
         game.selected = !selected;
-        if ($filter('filter')($scope.realtimeBox.gamedata, {selected: true}).length == 0) {
+        if ($filter('filter')($scope.realtimeBox.gamedata, {selected: true}).length === 0) {
             $scope.searchText.gameid = '';
         }
+    };    
+    
+    $scope.update = function() {
+        $http.get('/sort/getRealtime').success(function(data){
+            console.log(data);
+            $scope.realtimeBox = data;
+        });
     };
-    console.log($scope.realtimeBox);;
+    
+    $scope.update();
 });
 </script>

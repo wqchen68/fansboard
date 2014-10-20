@@ -118,36 +118,6 @@ class Player {
 	}
 	
 	public static function getRealtime() {
-		
-		/*
-		 * 
-		 *		
-		$seed = array(0,1,2,3,4,5,6,7,8,9);
-		shuffle($seed);
-		$fbid_a = array(1001,1002,1003,1004,1005,1006,1007,1008,1009,1010);
-		$player = array(1001,1002,1003,1004,1005,1006,1007,1008,1009,1010);
-		
-		$player1 = array(
-			array('fbid'=>$fbid_a[$seed[0]],'bxeff'=>rand(30,40),'player'=>$player[$seed[0]]),
-			array('fbid'=>1011,'bxeff'=>rand(25,30),'player'=>1011),
-			array('fbid'=>$fbid_a[$seed[1]],'bxeff'=>rand(20,25),'player'=>$player[$seed[1]]),
-			array('fbid'=>1012,'bxeff'=>rand(10,15),'player'=>1012),
-			array('fbid'=>1013,'bxeff'=>rand(9,10),'player'=>1013),
-			array('fbid'=>1014,'bxeff'=>rand(8,9),'player'=>1014),
-			array('fbid'=>$fbid_a[$seed[2]],'bxeff'=>8,'player'=>$player[$seed[2]]),
-			array('fbid'=>$fbid_a[$seed[3]],'bxeff'=>8,'player'=>$player[$seed[3]]),
-			array('fbid'=>$fbid_a[$seed[4]],'bxeff'=>8,'player'=>$player[$seed[4]]),
-			array('fbid'=>$fbid_a[$seed[5]],'bxeff'=>8,'player'=>$player[$seed[5]]),
-			array('fbid'=>$fbid_a[$seed[6]],'bxeff'=>8,'player'=>$player[$seed[6]]),
-			array('fbid'=>$fbid_a[$seed[7]],'bxeff'=>7,'player'=>$player[$seed[7]]),
-			array('fbid'=>1015,'bxeff'=>rand(6,7),'player'=>1015),
-			array('fbid'=>1016,'bxeff'=>rand(5,6),'player'=>1016),
-			array('fbid'=>$fbid_a[$seed[9]],'bxeff'=>2,'player'=>$player[$seed[9]])
-		);
-
-		$valueA = $player1;
-		 * 
-		 */
 
 		$rtstats = DB::table('realtimeeff')
 				->leftJoin('biodata','biodata.fbido','=','realtimeeff.fbido')
@@ -183,46 +153,18 @@ class Player {
 					'teamlist.colorback',
 					'teamlist.colorfont',
 					DB::raw('realtimeeff.bxeff/realtimeeff.bxmin AS effper'))
-                                ->whereRaw('realtimeeff.bxeff>=0')->get();
-				//->whereRaw('realtimeeff.bxeff>=0 AND (realtimeeff.team="lac" OR realtimeeff.team="okc")')->get();
+                ->whereRaw('realtimeeff.bxeff>=0')->get();
 
-		//shuffle($rtstats);
-		$efflv = DB::table('realtimeeff')//->join(DB::raw('(SELECT fbido FROM realtimeeff ORDER BY bxeff DESC LIMIT 30) list'),function($query){
-			//$query->on('realtimeeff.fbido','=','list.fbido');
-		//})
+
+		$efflv = DB::table('realtimeeff')
 		->select(DB::raw('SUM(realtimeeff.bxeff)/SUM(realtimeeff.bxmin) AS efflv'))->first();
 		
-		$gamedata = DB::table('realtimeeff')->leftJoin('teamlist AS A1','A1.team','=','realtimeeff.team')
-											->leftJoin('teamlist AS A2','A2.team','=','realtimeeff.oppo')
-											->select(DB::raw('UPPER(realtimeeff.team) AS team,UPPER(realtimeeff.oppo) AS oppo,realtimeeff.gameid,realtimeeff.score,realtimeeff.livemark,A1.colorfont AS cft,A1.colorback AS cbt,A2.colorfont AS cfo,A2.colorback AS cbo'))
-											->whereRaw('SUBSTRING(oppo,1,1)!="@"')->groupBy('team')->orderBy('updatetime')->get();
-//		$teambox = '';
-//		if( is_array($gamedata) )
-//		foreach($gamedata as $key=>$rt){
-//			if($rt->livemark=='LIVE!'){
-//				$teambox .= '<div style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center">'
-//                                . '<div style="padding:5px 0 0 0">'
-//                                    . '<span style="background-color:'.$rt->cbo.';color:'.$rt->cfo.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->oppo.'</span> @ '
-//                                    . '<span style="background-color:'.$rt->cbt.';color:'.$rt->cft.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->team.'</span>'
-//                                . '</div>'
-//                                . '<div style="padding:5px 0 5px 0">'
-//                                    . '<span style="padding:0px">'.$rt->score.'</span>'
-//                                    . '<span style="margin:0 0 0 2px;padding:0 0 0 1px;color:#fff;background-color:red">'.$rt->livemark.'</span>'
-//                                . '</div>'
-//                            . '</div>';
-//			}else{
-//				$teambox .= '<div style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center">'
-//                                . '<div style="padding:5px 0 0 0">'
-//                                    . '<span style="background-color:'.$rt->cbo.';color:'.$rt->cfo.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->oppo.'</span> @ '
-//                                    . '<span style="background-color:'.$rt->cbt.';color:'.$rt->cft.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->team.'<span>'
-//                                . '</div>'
-//                                . '<div style="padding:5px 0 5px 0">'
-//                                    . '<span style="padding:0px">'.$rt->score.'</span>'
-//                                    . '<span style="padding:0 0 0 5px">'.$rt->livemark.'</span>'
-//                                . '</div>'
-//                            . '</div>';
-//			}
-//		}
+		$gamedata = DB::table('realtimeeff')
+            ->leftJoin('teamlist AS A1','A1.team','=','realtimeeff.team')
+			->leftJoin('teamlist AS A2','A2.team','=','realtimeeff.oppo')
+			->select(DB::raw('UPPER(realtimeeff.team) AS team,UPPER(realtimeeff.oppo) AS oppo,realtimeeff.gameid,realtimeeff.score,realtimeeff.livemark,A1.colorfont AS cft,A1.colorback AS cbt,A2.colorfont AS cfo,A2.colorback AS cbo'))
+			->whereRaw('SUBSTRING(oppo,1,1)!="@"')->groupBy('team')->orderBy('updatetime')->get();
+
 		return Response::json(array('rtstats'=>$rtstats,'efflv'=>$efflv->efflv,'gamedata'=>$gamedata));
 	}
 	
