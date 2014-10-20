@@ -26,7 +26,14 @@
 		
 		<div class="onerow" ng-controller="realtimeBoxController">
 
-			<div class="col-1p1 realtime">                
+			<div class="col-1p1 realtime">
+                <a href="hotcoldplayer" target="_blank" style="text-decoration:none;color:#fff">
+                    <div style="padding:8px;margin:0 0 10px 0;background-color:rgba(255,255,255,0.4);border-radius:3px;color:gold;font-weight:bold;font-size:12px;box-shadow: 0 0 10px gold;">
+                        Today</br> Hot & cold
+                        <img style="width:35px" src="images/hcp_hot.png" />
+                        <img style="width:35px" src="images/hcp_cold.png" />
+                    </div>
+                </a>
                 <div class="order-btn" style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center" ng-repeat="game in realtimeBox.gamedata" ng-click="searchText.gameid=game.gameid;select(game)" ng-class="{selected:game.selected}">
                     <div style="padding:5px 0 0 0">
                         <span style="background-color:{{game.cbo}};color:{{game.cfo}};font-weight:bold;border-radius:2px;padding:2px">{{game.oppo}}</span>@
@@ -37,7 +44,6 @@
                         <span style="margin:0 0 0 2px" ng-class="{gamestatus:game.livemark=='LIVE!'}">{{game.livemark}}</span>
                     </div>
                 </div>
-                <div style="height:0;clear:both"></div>
 			</div>
 
 			<div class="col-1p11 realtime last">
@@ -45,8 +51,8 @@
 				<div style="background-color:rgba(0,0,0,0.5);color:#fff;width:100%;height:20px;padding:7px">
 					<div class="rtbvarL smallwidth">#</div>
 					<div class="rtbvarL playerwidth">Player</div>
-                    <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive']; reverse=true">Game</div> <!--team+oppo-->
-					<div class="rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','gameid','team']; reverse=true">Start</div>
+                    <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive','bxmin']; reverse=true">Game</div> <!--team+oppo-->
+					<div class="rtbvarL smallwidth" ng-click="predicate = ['bxgs','gameid','team','startfive','bxmin']; reverse=true">Start</div>
 					<div class="order-btn rtbvarC real-bar-eff" ng-click="predicate = ['bxeff','bxpts']; reverse=true" style="color:gold;font-weight:bold">EFF</div>
 					<div class="rtbvarL" style="width:5.5%">　</div> <!--LIVE!orFinal-->
 					<div class="order-btn rtbvarR midwidth" ng-click="predicate = 'bxmin'; reverse=true">MIN</div>
@@ -74,7 +80,7 @@
                         <div class="rtbvarL" style="margin-left:5%">{{ player.oppo }}</div>
                     </div>
                     <!--start跟EFF-->
-                    <div class="rtbvarL smallwidth">{{ player.startfive }}</div>
+                    <div class="rtbvarL smallwidth" ng-class="{grayfont:player.startfive=='BN'}">{{ player.startfive }}</div>
                     <div class="real-bar-eff">
                         <div ng-style="style(player)" style="float:left;text-align:left;background-color:rgba(0,187,255,1);height:100%;font-weight:bold;width:{{ player.bxeff*3.5 }}%">{{ player.bxeff }}</div>
                     </div>
@@ -301,13 +307,16 @@
     color:#FF3333;
     font-weight: bold;
 }
+.grayfont{
+    color:graytext;
+}
 .gamestatus{
     padding:0 0 0 1px;
     color:#fff;
     background-color:red;    
 }
 .selected{
-    box-shadow: 0 0 20px rgba(255,255,255,0.8);
+    box-shadow: 0 0 30px rgba(255,255,255,1);
 }
 
 </style>
