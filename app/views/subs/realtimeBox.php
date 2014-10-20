@@ -5,7 +5,7 @@
             
 		<div class="onerow">
             <div style="height: 42px; padding: 10px 0 10px 0">
-                <div style="position:absolute;left:20%;margin:10px 0 0 -75px;font-size: 14px;color:gold;font-weight:bold;font-style:italic">2014-15 Pre-Season</div>
+                <div style="position:absolute;left:23%;margin:10px 0 0 -75px;font-size: 14px;color:gold;font-weight:bold">2014-15 Pre-Season</div>
                 <div style="position:absolute;left:50%;margin-left:-25px"><div class="reflashtime"></div></div>
                 <div style="position:absolute;left:70%;margin:10px 0 0 0;font-size: 14px;color:#fff">
                     <?
@@ -13,7 +13,11 @@
                         ->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime2'))
                         ->orderBy('updatetime','desc')
                         ->first();
-                        echo '<div>' .$lastupdate->updatetime2. '</div>';
+                        if (is_null($lastupdate)==1){
+                            echo '<div style="color:#ff3333;font-weight:bold">Waiting for Sync</div>';
+                        }else{
+                            echo '<div>'.$lastupdate->updatetime2.'</div>';
+                        }                        
                     ?>
                 </div>
             </div>
