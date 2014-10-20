@@ -1,6 +1,7 @@
 html,body {
 	height: 100%;
 	margin: 0;
+        /*min-width: 1280px;*/
 }
 body {	
 	background: url(/images/basketball-floor.jpg) fixed;	

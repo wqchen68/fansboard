@@ -149,15 +149,18 @@ class Player {
 		 * 
 		 */
 
-		$valueA = DB::table('realtimeeff')
+		$rtstats = DB::table('realtimeeff')
 				->leftJoin('biodata','biodata.fbido','=','realtimeeff.fbido')
 				->leftJoin('teamlist','teamlist.team','=','realtimeeff.team')
 				->orderBy('realtimeeff.bxeff','desc')->orderBy('realtimeeff.bxpts','desc')
 				->select(
+                    'realtimeeff.gameid',
 					'realtimeeff.fbid',
 					'realtimeeff.bxeff',
-					'realtimeeff.livemark',
+//					DB::raw('\'LIVE!\' AS livemark'),
+                    'realtimeeff.livemark',
 					'realtimeeff.startfive',
+                    'realtimeeff.bxgs',
 					DB::raw('UPPER(realtimeeff.oppo) AS oppo'),
 					'realtimeeff.bxmin',
 					'realtimeeff.bxpts',
@@ -183,44 +186,44 @@ class Player {
                                 ->whereRaw('realtimeeff.bxeff>=0')->get();
 				//->whereRaw('realtimeeff.bxeff>=0 AND (realtimeeff.team="lac" OR realtimeeff.team="okc")')->get();
 
-		//shuffle($valueA);
+		//shuffle($rtstats);
 		$efflv = DB::table('realtimeeff')//->join(DB::raw('(SELECT fbido FROM realtimeeff ORDER BY bxeff DESC LIMIT 30) list'),function($query){
 			//$query->on('realtimeeff.fbido','=','list.fbido');
 		//})
 		->select(DB::raw('SUM(realtimeeff.bxeff)/SUM(realtimeeff.bxmin) AS efflv'))->first();
 		
-		$teamdata = DB::table('realtimeeff')->leftJoin('teamlist AS A1','A1.team','=','realtimeeff.team')
+		$gamedata = DB::table('realtimeeff')->leftJoin('teamlist AS A1','A1.team','=','realtimeeff.team')
 											->leftJoin('teamlist AS A2','A2.team','=','realtimeeff.oppo')
-											->select(DB::raw('UPPER(realtimeeff.team) AS team,UPPER(realtimeeff.oppo) AS oppo,realtimeeff.score,realtimeeff.livemark,A1.colorfont AS cft,A1.colorback AS cbt,A2.colorfont AS cfo,A2.colorback AS cbo'))
+											->select(DB::raw('UPPER(realtimeeff.team) AS team,UPPER(realtimeeff.oppo) AS oppo,realtimeeff.gameid,realtimeeff.score,realtimeeff.livemark,A1.colorfont AS cft,A1.colorback AS cbt,A2.colorfont AS cfo,A2.colorback AS cbo'))
 											->whereRaw('SUBSTRING(oppo,1,1)!="@"')->groupBy('team')->orderBy('updatetime')->get();
-		$teambox = '';
-		if( is_array($teamdata) )
-		foreach($teamdata as $key=>$rt){
-			if($rt->livemark=='LIVE!'){
-				$teambox .= '<div style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center">'
-                                . '<div style="padding:5px 0 0 0">'
-                                    . '<span style="background-color:'.$rt->cbo.';color:'.$rt->cfo.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->oppo.'</span> @ '
-                                    . '<span style="background-color:'.$rt->cbt.';color:'.$rt->cft.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->team.'</span>'
-                                . '</div>'
-                                . '<div style="padding:5px 0 5px 0">'
-                                    . '<span style="padding:0px">'.$rt->score.'</span>'
-                                    . '<span style="margin:0 0 0 2px;padding:0 0 0 1px;color:#fff;background-color:red">'.$rt->livemark.'</span>'
-                                . '</div>'
-                            . '</div>';
-			}else{
-				$teambox .= '<div style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center">'
-                                . '<div style="padding:5px 0 0 0">'
-                                    . '<span style="background-color:'.$rt->cbo.';color:'.$rt->cfo.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->oppo.'</span> @ '
-                                    . '<span style="background-color:'.$rt->cbt.';color:'.$rt->cft.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->team.'<span>'
-                                . '</div>'
-                                . '<div style="padding:5px 0 5px 0">'
-                                    . '<span style="padding:0px">'.$rt->score.'</span>'
-                                    . '<span style="padding:0 0 0 5px">'.$rt->livemark.'</span>'
-                                . '</div>'
-                            . '</div>';
-			}
-		}
-		return Response::json(array('value'=>$valueA,'efflv'=>$efflv->efflv,'teambox'=>$teambox));
+//		$teambox = '';
+//		if( is_array($gamedata) )
+//		foreach($gamedata as $key=>$rt){
+//			if($rt->livemark=='LIVE!'){
+//				$teambox .= '<div style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center">'
+//                                . '<div style="padding:5px 0 0 0">'
+//                                    . '<span style="background-color:'.$rt->cbo.';color:'.$rt->cfo.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->oppo.'</span> @ '
+//                                    . '<span style="background-color:'.$rt->cbt.';color:'.$rt->cft.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->team.'</span>'
+//                                . '</div>'
+//                                . '<div style="padding:5px 0 5px 0">'
+//                                    . '<span style="padding:0px">'.$rt->score.'</span>'
+//                                    . '<span style="margin:0 0 0 2px;padding:0 0 0 1px;color:#fff;background-color:red">'.$rt->livemark.'</span>'
+//                                . '</div>'
+//                            . '</div>';
+//			}else{
+//				$teambox .= '<div style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center">'
+//                                . '<div style="padding:5px 0 0 0">'
+//                                    . '<span style="background-color:'.$rt->cbo.';color:'.$rt->cfo.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->oppo.'</span> @ '
+//                                    . '<span style="background-color:'.$rt->cbt.';color:'.$rt->cft.';font-weight:bold;border-radius:2px;padding:2px">'.$rt->team.'<span>'
+//                                . '</div>'
+//                                . '<div style="padding:5px 0 5px 0">'
+//                                    . '<span style="padding:0px">'.$rt->score.'</span>'
+//                                    . '<span style="padding:0 0 0 5px">'.$rt->livemark.'</span>'
+//                                . '</div>'
+//                            . '</div>';
+//			}
+//		}
+		return Response::json(array('rtstats'=>$rtstats,'efflv'=>$efflv->efflv,'gamedata'=>$gamedata));
 	}
 	
 	

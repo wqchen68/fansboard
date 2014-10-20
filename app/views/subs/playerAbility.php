@@ -21,64 +21,55 @@
                     
                     <? include('include_link2realtimeBox.php'); ?>
                     
-					<div style="height:0;clear:both"></div>
+                    <div style="height:0;clear:both"></div>
 
 					<div class="modelBox" mid="5" style="height:513px"></div>
                     
 				</div>
-			</div>
-							
-
+			</div>            
+            
+            
 			<div class="col-1p9 last chartblock" style="background-color:rgba(0,0,0,0.2)">
 				
-				<div class="col-1p8 modelCol">
+				<div class="col-1p8 last modelCol">
 					<div class="modelBox" mid="3"></div>
 				</div>
 
-				<div class="col-1p4 last">
+				<div class="col-1p4">
 					
-					<div style="padding:10px 10px 10px 0">
+					<div style="padding:10px 5px 10px 5px">
 
 						<div style="text-align:left;padding:0 0 10px 0">
-                            <img style="width:16px;line-height:16px;float:left" src="/images/medal_gold_1.png" /><span style="font-size: 12px">Custom Rank (Default public 9 cates)</span>
+                            <div style="float:left;font-size: 12px"><img style="width:16px;line-height:16px;float:left" src="/images/medal_gold_1.png" />Custom Rank (Default public 9 cates)</div>
 
-							<div class="samewidth">
+                            <div style="float:left">
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwfgm" id="zwfgm" /><label for="zwfgm">FGM</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwfga" id="zwfga" /><label for="zwfga">FGA</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwfgp" id="zwfgp" checked="checked" /><label for="zwfgp">FG%*</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwftm" id="zwftm" /><label for="zwftm">FTM</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwfta" id="zwfta" /><label for="zwfta">FTA</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwftp" id="zwftp" checked="checked" /><label for="zwftp">FT%*</label></div>								
-								<div class="clear"></div>
-							</div>
-							<div class="samewidth">
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zw3ptm" id="zw3ptm" checked="checked" /><label for="zw3ptm">3PTM</label></div>							
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zw3pta" id="zw3pta" /><label for="zw3pta">3PTA</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zw3ptp" id="zw3ptp" /><label for="zw3ptp">3PT%*</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zworeb" id="zworeb" /><label for="zworeb">OREB</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwdreb" id="zwdreb" /><label for="zwdreb">DREB</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwtreb" id="zwtreb" checked="checked" /><label for="zwtreb">TREB</label></div>
-								<div class="clear"></div>
-							</div>
-							<div class="samewidth">
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwast" id="zwast" checked="checked" /><label for="zwast">AST</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwto" id="zwto" checked="checked" /><label for="zwto">-TO</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwatr" id="zwatr" /><label for="zwatr">A/T*</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwst" id="zwst" checked="checked" /><label for="zwst">ST</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwblk" id="zwblk" checked="checked" /><label for="zwblk">BLK</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwpf" id="zwpf" /><label for="zwpf">-PF</label></div>								
-								<div class="clear"></div>
-							</div>
-							<div class="samewidth">
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwpts" id="zwpts" checked="checked" /><label for="zwpts">PTS</label></div>
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwtech" id="zwtech" /><label for="zwtech">-TECH</label></div>
-								<div style="text-align:right;float:right;width:180px;padding:10px 0 0 0">
+								<div style="text-align:right;float:right;width:120px;padding:10px 0 0 0">
 									<img style="width:16px;line-height:16px;float:right" src="/images/medal_gold_1.png" />
 									<div style="font-size: 12px;line-height:16px;float:right"><a href="/dataScatter" style="color:#fff;text-decoration: none">Who is Rank 1 ?</a></div>
 								</div>
-								<div class="clear"></div>
-							</div>
-							
+                                <div style="height:0;clear:both"></div>
+                            </div>
+                            <div style="height:0;clear:both"></div>
 						</div>
 
 						<div class="playercardbig highlight" style="box-shadow:0 0 20px rgba(255,255,255,0.9)">
@@ -162,7 +153,6 @@
 						</div>-->
 						
 					</div>
-					
 				</div>
 			</div>
 		</div>
@@ -228,7 +218,7 @@
 			</div>
 		</div>
 
-		<div class="onerow" style="height: 750px">
+		<div class="onerow mobileview" style="height: 750px">
 			<div class="col-1p12" style="background-color:rgba(0,0,0,0.2);margin-top:10px">
                 
 <!--                <img src="/images/radar1.png" style="margin:0 auto;display:block;width:70%" />
@@ -365,17 +355,21 @@
 
 
 <style>
-
-div.samewidth{
-	margin-top: 3px;
-}
-
-
 .checkbox.horizontal.rank-option {
 	width: 44px;
-	margin: 0 3px 0 0;
+	margin: 1px;
 }
 
+@media all and  (orientation: portrait) {
+    .mobileview{
+        /*visibility:hidden;*/
+        /*display: none;*/
+        /*height:100px;*/
+    .rtxbar{
+            
+        }        
+    }
+}
 </style>
 
 <span class="javascript" src="/js/hightchart.playerAbility.js"></span>
