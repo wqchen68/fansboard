@@ -187,6 +187,7 @@ $(function () {
             if( player.length>1 )
                 pageobj.find('.newsbox.player2').append(data[1][0]+'<br />'+data[1][1]+'<br />'+data[1][2]);
         },'json').error(function(e){
+             console.log(e);
         });
     }
 	

@@ -690,7 +690,7 @@ class Player {
 			$tuData = curl_exec($ch); 
 			curl_close($ch);
 			
-			require(app_path().'/views/class/simple_html_dom/simple_html_dom.php');
+			require_once(app_path().'/views/class/simple_html_dom/simple_html_dom.php');
 			$dom = str_get_html($tuData);			
 	
 			$report_dom = $dom->find('#RW_main div.playernews div.report',0);
