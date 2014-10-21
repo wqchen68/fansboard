@@ -13,7 +13,7 @@ $(function(){
 	
 	function counter(options, callback) {
 
-            var limit = "00:2";
+            var limit = "00:24";
             var timeout_fc = options.timeout_zero;
             var msg1 = options.msg1;
             var msg2 = options.msg2;

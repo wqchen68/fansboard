@@ -52,7 +52,7 @@
 					<div class="rtbvarL smallwidth">#</div>
 					<div class="rtbvarL playerwidth">Player</div>
                     <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive','bxmin']; reverse=true">Game</div> <!--team+oppo-->
-					<div class="rtbvarL smallwidth" ng-click="predicate = ['bxgs','gameid','team','startfive','bxmin']; reverse=true">Start</div>
+					<div class="rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','gameid','team','bxmin']; reverse=true">Start</div>
 					<div class="order-btn rtbvarC real-bar-eff" ng-click="predicate = ['bxeff','bxpts']; reverse=true" style="color:gold;font-weight:bold">EFF</div>
 					<div class="rtbvarL" style="width:5.5%">　</div> <!--LIVE!orFinal-->
 					<div class="order-btn rtbvarR midwidth" ng-click="predicate = 'bxmin'; reverse=true">MIN</div>
