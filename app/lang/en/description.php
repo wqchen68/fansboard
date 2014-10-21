@@ -22,6 +22,6 @@ return array(
 	'realtimeBox' => 'Get real-time NBA players\' performance at any time, from anywhere.',
 	'matchPlayer' => 'Explore similar players to compare for fantasy basketball managers.',
 	'tradeCompare' => 'Trading analysis for fantasy basketball managers.',
-	'hotcoldplayer' => 'Calculate hot and cold players by recent stats.',
+	'hotcoldPlayer' => 'Calculate hot and cold players by recent stats.',
 
 );

@@ -27,8 +27,8 @@
 		<div class="onerow" ng-controller="realtimeBoxController">
 
 			<div class="col-1p1 realtime">
-                <a href="hotcoldplayer" target="_blank" style="text-decoration:none;color:#fff">
-                    <div style="padding:3px;margin:0 0 10px 0;background-color:rgba(255,255,255,0.4);border-radius:3px;color:gold;font-weight:bold;font-size:14px;box-shadow: 0 0 10px gold;">
+                <a href="hotcoldPlayer" target="_blank" style="text-decoration:none;color:#fff">
+                    <div style="padding:3px;margin:0 0 10px 0;background-color:rgba(255,255,255,0.4);border-radius:3px;color:gold;font-weight:bold;font-size:14px;box-shadow: 0 0 5px gold;">
                         Today</br> Hot & cold
                         <img style="width:39px" src="images/hcp_hot.png" />
                         <img style="width:39px" src="images/hcp_cold.png" />
@@ -121,7 +121,6 @@
                             <div>
                                 <div class="hovercard">{{ Math.round(player.pworeb*10)/10}}</div>
                                 <div class="hovercard">{{ Math.round(player.pwdreb*10)/10}}</div>
-                                
                                 <div class="hovercard">{{ Math.round(player.pwtreb*10)/10}}</div>
                                 <div class="hovercard">{{ Math.round(player.pwast*10)/10}}</div>
                                 <div class="hovercard">{{ Math.round(player.pwto*10)/10}}</div>
@@ -129,17 +128,12 @@
                                 <div class="hovercard">{{ Math.round(player.pwst*10)/10}}</div>
                                 <div class="hovercard">{{ Math.round(player.pwblk*10)/10}}</div>
                                 <div class="hovercard">{{ Math.round(player.pwpf*10)/10}}</div>
-                                <div class="hovercard">{{ Math.round(player.pwpts*10)/10}}</div>
-                                
+                                <div class="hovercard">{{ Math.round(player.pwpts*10)/10}}</div>                                
                                 <div style="height:0;clear:both"></div>
                             </div>  
                         </div>
                         <div style="height:0;clear:both"></div>
-                    </span>
-                    
-                    
-                    
-                    
+                    </span>                    
                     
                     <div class="rtbvarL smallwidth">{{ $index+1 }}</div>
                     <a href="playerAbility?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
@@ -159,7 +153,7 @@
                     <div class="rtbvarR midwidth" ng-style="style(player)">{{ Math.floor(player.bxmin) }}:{{ ((player.bxmin*60)%60|number:0)<10 ? 0+((player.bxmin*60)%60|number:0) : ((player.bxmin*60)%60|number:0) }}</div>
                     <!--數據-->
                     <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bxfga>9 && player.bxfgm/player.bxfga>0.7,redbold:player.bxfga>9 && player.bxfgm/player.bxfga<0.4}">{{ player.bxfgm }}-{{ player.bxfga }}</div>
-                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bx3pta>2 && player.bx3ptm/player.bx3pta>0.5,redbold:player.bx3pta>5 && player.bx3ptm/player.bx3pta<0.3}">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
+                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bx3pta>4 && player.bx3ptm/player.bx3pta>0.5,redbold:player.bx3pta>5 && player.bx3ptm/player.bx3pta<0.3}">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
                     <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bxfta>9 && player.bxftm/player.bxfta>0.8,redbold:player.bxfta>9 && player.bxftm/player.bxfta<0.6}">{{ player.bxftm }}-{{ player.bxfta }}</div>
                     <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxtreb>9}">{{ player.bxtreb }}</div>
                     <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxast>5}">{{ player.bxast }}</div>
@@ -342,8 +336,7 @@ angular.module('app', []).filter('startFrom',function(){
     return function(input, start){
         return input.slice(start);
     };
-}).controller('realtimeBoxController', function($scope, $filter, $http){  
-    alert();
+}).controller('realtimeBoxController', function($scope, $filter, $http){
     $scope.Math = Math;
     $scope.searchText = {};
     $scope.style = function(value){

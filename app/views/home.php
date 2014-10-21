@@ -281,7 +281,7 @@ $(document).ready(function(){
 										
 									<div class="todaydata" style="width:290px;background-image:url(images/basketball-floor.jpg);border-radius:10px;padding:5px">
 
-										<a href="hotcoldplayer" style="text-decoration:none">
+										<a href="hotcoldPlayer" style="text-decoration:none">
 											<span style="padding:0 0 0 10px;text-align:left;font-weight:bold;font-size:20px;color:red;margin:0 0 8px 0">Today Breakout</span>
 											<span style="padding:0 20px 0 20px;color:#000">More...</span>
 										</a>
