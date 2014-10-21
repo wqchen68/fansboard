@@ -182,7 +182,7 @@ $(function () {
 	
     function reFlashNews(){
         pageobj.find('.newsbox').empty();
-        $.get('/data/getNews',{player:player},function(data){
+        $.post('/data/getNews',{player:player},function(data){
             pageobj.find('.newsbox.player1').append(data[0][0]+'<br />'+data[0][1]+'<br />'+data[0][2]);
             if( player.length>1 )
                 pageobj.find('.newsbox.player2').append(data[1][0]+'<br />'+data[1][1]+'<br />'+data[1][2]);
