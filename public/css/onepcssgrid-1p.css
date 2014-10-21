@@ -86,13 +86,13 @@
  */
 @media all and (max-width: 1200px) {
 	.col-1p1, .col-1p2, .col-1p3, .col-1p4, .col-1p5, .col-1p6, .col-1p7, .col-1p8, .col-1p9, .col-1p10, .col-1p11 {
-		float: none;
-		width: 99.9%;
+/*		float: none;
+		width: 99.9%;*/
 	}
 }
 @media all and (max-width: 768px) {
 	.col-1p1, .col-1p2, .col-1p3, .col-1p4, .col-1p5, .col-1p6, .col-1p7, .col-1p8, .col-1p9, .col-1p10, .col-1p11 {
-		float: none;
-		width: 99.9%;
+/*		float: none;
+		width: 99.9%;*/
 	}
 }
