@@ -137,7 +137,7 @@
                     
                     <div class="rtbvarL smallwidth">{{ $index+1 }}</div>
                     <a href="playerAbility?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
-                        <div class="rtbvarL playerwidth">{{ player.player }}</div>
+                        <div class="rtbvarL playerwidth"  ng-class="{goldback:player.livemark=='Final' && player.bxeff-player.pweff>14}">{{ player.player }}</div>
                     </a>
                     <div class="rtbvarL gamewidth">
                         <div class="rtbvarC" style="width:40%;border-radius:3px;line-height:20px;font-size:12px;font-weight:bold;background-color:{{player.colorback}};color:{{player.colorfont}}">{{ player.team }}</div>
@@ -149,11 +149,11 @@
                         <div ng-style="style(player)" style="float:left;text-align:left;background-color:rgba(0,187,255,1);height:100%;font-weight:bold;width:{{ player.bxeff*3.5 }}%">{{ player.bxeff }}</div>
                     </div>
                     <!--LIVE!跟時間-->
-                    <div class="rtbvarL" style="width:5.5%" ng-class="{hot:player.effper>realtimeBox.efflv && player.livemark==='LIVE!'}">{{ player.livemark }}</div>
+                    <div class="rtbvarL" style="width:5.5%" ng-class="{hot:player.effper>realtimeBox.efflv+5 && player.livemark==='LIVE!'}">{{ player.livemark }}</div>
                     <div class="rtbvarR midwidth" ng-style="style(player)">{{ Math.floor(player.bxmin) }}:{{ ((player.bxmin*60)%60|number:0)<10 ? 0+((player.bxmin*60)%60|number:0) : ((player.bxmin*60)%60|number:0) }}</div>
                     <!--數據-->
                     <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bxfga>9 && player.bxfgm/player.bxfga>0.7,redbold:player.bxfga>9 && player.bxfgm/player.bxfga<0.4}">{{ player.bxfgm }}-{{ player.bxfga }}</div>
-                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bx3pta>4 && player.bx3ptm/player.bx3pta>0.5,redbold:player.bx3pta>5 && player.bx3ptm/player.bx3pta<0.3}">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
+                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bx3pta>3 && player.bx3ptm/player.bx3pta>0.6,redbold:player.bx3pta>5 && player.bx3ptm/player.bx3pta<0.3}">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
                     <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bxfta>9 && player.bxftm/player.bxfta>0.8,redbold:player.bxfta>9 && player.bxftm/player.bxfta<0.6}">{{ player.bxftm }}-{{ player.bxfta }}</div>
                     <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxtreb>9}">{{ player.bxtreb }}</div>
                     <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxast>5}">{{ player.bxast }}</div>
@@ -161,7 +161,7 @@
                     <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxst>2}">{{ player.bxst }}</div>
                     <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxblk>2}">{{ player.bxblk }}</div>
                     <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{redbold:player.bxpf>4}">{{ player.bxpf }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxpts>15}">{{ player.bxpts }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxpts>19}">{{ player.bxpts }}</div>
 
                     <div style="height:0;clear:both"></div>
 
@@ -302,12 +302,17 @@
     white-space : nowrap;
 }
 .gamewidth{
-    width:8%;
+    width:9%;
 }
 .real-bar-eff {
     float:left;
 	width: 26%;
 	height: 100%;
+}
+.goldback{
+    /*color:white;*/
+    font-weight: bold;
+    background-color: rgba(255,255,0,0.5);
 }
 .goldbold{
     color:gold;

@@ -174,7 +174,8 @@ class Player {
                     DB::raw('UPPER(teamlist.team) AS team'),
 					'teamlist.colorback',
 					'teamlist.colorfont',
-					DB::raw('realtimeeff.bxeff/realtimeeff.bxmin AS effper'))
+					DB::raw('realtimeeff.bxeff/realtimeeff.bxmin AS effper'),
+                    DB::raw('syncdataframe.pweff/syncdataframe.pwmin AS effper2'))
                 ->where('syncdataframe.datarange','=','Y-1')
                 ->whereRaw('realtimeeff.startfive!="DNP"')->get();
 
