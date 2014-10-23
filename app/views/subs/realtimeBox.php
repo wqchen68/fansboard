@@ -137,7 +137,7 @@
                     
                     <div class="rtbvarL smallwidth">{{ $index+1 }}</div>
                     <a href="playerAbility?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
-                        <div class="rtbvarL playerwidth"  ng-class="{'goldback':player.livemark=='Final' && player.bxeff-player.pweff>10,'redback':player.livemark=='Final' && player.bxeff-player.pweff<-10}">{{ player.player }}</div>
+                        <div class="rtbvarL playerwidth"  ng-class="{'goldback':player.livemark=='Final' && player.bxeff-player.pweff>14,'redback':player.livemark=='Final' && player.bxeff-player.pweff<-10}">{{ player.player }}</div>
                     </a>
                     <div class="rtbvarL gamewidth">
                         <div class="rtbvarC" style="width:40%;border-radius:3px;line-height:20px;font-size:12px;font-weight:bold;background-color:{{player.colorback}};color:{{player.colorfont}}">{{ player.team }}</div>
