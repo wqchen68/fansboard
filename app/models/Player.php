@@ -121,7 +121,7 @@ class Player {
 
 		$rtstats = DB::table('realtimeeff')
 				->leftJoin('biodata','biodata.fbido','=','realtimeeff.fbido')
-                ->leftJoin('syncdataframe','syncdataframe.fbido','=','realtimeeff.fbido')
+                ->leftJoin(DB::raw('(SELECT * FROM syncdataframe WHERE datarange="Y-1") syncdataframe'),'syncdataframe.fbido','=','realtimeeff.fbido')
 				->leftJoin('teamlist','teamlist.team','=','realtimeeff.team')
 				->orderBy('realtimeeff.bxeff','desc')->orderBy('realtimeeff.bxpts','desc')
 				->select(
@@ -176,7 +176,6 @@ class Player {
 					'teamlist.colorfont',
 					DB::raw('realtimeeff.bxeff/realtimeeff.bxmin AS effper'),
                     DB::raw('syncdataframe.pweff/syncdataframe.pwmin AS effper2'))
-                ->where('syncdataframe.datarange','=','Y-1')
                 ->whereRaw('realtimeeff.startfive!="DNP"')->get();
 
 		$efflv = DB::table('realtimeeff')

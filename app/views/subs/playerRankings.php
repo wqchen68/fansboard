@@ -6,10 +6,26 @@
 
 			<div class="col-1p12 last">
 
-                <input ng-click="start()" type="button" value="Page 1" />
-                <input ng-click="prev()" type="button" value="Rrev <" />
-                <input ng-model="page" size="2" /> / {{ pages }}
-                <input ng-click="next()" type="button" value="> Next" />
+<!--                <div style="float:left;padding:0 0 0 0">                   
+                    <?=Form::select('position', array(
+                    'ALL' => 'ALL',
+                    'PG' => 'PG',
+                    'SG' => 'SG',
+                    'SF' => 'SF',
+                    'PF' => 'PF',
+                    'C' => 'C',
+                    ), Input::get('position', 'ALL'), array('class' => 'selectForm player_season', 'style' => 'color:#000;box-shadow:0 0 0px rgba(255,0,0,0.9)', 'ng-model' => 'position'))?>                    
+                </div>
+                <div style="float:left;padding:0 0 0 0">                   
+                    <?=Form::select('position', array(
+                    'ALL' => 'ALL',
+                    'PG' => 'PG',
+                    'SG' => 'SG',
+                    'SF' => 'SF',
+                    'PF' => 'PF',
+                    'C' => 'C',
+                    ), Input::get('position', 'ALL'), array('class' => 'selectForm player_season', 'style' => 'color:#000;box-shadow:0 0 0px rgba(255,0,0,0.9)', 'ng-model' => 'position'))?>                    
+                </div>-->
 
             </div>                        
             
@@ -29,31 +45,15 @@
 //                echo '<div>'.$rankplayers[1]->page.'</div>';
             ?>
             
-            <div class="col-1p12 last">
-                <div class="col-1p4">
-                    <div style="float:left;padding:0 0 0 0">                   
-                        <?=Form::select('position', array(
-                        'ALL' => 'ALL',
-                        'PG' => 'PG',
-                        'SG' => 'SG',
-                        'SF' => 'SF',
-                        'PF' => 'PF',
-                        'C' => 'C',
-                        ), Input::get('position', 'ALL'), array('class' => 'selectForm player_season', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)', 'ng-model' => 'position'))?>                    
-                    </div>
-                    <div style="float:left;padding:0 0 0 0">                   
-                        <?=Form::select('position', array(
-                        'ALL' => 'ALL',
-                        'PG' => 'PG',
-                        'SG' => 'SG',
-                        'SF' => 'SF',
-                        'PF' => 'PF',
-                        'C' => 'C',
-                        ), Input::get('position', 'ALL'), array('class' => 'selectForm player_season', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)', 'ng-model' => 'position'))?>                    
-                    </div>
+            <div class="col-1p12 last" style="background-color: rgba(0,0,0,0.4)">
+                <div class="col-1p3" style="padding: 20px 0 0px 0px">
+                    <div class="orderbutton" style="width:22px"><a class="sorter" herf="" ng-click="predicate = 'orank'; reverse=false">#</a></div>
+                    <input ng-click="start()" type="button" value="Page 1" />
+                    <input ng-click="prev()" type="button" value="Rrev <" />
+                    <input ng-model="page" size="1" /> / {{ pages }}
+                    <input ng-click="next()" type="button" value="> Next" />
                 </div>
-
-                <div class="col-1p5">
+                <div class="col-1p5" style="padding: 20px 0 0px 0px">
                     <div style="margin: 0 0 0 0">
                         <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwfgp'; reverse=true">FG%</a></div>
                         <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwftp'; reverse=true">FT%</a></div>
@@ -67,13 +67,22 @@
                         <div style="height:0;clear:both"></div>
                     </div>                
                 </div>
+                <div class="col-1p4 last" style="padding: 10px 0 10px 0px">
+                    <div style="float:left;width:60px;height:24px;line-height:24px;font-size:12px;text-align:right;font-weight:bold">Color : </div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(0,255,0,0.5)">Best</div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(0,255,0,0.3)">Better</div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(0,255,0,0.1)">Good</div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(255,0,0,0.1)">Bad</div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(255,0,0,0.3)">Worse</div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(255,0,0,0.5)">worst</div>
+                </div>
             </div>
             
         
             
             <div ng-repeat="rankplayer in rankplayers | orderBy:predicate:reverse | filter:searchText | startFrom:(page-1)*limit | limitTo:limit" class="col-1p12 last rankbox" style="margin:1px; background-color: rgba(0,0,0,0.4)" ng-hide="">
 
-                <a href="playerAbility?player={{rankplayer.fbid}}" target="_blank" class="tooltip">
+                <a href="playerAbility?player={{rankplayer.fbid}}" target="_blank" style="outline:none;color:white">
                 <div class="col-1p3">
                     <div style="margin:5px;text-align:center">
                         <div style="float:left;width:10px;text-align: center;padding:30px 20px 0px 0px">
@@ -96,14 +105,12 @@
                         <div style="height:0;clear:both"></div>
                     </div>
                 </div>
+                </a>               
 
-                <div class="report" style="margin:10px">{{rankplayer.report}}</div>
-                </a>
-
-                <div class="col-1p1">
+<!--                <div class="col-1p1">
                     <div style="float:left; background-color:#; margin:5px; width:70px; height:70px">
                     </div>
-                </div>
+                </div>-->
 
                 <div class="col-1p5">
                     <div style="padding: 10px 0 10px 0">
@@ -135,18 +142,34 @@
                     </div>
                 </div>                
 
-                <div class="col-1p3 last">                    
+                <div class="col-1p4 last">
+                    <div style="margin:10px">{{rankplayer.report}}</div>
+                </div>
+
+<!--                <div class="col-1p3 last">                    
                     <div style="float:left; background-color:#; margin:5px; width:200px; height:70px"></div>                    
 
-                </div>
+                </div>-->
 
                 <div style="height:0;clear:both"></div>                    
 
             </div>
+            <div class="col-1p12 last">
+                <div class="col-1p3">
+                    <input ng-click="start()" type="button" value="Page 1" />
+                    <input ng-click="prev()" type="button" value="Rrev <" />
+                    <input ng-model="page" size="1" /> / {{ pages }}
+                    <input ng-click="next()" type="button" value="> Next" />
+                </div>
+                <div class="col-1p5">
+                </div>
 
-            
-            <div style="height:0;clear:both"></div>
-		</div>		
+            </div>
+        </div>
+        
+
+        <div style="height:0;clear:both"></div>
+        
 	</div>
 </div>
 
@@ -171,11 +194,15 @@
     background-color: gold;
     line-height: 20px;
     margin: 1px;
+    cursor: pointer;
 }
-
-a.tooltip {outline:none;color:white}
-/*a.tooltip strong {line-height:30px;}*/
-/*a.tooltip:hover {text-decoration:none;color:white}*/ 
+.orderbutton:hover{
+    text-decoration:underline;
+    color: #5599FF;
+}
+/*a.tooltip {outline:none;color:white}
+a.tooltip strong {line-height:30px;}
+a.tooltip:hover {text-decoration:none;color:white} 
 a.tooltip .report {
     z-index:10;
     display:none;
@@ -189,17 +216,17 @@ a.tooltip:hover .report{
     position:absolute;
     color:#111;
     border:1px solid #DCA;
-    /*background:#fffAF0;*/
+    background:#fffAF0;
     background:rgba(255,255,255,1);
 }
-/*.callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}*/
+.callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}
 
-/*CSS3 extras*/
+CSS3 extras
 a.tooltip .report
 {
-/*        border-radius:4px;
-    box-shadow: 5px 5px 8px #CCC;*/
-}
+        border-radius:4px;
+    box-shadow: 5px 5px 8px #CCC;
+}*/
 </style>
 
 
@@ -213,7 +240,7 @@ a.tooltip .report
 
 
 
-<script>
+<script>    
 angular.module('app', []).filter('startFrom',function(){
     return function(input, start){
         return input.slice(start);
@@ -221,7 +248,7 @@ angular.module('app', []).filter('startFrom',function(){
 }).controller('MyCtrl', function($scope){
     $scope.rankplayers = angular.fromJson(<?=json_encode($rankplayers)?>);
     $scope.page = 1;
-    $scope.limit = 10;
+    $scope.limit = 25;
     $scope.max = $scope.rankplayers.length;
     $scope.pages = Math.ceil($scope.max/$scope.limit);
 

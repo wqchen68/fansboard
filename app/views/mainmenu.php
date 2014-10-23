@@ -40,6 +40,7 @@
 									</div>
 									<ul style="width:100%">
 										<?=Form::tabi('dataScatter','Data Scatter')?>
+                                        <?=Form::tabi('playerRankings','Player Rankings')?>
 										<?=Form::tabi('','---','lock')?>
 									</ul>	
 								</li>
@@ -62,8 +63,7 @@
 										<h4>Team Board</h4>
 										<h4 style="left:100%"></h4>
 									</div>
-									<ul style="width:100%">
-										<?=Form::tabi('orankList','O-Rank List','lock')?>
+									<ul style="width:100%">										
 										<?=Form::tabi('','---','lock')?>
 									</ul>	
 								</li>
@@ -73,8 +73,6 @@
 										<h4 style="left:100%"></h4>
 									</div>
 									<ul style="width:100%">
-										<?=Form::tabi('','---','lock')?>
-										<?=Form::tabi('draftplayerAbility','---','lock')?>
 										<?=Form::tabi('','---','lock')?>
 									</ul>	
 

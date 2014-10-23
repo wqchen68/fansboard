@@ -35,7 +35,7 @@
                     </div>
                 </a>
                 <div class="order-btn" style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center" ng-repeat="game in realtimeBox.gamedata" ng-click="searchText.gameid=game.gameid;select(game)" ng-class="{selected:game.selected}">
-                    <div style="padding:5px 0 0 0">
+                    <div style="width:100%;padding:5px 0 0 0">
                         <span style="background-color:{{game.cbo}};color:{{game.cfo}};font-weight:bold;border-radius:2px;padding:2px">{{game.oppo}}</span>@
                         <span style="background-color:{{game.cbt}};color:{{game.cft}};font-weight:bold;border-radius:2px;padding:2px">{{game.team}}</span>
                     </div>
@@ -48,11 +48,11 @@
 
 			<div class="col-1p11 realtime last">
 	
-				<div style="background-color:rgba(0,0,0,0.5);color:#fff;width:100%;height:20px;padding:7px">
+				<div class="tablehead" style="background-color:rgba(0,0,0,0.5);color:#fff;width:100%;height:20px;padding:7px">
 					<div class="rtbvarL smallwidth">#</div>
 					<div class="rtbvarL playerwidth">Player</div>
                     <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive','bxmin']; reverse=true">Game</div> <!--team+oppo-->
-					<div class="rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','gameid','team','bxmin']; reverse=true">Start</div>
+					<div class="order-btn rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','gameid','team','bxmin']; reverse=true">Start</div>
 					<div class="order-btn rtbvarC real-bar-eff" ng-click="predicate = ['bxeff','bxpts']; reverse=true" style="color:gold;font-weight:bold">EFF</div>
 					<div class="rtbvarL" style="width:5.5%">　</div> <!--LIVE!orFinal-->
 					<div class="order-btn rtbvarR midwidth" ng-click="predicate = 'bxmin'; reverse=true">MIN</div>
@@ -78,7 +78,7 @@
                         </div>
                         
                         <div style="float:left;padding:0 4px 0 4px">
-                            <div style="padding-left:20px;margin-bottom: 2px">2014-15 Season Average</div>
+                            <div style="padding-left:20px;margin-bottom: 2px">2013-14 Season Average</div>
                             <div>
                                 <div class="hovercard1">Min</div>
                                 <div class="hovercard1">FGM</div>
@@ -137,7 +137,7 @@
                     
                     <div class="rtbvarL smallwidth">{{ $index+1 }}</div>
                     <a href="playerAbility?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
-                        <div class="rtbvarL playerwidth"  ng-class="{goldback:player.livemark=='Final' && player.bxeff-player.pweff>14}">{{ player.player }}</div>
+                        <div class="rtbvarL playerwidth"  ng-class="{'goldback':player.livemark=='Final' && player.bxeff-player.pweff>10,'redback':player.livemark=='Final' && player.bxeff-player.pweff<-10}">{{ player.player }}</div>
                     </a>
                     <div class="rtbvarL gamewidth">
                         <div class="rtbvarC" style="width:40%;border-radius:3px;line-height:20px;font-size:12px;font-weight:bold;background-color:{{player.colorback}};color:{{player.colorfont}}">{{ player.team }}</div>
@@ -152,16 +152,16 @@
                     <div class="rtbvarL" style="width:5.5%" ng-class="{hot:player.effper>realtimeBox.efflv+5 && player.livemark==='LIVE!'}">{{ player.livemark }}</div>
                     <div class="rtbvarR midwidth" ng-style="style(player)">{{ Math.floor(player.bxmin) }}:{{ ((player.bxmin*60)%60|number:0)<10 ? 0+((player.bxmin*60)%60|number:0) : ((player.bxmin*60)%60|number:0) }}</div>
                     <!--數據-->
-                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bxfga>9 && player.bxfgm/player.bxfga>0.7,redbold:player.bxfga>9 && player.bxfgm/player.bxfga<0.4}">{{ player.bxfgm }}-{{ player.bxfga }}</div>
-                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bx3pta>3 && player.bx3ptm/player.bx3pta>0.6,redbold:player.bx3pta>5 && player.bx3ptm/player.bx3pta<0.3}">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
-                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bxfta>9 && player.bxftm/player.bxfta>0.8,redbold:player.bxfta>9 && player.bxftm/player.bxfta<0.6}">{{ player.bxftm }}-{{ player.bxfta }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxtreb>9}">{{ player.bxtreb }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxast>5}">{{ player.bxast }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{redbold:player.bxto>4}">{{ player.bxto }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxst>2}">{{ player.bxst }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxblk>2}">{{ player.bxblk }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{redbold:player.bxpf>4}">{{ player.bxpf }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxpts>19}">{{ player.bxpts }}</div>
+                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bxfga>9 && player.bxfgm/player.bxfga>0.6,redbold:player.bxfga>9 && player.bxfgm/player.bxfga<0.4}" title="Field Goal">{{ player.bxfgm }}-{{ player.bxfga }}</div>
+                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bx3ptm>2 && player.bx3ptm/player.bx3pta>0.6,redbold:player.bx3pta>5 && player.bx3ptm/player.bx3pta<0.3}" title="3-Point ">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
+                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bxfta>9 && player.bxftm/player.bxfta>0.8,redbold:player.bxfta>9 && player.bxftm/player.bxfta<0.6}" title="Free Throw">{{ player.bxftm }}-{{ player.bxfta }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxtreb>9}" title="Rebounds">{{ player.bxtreb }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxast>5}" title="Assists">{{ player.bxast }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{redbold:player.bxto>4}" title="Turnovers">{{ player.bxto }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxst>2}" title="Steals">{{ player.bxst }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxblk>2}" title="Block Shots">{{ player.bxblk }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{redbold:player.bxpf>4}" title="Personal Fouls">{{ player.bxpf }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxpts>19}" title="Points">{{ player.bxpts }}</div>
 
                     <div style="height:0;clear:both"></div>
 
@@ -289,6 +289,11 @@
 .order-btn{
     cursor: pointer;
 }
+.order-btn:hover{
+    text-decoration:underline;
+    color: #5599FF;
+}
+
 .smallwidth{
     width:2.5%;
 }
@@ -313,6 +318,11 @@
     /*color:white;*/
     font-weight: bold;
     background-color: rgba(255,255,0,0.5);
+}
+.redback{
+    /*color:white;*/
+    font-weight: bold;
+    background-color: rgba(255,0,0,0.5);
 }
 .goldbold{
     color:gold;

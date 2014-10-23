@@ -25,6 +25,7 @@ return array(
 	'hotcoldPlayer' => 'Hot & Cold Player',
     'playerSalary' => 'Player Salary',
     'draftplayerAbility' => 'Draft Player Ability',
+    'playerRankings' => 'Player Rankings'
 
 
 );
