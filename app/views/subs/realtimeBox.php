@@ -133,11 +133,11 @@
                             </div>  
                         </div>
                         <div style="height:0;clear:both"></div>
-                    </span>                    
+                    </span>
                     
                     <div class="rtbvarL smallwidth">{{ $index+1 }}</div>
                     <a href="playerAbility?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
-                        <div class="rtbvarL playerwidth"  ng-class="{'goldback':player.livemark=='Final' && player.bxeff-player.pweff>14,'redback':player.livemark=='Final' && player.bxeff-player.pweff<-10}">{{ player.player }}</div>
+                        <div class="rtbvarL playerwidth"  ng-class="{goldback:player.bxeff-player.pweff>=15,redback:player.bxeff-player.pweff<=-10}">{{ player.player }}</div>
                     </a>
                     <div class="rtbvarL gamewidth">
                         <div class="rtbvarC" style="width:40%;border-radius:3px;line-height:20px;font-size:12px;font-weight:bold;background-color:{{player.colorback}};color:{{player.colorfont}}">{{ player.team }}</div>
@@ -146,22 +146,22 @@
                     <!--start跟EFF-->
                     <div class="rtbvarL smallwidth" ng-class="{grayfont:player.startfive=='BN'}">{{ player.startfive }}</div>
                     <div class="real-bar-eff">
-                        <div ng-style="style(player)" style="float:left;text-align:left;background-color:rgba(0,187,255,1);height:100%;font-weight:bold;width:{{ player.bxeff*3.5 }}%">{{ player.bxeff }}</div>
+                        <div ng-style="styleeff(player)" ng-class="" style="float:left;font-weight:bold;text-align:left;height:100%;width:{{ player.bxeff*3.5 }}%">{{ player.bxeff }}</div>
                     </div>
                     <!--LIVE!跟時間-->
                     <div class="rtbvarL" style="width:5.5%" ng-class="{hot:player.effper>realtimeBox.efflv+5 && player.livemark==='LIVE!'}">{{ player.livemark }}</div>
                     <div class="rtbvarR midwidth" ng-style="style(player)">{{ Math.floor(player.bxmin) }}:{{ ((player.bxmin*60)%60|number:0)<10 ? 0+((player.bxmin*60)%60|number:0) : ((player.bxmin*60)%60|number:0) }}</div>
                     <!--數據-->
-                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bxfga>9 && player.bxfgm/player.bxfga>0.6,redbold:player.bxfga>9 && player.bxfgm/player.bxfga<0.4}" title="Field Goal">{{ player.bxfgm }}-{{ player.bxfga }}</div>
-                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bx3ptm>2 && player.bx3ptm/player.bx3pta>0.6,redbold:player.bx3pta>5 && player.bx3ptm/player.bx3pta<0.3}" title="3-Point ">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
-                    <div class="rtbvarR midwidth" ng-style="style(player)" ng-class="{goldbold:player.bxfta>9 && player.bxftm/player.bxfta>0.8,redbold:player.bxfta>9 && player.bxftm/player.bxfta<0.6}" title="Free Throw">{{ player.bxftm }}-{{ player.bxfta }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxtreb>9}" title="Rebounds">{{ player.bxtreb }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxast>5}" title="Assists">{{ player.bxast }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{redbold:player.bxto>4}" title="Turnovers">{{ player.bxto }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxst>2}" title="Steals">{{ player.bxst }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxblk>2}" title="Block Shots">{{ player.bxblk }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{redbold:player.bxpf>4}" title="Personal Fouls">{{ player.bxpf }}</div>
-                    <div class="rtbvarR smallwidth" ng-style="style(player)" ng-class="{goldbold:player.bxpts>19}" title="Points">{{ player.bxpts }}</div>
+                    <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfga>9 && player.bxfgm/player.bxfga>0.6,redbold:player.bxfga>9 && player.bxfgm/player.bxfga<0.4}" title="Field Goal">{{ player.bxfgm }}-{{ player.bxfga }}</div>
+                    <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bx3ptm>2 && player.bx3ptm/player.bx3pta>0.6,redbold:player.bx3pta>5 && player.bx3ptm/player.bx3pta<0.3}" title="3-Point ">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
+                    <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfta>9 && player.bxftm/player.bxfta>0.8,redbold:player.bxfta>9 && player.bxftm/player.bxfta<0.6}" title="Free Throw">{{ player.bxftm }}-{{ player.bxfta }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="" ng-class="{goldbold:player.bxtreb>9}" title="Rebounds">{{ player.bxtreb }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="" ng-class="{goldbold:player.bxast>5}" title="Assists">{{ player.bxast }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="" ng-class="{redbold:player.bxto>4}" title="Turnovers">{{ player.bxto }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="" ng-class="{goldbold:player.bxst>2}" title="Steals">{{ player.bxst }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="" ng-class="{goldbold:player.bxblk>2}" title="Block Shots">{{ player.bxblk }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="" ng-class="{redbold:player.bxpf>4}" title="Personal Fouls">{{ player.bxpf }}</div>
+                    <div class="rtbvarR smallwidth" ng-style="" ng-class="{goldbold:player.bxpts>19}" title="Points">{{ player.bxpts }}</div>
 
                     <div style="height:0;clear:both"></div>
 
@@ -315,14 +315,12 @@
 	height: 100%;
 }
 .goldback{
-    /*color:white;*/
     font-weight: bold;
-    background-color: rgba(255,255,0,0.5);
+    background-color: rgba(255,215,0,0.6);
 }
 .redback{
-    /*color:white;*/
     font-weight: bold;
-    background-color: rgba(255,0,0,0.5);
+    background-color: rgba(255,0,0,0.6);
 }
 .goldbold{
     color:gold;
@@ -359,6 +357,28 @@ angular.module('app', []).filter('startFrom',function(){
             return {color:'#FF3333','font-weight':'bold'};
         };
     };
+    $scope.styleeff = function(value){
+        if (value.bxeff-value.pweff>=15){
+            if (value.livemark=='Final'){
+                return {'background-color':'rgb(255,215,0,1)'};
+            }else{
+                return {'background-color':'rgb(255,215,0,0.6)'};
+            }            
+        }else if (value.bxeff-value.pweff<=-10){
+            if (value.livemark=='Final'){
+                return {'background-color':'rgba(255,0,0,1)'};
+            }else{
+                return {'background-color':'rgba(255,0,0,0.6)'};
+            }
+        }else{
+            if (value.livemark=='Final'){
+                return {'background-color':'rgba(0,187,255,1)'};
+            }else{
+                return {'background-color':'rgba(0,187,255,0.6)'};
+            }            
+        };
+    };
+    
     $scope.select = function(game){
         var selected = game.selected;
         angular.forEach($filter('filter')($scope.realtimeBox.gamedata, {selected: true}), function(value, key) {
