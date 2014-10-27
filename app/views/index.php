@@ -203,8 +203,8 @@ $(document).ready(function(){
 	
 	<?=$mainmenu?>
 	
-	<div id="testi">
-        <div class="move active" index="0"><?=$testi?>
+    <div id="testi" style="position:absolute;bottom:50px;top:52px;overflow:auto">
+        <div class="move active" index="0" style="height:100%"><?=$testi?>
             <div style="position: absolute ; top:10px; left:1550px">
                 
                 <div class="fb-like" data-href="" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
@@ -215,7 +215,7 @@ $(document).ready(function(){
         </div>
     </div>
 	
-	<div style="background-color:#fff;width:100%;height:70px">
+	<div style="background-color:#fff;width:100%;height:50px;position:absolute;bottom:0px">
 
 		<div class="onepcssgrid-full">
 			<div class="onerow">

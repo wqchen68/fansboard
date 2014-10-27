@@ -65,7 +65,7 @@
 								<div class="checkbox horizontal rank-option"><input type="checkbox" name="cate" value="zwtech" id="zwtech" /><label for="zwtech">-TECH</label></div>
 								<div style="text-align:right;float:right;width:120px;padding:10px 0 0 0">
 									<img style="width:16px;line-height:16px;float:right" src="/images/medal_gold_1.png" />
-									<div style="font-size: 12px;line-height:16px;float:right"><a href="/dataScatter" style="color:#fff;text-decoration: none">Who is Rank 1 ?</a></div>
+									<div style="font-size: 12px;line-height:16px;float:right"><a href="/dataScatter" target="_blank" style="color:#fff;text-decoration: none">Who is Rank 1 ?</a></div>
 								</div>
                                 <div style="height:0;clear:both"></div>
                             </div>

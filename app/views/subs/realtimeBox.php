@@ -1,8 +1,7 @@
-<div style="background-color:rgba(0,0,0,0.5);margin: 0;min-height:100%">
+<div style="background-color:rgba(0,0,0,0.5);margin: 0;height:100%">
 
-	<div class="onepcssgrid-1p-1200" style="background-color:rgba(0,0,0,0.0);border-radius: 0px">		
-   
-            
+	<div class="onepcssgrid-1p-1200" style="position:relative;height:100%">		
+              
 		<div class="onerow">
             <div style="height: 42px; padding: 10px 0 10px 0">
                 <div style="position:absolute;left:23%;margin:10px 0 0 -75px;font-size: 14px;color:gold;font-weight:bold">2014-15 Pre-Season</div>
@@ -24,9 +23,9 @@
 		</div>
             
 		
-		<div class="onerow" ng-controller="realtimeBoxController">
+        <div class="onerow" ng-controller="realtimeBoxController" style="position:absolute;top:60px;bottom:0;right:0;left:0">
 
-			<div class="col-1p1 realtime">
+            <div class="col-1p1 realtime" style="position:absolute">
                 <a href="hotcoldPlayer" target="_blank" style="text-decoration:none;color:#fff">
                     <div style="padding:3px;margin:0 0 10px 0;background-color:rgba(255,255,255,0.4);border-radius:3px;color:gold;font-weight:bold;font-size:14px;box-shadow: 0 0 5px gold;">
                         Today</br> Hot & cold
@@ -46,15 +45,15 @@
                 </div>
 			</div>
 
-			<div class="col-1p11 realtime last">
+            <div class="col-1p11 realtime last" style="position:absolute;right:0;top:0;bottom:0" ng-cloak>
 	
-				<div class="tablehead" style="background-color:rgba(0,0,0,0.5);color:#fff;width:100%;height:20px;padding:7px ">
+				<div class="tablehead" style="background-color:rgba(0,0,0,0.5);color:#fff;width:100%;height:20px;padding:7px 0px 7px 3px ">
 					<div class="rtbvarL smallwidth">#</div>
 					<div class="rtbvarL playerwidth">Player</div>
                     <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive','bxmin']; reverse=true">Game</div> <!--team+oppo-->
 					<div class="order-btn rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','gameid','team','bxmin']; reverse=true">Start</div>
 					<div class="order-btn rtbvarC real-bar-eff" ng-click="predicate = ['bxeff','bxpts']; reverse=true" style="color:gold;font-weight:bold">EFF</div>
-					<div class="rtbvarL" style="width:5.5%">　</div> <!--LIVE!orFinal-->
+					<div class="rtbvarL" style="width:5.0%">　</div> <!--LIVE!orFinal-->
 					<div class="order-btn rtbvarR midwidth" ng-click="predicate = 'bxmin'; reverse=true">MIN</div>
 					<div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bxfgm','-bxfga']; reverse=true">FG</div>
                     <div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bx3ptm','-bx3pta']; reverse=true">3P</div>
@@ -68,8 +67,8 @@
                     <div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxpts','bxeff','bxfgm','-bxfga']; reverse=true">Pts</div>
 				</div>
 					
-                <div class="transparent" style="height:800px;overflow-x:hidden;overflow-y:scroll">
-                    <div class="effrank new wait" fbid="{{ player.fbid*3.5 }}" rank="{{ index }}" style="width:100%;height:20px;padding:4px 7px 4px 7px;color:#fff" ng-repeat="player in realtimeBox.rtstats | orderBy:predicate:reverse | filter:searchText">
+                <div class="transparent" style="overflow-x:hidden;overflow-y:scroll;position:absolute;bottom:10px;top:35px;left:0;right:0">
+                    <div class="effrank new wait" fbid="{{ player.fbid*3.5 }}" rank="{{ index }}" style="width:100%;height:20px;padding:4px 7px 4px 7px;color:#fff;position:relative" ng-repeat="player in realtimeBox.rtstats | orderBy:predicate:reverse | filter:searchText">
 
                         <span>
                             <div style="float:left">
@@ -149,7 +148,7 @@
                             <div ng-style="styleeff(player)" ng-class="" style="float:left;font-weight:bold;text-align:left;height:100%;width:{{ player.bxeff*3.5 }}%">{{ player.bxeff }}</div>
                         </div>
                         <!--LIVE!跟時間-->
-                        <div class="rtbvarL" style="width:5.5%" ng-class="{hot:player.bxeff/player.bxmin>=1 && player.livemark==='LIVE!'}">{{ player.livemark }}</div>
+                        <div class="rtbvarL" style="width:5.0%" ng-class="{hot:player.bxeff/player.bxmin>=1 && player.livemark==='LIVE!'}">{{ player.livemark }}</div>
                         <div class="rtbvarR midwidth" ng-style="style(player)">{{ Math.floor(player.bxmin) }}:{{ ((player.bxmin*60)%60|number:0)<10 ? 0+((player.bxmin*60)%60|number:0) : ((player.bxmin*60)%60|number:0) }}</div>
                         <!--數據-->
                         <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfga>9 && player.bxfgm/player.bxfga>0.6,redbold:player.bxfga>9 && player.bxfgm/player.bxfga<0.4}" title="Field Goal">{{ player.bxfgm }}-{{ player.bxfga }}</div>
@@ -367,7 +366,7 @@ angular.module('app', []).filter('startFrom',function(){
             }else{
                 return {'background-color':'rgb(255,215,0,0.6)'};
             }            
-        }else if (value.bxeff-value.pweff<=-10){
+        }else if (value.bxeff-value.pweff<=-15){
             if (value.livemark=='Final'){
                 return {'background-color':'rgba(255,0,0,1)'};
             }else{
