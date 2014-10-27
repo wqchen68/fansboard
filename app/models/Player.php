@@ -179,7 +179,7 @@ class Player {
                 ->whereRaw('realtimeeff.startfive!="DNP"')->get();
 
 		$efflv = DB::table('realtimeeff')
-		->select(DB::raw('SUM(realtimeeff.bxeff)/SUM(realtimeeff.bxmin) AS efflv'))->first();
+            ->select(DB::raw('SUM(realtimeeff.bxeff)/SUM(realtimeeff.bxmin) AS efflv'))->first();
 		
 		$gamedata = DB::table('realtimeeff')
             ->leftJoin('teamlist AS A1','A1.team','=','realtimeeff.team')
@@ -518,7 +518,7 @@ class Player {
 												->where('syncdataframe.fbid','=',$inputid)
 												->where('syncdataframe.datarange','=','ALL2') //開季後把2拿掉
 												->where('syncplayerlist.datarange','=','ALL')
-												->select(DB::raw('"2013",syncplayerlist.team,wgp,FORMAT(pwmin,1),
+												->select(DB::raw('"2014-15",syncplayerlist.team,wgp,FORMAT(pwmin,1),
 								FORMAT(pwfgm,1),
 								FORMAT(pwfga,1),
 								FORMAT(wfgp*100,1),
@@ -591,7 +591,7 @@ class Player {
 				: 'pweff';
 		///撈SQL並計算sum///	
 		$careerstats = DB::table('careerstats')->where('fbid',$inputid)->orderBy('dataorder')->select($items.' AS colsum','ceff36','cseason','cteam','cgame')->get();
-		$valueMax = DB::table('careerstats')->where('cseason','2013-14')->max($items);
+		$valueMax = DB::table('careerstats')->where('cseason','2014-15')->max($items);
 		if (empty($table_array2)){
 			$valueMaxNow = DB::table('syncdataframe')->where('datarange','Full')->max($itemsNow);
 			$thisyearstats = DB::table('syncdataframe')->where('fbid',$inputid)->where('datarange','Full')->select($itemsNow.' AS pweff','pweff36','wgp')->first();	

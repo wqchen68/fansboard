@@ -7,12 +7,12 @@
 				
 				<div style="float:left">
 					<select class="selectForm" name="datarange" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9);margin:0 5px 0 0">
-						<option value="ALL">2013-14 Season</option>
+						<option value="ALL">2014-15 Season</option>
 						<option value="D30">Last 4 Weeks</option>
 						<option value="D14">Last 2 Weeks</option>
 						<option value="D07">Last 1 Week</option>
-						<option value="Y-1" selected="selected">2012-13 Season</option>
-						<option value="Y-2">2011-12 Season</option>
+						<option value="Y-1" selected="selected">2013-14 Season</option>
+						<option value="Y-2">2012-13 Season</option>
 					</select>                    
 				</div>
 				

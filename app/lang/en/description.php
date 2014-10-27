@@ -23,6 +23,7 @@ return array(
 	'matchPlayer' => 'Explore similar players to compare for fantasy basketball managers.',
 	'tradeCompare' => 'Trading analysis for fantasy basketball managers.',
 	'hotcoldPlayer' => 'Calculate hot and cold players by recent stats.',
+    'playerSalary' => 'Calculate hot and cold players by recent stats.',
     'playerRankings' =>'Player Rankings',
 
 );

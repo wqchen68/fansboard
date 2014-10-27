@@ -10,9 +10,9 @@
 					<div style="float:left;padding:0 0 10px 0">                            
                         <?=Form::select('range', array(
                             'Full' => '2014-15 Season',
-                            'D30' => 'Last 30 Days',
-                            'D14' => 'Last 14 Days',
-                            'D07' => 'Last 7 Days',
+                            'D30' => 'Last 4 Weeks',
+                            'D14' => 'Last 2 Weeks',
+                            'D07' => 'Last 1 Week',
                             'Y-1' => '2013-14 Season',
                             'Y-2' => '2012-13 Season'
                             ), Input::get('data', 'Y-1'), array('class' => 'selectForm', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)'))

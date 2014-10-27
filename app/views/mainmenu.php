@@ -40,7 +40,7 @@
 									</div>
 									<ul style="width:100%">
 										<?=Form::tabi('dataScatter','Data Scatter')?>
-                                        <?=Form::tabi('playerRankings','Player Rankings')?>
+                                        <?=Form::tabi('playerRankings','Player Rankings','lock')?>
 										<?=Form::tabi('','---','lock')?>
 									</ul>	
 								</li>
@@ -51,7 +51,7 @@
 									</div>
 									<ul style="width:100%">
 										<?=Form::tabi('realtimeBox','Real-Time Box')?>
-										<?=Form::tabi('hotcoldplayer','Hot & Cold Player')?>	
+										<?=Form::tabi('hotcoldPlayer','Hot & Cold Player')?>	
 										<?=Form::tabi('matchPlayer','Similar Player')?>
                                         <?=Form::tabi('playerSalary','Player Salary')?>
 										<?=Form::tabi('tradeCompare','Trade Compare','lock')?>
