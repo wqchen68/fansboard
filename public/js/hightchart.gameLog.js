@@ -106,11 +106,12 @@ $(function(){
             }
 			
             chart.addSeries({
-                type: 'line',
+                type: 'spline',
                 name: 'Game EFF',
                 data: data[0].current,
-                color: '#999999',
+                color: 'rgba(200,200,200,0.4)',
                 yAxis: 0,
+                dashStyle: 'Dash',
                 marker: {
                     symbol: 'circle'
                 }
@@ -118,7 +119,7 @@ $(function(){
 
 
             chart.addSeries({ 	
-                type: 'line',
+                type: 'spline',
                 name: 'Sohrt-Term',
                 data: data[0].ma3,
                 color: '#00CCFF',
@@ -129,7 +130,7 @@ $(function(){
             },false);
 
             chart.addSeries({ 	
-                type: 'line',
+                type: 'spline',
                 name: 'Mid-Term',
                 data: data[0].ma6,
                 color: 'rgba(0,255,0,1)',
@@ -140,7 +141,7 @@ $(function(){
             },false);
 
             chart.addSeries({ 	
-                type: 'line',
+                type: 'spline',
                 name: 'Long-Term',
                 data: data[0].ma9,
                 color: '#ff0066',

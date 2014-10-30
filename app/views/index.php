@@ -205,10 +205,10 @@ $(document).ready(function(){
 	
     <div id="testi" style="position:absolute;bottom:50px;top:52px;overflow:auto">
         <div class="move active" index="0" style="height:100%"><?=$testi?>
-            <div style="position: absolute ; top:10px; left:1550px">
+            <div style="position: absolute ; top:25px; left:1561px">
                 
                 <div class="fb-like" data-href="" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-                <div class="fb-comments" data-href="" data-width="300" data-numposts="5" data-colorscheme="light"></div>
+                <div class="fb-comments" data-herf="" data-width="300" data-numposts="5" data-colorscheme="light"></div>
                 <div id="fb-root"></div>
 
             </div>            
@@ -231,3 +231,4 @@ $(document).ready(function(){
 	
 </body>
 </html>
+<!--<div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-numposts="5" data-colorscheme="light"></div>-->

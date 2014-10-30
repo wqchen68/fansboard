@@ -47,8 +47,8 @@
 
             <div class="col-1p11 realtime last" style="position:absolute;right:0;top:0;bottom:0" ng-cloak>
 	
-				<div class="tablehead" style="background-color:rgba(0,0,0,0.5);color:#fff;width:100%;height:20px;padding:7px 0px 7px 3px ">
-					<div class="rtbvarL smallwidth">#</div>
+				<div class="tablehead" style="background-color:rgba(0,0,0,0.5);color:#fff;width:100%;height:20px;padding:7px 0px 7px 0px ">
+					<div class="rtbvarC smallwidth">#</div>
 					<div class="rtbvarL playerwidth">Player</div>
                     <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive','bxmin']; reverse=true">Game</div> <!--team+oppo-->
 					<div class="order-btn rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','gameid','team','bxmin']; reverse=true">Start</div>
@@ -67,7 +67,7 @@
                     <div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxpts','bxeff','bxfgm','-bxfga']; reverse=true">Pts</div>
 				</div>
 					
-                <div class="transparent" style="overflow-x:hidden;overflow-y:scroll;position:absolute;bottom:10px;top:35px;left:0;right:0">
+                <div class="transparent" style="overflow-x:hidden;overflow-y:scroll;position:absolute;bottom:10px;top:34px;left:0;right:0">
                     <div class="effrank new wait" fbid="{{ player.fbid*3.5 }}" rank="{{ index }}" style="width:100%;height:20px;padding:4px 7px 4px 7px;color:#fff;position:relative" ng-repeat="player in realtimeBox.rtstats | orderBy:predicate:reverse | filter:searchText">
 
                         <span>
@@ -136,7 +136,7 @@
 
                         <div class="rtbvarL smallwidth">{{ $index+1 }}</div>
                         <a href="playerAbility?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
-                            <div class="rtbvarL playerwidth"  ng-class="{goldback:player.bxeff-player.pweff>=15,redback:player.bxeff-player.pweff<=-10}">{{ player.player }}</div>
+                            <div class="rtbvarL playerwidth"  ng-class="{goldback:player.bxeff-player.pweff>=15 && player.livemark=='Final',redback:player.bxeff-player.pweff<=-15 && player.livemark=='Final'}">{{ player.player }}</div>
                         </a>
                         <div class="rtbvarL gamewidth">
                             <div class="rtbvarC" style="width:40%;border-radius:3px;line-height:20px;font-size:12px;font-weight:bold;background-color:{{player.colorback}};color:{{player.colorfont}}">{{ player.team }}</div>
@@ -318,11 +318,11 @@
 }
 .goldback{
     font-weight: bold;
-    background-color: rgba(255,215,0,0.6);
+    background-color: rgba(255,215,0,0.3);
 }
 .redback{
     font-weight: bold;
-    background-color: rgba(255,0,0,0.6);
+    background-color: rgba(255,0,0,0.3);
 }
 .goldbold{
     color:gold;
@@ -376,7 +376,7 @@ angular.module('app', []).filter('startFrom',function(){
             if (value.livemark=='Final'){
                 return {'background-color':'rgba(0,187,255,1)'};
             }else{
-                return {'background-color':'rgba(0,187,255,0.6)'};
+                return {'background-color':'rgba(0,187,255,0.4)'};
             }            
         };
     };

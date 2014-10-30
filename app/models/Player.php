@@ -516,7 +516,7 @@ class Player {
 								
 		$table_array2 = DB::table('syncdataframe')->leftJoin('syncplayerlist','syncdataframe.fbido','=','syncplayerlist.fbido')
 												->where('syncdataframe.fbid','=',$inputid)
-												->where('syncdataframe.datarange','=','ALL2') //開季後把2拿掉
+												->where('syncdataframe.datarange','=','ALL') //開季後把2拿掉
 												->where('syncplayerlist.datarange','=','ALL')
 												->select(DB::raw('"2014-15",syncplayerlist.team,wgp,FORMAT(pwmin,1),
 								FORMAT(pwfgm,1),
@@ -1039,7 +1039,7 @@ class Player {
 			array_push($stat_array,"---");
 		}*/
 				
-		if ($inputseason=='2013'){
+		if ($inputseason=='2013'||$inputseason=='2014'){
 			$resultAry = DB::table('allgamelog')->where('fbid','=',$inputid)->where('season','=',$inputseason)->orderby('gdate')->select('*',DB::raw('UPPER(goppo) AS goppo'),'bxeff AS colsum')->get();
 			$game_length = count($resultAry);
 			foreach($resultAry as $key => $gd){
