@@ -136,7 +136,7 @@
 
                         <div class="rtbvarL smallwidth">{{ $index+1 }}</div>
                         <a href="playerAbility?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
-                            <div class="rtbvarL playerwidth"  ng-class="{goldback:player.bxeff-player.pweff>=15 && player.livemark=='Final',redback:player.bxeff-player.pweff<=-15 && player.livemark=='Final'}">{{ player.player }}</div>
+                            <div class="rtbvarL playerwidth"  ng-class="{oncourt:player.oncourt==' on-court',offcourt:player.oncourt!=' on-court',goldback:player.bxeff-player.pweff>=10 && player.livemark=='Final',redback:player.bxeff-player.pweff<=-10 && player.livemark=='Final'}">{{ player.player }}</div>
                         </a>
                         <div class="rtbvarL gamewidth">
                             <div class="rtbvarC" style="width:40%;border-radius:3px;line-height:20px;font-size:12px;font-weight:bold;background-color:{{player.colorback}};color:{{player.colorfont}}">{{ player.team }}</div>
@@ -148,7 +148,7 @@
                             <div ng-style="styleeff(player)" ng-class="" style="float:left;font-weight:bold;text-align:left;height:100%;width:{{ player.bxeff*3.5 }}%">{{ player.bxeff }}</div>
                         </div>
                         <!--LIVE!跟時間-->
-                        <div class="rtbvarL" style="width:5.0%" ng-class="{hot:player.bxeff/player.bxmin>=1 && player.livemark==='LIVE!'}">{{ player.livemark }}</div>
+                        <div class="rtbvarL" style="width:5.0%" ng-class="{livefont:player.livemark=='LIVE!'}">{{ player.livemark }}</div>
                         <div class="rtbvarR midwidth" ng-style="style(player)">{{ Math.floor(player.bxmin) }}:{{ ((player.bxmin*60)%60|number:0)<10 ? 0+((player.bxmin*60)%60|number:0) : ((player.bxmin*60)%60|number:0) }}</div>
                         <!--數據-->
                         <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfga>9 && player.bxfgm/player.bxfga>0.6,redbold:player.bxfga>9 && player.bxfgm/player.bxfga<0.4}" title="Field Goal">{{ player.bxfgm }}-{{ player.bxfga }}</div>
@@ -232,12 +232,25 @@
 	background: url('/images/fast.png') transparent no-repeat;
 	background-position: right;
 }
-.hot {
-	background: url('/images/flag_hot.png') transparent no-repeat;
+/*.hot {
+	color:gold;
+    background: url('/images/flag_hot2.png') transparent no-repeat;
 	background-position: right;
 	background-size: 24px 24px;
+}*/
+.oncourt{
+    /*font-weight:bold;*/
+    color:rgba(46,204,113,1);    
+    background-image: url('/images/light_green.png');
+    background-repeat: no-repeat;
+    background-position:right;
 }
-
+.offcourt{
+    /*color:rgba(46,204,113,1);*/
+    background-image: url('/images/light_black.png');
+    background-repeat: no-repeat;
+    background-position:right;
+}
 
 
 /*@media all and (max-width: 1400px) {
@@ -288,6 +301,13 @@
     float:left;
     text-align:right;
 }
+.livefont{
+    /*color:rgba(46,204,113,1);*/
+    text-align:center;
+    color:#fff;
+    background-color: rgba(46,204,113,1);
+    border-radius: 5px;
+}
 .order-btn{
     cursor: pointer;
 }
@@ -319,10 +339,16 @@
 .goldback{
     font-weight: bold;
     background-color: rgba(255,215,0,0.3);
+    background-image: url('/images/light_yellow.png');
+    background-repeat: no-repeat;
+    background-position:right;    
 }
 .redback{
     font-weight: bold;
     background-color: rgba(255,0,0,0.3);
+    background-image: url('/images/light_red.png');
+    background-repeat: no-repeat;
+    background-position:right;       
 }
 .goldbold{
     color:gold;
@@ -338,7 +364,7 @@
 .gamestatus{
     padding:0 0 0 1px;
     color:#fff;
-    background-color:red;    
+    background-color:red;
 }
 .selected{
     box-shadow: 0 0 30px rgba(255,255,255,1);
@@ -360,24 +386,41 @@ angular.module('app', []).filter('startFrom',function(){
         };
     };
     $scope.styleeff = function(value){
-        if (value.bxeff-value.pweff>=15){
-            if (value.livemark=='Final'){
+//        if (value.bxeff-value.pweff>=15){
+//            if (value.livemark=='Final'){
+//                return {'background-color':'rgb(255,215,0,1)'};
+//            }else{
+//                return {'background-color':'rgb(255,215,0,0.6)'};
+//            }            
+//        }else if (value.bxeff-value.pweff<=-15){
+//            if (value.livemark=='Final'){
+//                return {'background-color':'rgba(255,0,0,1)'};
+//            }else{
+//                return {'background-color':'rgba(255,0,0,0.6)'};
+//            }
+//        }else{
+//            if (value.livemark=='Final'){
+//                return {'background-color':'rgba(0,187,255,1)'};
+//            }else{
+//                return {'background-color':'rgba(0,187,255,0.4)'};
+//            }            
+//        };
+        if (value.livemark=='Final'){
+            if (value.bxeff-value.pweff>=10){
                 return {'background-color':'rgb(255,215,0,1)'};
+            }else if (value.bxeff-value.pweff<=-10){
+                return {'background-color':'rgb(255,0,0,1)'};                
             }else{
-                return {'background-color':'rgb(255,215,0,0.6)'};
-            }            
-        }else if (value.bxeff-value.pweff<=-15){
-            if (value.livemark=='Final'){
-                return {'background-color':'rgba(255,0,0,1)'};
-            }else{
-                return {'background-color':'rgba(255,0,0,0.6)'};
-            }
-        }else{
-            if (value.livemark=='Final'){
                 return {'background-color':'rgba(0,187,255,1)'};
+            }
+        }else if (value.livemark=='LIVE!'){
+            if (value.bxeff/value.bxmin>=0.8){
+                return {'background-color':'rgb(255,215,0,0.4)'};
+            }else if(value.bxeff/value.bxmin<=0.3){
+                return {'background-color':'rgba(255,0,0,0.4)'};
             }else{
                 return {'background-color':'rgba(0,187,255,0.4)'};
-            }            
+            }
         };
     };
     

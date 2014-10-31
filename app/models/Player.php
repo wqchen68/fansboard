@@ -148,7 +148,8 @@ class Player {
 					'realtimeeff.bxst',
 					'realtimeeff.bxblk',
                     'realtimeeff.bxto',
-                    'realtimeeff.bxpf',					
+                    'realtimeeff.bxpf',
+                    'realtimeeff.oncourt',
 					'biodata.player',
                     'syncdataframe.pwmin',
                     'syncdataframe.pwfgm',
@@ -972,7 +973,7 @@ class Player {
 		if( $injna->exists() )
 			return $injna->pluck('injna');*/
 		
-		$norank = DB::table('syncplayerlist')->where('datarange', '=', 'ALL')->where('fbid', $inputid);
+		$norank = DB::table('syncplayerlist')->where('datarange', '=', 'Full')->where('fbid', $inputid);
 		if( !$norank->exists() )
 			return $ranktext='---';
 			
@@ -1197,7 +1198,11 @@ class Player {
 	}
 	
 	public static function getPlayer2() {
-		$season = Input::get('range', 'Full');
+		$season = Input::get('range','Full');
+        if ($season=='2014'){
+            $season='ALL';
+        }
+//        var_dump($season);
         //$season=='ALL' && $season = 'Full';
 		
 		$resultAry = DB::table('syncplayerlist')

@@ -9,7 +9,7 @@
 
 					<div style="float:left;padding:0 0 10px 0">                            
                         <?=Form::select('range', array(
-                            'Full' => '2014-15 Season',
+                            'ALL' => '2014-15 Season',
                             'D30' => 'Last 4 Weeks',
                             'D14' => 'Last 2 Weeks',
                             'D07' => 'Last 1 Week',
