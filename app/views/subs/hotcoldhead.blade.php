@@ -41,8 +41,12 @@
 				<?// $r = $subviewdata[$index] ?>
 				<? if ( $index > 5) break ?>
 				<div class="prcard-resize" style="float:left">
-					<a href="careerStats?player={{ $r->fbid }}" target="_blank" style="text-decoration:none;color:#fff">
-					<div class="prcard" style="position:relative">
+                    <? if ( $tablename  == 'todaybo' || $tablename  == 'todaysg'){ ?>
+                        <a href="gameLog?player={{ $r->fbid }}" target="_blank" style="text-decoration:none;color:#fff">
+                    <? }else{ ?>
+                        <a href="careerStats?player={{ $r->fbid }}" target="_blank" style="text-decoration:none;color:#fff">
+                    <? } ?>
+                    <div class="prcard" style="position:relative">
 						<div style="float:left;padding:5px">
 							<div class="{{ $tablename }}-face{{ $index }}" style="width:48px;height:60px;background-image:url(player/{{ $r->fbid }}.png);background-size: 48px 60px">
 								<div class="colorlabel-{{ $tablename }}" style="height:14px;width:14px;line-height:12px;color:#fff;text-align:center">{{ $index+1 }}</div>
@@ -98,7 +102,11 @@
 					<? if ( $index > 5){ ?>
 					<tr class="report-detail">
 					<td>{{ $index +1}}</td>
-					<td style="text-align:left"><a href="careerStats?player={{ $r->fbid }}" style="text-decoration:none;color:#fff">{{ $r->player }} ({{ $r->team }} - {{ $r->position }})</a></td>					
+                    <? if ($tablename  == 'todaybo' || $tablename  == 'todaysg'){ ?>
+                        <td style="text-align:left"><a href="gameLog?player={{ $r->fbid }}" target="_blank" style="text-decoration:none;color:#fff">{{ $r->player }} ({{ $r->team }} - {{ $r->position }})</a></td>					
+                    <? }else{ ?>
+                        <td style="text-align:left"><a href="careerStats?player={{ $r->fbid }}" target="_blank" style="text-decoration:none;color:#fff">{{ $r->player }} ({{ $r->team }} - {{ $r->position }})</a></td>					
+                    <? } ?>					
 					<td>{{ $r->min2 }}</td>
 					<td>{{ $r->pts2 }}</td>
 					<td>{{ $r->treb2 }}</td>

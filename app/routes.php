@@ -83,7 +83,7 @@ Route::get('{pagename}/{players?}', array('before'=>'oldUrl', function($pagename
     if( !is_null($players) ){
         $player = explode(',', $players);
     }else{
-        $player = ['Kevin-Durant'];
+        $player = ['Stephen-Curry'];
     }
     
     $full_url = $pagename . '/' . $players;

@@ -135,7 +135,7 @@
                         </span>
 
                         <div class="rtbvarL smallwidth">{{ $index+1 }}</div>
-                        <a href="playerAbility?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
+                        <a href="gameLog?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
                             <div class="rtbvarL playerwidth"  ng-class="{oncourt:player.oncourt==' on-court',offcourt:player.oncourt!=' on-court',goldback:player.bxeff-player.pweff>=10 && player.livemark=='Final',redback:player.bxeff-player.pweff<=-10 && player.livemark=='Final'}">{{ player.player }}</div>
                         </a>
                         <div class="rtbvarL gamewidth">
@@ -338,14 +338,14 @@
 }
 .goldback{
     font-weight: bold;
-    background-color: rgba(255,215,0,0.3);
+    background-color: rgba(255,215,0,0.2);
     background-image: url('/images/light_yellow.png');
     background-repeat: no-repeat;
     background-position:right;    
 }
 .redback{
     font-weight: bold;
-    background-color: rgba(255,0,0,0.3);
+    background-color: rgba(255,0,0,0.2);
     background-image: url('/images/light_red.png');
     background-repeat: no-repeat;
     background-position:right;       
@@ -407,19 +407,19 @@ angular.module('app', []).filter('startFrom',function(){
 //        };
         if (value.livemark=='Final'){
             if (value.bxeff-value.pweff>=10){
-                return {'background-color':'rgb(255,215,0,1)'};
+                return {'background-color':'rgb(255,215,0,0.8)'};
             }else if (value.bxeff-value.pweff<=-10){
-                return {'background-color':'rgb(255,0,0,1)'};                
+                return {'background-color':'rgb(255,0,0,0.8)'};                
             }else{
-                return {'background-color':'rgba(0,187,255,1)'};
+                return {'background-color':'rgba(0,187,255,0.8)'};
             }
         }else if (value.livemark=='LIVE!'){
             if (value.bxeff/value.bxmin>=0.8){
-                return {'background-color':'rgb(255,215,0,0.4)'};
+                return {'background-color':'rgb(255,215,0,0.3)'};
             }else if(value.bxeff/value.bxmin<=0.3){
-                return {'background-color':'rgba(255,0,0,0.4)'};
+                return {'background-color':'rgba(255,0,0,0.3)'};
             }else{
-                return {'background-color':'rgba(0,187,255,0.4)'};
+                return {'background-color':'rgba(0,187,255,0.3)'};
             }
         };
     };

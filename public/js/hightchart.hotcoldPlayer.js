@@ -123,7 +123,7 @@ $(function(){
 				var scoreTable = $('<tr class="report-detail" />').appendTo('.todaybotable');
 				
 				scoreTable.append('<td>'+(i*1+1)+'</td>');
-				scoreTable.append('<td style="text-align:left"><a href="playerAbility?player='+tablerow['fbid']+'" target="_blank" style="text-decoration:none;color:#fff">'+tablerow['player']+' ('+tablerow['team']+' - '+tablerow['position']+')</a></td>');
+				scoreTable.append('<td style="text-align:left"><a href="gameLog?player='+tablerow['fbid']+'" target="_blank" style="text-decoration:none;color:#fff">'+tablerow['player']+' ('+tablerow['team']+' - '+tablerow['position']+')</a></td>');
 				scoreTable.append('<td>'+tablerow['min2']+'</td>');
 				scoreTable.append('<td>'+tablerow['pts2']+'</td>');
 				scoreTable.append('<td>'+tablerow['treb2']+'</td>');
@@ -183,7 +183,7 @@ $(function(){
 				var scoreTable = $('<tr class="report-detail" />').appendTo('.todaysgtable');
 				
 				scoreTable.append('<td>'+(i*1+1)+'</td>');
-				scoreTable.append('<td style="text-align:left"><a href="playerAbility?player='+tablerow['fbid']+'" target="_blank" style="text-decoration:none;color:#fff">'+tablerow['player']+' ('+tablerow['team']+' - '+tablerow['position']+')</a></td>');			
+				scoreTable.append('<td style="text-align:left"><a href="gameLog?player='+tablerow['fbid']+'" target="_blank" style="text-decoration:none;color:#fff">'+tablerow['player']+' ('+tablerow['team']+' - '+tablerow['position']+')</a></td>');			
 				scoreTable.append('<td>'+tablerow['min2']+'</td>');
 				scoreTable.append('<td>'+tablerow['pts2']+'</td>');
 				scoreTable.append('<td>'+tablerow['treb2']+'</td>');

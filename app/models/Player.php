@@ -214,8 +214,8 @@ class Player {
 									realtimeeff.bxst AS st2,
 									realtimeeff.bxblk AS blk2,
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
-					->where('syncdataframe.datarange','=','Y-1')
-					->where('syncplayerlist.datarange','=','Y-1')
+					->where('syncdataframe.datarange','=','ALL')
+					->where('syncplayerlist.datarange','=','ALL')
 					->orderBy('trend','DESC')->take(15)->get();
         
 		
@@ -269,8 +269,8 @@ class Player {
 									realtimeeff.bxst AS st2,
 									realtimeeff.bxblk AS blk2,									
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
-					->where('syncdataframe.datarange','=','Y-1')
-					->where('syncplayerlist.datarange','=','Y-1')
+					->where('syncdataframe.datarange','=','ALL')
+					->where('syncplayerlist.datarange','=','ALL')
 					->whereNotNull('realtimeeff.bxeff')
 					->orderBy('trend','ASC')->take(15)->get();
 
@@ -325,8 +325,8 @@ class Player {
 									FORMAT(A2.pwast,1) AS ast2,
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
 					->where('syncplayerlist.datarange','=','Y-1')
-					->where('A1.datarange','=','Y-2')
-					->where('A2.datarange','=','Y-1')
+					->where('A1.datarange','=','Y-1')
+					->where('A2.datarange','=','ALL')
 					->orderBy('trend','DESC')->take(15)->get();
 
 		$recentcold = DB::table('syncdataframe AS A1')
@@ -347,8 +347,8 @@ class Player {
 									FORMAT(A2.pwast,1) AS ast2,
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
 					->where('syncplayerlist.datarange','=','Y-1')
-					->where('A1.datarange','=','Y-2')
-					->where('A2.datarange','=','Y-1')
+					->where('A1.datarange','=','Y-1')
+					->where('A2.datarange','=','ALL')
 					->orderBy('trend','ASC')->take(15)->get();
 		
 		$livemark = DB::table('realtimeeff')
