@@ -121,7 +121,7 @@ class Player {
 
 		$rtstats = DB::table('realtimeeff')
 				->leftJoin('biodata','biodata.fbido','=','realtimeeff.fbido')
-                ->leftJoin(DB::raw('(SELECT * FROM syncdataframe WHERE datarange="Y-1") syncdataframe'),'syncdataframe.fbido','=','realtimeeff.fbido')
+                ->leftJoin(DB::raw('(SELECT * FROM syncdataframe WHERE datarange="ALL") syncdataframe'),'syncdataframe.fbido','=','realtimeeff.fbido')
 				->leftJoin('teamlist','teamlist.team','=','realtimeeff.team')
 				->orderBy('realtimeeff.bxeff','desc')->orderBy('realtimeeff.bxpts','desc')
 				->select(
@@ -909,7 +909,7 @@ class Player {
 		 */
 		$player_basic_query = DB::table('syncplayerlist AS sl1')
 							->leftJoin('syncdataframe AS sd',function($join){
-								$join->on('sl1.fbido','=','sd.fbido')->on('sd.datarange','=',DB::raw('\'Y-1\''));
+								$join->on('sl1.fbido','=','sd.fbido')->on('sd.datarange','=',DB::raw('\'ALL\''));
 							})							
 							->where('sl1.datarange','=','Full')	
 							->whereIn('sl1.fbid',$player);

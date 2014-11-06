@@ -16,7 +16,7 @@
                             echo '<div style="color:#ff3333;font-weight:bold">Waiting for Sync</div>';
                         }else{
                             echo '<div>'.$lastupdate->updatetime2.'</div>';
-                        }                        
+                        }
                     ?>
                 </div>
             </div>
@@ -77,7 +77,7 @@
                             </div>
 
                             <div style="float:left;padding:0 4px 0 4px">
-                                <div style="padding-left:20px;margin-bottom: 2px">2013-14 Season Average</div>
+                                <div style="padding-left:20px;margin-bottom: 2px">2014-15 Season Average</div>
                                 <div>
                                     <div class="hovercard1">Min</div>
                                     <div class="hovercard1">FGM</div>
@@ -305,7 +305,7 @@
     /*color:rgba(46,204,113,1);*/
     text-align:center;
     color:#fff;
-    background-color: rgba(46,204,113,1);
+    background-color: rgba(46,204,113,0.7);
     border-radius: 5px;
 }
 .order-btn{
