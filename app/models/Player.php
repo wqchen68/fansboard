@@ -624,18 +624,17 @@ class Player {
 		if ( isset($thisyearteam) && isset($thisyearstats) ){
 
 			if ( $uniteam[count($uniteam)-1]->cteam != $thisyearteam->team ){
-
-				if ( $sameteam )
+				if ( $sameteam ){
 					$thisyearteam->team = $thisyearteam->team.'\'';
-				
-				$careerdata[$thisyearteam->team] = array();
-				$careerdata36[$thisyearteam->team] = array();
-				$careertime[$thisyearteam->team] = array();
-				foreach($uniseason as $key => $unis){
-					$careerdata[$thisyearteam->team][$key] = NULL;
-					$careerdata36[$thisyearteam->team][$key] = NULL;
-					$careertime[$thisyearteam->team][$key] = 0;//NULL;
-				}
+                    $careerdata[$thisyearteam->team] = array();
+                    $careerdata36[$thisyearteam->team] = array();
+                    $careertime[$thisyearteam->team] = array();
+                    foreach($uniseason as $key => $unis){
+                        $careerdata[$thisyearteam->team][$key] = NULL;
+                        $careerdata36[$thisyearteam->team][$key] = NULL;
+                        $careertime[$thisyearteam->team][$key] = 0;//NULL;
+                    }
+                }
 			}
 			$careerdata[$thisyearteam->team][count($uniseason)-1] = round($thisyearstats->pweff,2);
 			$careerdata36[$thisyearteam->team][count($uniseason)-1] = round($thisyearstats->pweff36,2);
@@ -1261,17 +1260,34 @@ class Player {
 				$allprdata = DB::table('syncdataframe')->where('datarange','=',$datarange)->select('fbid','swfgp','sw3ptm','swftp','swtreb','swast','swst','swblk','swpts')->get();				
 				$dist= array();
 				foreach($allprdata as $player){
-					$dist[$player->fbid] = standard_deviation(array(($player->sw3ptm-$pickprdata->sw3ptm), 
-						($player->swtreb-$pickprdata->swtreb), 
-						($player->swast-$pickprdata->swast),
-						($player->swst-$pickprdata->swst), 
-						($player->swblk-$pickprdata->swblk), 
-						($player->swpts-$pickprdata->swpts)),0);
+                    if (($pickprdata->sw3ptm-$player->sw3ptm>0
+                            && $pickprdata->swtreb-$player->swtreb>0
+                            && $pickprdata->swast-$player->swast>0
+                            && $pickprdata->swst-$player->swst>0
+                            && $pickprdata->swblk-$player->swblk>0
+                            && $pickprdata->swpts-$player->swpts>0
+                            && $pickprdata->swfgp-$player->swfgp>0
+                            && $pickprdata->swftp-$player->swftp>0)
+                            ||($pickprdata->sw3ptm-$player->sw3ptm<0
+                            && $pickprdata->swtreb-$player->swtreb<0
+                            && $pickprdata->swast-$player->swast<0
+                            && $pickprdata->swst-$player->swst<0
+                            && $pickprdata->swblk-$player->swblk<0
+                            && $pickprdata->swpts-$player->swpts<0
+                            && $pickprdata->swfgp-$player->swfgp<0
+                            && $pickprdata->swftp-$player->swftp<0)){
+                        $dist[$player->fbid] = standard_deviation(array(($player->sw3ptm-$pickprdata->sw3ptm),
+                            ($player->swtreb-$pickprdata->swtreb),
+                            ($player->swast-$pickprdata->swast),
+                            ($player->swst-$pickprdata->swst),
+                            ($player->swblk-$pickprdata->swblk),
+                            ($player->swpts-$pickprdata->swpts)),0);
+                    }					
 				}
-				
+
 			}elseif( $matchMethod=='method3' ){
-				$pickprdata = DB::table('syncdataframe')->where('fbid','=',$fbid)->where('datarange','=',$datarange)->select('swmin','swfgm','swfga','swfgp','sw3ptm','sw3pta','sw3ptp','swftm','swfta',                                                                                             'swftp','sworeb','swdreb','swtreb','swast','swto','swatr','swst','swblk','swpf','swpts','swtech')->first();
-				$allprdata = DB::table('syncdataframe')->where('datarange','=',$datarange)->select('fbid','swmin','swfgm','swfga','swfgp','sw3ptm','sw3pta','sw3ptp','swftm','swfta','swftp','sworeb',                                                                                                              'swdreb','swtreb','swast','swto','swatr','swst','swblk','swpf','swpts','swtech')->get();
+				$pickprdata = DB::table('syncdataframe')->where('fbid','=',$fbid)->where('datarange','=',$datarange)->select('swmin','swfgm','swfga','swfgp','sw3ptm','sw3pta','sw3ptp','swftm','swfta','swftp','sworeb','swdreb','swtreb','swast','swto','swatr','swst','swblk','swpf','swpts','swtech')->first();
+				$allprdata = DB::table('syncdataframe')->where('datarange','=',$datarange)->select('fbid','swmin','swfgm','swfga','swfgp','sw3ptm','sw3pta','sw3ptp','swftm','swfta','swftp','sworeb','swdreb','swtreb','swast','swto','swatr','swst','swblk','swpf','swpts','swtech')->get();
 				$dist= array();
 				foreach($allprdata as $player){
 					$dist[$player->fbid] = pow($player->swmin-$pickprdata->swmin,2) + 
