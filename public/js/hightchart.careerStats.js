@@ -97,7 +97,8 @@ $(function(){
     function change(){
 
         $.getJSON('/data/getCareerStats',{player: player,items: pageobj.find('.items').val()},function(data){
-                        
+
+            console.log(data);
             pageobj.find('.link-playerAbility').changePlayerImg(data['card'][0]);
 
 			/*pageobj.find('.basic1').html(data.basic[0]);

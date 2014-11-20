@@ -462,6 +462,7 @@ class Player {
 		///建構careerdata///
 		$uniteam = DB::table('careerstats')->where('fbid',$inputid)->orderBy('dataorder')->groupBy('cteam')->select('cteam')->get();
 		$uniseason = DB::table('careerstats')->where('fbid',$inputid)->orderBy('dataorder')->groupBy('cseason')->lists('cseason');
+        
 		$careerdata = array();
 		$careerdata36 = array();
 		$careertime = array();
@@ -626,15 +627,15 @@ class Player {
 			if ( $uniteam[count($uniteam)-1]->cteam != $thisyearteam->team ){
 				if ( $sameteam ){
 					$thisyearteam->team = $thisyearteam->team.'\'';
-                    $careerdata[$thisyearteam->team] = array();
-                    $careerdata36[$thisyearteam->team] = array();
-                    $careertime[$thisyearteam->team] = array();
-                    foreach($uniseason as $key => $unis){
-                        $careerdata[$thisyearteam->team][$key] = NULL;
-                        $careerdata36[$thisyearteam->team][$key] = NULL;
-                        $careertime[$thisyearteam->team][$key] = 0;//NULL;
-                    }
                 }
+                $careerdata[$thisyearteam->team] = array();
+                $careerdata36[$thisyearteam->team] = array();
+                $careertime[$thisyearteam->team] = array();
+                foreach($uniseason as $key => $unis){
+                    $careerdata[$thisyearteam->team][$key] = NULL;
+                    $careerdata36[$thisyearteam->team][$key] = NULL;
+                    $careertime[$thisyearteam->team][$key] = 0;//NULL;
+                }                
 			}
 			$careerdata[$thisyearteam->team][count($uniseason)-1] = round($thisyearstats->pweff,2);
 			$careerdata36[$thisyearteam->team][count($uniseason)-1] = round($thisyearstats->pweff36,2);

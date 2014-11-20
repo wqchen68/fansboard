@@ -151,9 +151,9 @@
                         <div class="rtbvarL" style="width:5.0%" ng-class="{livefont:player.livemark=='LIVE!'}">{{ player.livemark }}</div>
                         <div class="rtbvarR midwidth" ng-style="style(player)">{{ Math.floor(player.bxmin) }}:{{ ((player.bxmin*60)%60|number:0)<10 ? 0+((player.bxmin*60)%60|number:0) : ((player.bxmin*60)%60|number:0) }}</div>
                         <!--數據-->
-                        <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfga>9 && player.bxfgm/player.bxfga>0.6,redbold:player.bxfga>9 && player.bxfgm/player.bxfga<0.4}" title="Field Goal">{{ player.bxfgm }}-{{ player.bxfga }}</div>
-                        <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bx3ptm>2 && player.bx3ptm/player.bx3pta>0.6,redbold:player.bx3pta>5 && player.bx3ptm/player.bx3pta<0.3}" title="3-Point ">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
-                        <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfta>9 && player.bxftm/player.bxfta>0.8,redbold:player.bxfta>9 && player.bxftm/player.bxfta<0.6}" title="Free Throw">{{ player.bxftm }}-{{ player.bxfta }}</div>
+                        <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfga>=10 && player.bxfgm/player.bxfga>0.6,redbold:player.bxfga>=10 && player.bxfgm/player.bxfga<0.4}" title="Field Goal">{{ player.bxfgm }}-{{ player.bxfga }}</div>
+                        <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bx3ptm>=3 && player.bx3ptm/player.bx3pta>0.6,redbold:player.bx3pta>=6 && player.bx3ptm/player.bx3pta<0.3}" title="3-Point ">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
+                        <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfta>=7 && player.bxftm/player.bxfta>0.8,redbold:player.bxfta>=7 && player.bxftm/player.bxfta<0.5}" title="Free Throw">{{ player.bxftm }}-{{ player.bxfta }}</div>
                         <div class="rtbvarR smallwidth" ng-style="" ng-class="{goldbold:player.bxtreb>9}" title="Rebounds">{{ player.bxtreb }}</div>
                         <div class="rtbvarR smallwidth" ng-style="" ng-class="{goldbold:player.bxast>5}" title="Assists">{{ player.bxast }}</div>
                         <div class="rtbvarR smallwidth" ng-style="" ng-class="{redbold:player.bxto>4}" title="Turnovers">{{ player.bxto }}</div>
