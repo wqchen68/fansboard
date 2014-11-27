@@ -38,11 +38,12 @@
                     ->leftJoin('biodata','biodata.fbido','=','syncplayerlist.fbido')
                     ->leftJoin('rwtable','rwtable.fbido','=','syncplayerlist.fbido')
                     ->leftJoin('syncdataframe','syncdataframe.fbido','=','syncplayerlist.fbido')
-                    ->where('syncplayerlist.datarange','=','Y-1')
-                    ->where('syncdataframe.datarange','=','Y-1')
+                    ->where('syncplayerlist.datarange','=','ALL')
+                    ->where('syncdataframe.datarange','=','ALL')
                     ->orderBy('orank','ASC')->get();
-//                var_dump($rankplayers[1]);
-//                echo '<div>'.$rankplayers[1]->page.'</div>';
+//                queryLog
+////                var_dump($rankplayers[1]);
+////                echo '<div>'.$rankplayers[1]->page.'</div>';
             ?>
             
             <div class="col-1p12 last" style="background-color: rgba(0,0,0,0.4)">
@@ -240,7 +241,7 @@ a.tooltip .report
 
 
 
-<script>    
+<script>
 angular.module('app', []).filter('startFrom',function(){
     return function(input, start){
         return input.slice(start);
@@ -251,6 +252,10 @@ angular.module('app', []).filter('startFrom',function(){
     $scope.limit = 25;
     $scope.max = $scope.rankplayers.length;
     $scope.pages = Math.ceil($scope.max/$scope.limit);
+    
+    $scope.$watch('getNews', function(val){
+        alert();
+    });
 
     $scope.style = function(value) {
         if (value<-2){
@@ -269,6 +274,10 @@ angular.module('app', []).filter('startFrom',function(){
             return '';
         }
     };
+
+//    $scope.$watch('test', function(val) {
+//        alert();
+//    });
 
     $scope.next = function() {
         if( $scope.page < $scope.pages )

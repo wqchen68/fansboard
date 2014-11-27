@@ -153,7 +153,7 @@
                         <!--數據-->
                         <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfga>=10 && player.bxfgm/player.bxfga>0.6,redbold:player.bxfga>=10 && player.bxfgm/player.bxfga<0.4}" title="Field Goal">{{ player.bxfgm }}-{{ player.bxfga }}</div>
                         <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bx3ptm>=3 && player.bx3ptm/player.bx3pta>0.6,redbold:player.bx3pta>=6 && player.bx3ptm/player.bx3pta<0.3}" title="3-Point ">{{ player.bx3ptm }}-{{ player.bx3pta }}</div>
-                        <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfta>=7 && player.bxftm/player.bxfta>0.8,redbold:player.bxfta>=7 && player.bxftm/player.bxfta<0.5}" title="Free Throw">{{ player.bxftm }}-{{ player.bxfta }}</div>
+                        <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfta>=7 && player.bxftm/player.bxfta>0.8,redbold:player.bxfta>=7 && player.bxftm/player.bxfta<0.6}" title="Free Throw">{{ player.bxftm }}-{{ player.bxfta }}</div>
                         <div class="rtbvarR smallwidth" ng-style="" ng-class="{goldbold:player.bxtreb>9}" title="Rebounds">{{ player.bxtreb }}</div>
                         <div class="rtbvarR smallwidth" ng-style="" ng-class="{goldbold:player.bxast>5}" title="Assists">{{ player.bxast }}</div>
                         <div class="rtbvarR smallwidth" ng-style="" ng-class="{redbold:player.bxto>4}" title="Turnovers">{{ player.bxto }}</div>
@@ -337,14 +337,14 @@
 	height: 100%;
 }
 .goldback{
-    font-weight: bold;
+    /*font-weight: bold;*/
     background-color: rgba(255,215,0,0.2);
     background-image: url('/images/light_yellow.png');
     background-repeat: no-repeat;
     background-position:right;    
 }
 .redback{
-    font-weight: bold;
+    /*font-weight: bold;*/
     background-color: rgba(255,0,0,0.2);
     background-image: url('/images/light_red.png');
     background-repeat: no-repeat;
@@ -385,6 +385,7 @@ angular.module('app', []).filter('startFrom',function(){
             return {color:'#FF3333','font-weight':'bold'};
         };
     };
+    
     $scope.styleeff = function(value){
 //        if (value.bxeff-value.pweff>=15){
 //            if (value.livemark=='Final'){

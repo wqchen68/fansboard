@@ -85,7 +85,7 @@
 								</div>
 								<div class="basic00" style="font-size:12px;text-align:left;margin:10px 0 0 0"></div>
 								<div class="basic01" style="font-size:12px;text-align:left;margin:6px 0 0 0"></div>
-								<div class="basic02" style="font-size:12px;text-align:left;margin:6px 0 0 0;font-weight:bold;color:red"></div>								
+								<div class="basic02" style="font-size:12px;text-align:left;margin:6px 0 0 0;font-weight:bold;color:red"></div>
 							</div>
 
 							<div style="width:75%;float:left">
@@ -209,7 +209,7 @@
 						<?
 							$lastupdate = DB::table('syncdataframe')
 							->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime'))
-							->orderBy('updatetime','desc')
+							->orderBy('updatetime','asc')
                             ->first();
 							echo '<div> Last updated: ' .$lastupdate->updatetime. '</div>';
 						?>
@@ -347,12 +347,6 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
 
 
 <style>

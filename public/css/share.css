@@ -1,3 +1,16 @@
+/*backtop*/
+#gotop {
+    z-index: 10;
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 40px;    
+    padding: 10px 15px;    
+    font-size: 20px;
+    background: #777;
+    color: white;
+    cursor: pointer;
+}
 /*儀錶板*/
 div.playerlistblock{
 	background-color:rgba(0,0,0,0.2);

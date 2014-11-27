@@ -973,7 +973,7 @@ class Player {
 		if( $injna->exists() )
 			return $injna->pluck('injna');*/
 		
-		$norank = DB::table('syncplayerlist')->where('datarange', '=', 'Full')->where('fbid', $inputid);
+		$norank = DB::table('syncplayerlist')->where('datarange', '=', 'ALL')->where('fbid', $inputid);
 		if( !$norank->exists() )
 			return $ranktext='---';
 			

@@ -48,25 +48,17 @@ var pageIndex = 0;
 var jsfiles = ['playerAbility'];
 var app = angular.module('app', []);
 
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=251984733230&version=v2.0";
-    fjs.parentNode.insertBefore(js, fjs);    
-}(document, 'script', 'facebook-jssdk'));
 
-function changeFb(){
-    $('.fb-like').empty();
-    $('.fb-like').attr('data-href', window.location.toString());
-    $('.fb-comments').empty();
-    $('.fb-comments').attr('data-href', window.location.toString());
-    
-    
-    if( typeof(FB)==='object' ){
-        FB.XFBML.parse();
-    }
-}
+//function changeFb(){
+//    $('.fb-like').empty();
+//    $('.fb-like').attr('data-href', window.location.toString());
+//    $('.fb-comments').empty();
+//    $('.fb-comments').attr('data-href', window.location.toString());    
+//    
+//    if( typeof(FB)==='object' ){
+//        FB.XFBML.parse();
+//    }
+//}
 
 $(document).ready(function(){
 	
@@ -130,7 +122,7 @@ $(document).ready(function(){
         
         d.find('h4').html(c.text());
         
-        changeFb();
+//        changeFb();
 		
 	});
 	
@@ -198,19 +190,49 @@ $(document).ready(function(){
 </head>
 
 <body>
-	
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    
+<!--<div id="gotop">˄</div>backtop
+<script>
+//backtop
+$(function(){
+    $("#gotop").click(function(){
+        jQuery("#testi").animate({
+            scrollTop:0
+        },1000);
+    });
+    $("#testi").scroll(function() {
+        if ( $(this).scrollTop() > 300){
+            $('#gotop').fadeIn("fast");
+        } else {
+            $('#gotop').stop().fadeOut("fast");
+        }
+    });
+});
+</script>-->
+
+
 <div style="position: relative;min-height: 100%;">
 	
 	<?=$mainmenu?>
-	
+    
     <div id="testi" style="position:absolute;bottom:50px;top:52px;overflow:auto">
         <div class="move active" index="0" style="height:100%"><?=$testi?>
             <div style="position: absolute ; top:25px; left:1561px">
                 
-                <div class="fb-like" data-href="" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-                <div class="fb-comments" data-herf="" data-width="300" data-numposts="5" data-colorscheme="light"></div>
-                <div id="fb-root"></div>
-
+<!--                <div class="fb-like" data-href="" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                <div class="fb-comments" data-herf="" data-width="300" data-numposts="5" data-colorscheme="light"></div>-->
+                
+                <div class="fb-like" data-href="" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
+                
             </div>            
         </div>
     </div>
@@ -231,4 +253,5 @@ $(document).ready(function(){
 	
 </body>
 </html>
-<!--<div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-numposts="5" data-colorscheme="light"></div>-->
+
+

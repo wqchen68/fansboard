@@ -25,5 +25,6 @@ return array(
 	'hotcoldPlayer' => 'Calculate hot and cold players by recent stats.',
     'playerSalary' => 'Calculate hot and cold players by recent stats.',
     'playerRankings' =>'Player Rankings',
+    'playerStatus' =>'Player Status',
 
 );
