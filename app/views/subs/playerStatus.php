@@ -6,9 +6,13 @@
             
             <?
                 $playerstatusO = DB::table('rwtable')
-                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position',DB::raw('round(100-syncdataframe.wgp/82*100,1) AS abrate'),DB::raw('STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2'),DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
+                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position'
+                            ,DB::raw('round(1-syncdataframe.wgp/82,2)*100 AS abrate'),'newgamelog.prate'
+                            ,DB::raw('STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2')
+                            ,DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
                         ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
                         ->leftJoin('syncdataframe','rwtable.fbido','=','syncdataframe.fbido')
+                        ->leftJoin(DB::raw('(select fbido,round((1-count(bxgs)/count(fbid))*100,0) as prate from allgamelog where season="2014" group by fbid) newgamelog'),'rwtable.fbido','=','newgamelog.fbido')
                         ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'<=',1440+1440)                        
                         ->where('syncplayerlist.datarange','=','Full')
                         ->where('syncdataframe.datarange','=','Y-1')
@@ -34,18 +38,18 @@
                     }
                     if (strpos($value->report, "probable")){
                         array_push($playerstatus[1]['value'],$value);
-                    }
-                    if (strpos($value->report, "game-time")){
-                        array_push($playerstatus[2]['value'],$value);
-                    }
-                    if (strpos($value->report, "questionable")){
-                        array_push($playerstatus[3]['value'],$value);
                         
 //                        var_dump($value);
 //                        echo '<br><br>';
 //                        var_dump(strpos($value->report, "questionable"));
 //                        echo '<br><br>';
                         
+                    }
+                    if (strpos($value->report, "game-time")){
+                        array_push($playerstatus[2]['value'],$value);
+                    }
+                    if (strpos($value->report, "questionable")){
+                        array_push($playerstatus[3]['value'],$value);
                     }
                     if (strpos($value->report, "day-to-day")){
                         array_push($playerstatus[4]['value'],$value);
@@ -89,20 +93,29 @@
 <!--            <div class="fb-like" data-href="/playerStatus" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
             <div class="fb-comments" data-herf="/playerStatus" data-width="300" data-numposts="5" data-colorscheme="light"></div>-->
 
-            <div style="padding:10px;background-color: rgba(0,0,0,0.2);height:20px;font-weight:bold;color:gold">
-                Player Status - Beta Version
+            <div style="padding:10px;background-color: rgba(0,0,0,0.2);height:48px;font-weight:bold;color:gold">
+                <img style="width:48px" src="images/adsense.png" />
+                <span style="font-size:22px">Player Status - Beta Version</span>
+                <span style="font-size:14px;color:#FFF;font-weight:normal;padding-top:35px;float:right">
+                    <div>Risk is Absence Rate - 
+                        <span style="color:red;font-weight:bold;margin:1px;padding:0 2px 0 2px;text-align:center;background-color:rgba(255,255,255,0.6);border-radius:2px"> 2013-14 % </span>
+                        <span style="color:red;font-weight:bold;margin:1px;padding:0 2px 0 2px;text-align:center;background-color:rgba(255,255,255,0.6);border-radius:2px"> Season % </span>
+                    </div>                    
+                    <div style="position:relative;right:0;font-weight:bold;bottom:0;color:rgba(46,204,113,0.7);float:right">Sorted by Update Time.</div>
+                </span>
+                
             </div>
             <div class="" ng-repeat="item in playerstatus" style="">
-                <div style="padding:10px;background-color: rgba(0,0,0,0.2)">
-                    <span style="border-radius:px;padding:px;font-weight:bold;color:">{{item.status}}</span>
+                <div style="padding:10px;background-color:rgba(0,0,0,0.2);border-bottom: 1pt solid rgba(255,255,255,0.5)">
+                    <span style="border-radius:px;padding:px;font-weight:bold;color:">{{item.status}}</span><tr>
                 </div>
                 <div style="padding:10px;background-color: rgba(0,0,0,0.2)">
                     <div class="status" ng-repeat="pstatus in item.value">
-                        <a href="playerAbility?player={{pstatus.fbid}}" target="_blank" style="outline:none;color:white">
-                        
+                        <a href="playerAbility?player={{pstatus.fbid}}" target="_blank">
                         <div style="float:left;width:60px;height:72px;background:url(/images/help1.png) no-repeat center; background-size: 60px 72px">
                             <div style="width:60px;height:72px;background:url(/player/{{pstatus.fbid}}.png) no-repeat center; background-size: 60px 72px"></div>
-                        </div>
+                        </div>                            
+                        </a>
                         
                         <div style="float:left;padding:2px;width:88%">
                             <div>
@@ -110,11 +123,13 @@
                                 <span style="color:white">({{pstatus.team}} </span>
                                 <span style="color:white"> - {{pstatus.position}})</span>
                                 <span style="color:red">{{pstatus.injna}}</span>
-                                <span style="color:white"> --- Risk </span>
-                                <span style="color:red;font-weight:bold">{{pstatus.abrate}} %</span>
-                                <span style="color:rgba(46,204,113,0.7);float:right">{{pstatus.date}}</span>
+                                
+                                <a href="gameLog?player={{pstatus.fbid}}"     target="_blank"><span class="rateblock"> {{pstatus.prate}} % </span></a>
+                                <a href="careerStats?player={{pstatus.fbid}}" target="_blank"><span class="rateblock"> {{pstatus.abrate}} % </span></a>                                
+                                <span style="color:white;padding-right:3px;float:right">Risk </span>
                             </div>
-                            <div>{{pstatus.report}}</div>
+                            <div style="height:35px;z-index:10">{{pstatus.report}}</div>
+                            <div style="position:relative;right:0;bottom:0;color:rgba(46,204,113,0.7);float:right">{{pstatus.date}}</div>
                         </div>
                         <div style="height:0;clear:both"></div>
                         </a>
@@ -123,13 +138,10 @@
                 </div>               
             </div>
             
-            <div style="padding:10px;background-color: rgba(0,0,0,0.2);height:200px">
+            <div style="padding:10px;background-color: rgba(0,0,0,0.2);height:200px;font-size: 14px">
                 Note: Some of the players' news might be not the latest, so you can click player card to update news.<br>
-                Risk: 2013-14 Absence Rate
             </div>
                 
-
-            
             
         </div>        
 	</div>
@@ -143,6 +155,23 @@
     margin:2px;
     padding:0px;
     font-size:10px;
+}
+.rateblock{
+    color:red;
+    font-weight:bold;
+    padding:0px;
+    margin:1px;
+    width:50px;
+    text-align:center;
+    background-color:rgba(255,255,255,0.6);
+    border-radius:2px;
+    float:right;
+}
+.rateblock:hover{
+    box-shadow:0 0 20px rgba(255,255,255,0.9);
+}
+.status:hover{
+    box-shadow:0 0 20px rgba(255,255,255,0.9);
 }
 </style>
 
