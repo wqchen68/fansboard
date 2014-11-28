@@ -6,12 +6,12 @@
             
             <?
                 $playerstatusO = DB::table('rwtable')
-                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position',DB::raw('round(100-careerstats.cgame/82*100,1) AS abrate'),DB::raw('STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2'),DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
+                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position',DB::raw('round(100-syncdataframe.wgp/82*100,1) AS abrate'),DB::raw('STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2'),DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
                         ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
-                        ->leftJoin('careerstats','rwtable.fbido','=','careerstats.fbido')
+                        ->leftJoin('syncdataframe','rwtable.fbido','=','syncdataframe.fbido')
                         ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'<=',1440+1440)                        
                         ->where('syncplayerlist.datarange','=','Full')
-                        ->where('careerstats.cseason','=','2013-14')
+                        ->where('syncdataframe.datarange','=','Y-1')
                         ->orderBy('date2','DESC')
                         ->get();
                 
@@ -40,6 +40,12 @@
                     }
                     if (strpos($value->report, "questionable")){
                         array_push($playerstatus[3]['value'],$value);
+                        
+//                        var_dump($value);
+//                        echo '<br><br>';
+//                        var_dump(strpos($value->report, "questionable"));
+//                        echo '<br><br>';
+                        
                     }
                     if (strpos($value->report, "day-to-day")){
                         array_push($playerstatus[4]['value'],$value);
@@ -66,11 +72,6 @@
                             & (is_numeric(strpos($value->report, "out indefinitely"))==0)
                             ){
                         array_push($playerstatus[8]['value'],$value);
-                        
-//                        var_dump($value);
-//                        echo '<br><br>';
-//                        var_dump(strpos($value->report, "will not play"));
-//                        echo '<br><br>';
                     }
                 }
 
