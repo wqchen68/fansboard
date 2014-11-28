@@ -6,7 +6,7 @@
             
             <?
                 $playerstatusO = DB::table('rwtable')
-                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position',DB::raw('round(100-careerStats.cgame/82*100,1) AS abrate,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2'),DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
+                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position',DB::raw('round(100-careerstats.cgame/82*100,1) AS abrate,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2'),DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
                         ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
                         ->leftJoin('careerStats','rwtable.fbido','=','careerStats.fbido')
                         ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'<=',1440+1440)                        
