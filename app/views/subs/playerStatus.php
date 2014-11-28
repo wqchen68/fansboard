@@ -6,10 +6,12 @@
             
             <?
                 $playerstatusO = DB::table('rwtable')
-                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position',DB::raw('STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2'),DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
+                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position',DB::raw('round(100-careerStats.cgame/82*100,1) AS abrate,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2'),DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
                         ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
+                        ->leftJoin('careerStats','rwtable.fbido','=','careerStats.fbido')
                         ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'<=',1440+1440)                        
                         ->where('syncplayerlist.datarange','=','Full')
+                        ->where('careerStats.cseason','=','2013-14')
                         ->orderBy('date2','DESC')
                         ->get();
                 
@@ -42,7 +44,8 @@
                     if (strpos($value->report, "doubtful")){
                         array_push($playerstatus[5]['value'],$value);
                     }
-                    if ((strpos($value->report, "will not")|strpos($value->report, "won't")|strpos($value->report, "not ready")) & (strpos($value->report, "play")|strpos($value->report, "return")|strpos($value->report, "start")) ){
+//                    if ((strpos($value->report, "will not")|strpos($value->report, "won't")|strpos($value->report, "not ready")) & (strpos($value->report, "play")|strpos($value->report, "return")|strpos($value->report, "start")) ){
+                    if (strpos($value->report, "will not")|strpos($value->report, "won't")|strpos($value->report, "not ready")|strpos($value->report, "doesn't expect")){
                         array_push($playerstatus[6]['value'],$value);
                     }
                     if (strpos($value->report, "out indefinitely")){
@@ -55,15 +58,26 @@
                             & (is_numeric(strpos($value->report, "questionable"))==0)
                             & (is_numeric(strpos($value->report, "day-to-day"))==0)
                             & (is_numeric(strpos($value->report, "doubtful"))==0)
-                            & (((strpos($value->report, "will not")|strpos($value->report, "won't")|strpos($value->report, "not ready")) & (strpos($value->report, "play")|strpos($value->report, "return")|strpos($value->report, "start")))==0)
+//                            & (((strpos($value->report, "will not")|strpos($value->report, "won't")|strpos($value->report, "not ready")) & (strpos($value->report, "play")|strpos($value->report, "return")|strpos($value->report, "start")))==0)
+                            & ((strpos($value->report, "will not")|strpos($value->report, "won't")|strpos($value->report, "not ready")|strpos($value->report, "doesn't expect"))==0)
                             & (is_numeric(strpos($value->report, "out indefinitely"))==0)
                             ){
                         array_push($playerstatus[8]['value'],$value);
-                    }                    
+                        
+//                        var_dump($value);
+//                        echo '<br><br>';
+//                        var_dump(strpos($value->report, "will not play"));
+//                        echo '<br><br>';
+                    }
                 }
 
 //                echo json_encode($playerstatus);
-//                var_dump($playerstatus);
+
+//                foreach ($playerstatus[8]['value'] as $key => $value) {
+//                    var_dump($value);
+//                    echo '<br><br>';
+//                }
+                
             ?>
 <!--            <div class="fb-like" data-href="" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
             <div class="fb-comments" data-herf="" data-width="300" data-numposts="5" data-colorscheme="light"></div>-->
@@ -76,18 +90,24 @@
             </div>
             <div class="" ng-repeat="item in playerstatus" style="">
                 <div style="padding:10px;background-color: rgba(0,0,0,0.2)">
-                    <span style="background-color:;border-radius:px;padding:px;font-weight:bold;color:">{{item.status}}</span>
+                    <span style="border-radius:px;padding:px;font-weight:bold;color:">{{item.status}}</span>
                 </div>
                 <div style="padding:10px;background-color: rgba(0,0,0,0.2)">
                     <div class="status" ng-repeat="pstatus in item.value">
                         <a href="playerAbility?player={{pstatus.fbid}}" target="_blank" style="outline:none;color:white">
-                        <div style="float:left;width:60px;height:72px;background:url(/player/{{pstatus.fbid}}.png) no-repeat center; background-size: 60px 72px"></div>
+                        
+                        <div style="float:left;width:60px;height:72px;background:url(/images/help1.png) no-repeat center; background-size: 60px 72px">
+                            <div style="width:60px;height:72px;background:url(/player/{{pstatus.fbid}}.png) no-repeat center; background-size: 60px 72px"></div>
+                        </div>
+                        
                         <div style="float:left;padding:2px;width:88%">
                             <div>
                                 <span style="color:gold">{{pstatus.player}} <span>
                                 <span style="color:white">({{pstatus.team}} </span>
                                 <span style="color:white"> - {{pstatus.position}})</span>
                                 <span style="color:red">{{pstatus.injna}}</span>
+                                <span style="color:white"> --- Risk </span>
+                                <span style="color:red;font-weight:bold">{{pstatus.abrate}} %</span>
                                 <span style="color:rgba(46,204,113,0.7);float:right">{{pstatus.date}}</span>
                             </div>
                             <div>{{pstatus.report}}</div>
@@ -100,7 +120,8 @@
             </div>
             
             <div style="padding:10px;background-color: rgba(0,0,0,0.2);height:200px">
-                Note: Some of the players' news might be not the latest, so you can click player card to update news.
+                Note: Some of the players' news might be not the latest, so you can click player card to update news.<br>
+                Risk: 2013-14 Absence Rate
             </div>
                 
 

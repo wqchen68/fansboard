@@ -252,10 +252,10 @@ angular.module('app', []).filter('startFrom',function(){
     $scope.limit = 25;
     $scope.max = $scope.rankplayers.length;
     $scope.pages = Math.ceil($scope.max/$scope.limit);
-    
-    $scope.$watch('getNews', function(val){
-        alert();
-    });
+//    
+//    $scope.$watch('getNews', function(val){
+//        alert();
+//    });
 
     $scope.style = function(value) {
         if (value<-2){
