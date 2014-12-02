@@ -284,7 +284,7 @@ $(function(){
            chart: {
 			   renderTo: chart_box.get(0),
 				alignTicks: false,				
-                width: 895,        
+                width: 896,        
                 height: 600,                
                 zoomType: 'xy',
                 borderColor: 'rgba(0,0,0,0.0)',

@@ -40,10 +40,10 @@
 
 				<div class="col-1p8">
 					<select name="matchMethod" class="matchMethod" style="position:absolute;z-index:1;padding:5px;margin:7px 0 0 440px;background-color:rgba(255,255,255,1);color:#000;border:1px;border-radius: 3px">
-						<option value="method1" selected="selected">Pubilc Cate 1</option>
-						<option value="method2">Pubilc Cate 2</option>
-						<option value="method3">Overall 1</option>
-						<option value="method4">Overall 2</option>
+						<option value="method1" selected="selected">Most Similar (Shape)</option>
+						<option value="method2">Better Case</option>
+						<option value="method3">Worse Case</option>
+						<option value="method4">Most Similar (Overall)</option>
 					</select>
                     <div class="modelBox" mid="3"></div>
 				</div>
@@ -57,7 +57,7 @@
 						<div class="majorboxN">
 							<div class="majorbox playercardsmall highlight" style="box-shadow:0 0 20px rgba(255,255,255,0.9)">
 								<div style="float:left">
-									<img class="face" style="width:60px;height:72px;display:block" src="/images/help1.png" />
+									<img class="face" style="width:60px;height:72px;display:block" src="/images/nophoto.png" />
 								</div>
 								<div class="playercardsmall-news">
 									<div style="float:left;width:83%">
@@ -85,7 +85,7 @@
                             <div class="majorboxN">
                                 <div class="majorbox playercardsmall highlight">
                                     <div style="float:left">
-                                        <img class="face" style="width:60px;height:72px;display:block" src="/images/help1.png" />
+                                        <img class="face" style="width:60px;height:72px;display:block" src="/images/nophoto.png" />
                                     </div>
                                     <div class="playercardsmall-news">
                                         <div style="float:left;width:83%">

@@ -80,7 +80,9 @@
 										<img style="width:16px;line-height:16px;float:left" src="/images/medal_gold_1.png" />
 										<div class="rank1" style="font-size:12px;margin:0 0 0 5px;line-height:20px;float:left;text-align:center"></div>
 									</div>
-									<div class="face player0" style="width:60px;height:72px;background:url(/images/help1.png) no-repeat center"></div>																		
+                                    <div class="" style="background:url(/images/nophoto.png) no-repeat center;background-size:60px 72px">
+                                        <div class="face player0" style="width:60px;height:72px"></div>
+                                    </div>
 									<div style="height:0;clear:both"></div>
 								</div>
 								<div class="basic00" style="font-size:12px;text-align:left;margin:10px 0 0 0"></div>
@@ -118,7 +120,9 @@
 										<img style="width:16px;line-height:16px;float:left" src="/images/medal_gold_1.png" />
 										<div class="rank2" style="font-size: 12px;margin:0 0 0 5px;line-height:20px;float:left;text-align:center"></div>
 									</div>
-									<div class="face player1" style="width:60px;height:72px;background:url(/images/help1.png) no-repeat center"></div>									
+                                    <div class="" style="background:url(/images/nophoto.png) no-repeat center;background-size:60px 72px">
+                                        <div class="face player1" style="width:60px;height:72px"></div>
+                                    </div>
 									<div style="height:0;clear:both"></div>
 								</div>
 								<div class="basic10" style="font-size:12px;text-align:left;margin:10px 0 0 0"></div>

@@ -83,7 +83,7 @@ $(function () {
 		};
 		$.getJSON('/data/getMatch', input, function(data){
 			cards = data.card;
-			
+			console.log(data);
 			pageobj.find('.ability-detail').children('tbody').empty();
 			for( i=0;i<data.ability.table.length;i++ ){
 				var scoreTable = $('<tr class="report-detail" />').appendTo(pageobj.find('.ability-detail').children('tbody'));

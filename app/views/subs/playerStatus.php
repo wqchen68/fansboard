@@ -7,20 +7,35 @@
             <?
                 $playerstatusO = DB::table('rwtable')
                     ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position'
-                            ,DB::raw('round(1-syncdataframe.wgp/82,2)*100 AS abrate'),'newgamelog.prate'
+                            ,DB::raw('round(1-newsyncdataframe.wgp/82,2)*100 AS abrate'),'newgamelog.prate'
                             ,DB::raw('STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2')
                             ,DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
                         ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
-                        ->leftJoin('syncdataframe','rwtable.fbido','=','syncdataframe.fbido')
                         ->leftJoin(DB::raw('(select fbido,round((1-count(bxgs)/count(fbid))*100,0) as prate from allgamelog where season="2014" group by fbid) newgamelog'),'rwtable.fbido','=','newgamelog.fbido')
-                        ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'<=',1440+1440)                        
+                        ->leftJoin(DB::raw('(select fbido,wgp from syncdataframe where datarange="Y-1") newsyncdataframe'),'rwtable.fbido','=','newsyncdataframe.fbido')                        
+//                        ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'<=',1440+1440)
                         ->where('syncplayerlist.datarange','=','Full')
-                        ->where('syncdataframe.datarange','=','Y-1')
                         ->orderBy('date2','DESC')
-                        ->get();
+                        ->get();            
+
+//                $playerstatusO2 = DB::table('rwtable')
+//                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position'
+//                            ,DB::raw('round(1-newsyncdataframe.wgp/82,2)*100 AS abrate'),'newgamelog.prate'
+//                            ,DB::raw('STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2')
+//                            ,DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
+//                        ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
+//                        ->leftJoin(DB::raw('(select fbido,round((1-count(bxgs)/count(fbid))*100,0) as prate from allgamelog where season="2014" group by fbid) newgamelog'),'rwtable.fbido','=','newgamelog.fbido')
+//                        ->leftJoin(DB::raw('(select fbido,wgp from syncdataframe where datarange="Y-1") newsyncdataframe'),'rwtable.fbido','=','newsyncdataframe.fbido')                        
+//                        ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'>',1440+1440)
+//                        ->where('syncplayerlist.datarange','=','Full')
+//                        ->orderBy('date2','DESC')
+//                        ->get();                     
+//
+//                $playerstatus=array(['status'=>'Other Injury(Long Term)'     ,'value'=>[]]);                
                 
 //                $queries = DB::getQueryLog();
 //                var_dump($queries);
+                
                 
                 $playerstatus=array(
                     ['status'=>'Will Play (100%)'        ,'value'=>[]],
@@ -30,53 +45,86 @@
                     ['status'=>'Day-to-Day (49%)'        ,'value'=>[]],
                     ['status'=>'Doubtful (25%)'          ,'value'=>[]],
                     ['status'=>'Will NOT Play (0%)'      ,'value'=>[]],
-                    ['status'=>'Out Indefinitely (-10%)' ,'value'=>[]],
-                    ['status'=>'Other Injury'            ,'value'=>[]]);
+                    ['status'=>'Other Injury'            ,'value'=>[]],
+                    ['status'=>'Couple of Weeks (0%)'    ,'value'=>[]],
+                    ['status'=>'Out Indefinitely / No Timetable (-10%)' ,'value'=>[]],
+                    ['status'=>'Long-Term Injury'        ,'value'=>[]]);
                 foreach($playerstatusO as $key => $value){
-                    if (strpos($value->report, "will play") | strpos($value->report, "will return") | strpos($value->report, "will start") | strpos($value->report, "is ready to play")){
-                        array_push($playerstatus[0]['value'],$value);
-                    }
-                    if (strpos($value->report, "probable")){
-                        array_push($playerstatus[1]['value'],$value);
+                    if ($value->news<=2880){ //------------------------------------------------------------------------------------------------------------------------------------------
+                        if (strpos($value->report, "will play"       )| 
+                            strpos($value->report, "will return"     )| 
+                            strpos($value->report, "could return"    )| 
+                            strpos($value->report, "will start"      )| 
+                            strpos($value->report, "'ll start"       )| 
+                            strpos($value->report, "expected to play")| 
+                            strpos($value->report, "is ready to play")
+                                ){
+                            array_push($playerstatus[0]['value'],$value);
+//                            var_dump($value);
+//                            echo '<br><br>';
+//                            var_dump(strpos($value->report, "questionable"));
+//                            echo '<br><br>';
+                        }
                         
-//                        var_dump($value);
-//                        echo '<br><br>';
-//                        var_dump(strpos($value->report, "questionable"));
-//                        echo '<br><br>';
+                        if (strpos($value->report, "probable"    )){array_push($playerstatus[1]['value'],$value);}
+                        if (strpos($value->report, "game-time"   )){array_push($playerstatus[2]['value'],$value);}
+                        if (strpos($value->report, "questionable")){array_push($playerstatus[3]['value'],$value);}
+                        if (strpos($value->report, "day-to-day"  )){array_push($playerstatus[4]['value'],$value);}
+                        if (strpos($value->report, "doubtful"    )){array_push($playerstatus[5]['value'],$value);}
                         
+                        if (strpos($value->report, "will not"      )|
+                            strpos($value->report, "won't"         )|
+                            strpos($value->report, "not ready"     )|
+                            strpos($value->report, "will sit out"  )|
+                            strpos($value->report, "doesn't expect")
+                                ){
+                            array_push($playerstatus[6]['value'],$value);
+                        }
+
+                        if (strpos($value->report, "out indefinitely")|
+                            strpos($value->report, "timetable"       )
+                                ){
+                            array_push($playerstatus[9]['value'],$value);
+                        }
+
+                        if (($value->injna=="INJ") //------------------------------------------------------------------------------------------------------------------------------------------
+                                & ((strpos($value->report, "will play"       )| 
+                                    strpos($value->report, "will return"     )| 
+                                    strpos($value->report, "could return"    )| 
+                                    strpos($value->report, "will start"      )| 
+                                    strpos($value->report, "'ll start"       )| 
+                                    strpos($value->report, "expected to play")| 
+                                    strpos($value->report, "is ready to play"))==0)
+                                
+                                & (is_numeric(strpos($value->report, "probable"    ))==0)
+                                & (is_numeric(strpos($value->report, "game-time"   ))==0)
+                                & (is_numeric(strpos($value->report, "questionable"))==0)
+                                & (is_numeric(strpos($value->report, "day-to-day"  ))==0)
+                                & (is_numeric(strpos($value->report, "doubtful"    ))==0)
+                                
+                                & ((strpos($value->report, "will not"      )|
+                                    strpos($value->report, "won't"         )|
+                                    strpos($value->report, "not ready"     )|
+                                    strpos($value->report, "will sit out"  )|
+                                    strpos($value->report, "doesn't expect"))==0)
+                                
+                                & ((strpos($value->report, "out indefinitely")|
+                                    strpos($value->report, "timetable"       ))==0)
+                                ){
+                            array_push($playerstatus[7]['value'],$value);
+                        }                        
+                        
+                    }elseif ($value->injna=="INJ") { //------------------------------------------------------------------------------------------------------------------------------------------
+                         if (strpos($value->report, "weeks")){
+                             array_push($playerstatus[8]['value'],$value);
+                         }else{
+                             array_push($playerstatus[10]['value'],$value);
+                         }
+                         
                     }
-                    if (strpos($value->report, "game-time")){
-                        array_push($playerstatus[2]['value'],$value);
-                    }
-                    if (strpos($value->report, "questionable")){
-                        array_push($playerstatus[3]['value'],$value);
-                    }
-                    if (strpos($value->report, "day-to-day")){
-                        array_push($playerstatus[4]['value'],$value);
-                    }
-                    if (strpos($value->report, "doubtful")){
-                        array_push($playerstatus[5]['value'],$value);
-                    }
-//                    if ((strpos($value->report, "will not")|strpos($value->report, "won't")|strpos($value->report, "not ready")) & (strpos($value->report, "play")|strpos($value->report, "return")|strpos($value->report, "start")) ){
-                    if (strpos($value->report, "will not")|strpos($value->report, "won't")|strpos($value->report, "not ready")|strpos($value->report, "doesn't expect")){
-                        array_push($playerstatus[6]['value'],$value);
-                    }
-                    if (strpos($value->report, "out indefinitely")){
-                        array_push($playerstatus[7]['value'],$value);
-                    }                    
-                    if (($value->injna=="INJ")
-                            & ((strpos($value->report, "will play") | strpos($value->report, "will return") | strpos($value->report, "will start") | strpos($value->report, "is ready to play"))==0)
-                            & (is_numeric(strpos($value->report, "probable"))==0)
-                            & (is_numeric(strpos($value->report, "game-time"))==0)
-                            & (is_numeric(strpos($value->report, "questionable"))==0)
-                            & (is_numeric(strpos($value->report, "day-to-day"))==0)
-                            & (is_numeric(strpos($value->report, "doubtful"))==0)
-//                            & (((strpos($value->report, "will not")|strpos($value->report, "won't")|strpos($value->report, "not ready")) & (strpos($value->report, "play")|strpos($value->report, "return")|strpos($value->report, "start")))==0)
-                            & ((strpos($value->report, "will not")|strpos($value->report, "won't")|strpos($value->report, "not ready")|strpos($value->report, "doesn't expect"))==0)
-                            & (is_numeric(strpos($value->report, "out indefinitely"))==0)
-                            ){
-                        array_push($playerstatus[8]['value'],$value);
-                    }
+                    
+
+
                 }
 
 //                echo json_encode($playerstatus);
@@ -112,9 +160,13 @@
                 <div style="padding:10px;background-color: rgba(0,0,0,0.2)">
                     <div class="status" ng-repeat="pstatus in item.value">
                         <a href="playerAbility?player={{pstatus.fbid}}" target="_blank">
-                        <div style="float:left;width:60px;height:72px;background:url(/images/help1.png) no-repeat center; background-size: 60px 72px">
-                            <div style="width:60px;height:72px;background:url(/player/{{pstatus.fbid}}.png) no-repeat center; background-size: 60px 72px"></div>
-                        </div>                            
+                            
+                            <div style="float:left;width:60px;height:72px; background-color:#C3C3C3">
+                                <div style="background:url(/images/nophoto.png) no-repeat center;background-size: 60px 72px">
+                                    <div style="width:60px;height:72px;background:url(/player/{{pstatus.fbid}}.png) no-repeat center; background-size: 60px 72px"></div>
+                                </div>
+                            </div>
+                            
                         </a>
                         
                         <div style="float:left;padding:2px;width:88%">
