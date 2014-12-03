@@ -56,7 +56,9 @@
                             strpos($value->report, "could return"    )| 
                             strpos($value->report, "will start"      )| 
                             strpos($value->report, "'ll start"       )| 
+                            strpos($value->report, "in the starting" )|
                             strpos($value->report, "expected to play")| 
+                            strpos($value->report, "expects to play" )| 
                             strpos($value->report, "is ready to play")
                                 ){
                             array_push($playerstatus[0]['value'],$value);
@@ -76,6 +78,10 @@
                             strpos($value->report, "won't"         )|
                             strpos($value->report, "not ready"     )|
                             strpos($value->report, "will sit out"  )|
+                            strpos($value->report, "ruled out"     )|
+                            strpos($value->report, "is inactive for")|
+                            strpos($value->report, "is out for"    )|
+                            strpos($value->report, "listed as out" )|
                             strpos($value->report, "doesn't expect")
                                 ){
                             array_push($playerstatus[6]['value'],$value);
@@ -92,8 +98,10 @@
                                     strpos($value->report, "will return"     )| 
                                     strpos($value->report, "could return"    )| 
                                     strpos($value->report, "will start"      )| 
-                                    strpos($value->report, "'ll start"       )| 
-                                    strpos($value->report, "expected to play")| 
+                                    strpos($value->report, "'ll start"       )|
+                                    strpos($value->report, "in the starting" )|
+                                    strpos($value->report, "expected to play")|
+                                    strpos($value->report, "expects to play" )|
                                     strpos($value->report, "is ready to play"))==0)
                                 
                                 & (is_numeric(strpos($value->report, "probable"    ))==0)
@@ -106,6 +114,10 @@
                                     strpos($value->report, "won't"         )|
                                     strpos($value->report, "not ready"     )|
                                     strpos($value->report, "will sit out"  )|
+                                    strpos($value->report, "ruled out"     )|
+                                    strpos($value->report, "is inactive for")|
+                                    strpos($value->report, "is out for"    )|
+                                    strpos($value->report, "listed as out" )|
                                     strpos($value->report, "doesn't expect"))==0)
                                 
                                 & ((strpos($value->report, "out indefinitely")|

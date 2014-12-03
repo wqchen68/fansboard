@@ -4,9 +4,18 @@
               
 		<div class="onerow">
             <div style="height: 42px; padding: 10px 0 10px 0">
-                <div style="position:absolute;left:23%;margin:10px 0 0 -75px;font-size: 14px;color:gold;font-weight:bold">2014-15 Pre-Season</div>
+                
+                
+                <a href="playerStatus" target="_blank" style="">
+                    <div class="link-hover" style="position:absolute;left:9%;padding:3px;background-color:rgba(255,255,255,0.4);border-radius:5px;color:gold;font-weight:bold;font-size:14px;width:150px;height:40px">
+                        <img style="float:left;width:42px" src="images/adsense.png" />
+                        <div style="float:left;padding:13px 0 0 3px">Player Status</div>
+                    </div>
+                </a>
+                
+                <div style="position:absolute;left:70%;margin:10px 0 0 -75px;font-size: 14px;color:gold;font-weight:bold">2014-15 Pre-Season</div>
                 <div style="position:absolute;left:50%;margin-left:-25px"><div class="reflashtime"></div></div>
-                <div style="position:absolute;left:70%;margin:10px 0 0 0;font-size: 14px;color:#fff">
+                <div style="position:absolute;left:80%;margin:10px 0 0 0;font-size: 14px;color:#fff">
                     <?
                         $lastupdate = DB::table('realtimeeff')
                         ->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime2'))
@@ -27,13 +36,13 @@
 
             <div class="col-1p1 realtime" style="position:absolute">
                 <a href="hotcoldPlayer" target="_blank" style="text-decoration:none;color:#fff">
-                    <div style="padding:3px;margin:0 0 10px 0;background-color:rgba(255,255,255,0.4);border-radius:3px;color:gold;font-weight:bold;font-size:14px;box-shadow: 0 0 5px gold;">
+                    <div class="link-hover" style="padding:3px;margin:0 0 10px 0;background-color:rgba(255,255,255,0.4);border-radius:5px;color:gold;font-weight:bold;font-size:14px">
                         Today</br> Hot & cold
                         <img style="width:39px" src="images/hcp_hot.png" />
                         <img style="width:39px" src="images/hcp_cold.png" />
                     </div>
                 </a>
-                <div class="order-btn" style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center" ng-repeat="game in realtimeBox.gamedata" ng-click="searchText.gameid=game.gameid;select(game)" ng-class="{selected:game.selected}">
+                <div class="link-hover order-btn" style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center" ng-repeat="game in realtimeBox.gamedata" ng-click="searchText.gameid=game.gameid;select(game)" ng-class="{selected:game.selected}">
                     <div style="width:100%;padding:5px 0 0 0">
                         <span style="background-color:{{game.cbo}};color:{{game.cfo}};font-weight:bold;border-radius:2px;padding:2px">{{game.oppo}}</span>@
                         <span style="background-color:{{game.cbt}};color:{{game.cft}};font-weight:bold;border-radius:2px;padding:2px">{{game.team}}</span>
@@ -315,7 +324,9 @@
     text-decoration:underline;
     color: #5599FF;
 }
-
+.link-hover:hover{
+    box-shadow: 0 0 20px #FFF;
+}
 .smallwidth{
     width:2.5%;
 }
