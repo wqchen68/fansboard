@@ -109,10 +109,10 @@
 					<div class="tableupdate">
 						<?
 							$lastupdate = DB::table('splitdata')
-							->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime'))
+							->select('updatetime',DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime2'))
                             ->orderBy('updatetime','DESC')
                             ->first();
-							echo '<div> Last updated: ' .$lastupdate->updatetime. '</div>';
+							echo '<div> Last updated: ' .$lastupdate->updatetime2. '</div>';
 						?>
 					</div>
 				</div>					
