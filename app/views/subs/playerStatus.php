@@ -6,8 +6,8 @@
             
             <?
                 $playerstatusO = DB::table('rwtable')
-                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position'
-                            ,DB::raw('round(1-newsyncdataframe.wgp/82,2)*100 AS abrate'),'newgamelog.prate'
+                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position'
+                            ,DB::raw('REPLACE(rwtable.report,"&quot;","\"") as report,round(1-newsyncdataframe.wgp/82,2)*100 AS abrate'),'newgamelog.prate'
                             ,DB::raw('STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2')
                             ,DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
                         ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
@@ -192,7 +192,7 @@
                                 <a href="careerStats?player={{pstatus.fbid}}" target="_blank"><span class="rateblock"> {{pstatus.abrate}} % </span></a>                                
                                 <span style="color:white;padding-right:3px;float:right">Risk </span>
                             </div>
-                            <div style="height:35px;z-index:10">{{pstatus.report}}</div>
+                            <div style="height:35px">{{pstatus.report}}</div>
                             <div style="position:relative;right:0;bottom:0;color:rgba(46,204,113,0.7);float:right">{{pstatus.date}}</div>
                         </div>
                         <div style="height:0;clear:both"></div>
