@@ -139,12 +139,7 @@
 	<div class="onepcssgrid-1200">
 		<div class="onerow">
 			<div style="margin:5px 0 20px 60px;color:#fff;font-size: 12px">
-						<?
-							$lastupdate = DB::table('syncdataframe')
-							->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime'))
-							->first();
-							echo '<div> Last updated: ' .$lastupdate->updatetime. '</div>';
-						?>
+                <? include('include_updatetime.php'); ?>
 			</div>
 			<div class="col12" style="color:#fff; text-align:left;font-size: 14px;padding-left: 100px;line-height: 25px">
 				Note:<br />

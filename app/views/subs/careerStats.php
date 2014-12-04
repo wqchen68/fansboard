@@ -122,12 +122,7 @@
 					
 					</table>
 					<div class="tableupdate">
-						<?
-							$lastupdate = DB::table('syncdataframe')
-							->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime'))
-							->first();
-							echo '<div> Last updated: ' .$lastupdate->updatetime. '</div>';
-						?>
+                        <? include('include_updatetime.php'); ?>
 					</div>
 				</div>					
 			</div>
