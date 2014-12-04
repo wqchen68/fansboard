@@ -288,7 +288,7 @@
 					
 					</table>
 					<div class="tableupdate">
-                        <? include('include_updatetime.php'); ?>
+                        @include('subs.include_updatetime')
 					</div>
 				</div>				
 			</div>

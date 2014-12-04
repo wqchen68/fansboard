@@ -72,7 +72,7 @@
 			</div>
 			
 			<div style="margin:10px 0 0 10px;font-size: 12px">
-                <? include('include_updatetime.php'); ?>                
+                @include('subs.include_updatetime')
 			</div>
 			
 	
