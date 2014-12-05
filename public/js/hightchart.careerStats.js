@@ -196,7 +196,15 @@ $(function(){
                     title:{
                         text: 'Minutes'
                     }                    
-				});                
+				}); 
+            }else if( pageobj.find('.items').val()==='cpts' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,10,20,30,36],
+                    min: -13.5,
+                    title:{
+                        text: 'Points'
+                    }                    
+				});                 
             }else if( pageobj.find('.items').val()==='cfgp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0.3,0.4,0.5,0.6],
