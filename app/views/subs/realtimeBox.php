@@ -6,12 +6,28 @@
             <div style="height: 42px; padding: 10px 0 10px 0">
                 
                 
-                <a href="playerStatus" target="_blank" style="">
-                    <div class="link-hover" style="position:absolute;left:9%;padding:3px;background-color:rgba(255,255,255,0.4);border-radius:5px;color:gold;font-weight:bold;font-size:14px;width:150px;height:40px">
-                        <img style="float:left;width:42px" src="images/adsense.png" />
-                        <div style="float:left;padding:13px 0 0 3px">Player Status</div>
-                    </div>
-                </a>
+                <div style="position:absolute;left:8.5%">
+<!--                    <span>
+                        <a href="realtimeBox" target="_blank" title="Real-Time Box - Get real-time NBA players' performance at any time, from anywhere.">
+                            <img class="link-hover" style="float:left;width:48px" src="images/icon_realtimebox.png" />
+                        </a>
+                    </span>-->
+                    <span>
+                        <a href="hotcoldPlayer" target="_blank" title="Hot & Cold Player - Calculate hot and cold players by recent stats.">
+                            <img class="link-hover" style="float:left;width:48px" src="images/icon_hotcold.png" />
+                        </a>
+                    </span>
+                    <span>
+                        <a href="playerStatus" target="_blank" title="Player Status - Players' Latest News and Injury Report.">
+                            <img class="link-hover" style="float:left;width:48px" src="images/icon_adsence.png" />
+                        </a>
+                    </span>   
+                    <span>
+                        <a href="playerRankings" target="_blank" title="Player Rankings - Players' Overall and Catagories Power Rankings.">
+                            <img class="link-hover" style="float:left;width:48px" src="images/icon_rankings.png" />
+                        </a>
+                    </span>               
+                </div>
                 
                 <div style="position:absolute;left:70%;margin:10px 0 0 -75px;font-size: 14px;color:gold;font-weight:bold">2014-15 Pre-Season</div>
                 <div style="position:absolute;left:50%;margin-left:-25px"><div class="reflashtime"></div></div>
@@ -35,13 +51,13 @@
         <div class="onerow" ng-controller="realtimeBoxController" style="position:absolute;top:60px;bottom:0;right:0;left:0">
 
             <div class="col-1p1 realtime" style="position:absolute">
-                <a href="hotcoldPlayer" target="_blank" style="text-decoration:none;color:#fff">
+<!--                <a href="hotcoldPlayer" target="_blank" style="text-decoration:none;color:#fff">
                     <div class="link-hover" style="padding:3px;margin:0 0 10px 0;background-color:rgba(255,255,255,0.4);border-radius:5px;color:gold;font-weight:bold;font-size:14px">
                         Today</br> Hot & cold
                         <img style="width:39px" src="images/hcp_hot.png" />
                         <img style="width:39px" src="images/hcp_cold.png" />
                     </div>
-                </a>
+                </a>-->
                 <div class="link-hover order-btn" style="font-size:12px;background-color:rgba(255,255,255,0.4);border-radius:3px;margin:0 0 3px 0;text-align:center" ng-repeat="game in realtimeBox.gamedata" ng-click="searchText.gameid=game.gameid;select(game)" ng-class="{selected:game.selected}">
                     <div style="width:100%;padding:5px 0 0 0">
                         <span style="background-color:{{game.cbo}};color:{{game.cfo}};font-weight:bold;border-radius:2px;padding:2px">{{game.oppo}}</span>@

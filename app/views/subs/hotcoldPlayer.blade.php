@@ -8,7 +8,30 @@
 	<div class="onepcssgrid-1p-1200" style="min-height:1200px">
 
 		<div class="onerow">
-					
+
+            <div class="col-1p12 last">
+                <span>
+                    <a href="realtimeBox" target="_blank" title="Real-Time Box - Get real-time NBA players' performance at any time, from anywhere.">
+                        <img class="link-hover" style="float:left;width:48px" src="images/icon_realtimebox.png" />
+                    </a>
+                </span>
+<!--                <span>
+                    <a href="hotcoldPlayer" target="_blank" title="Hot & Cold Player - Calculate hot and cold players by recent stats.">
+                        <img class="link-hover" style="float:left;width:48px" src="images/icon_hotcold.png" />
+                    </a>
+                </span>-->
+                <span>
+                    <a href="playerStatus" target="_blank" title="Player Status - Players' Latest News and Injury Report.">
+                        <img class="link-hover" style="float:left;width:48px" src="images/icon_adsence.png" />
+                    </a>
+                </span>   
+                <span>
+                    <a href="playerRankings" target="_blank" title="Player Rankings - Players' Overall and Catagories Power Rankings.">
+                        <img class="link-hover" style="float:left;width:48px" src="images/icon_rankings.png" />
+                    </a>
+                </span>   
+            </div>
+            
 			<div class="col-1p6">
 				<?
 				$tabletitle='Today Breakout';
@@ -50,7 +73,8 @@
 			
 			<div class="col-1p6 ">
 				<? 
-				$tabletitle='Season Most Improved';
+//				$tabletitle='Season Most Improved';
+                $tabletitle='HOT Players';
 				$subviewdata = $hotcold_data->recenthot;
 				$tablename = 'recenthot';
 				$tablesign = '+';
@@ -62,7 +86,8 @@
 			<div class="col-1p6 last">
 				
 				<? 
-				$tabletitle='Season Most Unimproved';
+//				$tabletitle='Season Most Unimproved';
+                $tabletitle='COLD Players';
 				$subviewdata = $hotcold_data->recentcold;
 				$tablename = 'recentcold';
 				$tablesign = '';

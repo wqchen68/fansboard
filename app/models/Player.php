@@ -324,9 +324,9 @@ class Player {
 									FORMAT(A2.pwtreb,1) AS treb2,
 									FORMAT(A2.pwast,1) AS ast2,
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
-					->where('syncplayerlist.datarange','=','Y-1')
-					->where('A1.datarange','=','Y-1')
-					->where('A2.datarange','=','ALL')
+					->where('syncplayerlist.datarange','=','D30')
+					->where('A1.datarange','=','D30')
+					->where('A2.datarange','=','D07')
 					->orderBy('trend','DESC')->take(15)->get();
 
 		$recentcold = DB::table('syncdataframe AS A1')
@@ -346,9 +346,9 @@ class Player {
 									FORMAT(A2.pwtreb,1) AS treb2,
 									FORMAT(A2.pwast,1) AS ast2,
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
-					->where('syncplayerlist.datarange','=','Y-1')
-					->where('A1.datarange','=','Y-1')
-					->where('A2.datarange','=','ALL')
+					->where('syncplayerlist.datarange','=','D30')
+					->where('A1.datarange','=','D30')
+					->where('A2.datarange','=','D07')
 					->orderBy('trend','ASC')->take(15)->get();
 		
 		$livemark = DB::table('realtimeeff')

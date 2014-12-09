@@ -56,8 +56,8 @@
                             strpos($value->report, "could return"    )| 
                             strpos($value->report, "will start"      )| 
                             strpos($value->report, "'ll start"       )| 
-                            strpos($value->report, "in the starting" )|
-                            strpos($value->report, "expected to play")| 
+                            strpos($value->report, "in the starting" )| 
+                            strpos($value->report, "is expected to play")|
                             strpos($value->report, "expects to play" )| 
                             strpos($value->report, "is ready to play")
                                 ){
@@ -100,7 +100,7 @@
                                     strpos($value->report, "will start"      )| 
                                     strpos($value->report, "'ll start"       )|
                                     strpos($value->report, "in the starting" )|
-                                    strpos($value->report, "expected to play")|
+                                    strpos($value->report, "is expected to play")|
                                     strpos($value->report, "expects to play" )|
                                     strpos($value->report, "is ready to play"))==0)
                                 
@@ -114,6 +114,7 @@
                                     strpos($value->report, "won't"         )|
                                     strpos($value->report, "not ready"     )|
                                     strpos($value->report, "will sit out"  )|
+                                    strpos($value->report, "is not expected to play")|                                           
                                     strpos($value->report, "ruled out"     )|
                                     strpos($value->report, "is inactive for")|
                                     strpos($value->report, "is out for"    )|
@@ -153,9 +154,35 @@
 <!--            <div class="fb-like" data-href="/playerStatus" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
             <div class="fb-comments" data-herf="/playerStatus" data-width="300" data-numposts="5" data-colorscheme="light"></div>-->
 
+
             <div style="padding:10px;background-color: rgba(0,0,0,0.2);height:48px;font-weight:bold;color:gold">
-                <img style="width:48px" src="images/adsense.png" />
+
+                <div>
+                    <span>
+                        <a href="realtimeBox" target="_blank" title="Real-Time Box - Get real-time NBA players' performance at any time, from anywhere.">
+                            <img class="link-hover" style="float:left;width:48px" src="images/icon_realtimebox.png" />
+                        </a>
+                    </span>
+                    <span>
+                        <a href="hotcoldPlayer" target="_blank" title="Hot & Cold Player - Calculate hot and cold players by recent stats.">
+                            <img class="link-hover" style="float:left;width:48px" src="images/icon_hotcold.png" />
+                        </a>
+                    </span>
+<!--                    <span>
+                        <a href="playerStatus" target="_blank" title="Player Status - Players' Latest News and Injury Report.">
+                            <img class="link-hover" style="float:left;width:48px" src="images/icon_adsence.png" />
+                        </a>
+                    </span>   -->
+                    <span>
+                        <a href="playerRankings" target="_blank" title="Player Rankings - Players' Overall and Catagories Power Rankings.">
+                            <img class="link-hover" style="float:left;width:48px" src="images/icon_rankings.png" />
+                        </a>
+                    </span>   
+                </div>
+                
+                <img style="margin-left:10px;width:48px" src="images/adsense.png" />
                 <span style="font-size:22px">Player Status - Beta Version</span>
+                
                 <span style="font-size:14px;color:#FFF;font-weight:normal;padding-top:35px;float:right">
                     <div>Risk is Absence Rate - 
                         <span style="color:red;font-weight:bold;margin:1px;padding:0 2px 0 2px;text-align:center;background-color:rgba(255,255,255,0.6);border-radius:2px"> 2013-14 % </span>
@@ -212,6 +239,9 @@
 </div>
 
 <style>
+.link-hover:hover{
+    box-shadow: 0 0 20px #FFF;
+}    
 .status{
     width:49.6%;
     float:left;

@@ -226,17 +226,37 @@ $(function(){
     
     <div id="testi" style="position:absolute;bottom:50px;top:52px;overflow:auto">
         <div class="move active" index="0" style="height:100%"><?=$testi?>
-            <div style="position: absolute ; top:25px; left:1561px">
-                
+
+            <div style="position: absolute ; top:20px; left:1565px">                
 <!--                <div class="fb-like" data-href="" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-                <div class="fb-comments" data-herf="" data-width="300" data-numposts="5" data-colorscheme="light"></div>-->
-                
-                <div class="fb-like" data-href="" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
-                
-            </div>            
+                <div class="fb-comments" data-herf="" data-width="300" data-numposts="5" data-colorscheme="light"></div>-->                
+                <div class="fb-like" data-href="" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>                
+            </div>
+
+            
+<!--            <div style="position: absolute ; top:60px; left:300px">
+                <div class="link-hover">
+                    <a href="hotcoldPlayer" target="_blank" title="Player Status - Players' Latest News and Injury Report">
+                        <img style="float:left;width:48px" src="images/icon_hotcold.png" />
+                    </a>
+                </div>
+                <a href="playerStatus" target="_blank" title="Player Status - Players' Latest News and Injury Report">
+                    <div class="link-hover">
+                        <img style="float:left;width:48px" src="images/icon_adsence.png" />
+                    </div>
+                </a>                
+                <a href="playerRankings" target="_blank" title="Player Rankings - Players' Overall and Catagories Power Rankings">
+                    <div class="link-hover">
+                        <img style="float:left;width:48px" src="images/icon_rankings.png" />
+                    </div>
+                </a>
+            </div>            -->
+            
+            
         </div>
     </div>
 	
+    
 	<div style="background-color:#fff;width:100%;height:50px;position:absolute;bottom:0px">
 
 		<div class="onepcssgrid-full">

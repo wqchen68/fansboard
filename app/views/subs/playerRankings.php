@@ -34,28 +34,80 @@
                     ->select(DB::raw('biodata.player AS player, syncplayerlist.fbid AS fbid,syncplayerlist.team AS team,  syncplayerlist.position AS position, syncplayerlist.injna AS injna, syncplayerlist.owned AS owned,'
                             . 'syncdataframe.wfgp, syncdataframe.wftp, syncdataframe.pwpts,syncdataframe.pw3ptm, syncdataframe.pwtreb, syncdataframe.pwast, syncdataframe.pwst, syncdataframe.pwblk, syncdataframe.pwto,'
                             . 'syncdataframe.zwfgp, syncdataframe.zwftp, syncdataframe.zwpts,syncdataframe.zw3ptm, syncdataframe.zwtreb, syncdataframe.zwast, syncdataframe.zwst, syncdataframe.zwblk, syncdataframe.zwto,'
-                            . ' rwtable.report AS report, syncplayerlist.orank AS orank, syncplayerlist.arank AS arank'))
+                            . 'syncdataframe.zwtotal,syncdataframe.rownum,'
+                            . 'SUBSTRING(REPLACE(rwtable.report,"&quot;","\""),1,150) as report, syncplayerlist.orank AS orank, syncplayerlist.arank AS arank'))
                     ->leftJoin('biodata','biodata.fbido','=','syncplayerlist.fbido')
                     ->leftJoin('rwtable','rwtable.fbido','=','syncplayerlist.fbido')
-                    ->leftJoin('syncdataframe','syncdataframe.fbido','=','syncplayerlist.fbido')
+//                    ->leftJoin('syncdataframe','syncdataframe.fbido','=','syncplayerlist.fbido')
+                    ->leftJoin(DB::raw('(SELECT @rownum := @rownum +1 AS rownum,syncdataframe.*,'
+                            . ' syncdataframe.zwfgp+syncdataframe.zwftp+syncdataframe.zwpts+syncdataframe.zw3ptm+syncdataframe.zwtreb+syncdataframe.zwast+syncdataframe.zwst+syncdataframe.zwblk+syncdataframe.zwto as zwtotal'
+                            . ' FROM syncdataframe, (SELECT @rownum :=0)b WHERE datarange="ALL" order by zwtotal DESC) syncdataframe'),'syncdataframe.fbido','=','syncplayerlist.fbido')
                     ->where('syncplayerlist.datarange','=','ALL')
-                    ->where('syncdataframe.datarange','=','ALL')
+//                    ->where('syncdataframe.datarange','=','ALL')
                     ->orderBy('orank','ASC')->get();
+                
 //                queryLog
 ////                var_dump($rankplayers[1]);
 ////                echo '<div>'.$rankplayers[1]->page.'</div>';
             ?>
             
+            
+            <div class="col-1p12 last">
+                <span>
+                    <a href="realtimeBox" target="_blank" title="Real-Time Box - Get real-time NBA players' performance at any time, from anywhere.">
+                        <img class="link-hover" style="float:left;width:48px" src="images/icon_realtimebox.png" />
+                    </a>
+                </span>
+                <span>
+                    <a href="hotcoldPlayer" target="_blank" title="Hot & Cold Player - Calculate hot and cold players by recent stats.">
+                        <img class="link-hover" style="float:left;width:48px" src="images/icon_hotcold.png" />
+                    </a>
+                </span>
+                <span>
+                    <a href="playerStatus" target="_blank" title="Player Status - Players' Latest News and Injury Report.">
+                        <img class="link-hover" style="float:left;width:48px" src="images/icon_adsence.png" />
+                    </a>
+                </span>   
+<!--                <span>
+                    <a href="playerRankings" target="_blank" title="Player Rankings - Players' Overall and Catagories Power Rankings.">
+                        <img class="link-hover" style="float:left;width:48px" src="images/icon_rankings.png" />
+                    </a>
+                </span>-->
+                <span style="font-size:14px;margin:15px;float:right">
+                        <? include('include_updatetime.php'); ?>
+                </span>
+            </div>
+
             <div class="col-1p12 last" style="background-color: rgba(0,0,0,0.4)">
-                <div class="col-1p3" style="padding: 20px 0 0px 0px">
-                    <div class="orderbutton" style="width:22px"><a class="sorter" herf="" ng-click="predicate = 'orank'; reverse=false">#</a></div>
+                <div class="col-1p3" style="padding: 5px 0 5px 5px">
                     <input ng-click="start()" type="button" value="Page 1" />
                     <input ng-click="prev()" type="button" value="Rrev <" />
                     <input ng-model="page" size="1" /> / {{ pages }}
                     <input ng-click="next()" type="button" value="> Next" />
                 </div>
-                <div class="col-1p5" style="padding: 20px 0 0px 0px">
+                <div class="col-1p5" style="padding: 5px 0 5px 0px">               
+                </div>
+                <div class="col-1p4 last" style="margin: 5px -25px 5px 20px">
+                    <div style="float:left;width:60px;height:24px;line-height:24px;font-size:12px;text-align:right;font-weight:bold">Color : </div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(0,255,0,0.5)">Best</div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(0,255,0,0.3)">Better</div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(0,255,0,0.1)">Good</div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(255,0,0,0.1)">Bad</div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(255,0,0,0.3)">Worse</div>
+                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(255,0,0,0.5)">worst</div>
+                </div>                
+            </div>
+            
+            <div class="col-1p12 last" style="background-color: rgba(0,0,0,0.4)">
+                <div class="col-1p3" style="padding: 5px 0 5px 0px">
+                    <img style="width:20px;margin:2px -5px 0 5px;line-height:16px;float:right" src="/images/medal_gold_1.png" />
+                    <div class="orderbutton" style="width:54px;float:right"><a class="sorter" herf="" ng-click="predicate = 'orank'; reverse=false">O-rank</a></div>
+                    <div style="width:20px;text-align:right">#</div>
+                </div>
+                
+                <div class="col-1p6" style="padding: 5px 0 5px 0px">
                     <div style="margin: 0 0 0 0">
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwtotal'; reverse=true">Total</a></div>
                         <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwfgp'; reverse=true">FG%</a></div>
                         <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwftp'; reverse=true">FT%</a></div>
                         <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pw3ptm'; reverse=true">3PTM</a></div>
@@ -68,53 +120,48 @@
                         <div style="height:0;clear:both"></div>
                     </div>                
                 </div>
-                <div class="col-1p4 last" style="padding: 10px 0 10px 0px">
-                    <div style="float:left;width:60px;height:24px;line-height:24px;font-size:12px;text-align:right;font-weight:bold">Color : </div>
-                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(0,255,0,0.5)">Best</div>
-                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(0,255,0,0.3)">Better</div>
-                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(0,255,0,0.1)">Good</div>
-                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(255,0,0,0.1)">Bad</div>
-                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(255,0,0,0.3)">Worse</div>
-                    <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(255,0,0,0.5)">worst</div>
+                <div class="col-1p3 last" style="padding: 5px 0 5px 0px">
                 </div>
             </div>
             
         
             
-            <div ng-repeat="rankplayer in rankplayers | orderBy:predicate:reverse | filter:searchText | startFrom:(page-1)*limit | limitTo:limit" class="col-1p12 last rankbox" style="margin:1px; background-color: rgba(0,0,0,0.4)" ng-hide="">
+            <div ng-repeat="rankplayer in rankplayers | orderBy:predicate:reverse | filter:searchText | startFrom:(page-1)*limit | limitTo:limit" class="col-1p12 last rankbox" style="margin:1px 0 0 0; background-color: rgba(0,0,0,0.4)" ng-hide="">
 
                 <a href="playerAbility?player={{rankplayer.fbid}}" target="_blank" style="outline:none;color:white">
                 <div class="col-1p3">
-                    <div style="margin:5px;text-align:center">
-                        <div style="float:left;width:10px;text-align: center;padding:30px 20px 0px 0px">
+                    <div style="margin:0px;text-align:center">
+                        <div style="float:left;width:30px;text-align: center;padding:18px 10px 0px 0px">
                             {{(page-1)*limit+$index+1}}
                         </div>
-                        <div style="float:left;width:30px">
-                            <div><img style="width:20px" src="/images/medal_gold_1.png" /></div>
-                            <div class="" style="line-height:20px">{{rankplayer.owned}}</div>
+                        
+                        <div style="float:left;width:40px">
+                            <div style="background:url(/images/nophoto.png) no-repeat center;background-size: 40px 48px">
+                                <div class="" style="width:40px;height:48px;background:url(/player/{{rankplayer.fbid}}.png) no-repeat center; background-size: 40px 48px"></div>
+                            </div>                            
                         </div>
-                        <div style="float:left;width:60px">
-                            <div style="background-color:rgba(0,0,0,0.8)">
-                                <div class="" style="width:60px;height:72px;background:url(/player/{{rankplayer.fbid}}.png) no-repeat center; background-size: 60px 72px"></div>
-                            </div>
-                        </div>
+                        
                         <div style="float:left">
                             <div class="" style="padding:0 0 0 5px;text-align:left;color:gold;overflow : hidden; text-overflow : ellipsis; white-space : nowrap; width : 145px">{{rankplayer.player}}</div>
                             <div class="" style="padding:0 0 0 5px;text-align:left">({{rankplayer.team}} - {{rankplayer.position}})</div>
                             <div class="" style="padding:0 0 0 5px;text-align:left;color:red">{{rankplayer.injna}}</div>
                         </div>
+                        
+                        <div style="float:right;width:30px">
+                            <div style="color:gold;font-weight: bold;line-height:42px;margin-right:-20px">{{rankplayer.rownum}}</div>
+                        </div>
+                        <div style="float:right;width:30px">
+                            <div style="line-height:42px;margin-right:-10px">{{rankplayer.orank}}</div>
+                        </div>
+                        
                         <div style="height:0;clear:both"></div>
                     </div>
                 </div>
-                </a>               
+                </a>
 
-<!--                <div class="col-1p1">
-                    <div style="float:left; background-color:#; margin:5px; width:70px; height:70px">
-                    </div>
-                </div>-->
-
-                <div class="col-1p5">
-                    <div style="padding: 10px 0 10px 0">
+                <div class="col-1p6">
+                    <div style="float:left;width:54px;text-align:center;font-weight: bold;line-height:42px">{{rankplayer.zwtotal.toFixed(2)}}</div>
+                    <div style="float:left;padding: 0px 0 0px 0">
                         <div style="">
                             <div class="ranktable" ng-style="{'background-color': style(rankplayer.zwfgp) };">{{((rankplayer.wfgp)*100).toFixed(1)}}%</div>
                             <div class="ranktable" ng-style="{'background-color': style(rankplayer.zwftp) };">{{((rankplayer.wftp)*100).toFixed(1)}}%</div>
@@ -141,22 +188,18 @@
                         </div>
                         <div style="height:0;clear:both"></div>
                     </div>
+                    <div style="height:0;clear:both"></div>
                 </div>                
 
-                <div class="col-1p4 last">
-                    <div style="margin:10px">{{rankplayer.report}}</div>
+                <div class="col-1p3 last">
+                    <div style="margin:1px 1px 1px -50px">{{rankplayer.report}}</div>
                 </div>
 
-<!--                <div class="col-1p3 last">                    
-                    <div style="float:left; background-color:#; margin:5px; width:200px; height:70px"></div>                    
-
-                </div>-->
-
-                <div style="height:0;clear:both"></div>                    
+                <div style="height:0;clear:both"></div>
 
             </div>
-            <div class="col-1p12 last">
-                <div class="col-1p3">
+            <div class="col-1p12 last" style="margin-top:1px;background-color:rgba(0,0,0,0.4) ">
+                <div class="col-1p3" style="margin:5px 0 0 5px">
                     <input ng-click="start()" type="button" value="Page 1" />
                     <input ng-click="prev()" type="button" value="Rrev <" />
                     <input ng-model="page" size="1" /> / {{ pages }}
@@ -166,9 +209,15 @@
                 </div>
 
             </div>
+            
+            <div class="col-1p12 last" style="height: 100px;background-color: rgba(0,0,0,0.4) ">
+                <div style="padding-top:20px;font-size:14px;padding:10px">Note: </br>
+                    The above number means players' stats per game,</br>
+                    and The number inside the brackets means "The Standard Score (Z-score)".</br>
+                </div>                
+            </div>            
+            
         </div>
-        
-
         <div style="height:0;clear:both"></div>
         
 	</div>
@@ -180,14 +229,14 @@
 }
 .ranktable{
     float: left;
-    width: 11%;
-    padding: 8px 0 8px 0;
+    width: 54px;
+    padding: 5px 0 4px 0;
     text-align: center;
 }
 .orderbutton{
     font-size: 12px;
     float: left;
-    width: 52.2px;
+    width: 52px;
     color: black;
     text-align: center;
     font-weight: bold;

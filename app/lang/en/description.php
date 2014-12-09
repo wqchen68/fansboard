@@ -24,7 +24,7 @@ return array(
 	'tradeCompare' => 'Trading analysis for fantasy basketball managers.',
 	'hotcoldPlayer' => 'Calculate hot and cold players by recent stats.',
     'playerSalary' => 'Calculate hot and cold players by recent stats.',
-    'playerRankings' =>'Player Rankings',
-    'playerStatus' =>'Player Status',
+    'playerRankings' =>'Players\' Overall and Catagories Power Rankings.',
+    'playerStatus' =>'Players\' Latest News and Injury Report.',
 
 );
