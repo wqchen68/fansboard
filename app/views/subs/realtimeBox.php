@@ -13,17 +13,17 @@
                         </a>
                     </span>-->
                     <span>
-                        <a href="hotcoldPlayer" target="_blank" title="Hot & Cold Player - Calculate hot and cold players by recent stats.">
+                        <a href="hotcoldPlayer" target="" title="Hot & Cold Player - Calculate hot and cold players by recent stats.">
                             <img class="link-hover" style="float:left;width:48px" src="images/icon_hotcold.png" />
                         </a>
                     </span>
                     <span>
-                        <a href="playerStatus" target="_blank" title="Player Status - Players' Latest News and Injury Report.">
+                        <a href="playerStatus" target="" title="Player Status - Players' Latest News and Injury Report.">
                             <img class="link-hover" style="float:left;width:48px" src="images/icon_adsence.png" />
                         </a>
                     </span>   
                     <span>
-                        <a href="playerRankings" target="_blank" title="Player Rankings - Players' Overall and Catagories Power Rankings.">
+                        <a href="playerRankings" target="" title="Player Rankings - Players' Overall and Catagories Power Rankings.">
                             <img class="link-hover" style="float:left;width:48px" src="images/icon_rankings.png" />
                         </a>
                     </span>               
@@ -339,9 +339,6 @@
 .order-btn:hover{
     text-decoration:underline;
     color: #5599FF;
-}
-.link-hover:hover{
-    box-shadow: 0 0 20px #FFF;
 }
 .smallwidth{
     width:2.5%;

@@ -11,7 +11,7 @@
 
             <div class="col-1p12 last">
                 <span>
-                    <a href="realtimeBox" target="_blank" title="Real-Time Box - Get real-time NBA players' performance at any time, from anywhere.">
+                    <a href="realtimeBox" target="" title="Real-Time Box - Get real-time NBA players' performance at any time, from anywhere.">
                         <img class="link-hover" style="float:left;width:48px" src="images/icon_realtimebox.png" />
                     </a>
                 </span>
@@ -21,12 +21,12 @@
                     </a>
                 </span>-->
                 <span>
-                    <a href="playerStatus" target="_blank" title="Player Status - Players' Latest News and Injury Report.">
+                    <a href="playerStatus" target="" title="Player Status - Players' Latest News and Injury Report.">
                         <img class="link-hover" style="float:left;width:48px" src="images/icon_adsence.png" />
                     </a>
                 </span>   
                 <span>
-                    <a href="playerRankings" target="_blank" title="Player Rankings - Players' Overall and Catagories Power Rankings.">
+                    <a href="playerRankings" target="" title="Player Rankings - Players' Overall and Catagories Power Rankings.">
                         <img class="link-hover" style="float:left;width:48px" src="images/icon_rankings.png" />
                     </a>
                 </span>   

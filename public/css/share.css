@@ -1,3 +1,6 @@
+.link-hover:hover{
+    box-shadow: 0 0 20px #FFF;
+}
 /*backtop*/
 #gotop {
     z-index: 10;

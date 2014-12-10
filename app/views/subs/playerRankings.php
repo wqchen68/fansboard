@@ -54,17 +54,17 @@
             
             <div class="col-1p12 last">
                 <span>
-                    <a href="realtimeBox" target="_blank" title="Real-Time Box - Get real-time NBA players' performance at any time, from anywhere.">
+                    <a href="realtimeBox" target="" title="Real-Time Box - Get real-time NBA players' performance at any time, from anywhere.">
                         <img class="link-hover" style="float:left;width:48px" src="images/icon_realtimebox.png" />
                     </a>
                 </span>
                 <span>
-                    <a href="hotcoldPlayer" target="_blank" title="Hot & Cold Player - Calculate hot and cold players by recent stats.">
+                    <a href="hotcoldPlayer" target="" title="Hot & Cold Player - Calculate hot and cold players by recent stats.">
                         <img class="link-hover" style="float:left;width:48px" src="images/icon_hotcold.png" />
                     </a>
                 </span>
                 <span>
-                    <a href="playerStatus" target="_blank" title="Player Status - Players' Latest News and Injury Report.">
+                    <a href="playerStatus" target="" title="Player Status - Players' Latest News and Injury Report.">
                         <img class="link-hover" style="float:left;width:48px" src="images/icon_adsence.png" />
                     </a>
                 </span>   
