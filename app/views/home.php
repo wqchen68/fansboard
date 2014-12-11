@@ -290,9 +290,10 @@ $(document).ready(function(){
 
 											<a href="gameLog?player=<?=$realtime[0]->fbid ?>" style="text-decoration:none;color:#fff">
 											<div class="prcard" style="background-color:rgba(0,0,0,0.6)">
-												<div style="float:left;padding:5px">
-													<div class="todayboface0" style="width:48px;height:60px;background-image:url(player/<?=$realtime[0]->fbid ?>.png);background-size:48px 60px">
-													</div>
+												<div style="float:left;padding:5px">                                                    
+                                                    <div style="background:url(/images/nophoto.png) no-repeat center;background-size: 48px 60px">
+                                                        <div class="todayboface0" style="width:48px;height:60px;background-image:url(player/<?=$realtime[0]->fbid ?>.png);background-size:48px 60px"></div>
+                                                    </div>                                                    
 												</div>
 												<div style="float:left;padding:5px;height:60px;width:75%">
 													<div class="todaybo-name0"><?=$realtime[0]->player.' ('.$realtime[0]->team.' - '.$realtime[0]->position.')'?></div>
@@ -315,8 +316,9 @@ $(document).ready(function(){
 											<a href="gameLog?player=<?=$realtime[1]->fbid ?>" style="text-decoration:none;color:#fff">
 											<div class="prcard" style="background-color:rgba(0,0,0,0.6)">
 												<div style="float:left;padding:5px">
-													<div class="todayboface1" style="width:48px;height:60px;background-image:url(player/<?=$realtime[1]->fbid ?>.png);background-size:48px 60px">
-													</div>
+                                                    <div style="background:url(/images/nophoto.png) no-repeat center;background-size: 48px 60px">
+                                                        <div class="todayboface1" style="width:48px;height:60px;background-image:url(player/<?=$realtime[1]->fbid ?>.png);background-size:48px 60px"></div>
+                                                    </div>                                                    
 												</div>
 												<div style="float:left;padding:5px;height:60px;width:75%">
 													<div class="todaybo-name1"><?=$realtime[1]->player.' ('.$realtime[1]->team.' - '.$realtime[1]->position.')'?></div>

@@ -75,25 +75,25 @@
 				<div class="tablehead" style="background-color:rgba(0,0,0,0.5);color:#fff;width:100%;height:20px;padding:7px 0px 7px 0px ">
 					<div class="rtbvarC smallwidth">#</div>
 					<div class="rtbvarL playerwidth">Player</div>
-                    <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive','bxmin']; reverse=true">Game</div> <!--team+oppo-->
+                    <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive','bxmin']; reverse=true">Game</div>                    
 					<div class="order-btn rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','bxeff']; reverse=true">Start</div>
-					<div class="order-btn rtbvarC real-bar-eff" ng-click="predicate = ['bxgs','bxeff','bxpts']; reverse=true" style="color:gold;font-weight:bold">EFF</div>
+					<div class="order-btn rtbvarC real-bar-eff" ng-click="predicate = ['bxgs','bxeff']; reverse=true" style="color:gold;font-weight:bold">EFF</div>
 					<div class="rtbvarL" style="width:5.0%">　</div> <!--LIVE!orFinal-->
-					<div class="order-btn rtbvarR midwidth" ng-click="predicate = 'bxmin'; reverse=true">MIN</div>
-					<div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bxfgm','-bxfga']; reverse=true">FG</div>
-                    <div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bx3ptm','-bx3pta']; reverse=true">3P</div>
-                    <div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bxftm','-bxfta']; reverse=true">FT</div>
-					<div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxtreb','bxblk']; reverse=true">Reb</div>
-					<div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxast','bxto','bxst']; reverse=true">Ast</div>
-                    <div class="order-btn rtbvarR smallwidth" ng-click="predicate = 'bxto'; reverse=true">To</div>
-					<div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxst','bxast','bxto']; reverse=true">St</div>
-					<div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxblk','bxtreb']; reverse=true">Blk</div>
-                    <div class="order-btn rtbvarR smallwidth" ng-click="predicate = 'bxpf'; reverse=true">Pf</div>
-                    <div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxpts','bxeff','bxfgm','-bxfga']; reverse=true">Pts</div>
+					<div class="order-btn rtbvarR midwidth" ng-click="predicate = ['bxgs','bxmin']; reverse=true">MIN</div>
+					<div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bxgs','bxfgm','-bxfga']; reverse=true">FG</div>
+                    <div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bxgs','bx3ptm','-bx3pta']; reverse=true">3P</div>
+                    <div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bxgs','bxftm','-bxfta']; reverse=true">FT</div>
+					<div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxgs','bxtreb','bxblk']; reverse=true">Reb</div>
+					<div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxgs','bxast','bxto','bxst']; reverse=true">Ast</div>
+                    <div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxgs','bxto']; reverse=true">To</div>
+					<div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxgs','bxst','bxast','bxto']; reverse=true">St</div>
+					<div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxgs','bxblk','bxtreb']; reverse=true">Blk</div>
+                    <div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxgs','bxpf']; reverse=true">Pf</div>
+                    <div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxgs','bxpts','bxeff','bxfgm','-bxfga']; reverse=true">Pts</div>
 				</div>
 					
                 <div class="transparent" style="overflow-x:hidden;overflow-y:scroll;position:absolute;bottom:10px;top:34px;left:0;right:0">
-                    <div class="effrank new wait" fbid="{{ player.fbid*3.5 }}" rank="{{ index }}" style="width:100%;height:20px;padding:4px 7px 4px 7px;color:#fff;position:relative" ng-repeat="player in realtimeBox.rtstats | orderBy:predicate:reverse | filter:searchText">
+                    <div class="effrank new wait" fbid="{{ player.fbid*3.5 }}" rank="{{ index }}" style="width:100%;height:20px;padding:4px 7px 4px 7px;color:#fff;position:relative" ng-repeat="player in (realtimeBox.rtstats | orderBy:predicate:reverse | filter:searchText)">
 
                         <span>
                             <div style="float:left">
@@ -469,4 +469,25 @@ angular.module('app', []).filter('startFrom',function(){
     
     $scope.update();
 });
+//.filter("emptyToEnd", function () {
+//    return function (array, key) {
+//        if (!angular.isArray(array)) return;
+//        if (!angular.isArray(key)) return array;
+//        var present = array.filter(function (item) {
+//            return (item[key[0]] && item[key[0]]>0);
+//        });
+//        var negetive = array.filter(function (item) {
+//            return (item[key[0]] && item[key[0]]<0);
+//        });
+//        var empty = array.filter(function (item) {
+//            return (!item[key[0]] && item[key[0]]!=0);
+//        });
+//        var zero = array.filter(function (item) {
+//            return (!item[key[0]] && item[key[0]]==0);
+//        });
+//        var step0 = present.concat(zero);
+//        var step1 = step0.concat(negetive);
+//        return step1.concat(empty);
+//    };
+//});
 </script>
