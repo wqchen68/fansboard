@@ -48,9 +48,13 @@
                     <? } ?>
                     <div class="prcard" style="position:relative">
 						<div style="float:left;padding:5px">
-							<div class="{{ $tablename }}-face{{ $index }}" style="width:48px;height:60px;background-image:url(player/{{ $r->fbid }}.png);background-size: 48px 60px">
-								<div class="colorlabel-{{ $tablename }}" style="height:14px;width:14px;line-height:12px;color:#fff;text-align:center">{{ $index+1 }}</div>
-							</div>
+                            
+                            <div style="background:url(/images/nophoto.png) no-repeat center;background-size: 48px 60px">
+                                <div class="{{ $tablename }}-face{{ $index }}" style="width:48px;height:60px;background-image:url(player/{{ $r->fbid }}.png);background-size: 48px 60px">
+                                    <div class="colorlabel-{{ $tablename }}" style="height:14px;width:14px;line-height:12px;color:#fff;text-align:center">{{ $index+1 }}</div>
+                                </div>
+                            </div>
+                            
 						</div>
 						<div style="float:left;padding:5px;height:60px;width:75%">
 							<div class="{{ $tablename }}-name{{ $index }}">{{ $r->player }} ({{ $r->team }} - {{ $r->position }})</div>
