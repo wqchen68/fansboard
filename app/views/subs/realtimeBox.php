@@ -168,7 +168,7 @@
                             <div class="rtbvarL" style="margin-left:5%">{{ player.oppo }}</div>
                         </div>
                         <!--start跟EFF-->
-                        <div class="rtbvarL smallwidth" ng-class="{grayfont:player.startfive=='BN'}">{{ player.startfive }}</div>
+                        <div class="rtbvarL smallwidth" ng-class="{grayfont:player.startfive=='BN'||player.startfive=='DNP'}">{{ player.startfive }}</div>
                         <div class="real-bar-eff">
                             <div ng-style="styleeff(player)" ng-class="" style="float:left;font-weight:bold;text-align:left;height:100%;width:{{ player.bxeff*3.5 }}%">{{ player.bxeff }}</div>
                         </div>

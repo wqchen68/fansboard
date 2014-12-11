@@ -177,7 +177,8 @@ class Player {
 					'teamlist.colorfont',
 					DB::raw('realtimeeff.bxeff/realtimeeff.bxmin AS effper'),
                     DB::raw('syncdataframe.pweff/syncdataframe.pwmin AS effper2'))
-                ->whereRaw('realtimeeff.startfive!="DNP"')->get();
+//                ->whereRaw('realtimeeff.startfive!="DNP"')
+                ->get();
 
 		$efflv = DB::table('realtimeeff')
             ->select(DB::raw('SUM(realtimeeff.bxeff)/SUM(realtimeeff.bxmin) AS efflv'))->first();
