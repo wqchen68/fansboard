@@ -48,24 +48,73 @@
                     ['status'=>'Other Injury'            ,'value'=>[]],
                     ['status'=>'Couple of Weeks (0%)'    ,'value'=>[]],
                     ['status'=>'Out Indefinitely / No Timetable (-10%)' ,'value'=>[]],
-                    ['status'=>'Long-Term Injury'        ,'value'=>[]]);
+                    ['status'=>'Long-Term Injury'        ,'value'=>[]]
+                );                
+                $stateyes=array("will play",
+                    "will start",
+                    "will return",
+                    "'ll play",
+                    "'ll start",
+                    "'ll return",
+                    "could play",
+                    "could start",
+                    "could return",
+                    "is expected to play",
+                    "is expected to start",
+                    "is expected to return",
+                    "is ready to play",
+                    "is ready to start",
+                    "is ready to return",
+                    "expects to play",
+                    "expects to start",
+                    "expects to return",
+                    "will be active",
+                    "be able to suit up",
+                    "in the starting"                    
+                );
+                $stateno=array("will not",
+                    "won't",
+                    "is not expected",
+                    "not ready",
+                    "doesn't expect",
+                    "is inactive for",
+                    "is out for",
+                    "listed as out",
+                    "will sit out",
+                    "ruled out",
+                    "is officially out"
+                );
+                ///////////////////////////////////////////
+                function func1($arg1,$arg2){
+                    $ans=0;
+                    foreach($arg1 as $value){
+                        if (strpos($arg2->report, $value)){
+                            $ans=1;
+                        }
+                    }
+                    return $ans;
+                }
+                ///////////////////////////////////////////                
                 foreach($playerstatusO as $key => $value){
                     if ($value->news<=2880){ //------------------------------------------------------------------------------------------------------------------------------------------
-                        if (strpos($value->report, "will play"       )| 
-                            strpos($value->report, "will return"     )| 
-                            strpos($value->report, "could return"    )| 
-                            strpos($value->report, "will start"      )| 
-                            strpos($value->report, "'ll start"       )| 
-                            strpos($value->report, "in the starting" )| 
-                            strpos($value->report, "is expected to play")|
-                            strpos($value->report, "expects to play" )| 
-                            strpos($value->report, "is ready to play")
-                                ){
-                            array_push($playerstatus[0]['value'],$value);
+//                         if (strpos($value->report, "will play"       )| 
+//                            strpos($value->report, "will return"     )|  //OLD VERSION1
+//                            strpos($value->report, "is ready to play")
+                                                
+//                        if (strpos($value->report, $stateyes[0])| 
+//                            strpos($value->report, $stateyes[1])|  //OLD VERSION2
+//                            strpos($value->report, $stateyes[9])
+//                                ){
+//                            array_push($playerstatus[0]['value'],$value);
+//                            
 //                            var_dump($value);
 //                            echo '<br><br>';
 //                            var_dump(strpos($value->report, "questionable"));
 //                            echo '<br><br>';
+//                        }
+                        
+                        if (func1($stateyes,$value)){ //判斷要不要打的function
+                            array_push($playerstatus[0]['value'],$value);                            
                         }
                         
                         if (strpos($value->report, "probable"    )){array_push($playerstatus[1]['value'],$value);}
@@ -74,18 +123,22 @@
                         if (strpos($value->report, "day-to-day"  )){array_push($playerstatus[4]['value'],$value);}
                         if (strpos($value->report, "doubtful"    )){array_push($playerstatus[5]['value'],$value);}
                         
-                        if (strpos($value->report, "will not"      )|
-                            strpos($value->report, "won't"         )|
-                            strpos($value->report, "not ready"     )|
-                            strpos($value->report, "will sit out"  )|
-                            strpos($value->report, "ruled out"     )|
-                            strpos($value->report, "is inactive for")|
-                            strpos($value->report, "is out for"    )|
-                            strpos($value->report, "listed as out" )|
-                            strpos($value->report, "doesn't expect")
-                                ){
-                            array_push($playerstatus[6]['value'],$value);
+//                        if (strpos($value->report, "will not"      )|
+//                            strpos($value->report, "won't"         )|
+//                            strpos($value->report, "not ready"     )|
+//                            strpos($value->report, "will sit out"  )|
+//                            strpos($value->report, "ruled out"     )| //OLD VERSION1
+//                            strpos($value->report, "is inactive for")|
+//                            strpos($value->report, "is out for"    )|
+//                            strpos($value->report, "listed as out" )|
+//                            strpos($value->report, "doesn't expect")
+//                                ){
+//                            array_push($playerstatus[6]['value'],$value);
+//                        }                        
+                        if (func1($stateno,$value)){ //判斷要不要打的function
+                            array_push($playerstatus[6]['value'],$value);                            
                         }
+                        
 
                         if (strpos($value->report, "out indefinitely")|
                             strpos($value->report, "timetable"       )
@@ -94,15 +147,7 @@
                         }
 
                         if (($value->injna=="INJ") //------------------------------------------------------------------------------------------------------------------------------------------
-                                & ((strpos($value->report, "will play"       )| 
-                                    strpos($value->report, "will return"     )| 
-                                    strpos($value->report, "could return"    )| 
-                                    strpos($value->report, "will start"      )| 
-                                    strpos($value->report, "'ll start"       )|
-                                    strpos($value->report, "in the starting" )|
-                                    strpos($value->report, "is expected to play")|
-                                    strpos($value->report, "expects to play" )|
-                                    strpos($value->report, "is ready to play"))==0)
+                                & (func1($stateyes,$value)==0)
                                 
                                 & (is_numeric(strpos($value->report, "probable"    ))==0)
                                 & (is_numeric(strpos($value->report, "game-time"   ))==0)
@@ -110,16 +155,7 @@
                                 & (is_numeric(strpos($value->report, "day-to-day"  ))==0)
                                 & (is_numeric(strpos($value->report, "doubtful"    ))==0)
                                 
-                                & ((strpos($value->report, "will not"      )|
-                                    strpos($value->report, "won't"         )|
-                                    strpos($value->report, "not ready"     )|
-                                    strpos($value->report, "will sit out"  )|
-                                    strpos($value->report, "is not expected to play")|                                           
-                                    strpos($value->report, "ruled out"     )|
-                                    strpos($value->report, "is inactive for")|
-                                    strpos($value->report, "is out for"    )|
-                                    strpos($value->report, "listed as out" )|
-                                    strpos($value->report, "doesn't expect"))==0)
+                                & (func1($stateno,$value)==0)
                                 
                                 & ((strpos($value->report, "out indefinitely")|
                                     strpos($value->report, "timetable"       ))==0)
