@@ -107,16 +107,16 @@
                 
                 <div class="col-1p6" style="padding: 5px 0 5px 0px">
                     <div style="margin: 0 0 0 0">
-                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwtotal'; reverse=true">Total</a></div>
-                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwfgp'; reverse=true">FG%</a></div>
-                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwftp'; reverse=true">FT%</a></div>
-                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pw3ptm'; reverse=true">3PTM</a></div>
-                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwpts'; reverse=true">PTS</a></div>
-                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwtreb'; reverse=true">REB</a></div>
-                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwast'; reverse=true">AST</a></div>
-                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwst'; reverse=true">ST</a></div>
-                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwblk'; reverse=true">BLK</a></div>
-                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwto'; reverse=true">TO</a></div>
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwtotal'; reverse=!reverse">Total</a></div>
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwfgp'; reverse=!reverse">FG%</a></div>
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'zwftp'; reverse=!reverse">FT%</a></div>
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pw3ptm'; reverse=!reverse">3PTM</a></div>
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwpts'; reverse=!reverse">PTS</a></div>
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwtreb'; reverse=!reverse">REB</a></div>
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwast'; reverse=!reverse">AST</a></div>
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwst'; reverse=!reverse">ST</a></div>
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwblk'; reverse=!reverse">BLK</a></div>
+                        <div class="orderbutton"><a class="sorter" herf="" ng-click="predicate = 'pwto'; reverse=!reverse">TO</a></div>
                         <div style="height:0;clear:both"></div>
                     </div>                
                 </div>

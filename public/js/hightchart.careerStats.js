@@ -253,6 +253,14 @@ $(function(){
                         text: 'Rebounds'
                     }
 				});                
+            }else if( pageobj.find('.items').val()==='cast' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,3,6,9,12],
+                    min: -4.6,
+                    title:{
+                        text: 'Assists'
+                    }
+				});
             }else if( pageobj.find('.items').val()==='catr' || pageobj.find('.items').val()==='cpf'  || pageobj.find('.items').val()==='cto' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,1,2,3,4,5],

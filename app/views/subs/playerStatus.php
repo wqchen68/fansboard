@@ -16,26 +16,10 @@
 //                        ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'<=',1440+1440)
                         ->where('syncplayerlist.datarange','=','Full')
                         ->orderBy('date2','DESC')
-                        ->get();            
-
-//                $playerstatusO2 = DB::table('rwtable')
-//                    ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.report','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position'
-//                            ,DB::raw('round(1-newsyncdataframe.wgp/82,2)*100 AS abrate'),'newgamelog.prate'
-//                            ,DB::raw('STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2')
-//                            ,DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
-//                        ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
-//                        ->leftJoin(DB::raw('(select fbido,round((1-count(bxgs)/count(fbid))*100,0) as prate from allgamelog where season="2014" group by fbid) newgamelog'),'rwtable.fbido','=','newgamelog.fbido')
-//                        ->leftJoin(DB::raw('(select fbido,wgp from syncdataframe where datarange="Y-1") newsyncdataframe'),'rwtable.fbido','=','newsyncdataframe.fbido')                        
-//                        ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'>',1440+1440)
-//                        ->where('syncplayerlist.datarange','=','Full')
-//                        ->orderBy('date2','DESC')
-//                        ->get();                     
-//
-//                $playerstatus=array(['status'=>'Other Injury(Long Term)'     ,'value'=>[]]);                
+                        ->get();
                 
 //                $queries = DB::getQueryLog();
 //                var_dump($queries);
-                
                 
                 $playerstatus=array(
                     ['status'=>'Will Play (100%)'        ,'value'=>[]],
@@ -82,7 +66,8 @@
                     "listed as out",
                     "will sit out",
                     "ruled out",
-                    "is officially out"
+                    "is officially out",
+                    "will miss"
                 );
                 ///////////////////////////////////////////
                 function func1($arg1,$arg2){
@@ -97,23 +82,8 @@
                 ///////////////////////////////////////////                
                 foreach($playerstatusO as $key => $value){
                     if ($value->news<=2880){ //------------------------------------------------------------------------------------------------------------------------------------------
-//                         if (strpos($value->report, "will play"       )| 
-//                            strpos($value->report, "will return"     )|  //OLD VERSION1
-//                            strpos($value->report, "is ready to play")
-                                                
-//                        if (strpos($value->report, $stateyes[0])| 
-//                            strpos($value->report, $stateyes[1])|  //OLD VERSION2
-//                            strpos($value->report, $stateyes[9])
-//                                ){
-//                            array_push($playerstatus[0]['value'],$value);
-//                            
-//                            var_dump($value);
-//                            echo '<br><br>';
-//                            var_dump(strpos($value->report, "questionable"));
-//                            echo '<br><br>';
-//                        }
-                        
-                        if (func1($stateyes,$value)){ //判斷要不要打的function
+                       
+                        if (func1($stateyes,$value)){ //判斷要不要打的function(目的為縮短語法，原做法跟下面幾類一樣)
                             array_push($playerstatus[0]['value'],$value);                            
                         }
                         
@@ -122,23 +92,10 @@
                         if (strpos($value->report, "questionable")){array_push($playerstatus[3]['value'],$value);}
                         if (strpos($value->report, "day-to-day"  )){array_push($playerstatus[4]['value'],$value);}
                         if (strpos($value->report, "doubtful"    )){array_push($playerstatus[5]['value'],$value);}
-                        
-//                        if (strpos($value->report, "will not"      )|
-//                            strpos($value->report, "won't"         )|
-//                            strpos($value->report, "not ready"     )|
-//                            strpos($value->report, "will sit out"  )|
-//                            strpos($value->report, "ruled out"     )| //OLD VERSION1
-//                            strpos($value->report, "is inactive for")|
-//                            strpos($value->report, "is out for"    )|
-//                            strpos($value->report, "listed as out" )|
-//                            strpos($value->report, "doesn't expect")
-//                                ){
-//                            array_push($playerstatus[6]['value'],$value);
-//                        }                        
+                                             
                         if (func1($stateno,$value)){ //判斷要不要打的function
                             array_push($playerstatus[6]['value'],$value);                            
-                        }
-                        
+                        }                        
 
                         if (strpos($value->report, "out indefinitely")|
                             strpos($value->report, "timetable"       )
@@ -184,12 +141,6 @@
 //                }
                 
             ?>
-<!--            <div class="fb-like" data-href="" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-            <div class="fb-comments" data-herf="" data-width="300" data-numposts="5" data-colorscheme="light"></div>-->
-            
-<!--            <div class="fb-like" data-href="/playerStatus" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-            <div class="fb-comments" data-herf="/playerStatus" data-width="300" data-numposts="5" data-colorscheme="light"></div>-->
-
 
             <div style="padding:10px;background-color: rgba(0,0,0,0.2);height:48px;font-weight:bold;color:gold">
 
@@ -252,7 +203,7 @@
                                 <span style="color:red">{{pstatus.injna}}</span>
                                 
                                 <a href="gameLog?player={{pstatus.fbid}}"     target="_blank"><span class="rateblock"> {{pstatus.prate}} % </span></a>
-                                <a href="careerStats?player={{pstatus.fbid}}" target="_blank"><span class="rateblock"> {{pstatus.abrate}} % </span></a>                                
+                                <a href="careerStats?player={{pstatus.fbid}}" target="_blank"><span class="rateblock"> {{pstatus.abrate}} % </span></a>
                                 <span style="color:white;padding-right:3px;float:right">Risk </span>
                             </div>
                             <div style="height:35px">{{pstatus.report}}</div>
@@ -262,15 +213,31 @@
                         </a>
                     </div>
                     <div style="height:0;clear:both"></div>
-                </div>               
+                </div>
             </div>
             
             <div style="padding:10px;background-color: rgba(0,0,0,0.2);height:200px;font-size: 14px">
                 Note: Some of the players' news might be not the latest, so you can click player card to update news.<br>
-            </div>
                 
-            
-        </div>        
+//<?
+//    $userip = DB::table('log_data')
+//            ->select('datetime','ip',DB::raw('count(ip) as freq'))
+//            ->where(DB::raw('TIMESTAMPDIFF(MINUTE,datetime,NOW())'),'<=',800)
+//            ->orderBy('datetime','DESC')
+//            ->groupBy('ip')
+//            ->get();
+////    var_dump($userip);
+//    
+//    foreach ($userip as $key => $value) {
+//        $country = file_get_contents('http://api.hostip.info/country.php?ip='.$value->ip);
+//        echo $value->datetime.' -- '.$country.' -- '.$value->freq.' -- '.$value->ip.'<br>';
+//    }
+//    
+//    
+//?> 
+                
+            </div>            
+        </div>
 	</div>
 </div>
 
