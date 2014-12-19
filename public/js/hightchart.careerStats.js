@@ -208,7 +208,7 @@ $(function(){
             }else if( pageobj.find('.items').val()==='cfgp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0.3,0.4,0.5,0.6],
-                    min: 0.185,
+                    min: 0.186,
                     title:{
                         text: 'Field Goal (%)'
                     }                    
@@ -216,7 +216,7 @@ $(function(){
             }else if( pageobj.find('.items').val()==='cftp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0.5,0.6,0.7,0.8,0.9,1],
-                    min: 0.315,
+                    min: 0.313,
                     title:{
                         text: 'Feww Throw (%)'
                     }
@@ -224,27 +224,75 @@ $(function(){
             }else if( pageobj.find('.items').val()==='c3ptp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5],
-                    min: -0.185,
+                    min: -0.187,
                     title:{
-                        text: '3-Points Throw (%)'
+                        text: '3-Point Shot(%)'
                     }
 				});
-            }else if( pageobj.find('.items').val()==='cblk' ){
+            }else if( pageobj.find('.items').val()==='cfgm' ){
 				chartCareerStats.yAxis[0].update({
-					tickPositions: [0,1,2,3,4],
-                    min: -1.5,
+					tickPositions: [0,1,3,5,7,9,11,13],
+                    min: -4.95,
                     title:{
-                        text: 'Blocks'
+                        text: 'Field Goals Made'
                     }
 				});
-            }else if( pageobj.find('.items').val()==='cst' ){
+            }else if( pageobj.find('.items').val()==='cftm' ){
 				chartCareerStats.yAxis[0].update({
-					tickPositions: [0,1,2,3],
-                    min: -1.13,
+					tickPositions: [0,2,4,6,8,10],
+                    min: -3.8,
                     title:{
-                        text: 'Steals'
+                        text: 'Free Throws Made'
                     }
 				});
+            }else if( pageobj.find('.items').val()==='c3ptm' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,0.5,1,1.5,2,2.5,3,3.5],
+                    min: -1.33,
+                    title:{
+                        text: '3-point Shots Made'
+                    }
+				});                
+            }else if( pageobj.find('.items').val()==='cfga' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,7,14,21,28],
+                    min: -10.5,
+                    title:{
+                        text: 'Field Goals Attempted'
+                    }
+				});
+            }else if( pageobj.find('.items').val()==='cfta' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,3,6,9,12],
+                    min: -4.6,
+                    title:{
+                        text: 'Free Throws Attempted '
+                    }
+				});
+            }else if( pageobj.find('.items').val()==='c3pta' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,3,6,9],
+                    min: -3.4,
+                    title:{
+                        text: '3-point Shots Attempted'
+                    }
+				});
+            }else if( pageobj.find('.items').val()==='coreb' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,1,2,3,4,5,6],
+                    min: -2.25,
+                    title:{
+                        text: 'Offensive Rebounds'
+                    }
+				});
+            }else if( pageobj.find('.items').val()==='cdreb' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,3,6,9,12],
+                    min: -4.6,
+                    title:{
+                        text: 'Defense Rebounds'
+                    }
+				});                
             }else if( pageobj.find('.items').val()==='ctreb' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,3,6,9,12,15],
@@ -256,15 +304,31 @@ $(function(){
             }else if( pageobj.find('.items').val()==='cast' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,3,6,9,12],
-                    min: -4.6,
+                    min: -4.57,
                     title:{
                         text: 'Assists'
                     }
 				});
+            }else if( pageobj.find('.items').val()==='cst' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,1,2,3],
+                    min: -1.14,
+                    title:{
+                        text: 'Steals'
+                    }
+				});                
+            }else if( pageobj.find('.items').val()==='cblk' ){
+				chartCareerStats.yAxis[0].update({
+					tickPositions: [0,1,2,3,4],
+                    min: -1.5,
+                    title:{
+                        text: 'Blocks'
+                    }
+				});               
             }else if( pageobj.find('.items').val()==='catr' || pageobj.find('.items').val()==='cpf'  || pageobj.find('.items').val()==='cto' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,1,2,3,4,5],
-                    min: -1.85,
+                    min: -1.87,
                     title:{
                         text: 'Value'
                     }                    
