@@ -174,7 +174,7 @@
                             <div ng-style="styleeff(player)" ng-class="" style="float:left;font-weight:bold;text-align:left;height:100%;width:{{ player.bxeff*3.5 }}%">{{ player.bxeff }}</div>
                         </div>
                         <!--LIVE!跟時間-->
-                        <div class="rtbvarL" style="width:4.0%" title="Sum of Z-score Value">{{ player.szv.toFixed(1) }}</div>
+                        <!--<div class="rtbvarL" style="width:4.0%" title="Sum of Z-score Value">{{ player.szv.toFixed(1) }}</div>-->
                         <div class="rtbvarL" style="width:4.0%" ng-class="{livefont:player.livemark=='LIVE!'}">{{ player.livemark }}</div>
                         <div class="rtbvarR midwidth" ng-style="style(player)">{{ Math.floor(player.bxmin) }}:{{ ((player.bxmin*60)%60|number:0)<10 ? 0+((player.bxmin*60)%60|number:0) : ((player.bxmin*60)%60|number:0) }}</div>
                         <!--數據-->
