@@ -29,9 +29,8 @@
                     </span>               
                 </div>
                 
-                <div style="position:absolute;left:70%;margin:10px 0 0 -75px;font-size: 14px;color:gold;font-weight:bold">2014-15 Pre-Season</div>
-                <div style="position:absolute;left:50%;margin-left:-25px"><div class="reflashtime"></div></div>
-                <div style="position:absolute;left:80%;margin:10px 0 0 0;font-size: 14px;color:#fff">
+                <div style="position:absolute;left:30%;margin:5px 0 0 0;font-size: 14px;color:gold;font-weight:bold">2014-15 Pre-Season</div>
+                <div style="position:absolute;left:30%;margin:25px 0 0 0;font-size: 14px;color:#fff">
                     <?
                         $lastupdate = DB::table('realtimeeff')
                         ->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime2'))
@@ -43,7 +42,12 @@
                             echo '<div>'.$lastupdate->updatetime2.'</div>';
                         }
                     ?>
+                </div>                
+                <div style="position:absolute;left:50%;margin-left:-25px"><div class="reflashtime"></div></div>
+                <div style="position:absolute;left:62%;margin:25px 0 0 0;font-size: 14px;color:#fff">
+                    Fantasy: Sum of the Stadarlized Public 9 Cates Values (Z-scroe)
                 </div>
+                
             </div>
 		</div>
             
@@ -78,7 +82,7 @@
                     <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive','bxmin']; reverse=true">Game</div>                    
 					<div class="order-btn rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','bxeff']; reverse=true">Start</div>
 					<div class="order-btn rtbvarC real-bar-eff" ng-click="predicate = ['bxgs','bxeff']; reverse=true" style="color:gold;font-weight:bold">EFF</div>
-					<!--<div class="order-btn rtbvarL" style="width:4.0%;color:gold;font-weight:bold" ng-click="predicate = ['bxgs','szv']; reverse=true">Fantasy</div>-->
+					<div class="order-btn rtbvarL" style="width:4.0%;color:gold;font-weight:bold" ng-click="predicate = ['bxgs','szv']; reverse=true">Fantasy</div>
                     <div class="rtbvarL" style="width:4.0%">　</div> <!--LIVE!orFinal-->
 					<div class="order-btn rtbvarR midwidth" ng-click="predicate = ['bxgs','bxmin']; reverse=true">MIN</div>
 					<div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bxgs','bxfgm','-bxfga']; reverse=true">FG</div>
@@ -174,7 +178,7 @@
                             <div ng-style="styleeff(player)" ng-class="" style="float:left;font-weight:bold;text-align:left;height:100%;width:{{ player.bxeff*3.5 }}%">{{ player.bxeff }}</div>
                         </div>
                         <!--LIVE!跟時間-->
-                        <!--<div class="rtbvarL" style="width:4.0%" title="Sum of Z-score Value">{{ player.szv.toFixed(1) }}</div>-->
+                        <div class="rtbvarL" style="width:4.0%" title="Sum of Z-score Value">{{ player.szv.toFixed(1) }}</div>
                         <div class="rtbvarL" style="width:4.0%" ng-class="{livefont:player.livemark=='LIVE!'}">{{ player.livemark }}</div>
                         <div class="rtbvarR midwidth" ng-style="style(player)">{{ Math.floor(player.bxmin) }}:{{ ((player.bxmin*60)%60|number:0)<10 ? 0+((player.bxmin*60)%60|number:0) : ((player.bxmin*60)%60|number:0) }}</div>
                         <!--數據-->
@@ -359,7 +363,7 @@
 }
 .real-bar-eff {
     float:left;
-	width: 27%;
+	width: 23%;
 	height: 100%;
 }
 .goldback{
