@@ -226,7 +226,7 @@ $(function(){
 					tickPositions: [0,0.05,0.1,0.15,0.2,0.25,0.3,0.35,0.4,0.45,0.5],
                     min: -0.187,
                     title:{
-                        text: '3-Point Shot(%)'
+                        text: '3-Point Shot (%)'
                     }
 				});
             }else if( pageobj.find('.items').val()==='cfgm' ){

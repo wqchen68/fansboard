@@ -219,7 +219,7 @@
             <div style="padding:10px;background-color: rgba(0,0,0,0.2);height:200px;font-size: 14px">
                 Note: Some of the players' news might be not the latest, so you can click player card to update news.<br>
                 
-//<?
+<?
 //    $userip = DB::table('log_data')
 //            ->select('datetime','ip',DB::raw('count(ip) as freq'))
 //            ->where(DB::raw('TIMESTAMPDIFF(MINUTE,datetime,NOW())'),'<=',800)
@@ -232,9 +232,7 @@
 //        $country = file_get_contents('http://api.hostip.info/country.php?ip='.$value->ip);
 //        echo $value->datetime.' -- '.$country.' -- '.$value->freq.' -- '.$value->ip.'<br>';
 //    }
-//    
-//    
-//?> 
+?>
                 
             </div>            
         </div>

@@ -78,7 +78,8 @@
                     <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive','bxmin']; reverse=true">Game</div>                    
 					<div class="order-btn rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','bxeff']; reverse=true">Start</div>
 					<div class="order-btn rtbvarC real-bar-eff" ng-click="predicate = ['bxgs','bxeff']; reverse=true" style="color:gold;font-weight:bold">EFF</div>
-					<div class="rtbvarL" style="width:5.0%">　</div> <!--LIVE!orFinal-->
+					<div class="order-btn rtbvarL" style="width:4.0%;color:gold;font-weight:bold" ng-click="predicate = ['bxgs','szv']; reverse=true">Fantasy</div>
+                    <div class="rtbvarL" style="width:4.0%">　</div> <!--LIVE!orFinal-->
 					<div class="order-btn rtbvarR midwidth" ng-click="predicate = ['bxgs','bxmin']; reverse=true">MIN</div>
 					<div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bxgs','bxfgm','-bxfga']; reverse=true">FG</div>
                     <div class="order-btn rtbvarC midwidth" ng-click="predicate = ['bxgs','bx3ptm','-bx3pta']; reverse=true">3P</div>
@@ -173,7 +174,8 @@
                             <div ng-style="styleeff(player)" ng-class="" style="float:left;font-weight:bold;text-align:left;height:100%;width:{{ player.bxeff*3.5 }}%">{{ player.bxeff }}</div>
                         </div>
                         <!--LIVE!跟時間-->
-                        <div class="rtbvarL" style="width:5.0%" ng-class="{livefont:player.livemark=='LIVE!'}">{{ player.livemark }}</div>
+                        <div class="rtbvarL" style="width:4.0%" title="Sum of Z-score Value">{{ player.szv.toFixed(1) }}</div>
+                        <div class="rtbvarL" style="width:4.0%" ng-class="{livefont:player.livemark=='LIVE!'}">{{ player.livemark }}</div>
                         <div class="rtbvarR midwidth" ng-style="style(player)">{{ Math.floor(player.bxmin) }}:{{ ((player.bxmin*60)%60|number:0)<10 ? 0+((player.bxmin*60)%60|number:0) : ((player.bxmin*60)%60|number:0) }}</div>
                         <!--數據-->
                         <div class="rtbvarR midwidth" ng-style="" ng-class="{goldbold:player.bxfga>=10 && player.bxfgm/player.bxfga>0.6,redbold:player.bxfga>=10 && player.bxfgm/player.bxfga<0.4}" title="Field Goal">{{ player.bxfgm }}-{{ player.bxfga }}</div>
@@ -357,7 +359,7 @@
 }
 .real-bar-eff {
     float:left;
-	width: 26%;
+	width: 23%;
 	height: 100%;
 }
 .goldback{

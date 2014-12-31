@@ -2,32 +2,7 @@
 
 	<div class="onepcssgrid-1p-1200">
 		
-		<div class="onerow" ng-controller="MyCtrl">
-
-			<div class="col-1p12 last">
-
-<!--                <div style="float:left;padding:0 0 0 0">                   
-                    <?=Form::select('position', array(
-                    'ALL' => 'ALL',
-                    'PG' => 'PG',
-                    'SG' => 'SG',
-                    'SF' => 'SF',
-                    'PF' => 'PF',
-                    'C' => 'C',
-                    ), Input::get('position', 'ALL'), array('class' => 'selectForm player_season', 'style' => 'color:#000;box-shadow:0 0 0px rgba(255,0,0,0.9)', 'ng-model' => 'position'))?>                    
-                </div>
-                <div style="float:left;padding:0 0 0 0">                   
-                    <?=Form::select('position', array(
-                    'ALL' => 'ALL',
-                    'PG' => 'PG',
-                    'SG' => 'SG',
-                    'SF' => 'SF',
-                    'PF' => 'PF',
-                    'C' => 'C',
-                    ), Input::get('position', 'ALL'), array('class' => 'selectForm player_season', 'style' => 'color:#000;box-shadow:0 0 0px rgba(255,0,0,0.9)', 'ng-model' => 'position'))?>                    
-                </div>-->
-
-            </div>                        
+		<div class="onerow" ng-controller="MyCtrl">                        
             
             <?
                 $rankplayers = DB::table('syncplayerlist')
@@ -38,13 +13,11 @@
                             . 'SUBSTRING(REPLACE(rwtable.report,"&quot;","\""),1,150) as report, syncplayerlist.orank AS orank, syncplayerlist.arank AS arank'))
                     ->leftJoin('biodata','biodata.fbido','=','syncplayerlist.fbido')
                     ->leftJoin('rwtable','rwtable.fbido','=','syncplayerlist.fbido')
-//                    ->leftJoin('syncdataframe','syncdataframe.fbido','=','syncplayerlist.fbido')
                     ->leftJoin(DB::raw('(SELECT @rownum := @rownum +1 AS rownum,syncdataframe.*,'
                             . ' syncdataframe.zwfgp+syncdataframe.zwftp+syncdataframe.zwpts+syncdataframe.zw3ptm+syncdataframe.zwtreb+syncdataframe.zwast+syncdataframe.zwst+syncdataframe.zwblk+syncdataframe.zwto as zwtotal'
-                            . ' FROM syncdataframe, (SELECT @rownum :=0)b WHERE datarange="ALL" order by zwtotal DESC) syncdataframe'),'syncdataframe.fbido','=','syncplayerlist.fbido')
-                    ->where('syncplayerlist.datarange','=','ALL')
-//                    ->where('syncdataframe.datarange','=','ALL')
-                    ->orderBy('orank','ASC')->get();
+                            . ' FROM syncdataframe, (SELECT @rownum :=0)b WHERE datarange="D30" order by zwtotal DESC) syncdataframe'),'syncdataframe.fbido','=','syncplayerlist.fbido')
+                    ->where('syncplayerlist.datarange','=','D30')
+                    ->orderBy('zwtotal','DESC')->get();
                 
 //                queryLog
 ////                var_dump($rankplayers[1]);
@@ -79,14 +52,22 @@
             </div>
 
             <div class="col-1p12 last" style="background-color: rgba(0,0,0,0.4)">
-                <div class="col-1p3" style="padding: 5px 0 5px 5px">
+                <div class="col-1p3" style="float:left;padding: 5px 0 5px 5px">
                     <input ng-click="start()" type="button" value="Page 1" />
                     <input ng-click="prev()" type="button" value="Rrev <" />
                     <input ng-model="page" size="1" /> / {{ pages }}
                     <input ng-click="next()" type="button" value="> Next" />
                 </div>
-                <div class="col-1p5" style="padding: 5px 0 5px 0px">               
+
+                <div class="col-1p5" style="padding: 5px 0 5px 0px">
+                    <select style="float:left;padding:2px 0 2px 0" ng-model="myTeam" ng-options="position.name for position in positions">
+                        <option value="">-- All Positions --</option>
+                    </select>                    
+                    <select style="float:left;padding:2px 0 2px 0" ng-model="myTeam" ng-options="team.name group by team.division for team in teams">
+                        <option value="">-- All Teams --</option>
+                    </select>                    
                 </div>
+                
                 <div class="col-1p4 last" style="margin: 5px -25px 5px 20px">
                     <div style="float:left;width:60px;height:24px;line-height:24px;font-size:12px;text-align:right;font-weight:bold">Color : </div>
                     <div style="float:left;width:50px;height:24px;line-height:24px;font-size:12px;text-align:center;font-weight:bold;background-color:rgba(0,255,0,0.5)">Best</div>
@@ -301,7 +282,7 @@ angular.module('app', []).filter('startFrom',function(){
     $scope.limit = 25;
     $scope.max = $scope.rankplayers.length;
     $scope.pages = Math.ceil($scope.max/$scope.limit);
-//    
+
 //    $scope.$watch('getNews', function(val){
 //        alert();
 //    });
@@ -332,7 +313,6 @@ angular.module('app', []).filter('startFrom',function(){
         if( $scope.page < $scope.pages )
             $scope.page++;
     };
-
     $scope.prev = function() {
         if( $scope.page > 1 )
             $scope.page--;
@@ -341,7 +321,50 @@ angular.module('app', []).filter('startFrom',function(){
         $scope.page = 1;
     };
     
-//    console.log($scope.rankplayers);
+    $scope.teams = [
+      {name:'Bos',division:'Atlantic' },
+      {name:'Bkn',division:'Atlantic' },
+      {name:'NY' ,division:'Atlantic' },
+      {name:'Phi',division:'Atlantic' },
+      {name:'Tor',division:'Atlantic' },
+      {name:'Chi',division:'Central'  },
+      {name:'Cle',division:'Central'  },
+      {name:'Det',division:'Central'  },
+      {name:'Ind',division:'Central'  },
+      {name:'Mil',division:'Central'  },
+      {name:'Atl',division:'SouthEast'},
+      {name:'Mia',division:'SouthEast'},
+      {name:'Orl',division:'SouthEast'},
+      {name:'Was',division:'SouthEast'},
+      {name:'Cha',division:'SouthEast'},
+      {name:'Dal',division:'SouthWest'},
+      {name:'Hou',division:'SouthWest'},
+      {name:'Mem',division:'SouthWest'},
+      {name:'NO' ,division:'SouthWest'},
+      {name:'SA' ,division:'SouthWest'},
+      {name:'Den',division:'NorthWest'},
+      {name:'Min',division:'NorthWest'},
+      {name:'OKC',division:'NorthWest'},
+      {name:'Por',division:'NorthWest'},
+      {name:'Uta',division:'NorthWest'},
+      {name:'GS' ,division:'Pacific'  },
+      {name:'LAC',division:'Pacific'  },
+      {name:'LAL',division:'Pacific'  },
+      {name:'Pho',division:'Pacific'  },
+      {name:'Sac',division:'Pacific'  }
+    ];
+    $scope.myTeam = null;
+
+    $scope.positions = [
+      {name:'PG'},
+      {name:'SG'},
+      {name:'SF' },
+      {name:'PF'},
+      {name:'C'},
+    ];
+    
+    
+    console.log($scope.rankplayers);
 });
 </script>
 
