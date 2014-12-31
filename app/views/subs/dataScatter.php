@@ -158,7 +158,7 @@
 	<div class="onepcssgrid-1200">
 		<div class="onerow">			
 			<div class="col12">
-                <div style="color:gold; text-align:left;font-size: 25px;padding-left: 200px;line-height: 80px;font-weight: bold">How to use the scatter chart? We suggest 4 basic way: </div>
+                <div style="color:gold; text-align:left;font-size: 25px;padding-left: 200px;line-height: 80px;font-weight: bold">How to use the scatter chart? We suggest 4 basic ways: </div>
 				<img src="/images/scatter1.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
 				<img src="/images/scatter2.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />
 				<img src="/images/scatter3.png" style="margin:0 auto;display:block;width:60%" /><br /><br /><br />

@@ -123,7 +123,7 @@ class Player {
 				->leftJoin('biodata','biodata.fbido','=','realtimeeff.fbido')
                 ->leftJoin(DB::raw('(SELECT * FROM syncdataframe WHERE datarange="ALL") syncdataframe'),'syncdataframe.fbido','=','realtimeeff.fbido')
 				->leftJoin('teamlist','teamlist.team','=','realtimeeff.team')
-				->orderBy('realtimeeff.szv','desc')//->orderBy('realtimeeff.bxpts','desc')
+				->orderBy('realtimeeff.bxeff','desc')->orderBy('realtimeeff.bxpts','desc')
 				->select(
                     'realtimeeff.gameid',
 					'realtimeeff.fbid',
