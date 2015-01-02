@@ -8,8 +8,8 @@
                 $playerstatusO = DB::table('rwtable')
                     ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position'
                             ,DB::raw('REPLACE(rwtable.report,"&quot;","\"") as report,round(1-newsyncdataframe.wgp/82,2)*100 AS abrate'),'newgamelog.prate'
-                            ,DB::raw('STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p") AS date2')
-                            ,DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
+                            ,DB::raw('STR_TO_DATE(CONCAT("2015",DATE),"%Y%b %e - %l:%i %p") AS date2')
+                            ,DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2015",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
                         ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
                         ->leftJoin(DB::raw('(select fbido,round((1-count(bxgs)/count(fbid))*100,0) as prate from allgamelog where season="2014" group by fbid) newgamelog'),'rwtable.fbido','=','newgamelog.fbido')
                         ->leftJoin(DB::raw('(select fbido,wgp from syncdataframe where datarange="Y-1") newsyncdataframe'),'rwtable.fbido','=','newsyncdataframe.fbido')                        
