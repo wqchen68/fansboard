@@ -1,7 +1,7 @@
 $(function () {
 	
-	pageobj.bind('startjs',function(){	
-   		$('#plotbtn').click();		
+	pageobj.bind('startjs',function(){
+   		$('#plotbtn').click();
 	});
 	
 	var chart2 = new Highcharts.Chart({
