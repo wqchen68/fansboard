@@ -79,7 +79,7 @@
 				<div class="tablehead" style="background-color:rgba(0,0,0,0.5);color:#fff;width:100%;height:20px;padding:7px 0px 7px 0px ">
 					<div class="rtbvarC smallwidth">#</div>
 					<div class="rtbvarL playerwidth">Player</div>
-                    <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','team','bxgs','startfive','bxmin']; reverse=true">Game</div>                    
+                    <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','-oppo','bxgs','startfive','bxmin']; reverse=true">Game</div>                    
 					<div class="order-btn rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','bxeff']; reverse=true">Start</div>
 					<div class="order-btn rtbvarC real-bar-eff" ng-click="predicate = ['bxgs','bxeff']; reverse=true" style="color:gold;font-weight:bold">EFF</div>
 					<div class="order-btn rtbvarL" style="width:4.0%;color:gold;font-weight:bold" ng-click="predicate = ['bxgs','szv']; reverse=true">Fantasy</div>

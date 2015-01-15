@@ -1,13 +1,11 @@
 <a class="link-playerAbility faceCardMajor">
     <div class="majorbox playercardsmall highlight">
             <div style="float:left">
-                    <!--<img class="face" style="width:60px;height:72px;display:block" src="<?=asset('images/nophoto.png')?>" />-->
-                    
-                    <div class="" style="background:url(/images/nophoto.png) no-repeat center;background-size:60px 72px">
-                        <!--<div class="face" style="width:60px;height:72px"></div>-->
-                        <img class="face" style="width:60px;height:72px;display:block" />
-                    </div>
-                    
+                                        
+                <div class="" style="background:url(/images/nophoto.png) no-repeat center;background-size:60px 72px">
+                    <img class="face" onerror="this.src='/images/nophoto.png'" style="width:60px;height:72px;display:block" />                        
+                </div>
+                
             </div>
             <div class="playercardsmall-news">
                     <div class="cardplayer"></div>

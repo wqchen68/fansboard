@@ -52,7 +52,7 @@ $(function () {
             changePlayerImg();
         }else{
             pageobj.find('.ability-detail').children('tbody').empty();
-            pageobj.find('.face').css('background-image','url(/images/help1.png)');
+            pageobj.find('.face').css('background-image','url(/images/nophoto.png)');
             pageobj.find('.rank1,.rank2,.basic11,.newsbox').empty();
             var series_size = radarChart.series.length;
             if( series_size>0 )
@@ -152,7 +152,7 @@ $(function () {
     }
 	
     function changePlayerImg(){		
-        pageobj.find('img.face').css('background-image','url(/images/help1.png)');
+        pageobj.find('img.face').css('background-image','url(/images/nophoto.png)');
         if( player.length>0 ){
             pageobj.find('.face.player0').css({'background-image':'url(/player/'+player[0].fbid+'.png)','background-size': '60px 72px'});
             pageobj.find('.link-gameLog1').attr('href','/gameLog/'+player[0].fbid);

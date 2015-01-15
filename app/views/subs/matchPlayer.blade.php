@@ -56,9 +56,11 @@
 
 						<div class="majorboxN">
 							<div class="majorbox playercardsmall highlight" style="box-shadow:0 0 20px rgba(255,255,255,0.9)">
+                                
 								<div style="float:left">
-									<img class="face" style="width:60px;height:72px;display:block" src="/images/nophoto.png" />
-								</div>
+									<img class="face" onerror="this.src='/images/nophoto.png'" style="width:60px;height:72px;display:block" />
+								</div>                                
+                                
 								<div class="playercardsmall-news">
 									<div style="float:left;width:83%">
 										<div class="cardplayer"></div>
@@ -85,7 +87,7 @@
                             <div class="majorboxN">
                                 <div class="majorbox playercardsmall highlight">
                                     <div style="float:left">
-                                        <img class="face" style="width:60px;height:72px;display:block" src="/images/nophoto.png" />
+                                        <img class="face" onerror="this.src='/images/nophoto.png'" style="width:60px;height:72px;display:block" />                        
                                     </div>
                                     <div class="playercardsmall-news">
                                         <div style="float:left;width:83%">

@@ -45,15 +45,14 @@ $(function(){
                 : location.toString();
             window.history.pushState('', '', url);
 
-            changePlayerImg();		
+            changePlayerImg();
             change();
         }
     };
-    funcArray[pageIndex].reflash = reflash;	
-	
+    funcArray[pageIndex].reflash = reflash;
 	
     function changePlayerImg(){		
-        pageobj.find('.majorbox img.face').attr('src','/player/none.jpg');
+        pageobj.find('.majorbox img.face').attr('src','/images/nophoto.png');
         if( player.length>0 ){
             pageobj.find('.majorbox .face').attr('src','/player/'+player[0].fbid+'.png');
             pageobj.find('.link-playerAbility').attr('href','/playerAbility/'+player[0].fbid);
