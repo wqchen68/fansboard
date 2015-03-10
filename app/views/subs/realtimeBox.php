@@ -29,7 +29,7 @@
                     </span>               
                 </div>
                 
-                <div style="position:absolute;left:30%;margin:5px 0 0 0;font-size: 14px;color:gold;font-weight:bold">2014-15 Pre-Season</div>
+                <div style="position:absolute;left:30%;margin:5px 0 0 0;font-size: 14px;color:gold;font-weight:bold">2014-15 Season</div>
                 <div style="position:absolute;left:30%;margin:25px 0 0 0;font-size: 14px;color:#fff">
                     <?
                         $lastupdate = DB::table('realtimeeff')
