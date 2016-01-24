@@ -74,7 +74,7 @@
 			<div class="col-1p6 ">
 				<? 
 //				$tabletitle='Season Most Improved';
-                $tabletitle='HOT Players';
+                $tabletitle='Season HOT!!';
 				$subviewdata = $hotcold_data->recenthot;
 				$tablename = 'recenthot';
 				$tablesign = '+';
@@ -87,7 +87,7 @@
 				
 				<? 
 //				$tabletitle='Season Most Unimproved';
-                $tabletitle='COLD Players';
+                $tabletitle='season cold...';
 				$subviewdata = $hotcold_data->recentcold;
 				$tablename = 'recentcold';
 				$tablesign = '';

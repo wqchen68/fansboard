@@ -44,7 +44,7 @@
                     <? if ( $tablename  == 'todaybo' || $tablename  == 'todaysg'){ ?>
                         <a href="gameLog?player={{ $r->fbid }}" target="_blank" style="text-decoration:none;color:#fff">
                     <? }else{ ?>
-                        <a href="gameLog?player={{ $r->fbid }}" target="_blank" style="text-decoration:none;color:#fff">
+                        <a href="careerStats?player={{ $r->fbid }}" target="_blank" style="text-decoration:none;color:#fff">
                     <? } ?>
                     <div class="prcard" style="position:relative">
 						<div style="float:left;padding:5px">
