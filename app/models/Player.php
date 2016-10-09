@@ -123,7 +123,7 @@ class Player {
 				->leftJoin('biodata','biodata.fbido','=','realtimeeff.fbido')
                 ->leftJoin(DB::raw('(SELECT * FROM syncdataframe WHERE datarange="ALL") syncdataframe'),'syncdataframe.fbido','=','realtimeeff.fbido')
 				->leftJoin('teamlist','teamlist.team','=','realtimeeff.team')
-				->orderBy('realtimeeff.szv','desc')//->orderBy('realtimeeff.bxpts','desc')
+				->orderBy('realtimeeff.bxeff','desc')//->orderBy('realtimeeff.bxpts','desc')
 				->select(
                     'realtimeeff.gameid',
 					'realtimeeff.fbid',
@@ -327,9 +327,9 @@ class Player {
 									FORMAT(A2.pwtreb,1) AS treb2,
 									FORMAT(A2.pwast,1) AS ast2,
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
-					->where('syncplayerlist.datarange','=','D30')
-					->where('A1.datarange','=','D30')
-					->where('A2.datarange','=','D07')
+					->where('syncplayerlist.datarange','=','Y-1')
+					->where('A1.datarange','=','Y-1')
+					->where('A2.datarange','=','ALL')
 					->orderBy('trend','DESC')->take(15)->get();
 
 		$recentcold = DB::table('syncdataframe AS A1')
@@ -349,9 +349,9 @@ class Player {
 									FORMAT(A2.pwtreb,1) AS treb2,
 									FORMAT(A2.pwast,1) AS ast2,
 									syncplayerlist.fbid,REPLACE(syncplayerlist.player," ","") AS player,syncplayerlist.team,syncplayerlist.position'))
-					->where('syncplayerlist.datarange','=','D30')
-					->where('A1.datarange','=','D30')
-					->where('A2.datarange','=','D07')
+					->where('syncplayerlist.datarange','=','Y-1')
+					->where('A1.datarange','=','Y-1')
+					->where('A2.datarange','=','ALL')
 					->orderBy('trend','ASC')->take(15)->get();
 		
 		$livemark = DB::table('realtimeeff')
@@ -523,7 +523,7 @@ class Player {
 												->where('syncdataframe.fbid','=',$inputid)
 												->where('syncdataframe.datarange','=','ALL') //開季後把2拿掉
 												->where('syncplayerlist.datarange','=','ALL')
-												->select(DB::raw('"2014-15",syncplayerlist.team,wgp,FORMAT(pwmin,1),
+												->select(DB::raw('"2015-16",syncplayerlist.team,wgp,FORMAT(pwmin,1),
 								FORMAT(pwfgm,1),
 								FORMAT(pwfga,1),
 								FORMAT(wfgp*100,1),
@@ -549,7 +549,7 @@ class Player {
 		$table_array = array_merge($table_array1,$table_array2);
 		$table_array=array_reverse($table_array,false);
 		
-		array_push($uniseason,'2014-15');
+		array_push($uniseason,'2015-16');
 		foreach($uniteam as $unit){
 			$pickteam = $unit->cteam;
 			
@@ -951,7 +951,7 @@ class Player {
 		//$datarange = 'Y-1';		
 	
 		$sum_item = array_filter($get_array,function($n){
-			$inputcate_filter = array('zwfgm','zwfgp','zwftm','zwftp','zw3ptm','zw3ptp','zworeb','zwdreb','zwtreb','zwast','zwto','zwatr','zwst','zwblk','zwpf','zwpts','zwtech');
+			$inputcate_filter = array('zwfgm','zwfga','zwfgp','zwftm','zwfta','zwftp','zw3ptm','zw3pta','zw3ptp','zworeb','zwdreb','zwtreb','zwast','zwto','zwatr','zwst','zwblk','zwpf','zwpts','zwtech');
 			return in_array($n,$inputcate_filter);
 		});	
 		
@@ -1043,7 +1043,7 @@ class Player {
 			array_push($stat_array,"---");
 		}*/
 				
-		if ($inputseason=='2013'||$inputseason=='2014'){
+		if ($inputseason=='2013'||$inputseason=='2014'||$inputseason=='2015'){
 			$resultAry = DB::table('allgamelog')->where('fbid','=',$inputid)->where('season','=',$inputseason)->orderby('gdate')->select('*',DB::raw('UPPER(goppo) AS goppo'),'bxeff AS colsum')->get();
 			$game_length = count($resultAry);
 			foreach($resultAry as $key => $gd){

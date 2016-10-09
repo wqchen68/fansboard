@@ -166,7 +166,7 @@
 
                         <div class="rtbvarL smallwidth">{{ $index+1 }}</div>
                         <a href="gameLog?player={{ player.fbid }}" target="_blank" style="text-decoration:none;color:#fff">
-                            <div class="rtbvarL playerwidth"  ng-class="{oncourt:player.oncourt==' on-court',offcourt:player.oncourt!=' on-court',goldback:player.bxeff-player.pweff>=10 && player.livemark=='Final',redback:player.bxeff-player.pweff<=-10 && player.livemark=='Final'}">{{ player.player }}</div>
+                            <div class="rtbvarL playerwidth"  ng-class="{oncourt:player.oncourt=='on-court',offcourt:player.oncourt!='on-court',goldback:player.bxeff-player.pweff>=10 && player.livemark=='Final',redback:player.bxeff-player.pweff<=-10 && player.livemark=='Final'}">{{ player.player }}</div>
                         </a>
                         <div class="rtbvarL gamewidth">
                             <div class="rtbvarC" style="width:40%;border-radius:3px;line-height:20px;font-size:12px;font-weight:bold;background-color:{{player.colorback}};color:{{player.colorfont}}">{{ player.team }}</div>
