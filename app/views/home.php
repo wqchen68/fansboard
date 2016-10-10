@@ -3,7 +3,7 @@
 <html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" lang="en" xml:lang="en">
 
 <head>
-	
+
 <title>Fansboard - Easy, fast, smart to analyze your players.</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="en" />
@@ -13,7 +13,7 @@
 
 <meta property="og:title" content="Fansboard" />
 <meta property="og:description" content="Easy, Fast and Smart to analyze your NBA Fantasy basketball players." />
-<meta property="og:type" content="website" /> 
+<meta property="og:type" content="website" />
 <meta property="og:image" content="http://www.fansboard.com/images/fb-logo.png" />
 <meta property="og:url" content="http://www.fansboard.com" />
 <meta property="og:site_name" content="Fansboard"/>
@@ -33,7 +33,7 @@
 
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
 
-	
+
 
 <style>
 body {
@@ -46,7 +46,7 @@ body {
 .col1, .col2, .col3, .col4, .col5, .col6, .col7, .col8, .col9, .col10, .col11, .col12 {
 	color: #000;
 	padding: 0;
-}				
+}
 
 
 .register {
@@ -55,14 +55,14 @@ body {
 	outline: 0;
 }
 .register:hover {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#77d13f), color-stop(50%,#63bd2b), color-stop(100%,#63bd2b)); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#77d13f), color-stop(50%,#63bd2b), color-stop(100%,#63bd2b));
 	cursor: pointer;
 }
 
 
 .home-button {
 	background-repeat: no-repeat;
-	background-size: 128px 174px;	
+	background-size: 128px 174px;
 	width: 128px;
 	height: 100px;
 	float: left;
@@ -196,7 +196,7 @@ a.link:hover {
 		height: 195px;
 		margin: 110px auto;
 	}
-}	
+}
 
 a.menu-item {
 	height: 100%;
@@ -220,7 +220,7 @@ $(document).ready(function(){
 </head>
 
 	<body>
-	
+
 
 		<div style="background-color:#fff">
 			<div class="onepcssgrid-1200" style="margin-top:0">
@@ -230,9 +230,9 @@ $(document).ready(function(){
 					</div>
 				</div>
 				<div style="clear:both"></div>
-			</div>	
+			</div>
 		</div>
-		
+
 		<div class="onepcssgrid-full">
 
 
@@ -247,11 +247,11 @@ $(document).ready(function(){
 
 								<div class="home-main-logo"></div>
 								<div class="home-main-image"></div>
-						
-								<?
+
+								<?php
 								$realtime = Player::gethotcoldPlayer()->getData()->todaybo;
 								?>
-                                
+
                                 <?
 //                                $realtime = DB::table('log_data')
 //                                ->select(DB::raw('parameter AS fbid,COUNT(parameter) AS trend,syncdataframe.pwmin AS min2,syncdataframe.pweff,syncdataframe.pwpts AS pts2,syncdataframe.pwtreb AS treb2,syncdataframe.pwast AS ast2,syncplayerlist.player,syncplayerlist.team,syncplayerlist.position'))
@@ -262,9 +262,9 @@ $(document).ready(function(){
 //                                ->where('syncdataframe.datarange','=','ALL')
 //                                ->where('syncplayerlist.datarange','=','ALL')
 //                                ->orderBy(DB::raw('COUNT(parameter)'),'DESC')
-//                                ->groupBy('parameter')->get();                              
+//                                ->groupBy('parameter')->get();
 //
-//                                
+//
 //                                //$realtime
 //                                foreach ($realtime as $key => $value) {
 //                                    $value->pts2 = round($value->pts2,1);
@@ -273,27 +273,27 @@ $(document).ready(function(){
 //                                    $value->min2 = round($value->min2,1);
 //                                    $value->trend = round($value->trend,1);
 //                                    $realtime[$key] = $value;
-//                                }                                        
-                                ?>                                
+//                                }
+                                ?>
 
-								
-								<div class="majorbox" style="position:relative;top:30px;left:50px;width:200px">									
-										
+
+								<div class="majorbox" style="position:relative;top:30px;left:50px;width:200px">
+
 									<div class="todaydata" style="width:290px;background-image:url(images/basketball-floor.jpg);border-radius:10px;padding:5px">
 
 										<a href="hotcoldPlayer" style="text-decoration:none">
 											<span style="padding:0 0 0 10px;text-align:left;font-weight:bold;font-size:20px;color:red;margin:0 0 8px 0">Today Breakout</span>
 											<span style="padding:0 20px 0 20px;color:#000">More...</span>
 										</a>
-										
+
 										<div style="font-size:14px;line-hight:20px;color:#fff">
 
 											<a href="gameLog?player=<?=$realtime[0]->fbid ?>" style="text-decoration:none;color:#fff">
 											<div class="prcard" style="background-color:rgba(0,0,0,0.6)">
-												<div style="float:left;padding:5px">                                                    
+												<div style="float:left;padding:5px">
                                                     <div style="background:url(/images/nophoto.png) no-repeat center;background-size: 48px 60px">
                                                         <div class="todayboface0" style="width:48px;height:60px;background-image:url(player/<?=$realtime[0]->fbid ?>.png);background-size:48px 60px"></div>
-                                                    </div>                                                    
+                                                    </div>
 												</div>
 												<div style="float:left;padding:5px;height:60px;width:75%">
 													<div class="todaybo-name0"><?=$realtime[0]->player.' ('.$realtime[0]->team.' - '.$realtime[0]->position.')'?></div>
@@ -318,7 +318,7 @@ $(document).ready(function(){
 												<div style="float:left;padding:5px">
                                                     <div style="background:url(/images/nophoto.png) no-repeat center;background-size: 48px 60px">
                                                         <div class="todayboface1" style="width:48px;height:60px;background-image:url(player/<?=$realtime[1]->fbid ?>.png);background-size:48px 60px"></div>
-                                                    </div>                                                    
+                                                    </div>
 												</div>
 												<div style="float:left;padding:5px;height:60px;width:75%">
 													<div class="todaybo-name1"><?=$realtime[1]->player.' ('.$realtime[1]->team.' - '.$realtime[1]->position.')'?></div>
@@ -340,13 +340,13 @@ $(document).ready(function(){
 
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
 
 						<div class="onerow">
-							
+
 								<div class="home-main-point"><div id="fb-root"></div>
 									Follow NBA Stats in Awesome Ways, Manage Fantasy Teams in Moneyball Style, Please Don't Hesitate to Try Fansboard!!
 									<div style="display:inline-block;margin-left:15px;width:55px;height:20px;overflow:hidden;position:relative;top:5px"><div class="fb-follow" data-href="http://www.facebook.com/fansboard" data-width="100px" data-colorscheme="light" data-layout="button" data-show-faces="true"></div></div>
@@ -360,17 +360,17 @@ $(document).ready(function(){
 								  js = d.createElement(s); js.id = id;
 								  js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=251984733230";
 								  fjs.parentNode.insertBefore(js, fjs);
-								}(document, 'script', 'facebook-jssdk'));</script>			
+								}(document, 'script', 'facebook-jssdk'));</script>
 								<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 
-							
+
 						</div>
 
-						
-						
 
-						
+
+
+
 						<div class="onerow">
 							<div class="colfull">
 								<div style="float:right">
@@ -401,29 +401,29 @@ $(document).ready(function(){
 			</div>
 
 		</div>
-			
-		
-		
+
+
+
 		<div class="onepcssgrid-1200" style="margin-top:40px">
 			<div class="onerow">
 				<?=$child_main?>
 			</div>
 		</div>
-		
+
 		<div class="onepcssgrid-full" style="background-color:#000">
 			<div class="onepcssgrid-1200" style="margin-top:80px">
 				<div class="onerow" style="background-color:#000;background-image:url(images/background_allstar.png);background-repeat:no-repeat;background-size:1500px;background-position:center;height:0">
-	
+
 				</div>
-			</div>		
+			</div>
 		</div>
-		
+
 		<div class="onepcssgrid-full" style="margin-top:80px">
 			<div class="onerow">
 				<?=$child_footer?>
 			</div>
 		</div>
-		
+
 
 
 
