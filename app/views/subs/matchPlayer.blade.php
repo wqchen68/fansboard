@@ -10,12 +10,12 @@
 					<div style="float:left;padding:0 0 10px 0">
                         
                                 <?=Form::select('range', array(
-                                'ALL' => '2015-16 Season',
+                                'ALL' => '2016-17 Season',
                                 'D30' => 'Last 4 Weeks',
                                 'D14' => 'Last 2 Weeks',
                                 'D07' => 'Last 1 Week',
-                                'Y-1' => '2014-15 Season',
-                                'Y-2' => '2013-14 Season'
+                                'Y-1' => '2015-16 Season',
+                                'Y-2' => '2014-15 Season'
                                 ), Input::get('data', 'ALL'), array('class' => 'selectForm', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)'))?>
                         
 					</div>

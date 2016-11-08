@@ -15,7 +15,7 @@
                             'D07' => 'Last 1 Week',
                             'Y-1' => '2015-16 Season',
                             'Y-2' => '2014-15 Season'
-                            ), Input::get('data', 'Y-1'), array('class' => 'selectForm', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)'))
+                            ), Input::get('data', 'ALL'), array('class' => 'selectForm', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)'))
                         ?>
 					</div>
                     

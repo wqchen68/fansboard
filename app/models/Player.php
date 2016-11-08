@@ -916,9 +916,9 @@ class Player {
 							})							
 							->where('sl1.datarange','=','Full')	
 							->whereIn('sl1.fbid',$player);
-	
-		if( $player_basic_query->exists() ){
-			$player_basic = $player_basic_query->select('sl1.player','sl1.fbid','sl1.team','sl1.position','sl1.injna','sd.pwpts','sd.pwtreb','sd.pwast')->get();
+		$player_basic = $player_basic_query->select('sl1.player','sl1.fbid','sl1.team','sl1.position','sl1.injna','sd.pwpts','sd.pwtreb','sd.pwast')->get();
+
+		if ($player_basic) {
 			$output_bykey = array();
 			foreach($player_basic as $basic){
 				!isset($basic->pwpts) && $basic->pwpts='---';
@@ -1043,7 +1043,7 @@ class Player {
 			array_push($stat_array,"---");
 		}*/
 				
-		if ($inputseason=='2013'||$inputseason=='2014'||$inputseason=='2015'){
+		if ($inputseason=='2013'||$inputseason=='2014'||$inputseason=='2015'||$inputseason=='2016'){
 			$resultAry = DB::table('allgamelog')->where('fbid','=',$inputid)->where('season','=',$inputseason)->orderby('gdate')->select('*',DB::raw('UPPER(goppo) AS goppo'),'bxeff AS colsum')->get();
 			$game_length = count($resultAry);
 			foreach($resultAry as $key => $gd){
@@ -1202,7 +1202,7 @@ class Player {
 	
 	public static function getPlayer2() {
 		$season = Input::get('range','Full');
-        if ($season=='2014'){
+        if ($season=='2016'){
             $season='ALL';
         }
 //        var_dump($season);

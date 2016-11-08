@@ -29,7 +29,7 @@
                     </span>               
                 </div>
                 
-                <div style="position:absolute;left:30%;margin:5px 0 0 0;font-size: 14px;color:gold;font-weight:bold">2015-16 Season</div>
+                <div style="position:absolute;left:30%;margin:5px 0 0 0;font-size: 14px;color:gold;font-weight:bold">2016-17 Season</div>
                 <div style="position:absolute;left:30%;margin:25px 0 0 0;font-size: 14px;color:#fff">
                     <?
                         $lastupdate = DB::table('realtimeeff')
@@ -107,7 +107,7 @@
                             </div>
 
                             <div style="float:left;padding:0 4px 0 4px">
-                                <div style="padding-left:20px;margin-bottom: 2px">2015-16 Season Average</div>
+                                <div style="padding-left:20px;margin-bottom: 2px">2016-17 Season Average</div>
                                 <div>
                                     <div class="hovercard1">Min</div>
                                     <div class="hovercard1">FGM</div>
