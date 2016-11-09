@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
 <html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xmlns:ng="http://angularjs.org" lang="en" xml:lang="en" ng-app="app">
-	
+
 <head>
-	
+
 <title><?=Lang::get('title.'.$pagename).' - Fansboard'?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="en" />
@@ -13,7 +13,7 @@
 
 <meta property="og:title" content="<?=Lang::get('title.'.$pagename).' - Fansboard'?>" />
 <meta property="og:description" content="<?=Lang::get('description.'.$pagename)?>" />
-<meta property="og:type" content="website" /> 
+<meta property="og:type" content="website" />
 <?=$og_image?>
 <meta property="og:image" content="http://www.fansboard.com/images/fb-logo.png" />
 <meta property="og:url" content="http://www.fansboard.com/<?=$full_url?>" />
@@ -28,7 +28,7 @@
 <script src="/js/highcharts.theme.js"></script>
 <script src="/js/player.js"></script>
 <script src="/js/module.js"></script>
-<script src="/js/angular.min.js"></script>
+<script src="/js/angular/1.5.8/angular.min.js"></script>
 <!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
 
 <link rel="stylesheet" href="/css/onepcssgrid.css" />
@@ -53,36 +53,35 @@ var app = angular.module('app', []);
 //    $('.fb-like').empty();
 //    $('.fb-like').attr('data-href', window.location.toString());
 //    $('.fb-comments').empty();
-//    $('.fb-comments').attr('data-href', window.location.toString());    
-//    
+//    $('.fb-comments').attr('data-href', window.location.toString());
+//
 //    if( typeof(FB)==='object' ){
 //        FB.XFBML.parse();
 //    }
 //}
 
 $(document).ready(function(){
-	
+
 	var index = 1;
 	var index_current;
-	
-	
-	$('.tab').on('click','a.menu-tab-link',function(e){		
+
+
+	$('.tab').on('click','a.menu-tab-link',function(e){
 		e.preventDefault();
 		var c = $(e.currentTarget);
-		var d = $(e.delegateTarget);	
-				
+		var d = $(e.delegateTarget);
+
 		if( c.is('.active') || c.is('.lock') )
 			return false;
 
 		if( !c.is('.init') ){
-			
+
 			if( c.is('[index]') ){
 				acsrc = c.attr('acsrc');
-				index_current = c.attr('index');			
-				pageobj = $('div.move[index='+index_current+']');			
-				insertList();
+				index_current = c.attr('index');
+				pageobj = $('div.move[index='+index_current+']');
 				pageIndex = index_current;
-				move(false,index_current);			
+				move(false,index_current);
 			}else{
 				if( $(this).is('[acsrc]') ){
 					acsrc = c.attr('acsrc');
@@ -91,77 +90,60 @@ $(document).ready(function(){
 				}
 				var newmove = $('<div class="move" index="'+index+'" />').appendTo('#testi');
 				c.attr('index',index);
-				index_current = index;				
+				index_current = index;
 				index++;
 				pageobj = newmove;
 
-				newmove.load('/subs/'+acsrc, function(){	
+				newmove.load('/subs/'+acsrc, function(){
 					pageIndex = index_current;
 					funcArray[pageIndex] = new Object();
 					move(true,index_current);
-					insertList();
 				});
 			}
-	
-			window.history.pushState('', '', '/'+acsrc);	
-			
+
+			window.history.pushState('', '', '/'+acsrc);
+
 			$('title').html(c.text()+' - Fansboard');
-            
-			
+
+
 		}else{
 			c.addClass('active');
 			c.removeClass('init');
-		}        
-                      
+		}
+
 		$('a.menu-tab-link.active').removeClass('active');
 		c.addClass('active');
 		d.addClass('active').siblings().removeClass('active');
-		
+
 		d.siblings().find('h4').eq(0).css('left', '');
 		d.siblings().find('h4').eq(1).css('left', '100%');
-        
+
         d.find('h4').html(c.text());
-        
+
 //        changeFb();
-		
+
 	});
-	
+
 	funcArray[pageIndex] = new Object();
-	pageobj = $('#testi div.move.active');	
-	insertList();	
+	pageobj = $('#testi div.move.active');
 
     getScript(function(){
         pageobj.trigger('startjs');
     });
-    
+
 	$('a.menu-tab-link.init').trigger('click');
-    
-	function insertList(){
-		pageobj.find('.modelBox').each(function(){
-			var mid= $(this).attr('mid');		
-			$('.modelBox[mid='+mid+'].active').removeClass('active').children().appendTo(this);
-			$(this).addClass('active');
-			//fbModule.init(mid);
-		});
-		
-		pageobj.find('.modelCol').css({
-			left: '-200%'
-		}).stop().animate({
-			left: '0%'
-		},200);
-	}
-		
+
 	var move = function(init,index){
 		var width = $('#testi .move').width();
-		
+
 		var pre = $('#testi .move.active');
 		var now = $('#testi .move[index='+index+']');
-		
+
 		pre.stop().hide();
-        
+
         now.css('left', width).show().stop().animate({
             left: '0%'
-        },200,function(){		
+        },200,function(){
             getScript(function(){
                 if( init ){
                     pageobj.trigger('startjs');
@@ -170,17 +152,17 @@ $(document).ready(function(){
                 }
             });
         });
-        
+
 		pre.removeClass('active');
-		now.addClass('active');	
+		now.addClass('active');
 	};
-    
+
     function getScript(handle) {
         jQuery.ajaxSetup({
           cache: true
         });
         var script = '/js/hightchart.' + location.pathname.split('/')[1] + '.js';
-        $.getScript(script, function(){                    
+        $.getScript(script, function(){
             handle();
         });
     }
@@ -199,7 +181,7 @@ $(document).ready(function(){
   js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-    
+
 <!--<div id="gotop">˄</div>backtop
 <script>
 //backtop
@@ -221,42 +203,17 @@ $(function(){
 
 
 <div style="position: relative;min-height: 100%;">
-	
+
 	<?=$mainmenu?>
-    
+
     <div id="testi" style="position:absolute;bottom:50px;top:52px;overflow:auto">
         <div class="move active" index="0" style="height:100%"><?=$testi?>
 
-            <div style="position: absolute ; top:20px; left:1565px">                
-<!--                <div class="fb-like" data-href="" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-                <div class="fb-comments" data-herf="" data-width="300" data-numposts="5" data-colorscheme="light"></div>-->                
-                <div class="fb-like" data-href="" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>                
+            <div style="position: absolute ; top:20px; left:1565px">
+                <div class="fb-like" data-href="" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
             </div>
-
-            
-<!--            <div style="position: absolute ; top:60px; left:300px">
-                <div class="link-hover">
-                    <a href="hotcoldPlayer" target="_blank" title="Player Status - Players' Latest News and Injury Report">
-                        <img style="float:left;width:48px" src="images/icon_hotcold.png" />
-                    </a>
-                </div>
-                <a href="playerStatus" target="_blank" title="Player Status - Players' Latest News and Injury Report">
-                    <div class="link-hover">
-                        <img style="float:left;width:48px" src="images/icon_adsence.png" />
-                    </div>
-                </a>                
-                <a href="playerRankings" target="_blank" title="Player Rankings - Players' Overall and Catagories Power Rankings">
-                    <div class="link-hover">
-                        <img style="float:left;width:48px" src="images/icon_rankings.png" />
-                    </div>
-                </a>
-            </div>            -->
-            
-            
         </div>
     </div>
-	
-    
 	<div style="background-color:#fff;width:100%;height:50px;position:absolute;bottom:0px">
 
 		<div class="onepcssgrid-full">
@@ -266,11 +223,8 @@ $(function(){
 		</div>
 
 	</div>
-	
+
 </div>
-	
-<?=$addin?>
-	
 </body>
 </html>
 

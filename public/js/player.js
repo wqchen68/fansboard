@@ -38,36 +38,36 @@ $(function () {
 	}); 
 	
 
-	$('.modelBox .playerList-combo').on('click','.sign-btn',function(e){
-                var player = $(e.target);
-		if( $(e.delegateTarget).is('.muti') )
-			$(e.delegateTarget).addClass('active');
-		$('.sign-btn').removeClass('active');
-		$('.muti-btn').removeClass('active');
-		player.addClass('active');
-		player.children('.muti-btn').addClass('active');
-		if( funcArray[pageIndex].hasOwnProperty('reflash') )
-			funcArray[pageIndex].reflash();
+	// $('.modelBox .playerList-combo').on('click','.sign-btn',function(e){
+    //             var player = $(e.target);
+	// 	if( $(e.delegateTarget).is('.muti') )
+	// 		$(e.delegateTarget).addClass('active');
+	// 	$('.sign-btn').removeClass('active');
+	// 	$('.muti-btn').removeClass('active');
+	// 	player.addClass('active');
+	// 	player.children('.muti-btn').addClass('active');
+	// 	if( funcArray[pageIndex].hasOwnProperty('reflash') )
+	// 		funcArray[pageIndex].reflash();
 	
-		changeFb();
-        });
-	$('.modelBox .playerList-combo').on('click','.muti-btn',function(e){		
-                var player = $(e.target);
-		player.toggleClass('active');
-		if( player.is('.active') ){
-			player.parent().addClass('active');
-		}else{
-			player.parent().removeClass('active');
-		}
-		if( $(e.delegateTarget).find('.muti-btn.active').length===0 )
-			$(e.delegateTarget).removeClass('active');
-		if( funcArray[pageIndex].hasOwnProperty('reflash') )
-			funcArray[pageIndex].reflash();
+	// 	changeFb();
+    //     });
+	// $('.modelBox .playerList-combo').on('click','.muti-btn',function(e){		
+    //             var player = $(e.target);
+	// 	player.toggleClass('active');
+	// 	if( player.is('.active') ){
+	// 		player.parent().addClass('active');
+	// 	}else{
+	// 		player.parent().removeClass('active');
+	// 	}
+	// 	if( $(e.delegateTarget).find('.muti-btn.active').length===0 )
+	// 		$(e.delegateTarget).removeClass('active');
+	// 	if( funcArray[pageIndex].hasOwnProperty('reflash') )
+	// 		funcArray[pageIndex].reflash();
         
-        	changeFb();
+    //     	changeFb();
                 
-                e.stopPropagation();
-	});
+    //             e.stopPropagation();
+	// });
 
 	
 	$.fn.extend({

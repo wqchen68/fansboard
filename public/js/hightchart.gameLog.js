@@ -19,11 +19,6 @@ $(function(){
         }
     });
 	
-    pageobj.on('change','select[name=range]',function(){
-        $('.modelBox .playerList-combo').getPlayerList2(playerInit,function(){
-            reflash();
-        });
-    });	
 	
     var reflash = function(){	
         player = pageobj.find('.playerList-combo td.active').getPlayer();
@@ -45,147 +40,12 @@ $(function(){
                 : location.toString();
             window.history.pushState('', '', url);
 
-            changePlayerImg();
             change();
         }
     };
     funcArray[pageIndex].reflash = reflash;
 	
-    function changePlayerImg(){		
-        pageobj.find('.majorbox img.face').attr('src','/images/nophoto.png');
-        if( player.length>0 ){
-            pageobj.find('.majorbox .face').attr('src','/player/'+player[0].fbid+'.png');
-            pageobj.find('.link-playerAbility').attr('href','/playerAbility/'+player[0].fbid);
-        }
-    };
-	
-    pageobj.find('.basic1,.basic2,.basic3,.stat').empty();
-	
-    function change(){
-        $.getJSON('/data/getLog',{player:player,datarange:pageobj.find('select[name=range]').val()},function(data){
-			
-            pageobj.find('.link-playerAbility').changePlayerImg(data[0]['card'][0]);
-			
-            /*pageobj.find('.basic1').html(data[0].card[0]);
-            pageobj.find('.basic2').html(data[0].basic[1]+'&nbsp-&nbsp'+data[0].basic[2]);
-            pageobj.find('.basic3').html(data[0].basic[3]);
-            pageobj.find('.stat').html(data[0].stat[0]+' pts,  '+data[0].stat[1]+' reb,  '+data[0].stat[2]+' ast');*/
-				
-            $('#tableGamelog').children('tbody').find('tr').remove();
 
-            for( var i in data[0]['table'] ){
-                
-                var tablerow = data[0]['table'][i];				
-                var scoreTable = $('<tr class="report-detail"/>').appendTo('#tableGamelog tbody');
-
-                for( var j in tablerow ){
-                    //scoreTable.append('<td>'+tablerow[j]+'</td>');
-                    if (j=='score'| j=='goppo'){
-                            scoreTable.append('<td style="text-align:left">'+tablerow[j]+'</td>');
-                    }else{
-                            scoreTable.append('<td>'+tablerow[j]+'</td>');
-                    }
-                }
-            }
-            /*
-            for( var j=0;j<data.table[i].length;j++ ){
-                    //scoreTable.eq(j).html(data.table[i][j]);
-            }
-
-            var scoreTable = $('<tr />').appendTo('#tableGamelog tbody');
-            scoreTable.append('<th class="report-detail">'+player[i].name+'</th>');
-            */
-
-            var series_size = chart.series.length;
-
-            if( series_size>0 )
-            for( i=0;i<series_size;i++ ){
-                if( chart.series[0] )
-                chart.series[0].remove(false);
-            }
-			
-            chart.addSeries({
-                type: 'spline',
-                name: 'Game EFF',
-                data: data[0].current,
-                color: 'rgba(200,200,200,0.4)',
-                yAxis: 0,
-                dashStyle: 'Dash',
-                marker: {
-                    symbol: 'circle'
-                }
-            },false);
-
-
-            chart.addSeries({ 	
-                type: 'spline',
-                name: 'Sohrt-Term',
-                data: data[0].ma3,
-                color: '#00CCFF',
-                yAxis: 0,
-                marker: {
-                    symbol: 'circle'
-                }
-            },false);
-
-            chart.addSeries({ 	
-                type: 'spline',
-                name: 'Mid-Term',
-                data: data[0].ma6,
-                color: 'rgba(0,255,0,1)',
-                yAxis: 0,
-                marker: {
-                    symbol: 'circle'
-                }
-            },false);
-
-            chart.addSeries({ 	
-                type: 'spline',
-                name: 'Long-Term',
-                data: data[0].ma9,
-                color: '#ff0066',
-                yAxis: 0,
-                marker: {
-                    symbol: 'circle'
-                }
-            },false);
-
-            chart.addSeries({ 	
-                name: 'Start',
-                color: '#4572A7',
-                type: 'column',
-                data: data[0].min1,
-                yAxis: 1,
-                states: {
-                    hover: {
-                        brightness: 0.5
-                    }
-                }
-            },false);
-
-            chart.addSeries({ 	
-                name: 'Bench',
-                showInLegend: false,
-                color: '#c0504d',//'#008866'
-                type: 'column',
-                data: data[0].min2,
-                yAxis: 1,
-                states: {
-                    hover: {
-                        brightness: 0.5
-                    }
-                }
-            },false);
-            
-            chart.xAxis[0].setCategories(data[0].date);
-            oppo = data[0].oppo;
-            chart.options.exporting.filename='Gamelog#'+player[0].fbid;
-
-            chart.redraw();
-			
-        }).error(function(e){
-        });
-    }
 	
 
     var chart = new Highcharts.Chart({
