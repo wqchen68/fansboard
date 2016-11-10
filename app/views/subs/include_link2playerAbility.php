@@ -1,4 +1,4 @@
-<a class="link-playerAbility faceCardMajor">
+<a class="link-playerAbility faceCardMajor" href="/playerAbility/{{selectedPlayer.fbid}}">
     <div class="majorbox playercardsmall highlight">
         <div style="float:left">
 

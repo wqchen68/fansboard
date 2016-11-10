@@ -9,14 +9,9 @@
                 <div class="playerlistblock">
 
                     <div style="float:left;padding:0 0 10px 0">
-                        <?=Form::select('range', array(
-                            '2016' => '2016-17 Season',
-                            '2015' => '2015-16 Season',
-                            '2014' => '2014-15 Season',
-                            '2013' => '2013-14 Season',
-                            '2012' => '2012-13 Season',
-                            '2011' => '2011-12 Season'
-                            ), Input::get('season', '2016'), array('class' => 'selectForm', 'ng-model' => 'rangeNow', 'style' => 'color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)'))?>
+                        <select ng-model="rangeNow" ng-change="getPlayers()" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)">
+                            <option value="{{range.key}}" ng-repeat="range in ranges">{{range.name}}</option>
+                        </select>
                     </div>
 
                     <?php include('include_link2realtimeBox.php'); ?>
@@ -102,11 +97,14 @@
                     </thead>
 
                     <tbody>
+                        <tr class="report-detail" ng-repeat="score in scores">
+                            <td ng-style="{'text-align':column.align}" ng-repeat="column in score.columns">{{column.value}}</td>
+                        </tr>
                     </tbody>
 
                     </table>
                     <div class="tableupdate">
-                        <? include('include_updatetime.php'); ?>
+                        <?php include('include_updatetime.php'); ?>
                     </div>
                 </div>
             </div>
@@ -197,10 +195,18 @@ div.exfig{
 
 </style>
 
-<span class="javascript" src="/js/hightchart.gamelog.js"></span>
-
 <script>
 app.controller('gamelogCtl', function($scope ,$filter, $http, $sce) {
+    $scope.ranges = [
+        {key:'2016' , name: '2016-17 Season'},
+        {key:'2015' , name: '2015-16 Season'},
+        {key:'2014' , name: '2014-15 Season'},
+        {key:'2013' , name: '2013-14 Season'},
+        {key:'2012' , name: '2012-13 Season'},
+        {key:'2011' , name: '2011-12 Season'}
+    ];
+    $scope.rangeNow = '<?=Input::get('season', '2016')?>';
+
     $scope.getPlayers = function() {
         $scope.players = [];
         $http({method: 'GET', url: '/getPlayer2', data:{range: $scope.rangeNow}})
@@ -225,29 +231,236 @@ app.controller('gamelogCtl', function($scope ,$filter, $http, $sce) {
             player.active = false;
         });
 
-        $scope.selectedPlayer = player;
-        $scope.selectedPlayer.active = true;
-        //$scope.reflash();
+        player.active = true;
+        $scope.reflash();
     };
 
-    $scope.change = function() {
-        $.getJSON('/data/getLog',{player:player,datarange:pageobj.find('select[name=range]').val()},function(data){
-				
-            $('#tableGamelog').children('tbody').find('tr').remove();
+    $scope.reflash = function(){
+        $scope.selectedPlayers = $filter('filter')($scope.players, {active: true});
+        playerInit = $scope.selectedPlayers.map(function(selectedPlayer){ return selectedPlayer.fbid; });
 
-            for( var i in data[0]['table'] ){
-                
-                var tablerow = data[0]['table'][i];				
-                var scoreTable = $('<tr class="report-detail"/>').appendTo('#tableGamelog tbody');
+        var location = window.location;
+        url = playerInit.length>0
+            ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?season='+$scope.rangeNow
+            : location.toString();
+        window.history.pushState('', '', url);
 
-                for( var j in tablerow ){
-                    //scoreTable.append('<td>'+tablerow[j]+'</td>');
-                    if (j=='score'| j=='goppo'){
-                            scoreTable.append('<td style="text-align:left">'+tablerow[j]+'</td>');
-                    }else{
-                            scoreTable.append('<td>'+tablerow[j]+'</td>');
+
+        if ($scope.selectedPlayers.length>0) {
+            $scope.change();
+        }
+    };
+
+    var chart = new Highcharts.Chart({
+
+        chart: {
+            renderTo: $('#chart_gamelog').get(0),
+            alignTicks: false,
+            width: 896,
+            height: 600,
+            zoomType: 'xy',
+            borderColor: 'rgba(0,0,0,0.0)',
+            borderRadius: 0,
+            borderWidth: 0,
+            type: 'line',
+            plotBorderColor: '#888',
+            plotBorderWidth: 0,
+            backgroundColor: 'rgba(0,0,0,0.6)',
+            marginTop: 50
+        },
+        credits: {
+            enabled: false
+        },
+        title: {
+            text: 'Game Performance',
+            y: 20
+        },        
+        exporting: {
+            buttons: {
+                contextButton: {
+                    menuItems: [{
+                        text: 'Download Graph (PNG)',
+                        onclick: function () {
+                            this.exportChart({
+                                width: 896,
+                                type: 'image/png'
+                            });
+                        }
+                    },{
+                        text: 'Download Graph (PDF)',
+                        onclick: function () {
+                            this.exportChart({
+                                width: 896,
+                                type: 'application/pdf'
+                            });
+                        }
+                    }]
+                }
+            },
+        },
+        navigation: {
+            buttonOptions: {
+                enabled: true,
+                align: 'center',
+                x:100,
+                y:3
+//                height: 20,
+//                width: 24,
+//                symbolSize: 14,
+//                symbolX: 12.5,
+//                symbolY: 10.5,
+//                symbolStroke: '#666',
+//                symbolStrokeWidth: 1,
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            borderWidth: 1,
+            borderColor: '#FFF',
+            backgroundColor: 'rgba(255,255,255,0.1)',
+            x: 0,
+            y: 0
+        },
+        labels: {
+            items: [{
+                html: 'Hot',
+                style: {
+                    left: '65px',
+                    top: '5px',
+                    color: 'rgba(255,0,0,1)',
+                    fontWeight: 'bold',
+                    fontSize: 12}
+                },{
+                html: 'Cold',
+                style: {
+                    left: '65px',
+                    top: '335px',
+                    color: 'rgba(0,187,255,1)',
+                    fontWeight: 'bold',
+                    fontSize: 12}
+            }]
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal'
+            },
+            series: {
+                lineWidth: 1.5,
+                marker: {
+                    radius: 2
+                },
+                borderWidth: 0,
+                pointPadding: 0,
+                allowPointSelect: true,
+                states: {
+                    hover: {
+                        enabled: true,
+                        lineWidth: 1.5,
+                        marker:{
+                            enabled: true,
+                            radius: 5
+                        }
                     }
                 }
+            }
+        },
+        tooltip: {
+            snap: 5,
+            animation: false,
+            backgroundColor: '#000',
+            borderColor: '#fff',
+            borderWidth: 1,
+            borderRadius: 7,
+            shadow: false,
+            hideDelay: 0,
+            shared: true,
+            positioner: function () {
+                return { x: 68, y: 8 };
+            },
+            formatter: function() {
+                return this.x + ',   EFF:' + this.y+' '+oppo[this.x];
+            }
+        },
+        xAxis: [{
+            labels: {
+                rotation: 30,
+                //x: -5,
+                //y: 18,
+                step: 1,
+                style: {
+                    fontSize: 5
+                }
+            },
+            startOnTick: true,
+            tickInterval: 5,
+            tickWidth: 0.3,
+            tickmarkPlacement: 'on',            
+            max: 81,
+            min: 0
+        }],
+        yAxis: [{ // performance line
+            id: 0,
+            title: {
+                text: 'EFF Value',
+                style: {},
+                y: -100					
+            },
+            labels: {
+            },
+            tickPositions: [0,10,20,30,40],
+            min: -13.333333333333,
+            startOnTick: false,
+            endOnTick: true,
+            plotBands: [{
+                from: 20,
+                to: 40,
+                color: 'rgba(255, 0, 0, 0.1)'
+            },{
+                from: 0,
+                to: 20,
+                color: 'rgba(0, 128, 128, 0.1)'
+            }],
+        },{ // time bar
+            id: 1,
+            title: {
+                text: 'Time',
+                style: {},
+                y: 180
+            },
+            labels: {
+            },
+            tickPositions: [0,12,24,36,48],
+            max: 192,
+            startOnTick: true,
+            endOnTick: false,
+            plotLines: [{
+                color: '#fff',
+                width: 1,
+                value: 48
+            }],
+            opposite: true
+        }]
+    });
+
+    $scope.change = function() {
+        $http({method: 'POST', url: '/data/getLog', data: {player: $scope.selectedPlayers, datarange: $scope.rangeNow}})
+        .success(function(data, status, headers, config) {
+
+            console.log(data);
+
+            $scope.scores = [];
+
+            for( var i in data[0]['table'] ){
+                var tablerow = data[0]['table'][i];	
+
+                var score = {columns: []};
+
+                for (var j in tablerow) {
+                    score.columns.push({value: tablerow[j], align: j=='score' || j=='goppo' ? 'left' : 'right'});
+                }
+                $scope.scores.push(score);
             }
 
             var series_size = chart.series.length;
@@ -333,11 +546,12 @@ app.controller('gamelogCtl', function($scope ,$filter, $http, $sce) {
             
             chart.xAxis[0].setCategories(data[0].date);
             oppo = data[0].oppo;
-            chart.options.exporting.filename='Gamelog#'+player[0].fbid;
+            chart.options.exporting.filename='Gamelog#'+$scope.selectedPlayers[0].fbid;
 
             chart.redraw();
 			
-        }).error(function(e){
+        }).error(function(e) {
+            console.log(e);
         });
     };
 });
