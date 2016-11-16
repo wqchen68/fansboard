@@ -27,8 +27,8 @@
 <script src="/js/Highcharts-4.0.3/js/modules/exporting.src.js"></script>
 <script src="/js/highcharts.theme.js"></script>
 <script src="/js/player.js"></script>
-<script src="/js/module.js"></script>
 <script src="/js/angular/1.5.8/angular.min.js"></script>
+<script src="/js/angular/1.5.8/angular-route.min.js"></script>
 <!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
 
 <link rel="stylesheet" href="/css/onepcssgrid.css" />
@@ -39,193 +39,78 @@
 <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">-->
 <link rel="stylesheet" href="/css/font-awesome.css" />
 
+<script src="/js/hightchart.creatRadarChart.js"></script>
+<script src="/js/ng-player.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/controllers/playerAbility.js"></script>
+<script src="/js/controllers/gameLog.js"></script>
+<script src="/js/controllers/splitStats.js"></script>
+<script src="/js/controllers/careerStats.js"></script>
+
 <script type="text/javascript">
-var pageobj;
-var radarChart;
-var playerInit = <?=$player?>;
-var funcArray = [];
-var pageIndex = 0;
-var jsfiles = ['playerAbility'];
-var app = angular.module('app', []);
+// $(document).ready(function(){
+
+// 	var index = 1;
+// 	var index_current;
 
 
-//function changeFb(){
-//    $('.fb-like').empty();
-//    $('.fb-like').attr('data-href', window.location.toString());
-//    $('.fb-comments').empty();
-//    $('.fb-comments').attr('data-href', window.location.toString());
-//
-//    if( typeof(FB)==='object' ){
-//        FB.XFBML.parse();
-//    }
-//}
+// 	$('.tab').on('click','a.menu-tab-link',function(e){
+// 		e.preventDefault();
+// 		var c = $(e.currentTarget);
+// 		var d = $(e.delegateTarget);
 
-$(document).ready(function(){
+// 		$('a.menu-tab-link.active').removeClass('active');
+// 		c.addClass('active');
+// 		d.addClass('active').siblings().removeClass('active');
 
-	var index = 1;
-	var index_current;
+// 		d.siblings().find('h4').eq(0).css('left', '');
+// 		d.siblings().find('h4').eq(1).css('left', '100%');
 
+//         d.find('h4').html(c.text());
 
-	$('.tab').on('click','a.menu-tab-link',function(e){
-		e.preventDefault();
-		var c = $(e.currentTarget);
-		var d = $(e.delegateTarget);
-
-		if( c.is('.active') || c.is('.lock') )
-			return false;
-
-		if( !c.is('.init') ){
-
-			if( c.is('[index]') ){
-				acsrc = c.attr('acsrc');
-				index_current = c.attr('index');
-				pageobj = $('div.move[index='+index_current+']');
-				pageIndex = index_current;
-				move(false,index_current);
-			}else{
-				if( $(this).is('[acsrc]') ){
-					acsrc = c.attr('acsrc');
-				}else{
-					acsrc = 'nopage';
-				}
-				var newmove = $('<div class="move" index="'+index+'" />').appendTo('#testi');
-				c.attr('index',index);
-				index_current = index;
-				index++;
-				pageobj = newmove;
-
-				newmove.load('/subs/'+acsrc, function(){
-					pageIndex = index_current;
-					funcArray[pageIndex] = new Object();
-					move(true,index_current);
-				});
-			}
-
-			window.history.pushState('', '', '/'+acsrc);
-
-			$('title').html(c.text()+' - Fansboard');
+// 	});
 
 
-		}else{
-			c.addClass('active');
-			c.removeClass('init');
-		}
+// 	$('a.menu-tab-link.init').trigger('click');
+//     function getScript(handle) {
+//         jQuery.ajaxSetup({
+//           cache: true
+//         });
+//         var script = '/js/hightchart.' + location.pathname.split('/')[1] + '.js';
+//         $.getScript(script, function(){
+//             handle();
+//         });
+//     }
 
-		$('a.menu-tab-link.active').removeClass('active');
-		c.addClass('active');
-		d.addClass('active').siblings().removeClass('active');
-
-		d.siblings().find('h4').eq(0).css('left', '');
-		d.siblings().find('h4').eq(1).css('left', '100%');
-
-        d.find('h4').html(c.text());
-
-//        changeFb();
-
-	});
-
-	funcArray[pageIndex] = new Object();
-	pageobj = $('#testi div.move.active');
-
-    getScript(function(){
-        pageobj.trigger('startjs');
-    });
-
-	$('a.menu-tab-link.init').trigger('click');
-
-	var move = function(init,index){
-		var width = $('#testi .move').width();
-
-		var pre = $('#testi .move.active');
-		var now = $('#testi .move[index='+index+']');
-
-		pre.stop().hide();
-
-        now.css('left', width).show().stop().animate({
-            left: '0%'
-        },200,function(){
-            getScript(function(){
-                if( init ){
-                    pageobj.trigger('startjs');
-                }else{
-                    pageobj.trigger('init');
-                }
-            });
-        });
-
-		pre.removeClass('active');
-		now.addClass('active');
-	};
-
-    function getScript(handle) {
-        jQuery.ajaxSetup({
-          cache: true
-        });
-        var script = '/js/hightchart.' + location.pathname.split('/')[1] + '.js';
-        $.getScript(script, function(){
-            handle();
-        });
-    }
-
-});
+// });
 </script>
 </head>
 
 <body>
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<!--<div id="gotop">˄</div>backtop
-<script>
-//backtop
-$(function(){
-    $("#gotop").click(function(){
-        jQuery("#testi").animate({
-            scrollTop:0
-        },1000);
-    });
-    $("#testi").scroll(function() {
-        if ( $(this).scrollTop() > 300){
-            $('#gotop').fadeIn("fast");
-        } else {
-            $('#gotop').stop().fadeOut("fast");
-        }
-    });
-});
-</script>-->
-
-
 <div style="position: relative;min-height: 100%;">
 
-	<?=$mainmenu?>
+    <?=$mainmenu?>
 
     <div id="testi" style="position:absolute;bottom:50px;top:52px;overflow:auto">
-        <div class="move active" index="0" style="height:100%"><?=$testi?>
+        <div class="move active" index="0" style="height:100%">
+
+            <div ng-view></div>
 
             <div style="position: absolute ; top:20px; left:1565px">
                 <div class="fb-like" data-href="" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
             </div>
         </div>
     </div>
-	<div style="background-color:#fff;width:100%;height:50px;position:absolute;bottom:0px">
+    <div style="background-color:#fff;width:100%;height:50px;position:absolute;bottom:0px">
 
-		<div class="onepcssgrid-full">
-			<div class="onerow">
-				<?=$child_footer?>
-			</div>
-		</div>
+        <div class="onepcssgrid-full">
+            <div class="onerow">
+                <?=$child_footer?>
+            </div>
+        </div>
 
-	</div>
+    </div>
 
 </div>
 </body>
 </html>
-
-

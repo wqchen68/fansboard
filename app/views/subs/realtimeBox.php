@@ -31,7 +31,7 @@
                 
                 <div style="position:absolute;left:30%;margin:5px 0 0 0;font-size: 14px;color:gold;font-weight:bold">2016-17 Season</div>
                 <div style="position:absolute;left:30%;margin:25px 0 0 0;font-size: 14px;color:#fff">
-                    <?
+                    <?php
                         $lastupdate = DB::table('realtimeeff')
                         ->select(DB::raw('DATE_FORMAT(DATE_SUB(updatetime,INTERVAL 1 DAY),"%a - %b %d, %Y") AS updatetime2'))
                         ->orderBy('updatetime','desc')

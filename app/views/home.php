@@ -252,7 +252,7 @@ $(document).ready(function(){
 								$realtime = Player::gethotcoldPlayer()->getData()->todaybo;
 								?>
 
-                                <?
+                                <?php
 //                                $realtime = DB::table('log_data')
 //                                ->select(DB::raw('parameter AS fbid,COUNT(parameter) AS trend,syncdataframe.pwmin AS min2,syncdataframe.pweff,syncdataframe.pwpts AS pts2,syncdataframe.pwtreb AS treb2,syncdataframe.pwast AS ast2,syncplayerlist.player,syncplayerlist.team,syncplayerlist.position'))
 //                                ->leftJoin('syncdataframe','log_data.parameter','=','syncdataframe.fbid')
@@ -300,7 +300,7 @@ $(document).ready(function(){
 													<div class="todaybo-today0" style="color:red"><?=$realtime[0]->pts2.' PTS, '.$realtime[0]->treb2.' REB, '.$realtime[0]->ast2.' AST'?></div>
 													<div style="float:right">
 														<span class="todaybo-min0" style="color:red"><?='Min '.$realtime[0]->min2.', '?></span>
-                                                        <?
+                                                        <?php
                                                         if (strlen($realtime[0]->trend)==0){
                                                             echo '<span class="todaybo-eff0" style="color:gold">EFF ---</span>';
                                                         }else{
@@ -325,7 +325,7 @@ $(document).ready(function(){
 													<div class="todaybo-today1" style="color:red"><?=$realtime[1]->pts2.' PTS, '.$realtime[1]->treb2.' REB, '.$realtime[1]->ast2.' AST'?></div>
 													<div style="float:right">
 														<span class="todaybo-min1" style="color:red"><?='Min '.$realtime[1]->min2.', '?></span>
-                                                        <?
+                                                        <?php
                                                         if (strlen($realtime[0]->trend)==0){
                                                             echo '<span class="todaybo-eff1" style="color:gold">EFF ---</span>';
                                                         }else{
@@ -406,7 +406,7 @@ $(document).ready(function(){
 
 		<div class="onepcssgrid-1200" style="margin-top:40px">
 			<div class="onerow">
-				<?=$child_main?>
+				<?//=$child_main?>
 			</div>
 		</div>
 

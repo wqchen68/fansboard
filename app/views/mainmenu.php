@@ -2,7 +2,7 @@
 	Form::macro('tabi', function($pagename_input,$pagenametext,$state='') use($pagename) {
 		return
             '<li class="tabi">' .
-            '<a href="'.$pagename_input.'" '.($pagename==$pagename_input?'index="0"':'').' class="menu-tab-link button '.$state.($pagename==$pagename_input?' init':'').'" acsrc="'.$pagename_input.'"  title="'.Lang::get('description.'.$pagename_input).'">' .
+            '<a href="/'.$pagename_input.'" '.($pagename==$pagename_input?'index="0"':'').' class="menu-tab-link button '.$state.($pagename==$pagename_input?' init':'').'" acsrc="'.$pagename_input.'"  title="'.Lang::get('description.'.$pagename_input).'">' .
                 $pagenametext .
             '</a></li>';
 	});

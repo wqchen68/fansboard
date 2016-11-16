@@ -27,7 +27,7 @@ Route::get('/', function(){
 
     $contents = View::make('home')
             ->nest('child_tab','index_tab')
-            ->nest('child_main','main')
+            //->nest('child_main','main')
             ->nest('child_footer','footer');
     $response = Response::make($contents, 200);
     $response->header('Cache-Control', 'no-store, no-cache, must-revalidate');
@@ -36,13 +36,12 @@ Route::get('/', function(){
     return $response;
 
 });
+
 Route::get('getPlayer2', function() {
     $season = Input::get('range','Full');
     if ($season=='2014'){
         $season='ALL';
     }
-//        var_dump($season);
-    //$season=='ALL' && $season = 'Full';
 
     $players = DB::table('syncplayerlist')
             ->leftJoin('biodata','syncplayerlist.fbido','=','biodata.fbido')
@@ -52,6 +51,9 @@ Route::get('getPlayer2', function() {
     $queryLog = DB::getQueryLog();
     return Response::json(array('players'=>$players,'query'=>json_encode($queryLog)));
 });
+
+Route::get('view/{page}', function($page) { return View::make('subs.' . $page); });
+
 Route::get('subs/{name}', 'HomeController@showNopage');
 Route::any('data/{name}', array('before'=>'player','uses'=>'HomeController@showData'));
 Route::any('sort/{name}', 'HomeController@showSort');

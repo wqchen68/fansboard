@@ -1,4 +1,4 @@
-<div class="insidemove" style="color:#fff" ng-controller="abilityCtl">
+<div class="insidemove" style="color:#fff">
 
     <div class="onepcssgrid-1p-1200">
 
@@ -8,32 +8,16 @@
                 <div class="playerlistblock">
 
                     <div style="float:left;padding:0 0 10px 0">
-                        <select ng-model="rangeNow" ng-change="getPlayers()" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)">
+                        <select ng-model="rangeNow" style="color:#000;box-shadow:0 0 20px rgba(255,0,0,0.9)">
                             <option value="{{range.key}}" ng-repeat="range in ranges">{{range.name}}</option>
                         </select>
                     </div>
 
-                    <? include('include_link2realtimeBox.php'); ?>
+                    <?php include('include_link2realtimeBox.php'); ?>
 
                     <div style="height:0;clear:both"></div>
 
-                    <div class="modelBox active" mid="51" style="height:513px">
-                        <div class="transparent" style="height:20px;overflow:hidden;border:0px solid #fff;border-bottom:0">
-                            <div>
-                                <input type="text" class="filter gray" style="width:98%;margin:0;padding:1%;border:0;outline: none;color:#999"  placeholder="Type Player Name..." />
-                            </div>
-                        </div>
-                        <div class="transparent" style="height:100%; overflow-y:scroll;border:1px solid #fff;font-size: 14px">
-                            <table class="plist playerList-combo muti active" cellspacing="0">
-                                <tr ng-repeat="player in players">
-                                    <td class="sign-btn" ng-class="{active:player.active}" value ="{{player.fbid}}" team="{{player.team}}" ng-click="selectSignPlayer(player)">
-                                        {{player.player}}
-                                        <div class="muti-btn" ng-class="{active:player.active}" ng-click="$event.stopPropagation();player.active=!player.active;reflash()" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+                    <div players range-now="rangeNow" reflash="reflash" muti="true"></div>
 
                 </div>
             </div>
@@ -166,7 +150,7 @@
                         </tbody>
                     </table>
                     <div class="tableupdate">
-                        <? include('include_updatetime.php'); ?>
+                        <?php include('include_updatetime.php'); ?>
                     </div>
                     <div class="tableupdate">Players with only one game are excluded.</div>
                 </div>
@@ -175,9 +159,6 @@
 
         <div class="onerow mobileview" style="height: 750px">
             <div class="col-1p12" style="background-color:rgba(0,0,0,0.2);margin-top:10px">
-
-<!--                <img src="/images/radar1.png" style="margin:0 auto;display:block;width:70%" />
-                <img src="/images/radar2.png" style="margin:0 auto;display:block;width:70%" />-->
 
                 <div style="font-size:12px;margin:30px 0 0 200px;color:#fff">What it Means?</div>
 
@@ -309,177 +290,3 @@
     margin: 1px;
 }
 </style>
-
-<script src="/js/hightchart.creatRadarChart.js"></script>
-
-<script>
-app.controller('abilityCtl', function($scope ,$filter, $http, $sce) {
-    $scope.rankOptions = [
-        {value:"zwfgm", title:"FGM", checked:false},
-        {value:"zwfga", title:"FGA", checked:false},
-        {value:"zwfgp", title:"FG%*", checked:true},
-        {value:"zwftm", title:"FTM", checked:false},
-        {value:"zwfta", title:"FTA", checked:false},
-        {value:"zwftp", title:"FT%*", checked:true},
-        {value:"zw3ptm", title:"3PTM", checked:true},
-        {value:"zw3pta", title:"3PTA", checked:false},
-        {value:"zw3ptp", title:"3PT%*", checked:false},
-        {value:"zworeb", title:"OREB", checked:false},
-        {value:"zwdreb", title:"DREB", checked:false},
-        {value:"zwtreb", title:"TREB", checked:true},
-        {value:"zwast", title:"AST", checked:true},
-        {value:"zwto", title:"-TO", checked:true},
-        {value:"zwatr", title:"A/T*", checked:false},
-        {value:"zwst", title:"ST", checked:true},
-        {value:"zwblk", title:"BLK", checked:true},
-        {value:"zwpf", title:"-PF", checked:false},
-        {value:"zwpts", title:"PTS", checked:true},
-        {value:"zwtech", title:"-TECH", checked:false}
-    ];
-    $scope.ranges = [
-        {key: 'ALL', name: '2016-17 Season'},
-        {key: 'D30', name: 'Last 4 Weeks'},
-        {key: 'D14', name: 'Last 2 Weeks'},
-        {key: 'D07', name: 'Last 1 Week'},
-        {key: 'Y-1', name: '2015-16 Season'},
-        {key: 'Y-2', name: '2014-15 Season'}
-    ];
-    $scope.rangeNow = '<?=Input::get('data', 'ALL')?>';
-
-    if (typeof(radarChart)==='undefined') {
-        var radarChart = creatRadarChart();
-    }
-
-    $scope.getPlayers = function() {
-        $scope.players = [];
-        $http({method: 'GET', url: '/getPlayer2', data:{range: $scope.rangeNow}})
-        .success(function(data, status, headers, config) {
-            $scope.players = data.players;
-            for (var i in $scope.players) {
-                $scope.players[i].active = playerInit.indexOf($scope.players[i].fbid) > -1;
-            }
-            if (playerInit.length > 0)
-                $scope.reflash();
-        }).error(function(e){
-            console.log(e);
-        });
-    };
-
-    $scope.getPlayers();
-
-    $scope.getRank = function () {
-        var options = $filter('filter')($scope.rankOptions, {checked: true}).map(function(rankOption) { return rankOption.value; });
-        console.log(options);
-
-        $http({method: 'POST', url: '/data/getRank', data:{get_array: options, player: $scope.selectedPlayers, datarange: $scope.rangeNow}})
-        .success(function(data, status, headers, config) {
-            console.log(data);
-            $scope.selectedPlayers.forEach(function(selectedPlayer, i) {
-                selectedPlayer.rank = data[i];
-            });
-        }).error(function(e){
-            console.log(e);
-        });
-    };
-
-    $scope.selectSignPlayer = function(player) {
-        var players = $filter('filter')($scope.players, {active: true});
-
-        angular.forEach(players, function(player) {
-            player.active = false;
-        });
-
-        player.active = true;
-        $scope.reflash();
-    };
-
-    $scope.selectedPlayers = [];
-    $scope.reflash = function(){
-        $scope.selectedPlayers = $filter('filter')($scope.players, {active: true});
-        playerInit = $.map($scope.selectedPlayers,function(value, index){
-            return value.fbid;
-        });
-
-        var location = window.location;
-        url = playerInit.length>0
-            ? ('/'+location.pathname.split('/')[1])+'/'+playerInit.join(',')+'?data='+$scope.rangeNow
-            : location.toString();
-        window.history.pushState('', '', url);
-
-
-        if ($scope.selectedPlayers.length>0) {
-            $scope.change();
-        } else {
-            for (var i=0; i < radarChart.series.length; i++) {
-                console.log(1);
-                if (radarChart.series[0])
-                    radarChart.series[0].remove(false);
-            }
-            radarChart.colorCounter = 0;
-        }
-    };
-
-    $scope.change = function() {
-
-        $scope.getRank();
-
-        for (var i=0; i < radarChart.series.length; i++) {
-            if (radarChart.series[0])
-                radarChart.series[0].remove(false);
-        }
-        radarChart.colorCounter = 0;
-
-        $http({method: 'POST', url: '/data/getAbility', data: {player: $scope.selectedPlayers, datarange: $scope.rangeNow}})
-        .success(function(data, status, headers, config) {
-            $scope.reFlashNews();
-
-            $scope.scores = [];
-
-            for( i=0;i<data.value.length;i++ ){
-
-                radarChart.addSeries({
-                    type: 'area',
-                    name: $scope.selectedPlayers[i].player,
-                    data: data.value[i],
-                    fillOpacity: 0.3,
-                    marker: {
-                        enabled:false,
-                        radius:0,
-                        symbol: 'circle'
-                    }
-                },false);
-                //radarChart.hideLoading();
-
-                var score = {player: $scope.selectedPlayers[i].player, columns: []};
-
-                for( var j=0;j<data.table[i].length;j++ ){
-                    score.columns.push({value: data.table[i][j]});
-                }
-
-                $scope.scores.push(score);
-            }
-            radarChart.redraw();
-
-            for (var i in data.basic) {
-                radarChart.options.exporting.filename='RadarChart#'+$scope.selectedPlayers[i].fbid;
-                $scope.selectedPlayers[i].basics = data.basic[i];
-            }
-
-        }).error(function(e) {
-            console.log(e);
-        });
-    };
-
-    $scope.reFlashNews = function() {
-        $http({method: 'POST', url: '/data/getNews', data: {player: $scope.selectedPlayers}})
-        .success(function(data, status, headers, config) {
-            for (var i in data) {
-                $scope.selectedPlayers[i].news = $sce.trustAsHtml(data[i][0]+'<br />'+data[i][1]+'<br />'+data[i][2]);
-            }
-        }).error(function(e) {
-             console.log(e);
-        });
-    }
-
-});
-</script>
