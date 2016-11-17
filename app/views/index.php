@@ -46,6 +46,10 @@
 <script src="/js/controllers/gameLog.js"></script>
 <script src="/js/controllers/splitStats.js"></script>
 <script src="/js/controllers/careerStats.js"></script>
+<script src="/js/controllers/dataScatter.js"></script>
+<script src="/js/controllers/playerRankings.js"></script>
+<script src="/js/controllers/realtimeBox.js"></script>
+<script src="/js/controllers/matchPlayer.js"></script>
 
 <script type="text/javascript">
 // $(document).ready(function(){

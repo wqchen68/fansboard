@@ -1,11 +1,11 @@
 <div style="background-color:rgba(0,0,0,0.5);margin: 0;height:100%">
 
-	<div class="onepcssgrid-1p-1200" style="position:relative;height:100%">		
-              
+	<div class="onepcssgrid-1p-1200" style="position:relative;height:100%">
+
 		<div class="onerow">
             <div style="height: 42px; padding: 10px 0 10px 0">
-                
-                
+
+
                 <div style="position:absolute;left:8.5%">
 <!--                    <span>
                         <a href="realtimeBox" target="_blank" title="Real-Time Box - Get real-time NBA players' performance at any time, from anywhere.">
@@ -21,14 +21,14 @@
                         <a href="playerStatus" target="" title="Player Status - Players' Latest News and Injury Report.">
                             <img class="link-hover" style="float:left;width:48px" src="images/icon_adsence.png" />
                         </a>
-                    </span>   
+                    </span>
                     <span>
                         <a href="playerRankings" target="" title="Player Rankings - Players' Overall and Catagories Power Rankings.">
                             <img class="link-hover" style="float:left;width:48px" src="images/icon_rankings.png" />
                         </a>
-                    </span>               
+                    </span>
                 </div>
-                
+
                 <div style="position:absolute;left:30%;margin:5px 0 0 0;font-size: 14px;color:gold;font-weight:bold">2016-17 Season</div>
                 <div style="position:absolute;left:30%;margin:25px 0 0 0;font-size: 14px;color:#fff">
                     <?php
@@ -42,17 +42,17 @@
                             echo '<div>'.$lastupdate->updatetime2.'</div>';
                         }
                     ?>
-                </div>                
-                <div style="position:absolute;left:50%;margin-left:-25px"><div class="reflashtime"></div></div>
+                </div>
+                <div style="position:absolute;left:50%;margin-left:-25px"><div class="reflashtime">{{reflashtime}}</div></div>
                 <div style="position:absolute;left:62%;margin:25px 0 0 0;font-size: 14px;color:#fff">
                     Fantasy: Sum of the Stadarlized Public 9 Cates Values (Z-scroe)
                 </div>
-                
+
             </div>
 		</div>
-            
-		
-        <div class="onerow" ng-controller="realtimeBoxController" style="position:absolute;top:60px;bottom:0;right:0;left:0">
+
+
+        <div class="onerow" style="position:absolute;top:60px;bottom:0;right:0;left:0">
 
             <div class="col-1p1 realtime" style="position:absolute">
 <!--                <a href="hotcoldPlayer" target="_blank" style="text-decoration:none;color:#fff">
@@ -75,11 +75,11 @@
 			</div>
 
             <div class="col-1p11 realtime last" style="position:absolute;right:0;top:0;bottom:0" ng-cloak>
-	
+
 				<div class="tablehead" style="background-color:rgba(0,0,0,0.5);color:#fff;width:100%;height:20px;padding:7px 0px 7px 0px ">
 					<div class="rtbvarC smallwidth">#</div>
 					<div class="rtbvarL playerwidth">Player</div>
-                    <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','-oppo','bxgs','startfive','bxmin']; reverse=true">Game</div>                    
+                    <div class="order-btn rtbvarL gamewidth" ng-click="predicate = ['gameid','-oppo','bxgs','startfive','bxmin']; reverse=true">Game</div>
 					<div class="order-btn rtbvarL smallwidth" ng-click="predicate = ['bxgs','startfive','bxeff']; reverse=true">Start</div>
 					<div class="order-btn rtbvarC real-bar-eff" ng-click="predicate = ['bxgs','bxeff']; reverse=true" style="color:gold;font-weight:bold">EFF</div>
 					<div class="order-btn rtbvarL" style="width:4.0%;color:gold;font-weight:bold" ng-click="predicate = ['bxgs','szv']; reverse=true">Fantasy</div>
@@ -96,7 +96,7 @@
                     <div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxgs','bxpf']; reverse=true">Pf</div>
                     <div class="order-btn rtbvarR smallwidth" ng-click="predicate = ['bxgs','bxpts','bxeff','bxfgm','-bxfga']; reverse=true">Pts</div>
 				</div>
-					
+
                 <div class="transparent" style="overflow-x:hidden;overflow-y:scroll;position:absolute;bottom:10px;top:34px;left:0;right:0">
                     <div class="effrank new wait" fbid="{{ player.fbid*3.5 }}" rank="{{ index }}" style="width:100%;height:20px;padding:4px 7px 4px 7px;color:#fff;position:relative" ng-repeat="player in (realtimeBox.rtstats | orderBy:predicate:reverse | filter:searchText)">
 
@@ -128,12 +128,12 @@
                                     <div class="hovercard">{{ Math.round(player.wfgp*1000)/10}}</div>
                                     <div class="hovercard">{{ Math.round(player.pw3ptm*10)/10}}</div>
                                     <div class="hovercard">{{ Math.round(player.pw3pta*10)/10}}</div>
-                                    <div class="hovercard">{{ Math.round(player.w3ptp*1000)/10}}</div>                                
+                                    <div class="hovercard">{{ Math.round(player.w3ptp*1000)/10}}</div>
                                     <div class="hovercard">{{ Math.round(player.pwftm*10)/10}}</div>
                                     <div class="hovercard">{{ Math.round(player.pwfta*10)/10}}</div>
                                     <div class="hovercard">{{ Math.round(player.wftp*1000)/10}}</div>
                                     <div style="height:0;clear:both"></div>
-                                </div>                            
+                                </div>
                                 <div>
                                     <div class="hovercard1">Off</div>
                                     <div class="hovercard1">Def</div>
@@ -157,9 +157,9 @@
                                     <div class="hovercard">{{ Math.round(player.pwst*10)/10}}</div>
                                     <div class="hovercard">{{ Math.round(player.pwblk*10)/10}}</div>
                                     <div class="hovercard">{{ Math.round(player.pwpf*10)/10}}</div>
-                                    <div class="hovercard">{{ Math.round(player.pwpts*10)/10}}</div>                                
+                                    <div class="hovercard">{{ Math.round(player.pwpts*10)/10}}</div>
                                     <div style="height:0;clear:both"></div>
-                                </div>  
+                                </div>
                             </div>
                             <div style="height:0;clear:both"></div>
                         </span>
@@ -196,14 +196,14 @@
                         <div style="height:0;clear:both"></div>
 
                     </div>
-                    
+
                 </div>
-                
-            </div>	
-			
+
+            </div>
+
 			<div style="height:0;clear:both"></div>
-	
-		</div>	
+
+		</div>
 	</div>
 </div>
 
@@ -233,7 +233,7 @@
 
 .effrank {outline:none;color:white}
 /*a.tooltip strong {line-height:30px;}*/
-/*a.tooltip:hover {text-decoration:none;color:white}*/ 
+/*a.tooltip:hover {text-decoration:none;color:white}*/
 .effrank span {
     z-index:10;
     display:none;
@@ -271,7 +271,7 @@
 }*/
 .oncourt{
     /*font-weight:bold;*/
-    color:rgba(46,204,113,1);    
+    color:rgba(46,204,113,1);
     background-image: url('/images/light_green.png');
     background-repeat: no-repeat;
     background-position:right;
@@ -312,7 +312,7 @@
     .playerwidth{width:30%}
     .smallwidth{width:10%}
     .real-bar-eff{width:39%}
-    .realtime{font-size: 6px}    
+    .realtime{font-size: 6px}
     .effrank.new.wait{margin:2px}
     .startwidth{width:12%}
 }
@@ -354,8 +354,8 @@
 }
 .playerwidth{
     width:18%;
-    overflow : hidden; 
-    text-overflow : ellipsis; 
+    overflow : hidden;
+    text-overflow : ellipsis;
     white-space : nowrap;
 }
 .gamewidth{
@@ -371,14 +371,14 @@
     background-color: rgba(255,215,0,0.2);
     background-image: url('/images/light_yellow.png');
     background-repeat: no-repeat;
-    background-position:right;    
+    background-position:right;
 }
 .redback{
     /*font-weight: bold;*/
     background-color: rgba(255,0,0,0.2);
     background-image: url('/images/light_red.png');
     background-repeat: no-repeat;
-    background-position:right;       
+    background-position:right;
 }
 .goldbold{
     color:gold;
@@ -399,101 +399,5 @@
 .selected{
     box-shadow: 0 0 30px rgba(255,255,255,1);
 }
-
 </style>
 
-<script>
-angular.module('app', []).filter('startFrom',function(){
-    return function(input, start){
-        return input.slice(start);
-    };
-}).controller('realtimeBoxController', function($scope, $filter, $http){
-    $scope.Math = Math;
-    $scope.searchText = {};
-    $scope.style = function(value){
-        if (value.livemark === 'Final' && value.bxmin >25 && value.bxeff <10){
-            return {color:'#FF3333','font-weight':'bold'};
-        };
-    };
-    
-    $scope.styleeff = function(value){
-//        if (value.bxeff-value.pweff>=15){
-//            if (value.livemark=='Final'){
-//                return {'background-color':'rgb(255,215,0,1)'};
-//            }else{
-//                return {'background-color':'rgb(255,215,0,0.6)'};
-//            }            
-//        }else if (value.bxeff-value.pweff<=-15){
-//            if (value.livemark=='Final'){
-//                return {'background-color':'rgba(255,0,0,1)'};
-//            }else{
-//                return {'background-color':'rgba(255,0,0,0.6)'};
-//            }
-//        }else{
-//            if (value.livemark=='Final'){
-//                return {'background-color':'rgba(0,187,255,1)'};
-//            }else{
-//                return {'background-color':'rgba(0,187,255,0.4)'};
-//            }            
-//        };
-        if (value.livemark=='Final'){
-            if (value.bxeff-value.pweff>=10){
-                return {'background-color':'rgb(255,215,0,0.8)'};
-            }else if (value.bxeff-value.pweff<=-10){
-                return {'background-color':'rgb(255,0,0,0.8)'};                
-            }else{
-                return {'background-color':'rgba(0,187,255,0.8)'};
-            }
-        }else if (value.livemark=='LIVE!'){
-            if (value.bxeff/value.bxmin>=0.8){
-                return {'background-color':'rgb(255,215,0,0.3)'};
-            }else if(value.bxeff/value.bxmin<=0.3){
-                return {'background-color':'rgba(255,0,0,0.3)'};
-            }else{
-                return {'background-color':'rgba(0,187,255,0.3)'};
-            }
-        };
-    };
-    
-    $scope.select = function(game){
-        var selected = game.selected;
-        angular.forEach($filter('filter')($scope.realtimeBox.gamedata, {selected: true}), function(value, key) {
-            value.selected = false;
-        });
-        game.selected = !selected;
-        if ($filter('filter')($scope.realtimeBox.gamedata, {selected: true}).length === 0) {
-            $scope.searchText.gameid = '';
-        }
-    };    
-    
-    $scope.update = function() {
-        $http.get('/sort/getRealtime').success(function(data){
-            console.log(data);
-            $scope.realtimeBox = data;
-        });
-    };
-    
-    $scope.update();
-});
-//.filter("emptyToEnd", function () {
-//    return function (array, key) {
-//        if (!angular.isArray(array)) return;
-//        if (!angular.isArray(key)) return array;
-//        var present = array.filter(function (item) {
-//            return (item[key[0]] && item[key[0]]>0);
-//        });
-//        var negetive = array.filter(function (item) {
-//            return (item[key[0]] && item[key[0]]<0);
-//        });
-//        var empty = array.filter(function (item) {
-//            return (!item[key[0]] && item[key[0]]!=0);
-//        });
-//        var zero = array.filter(function (item) {
-//            return (!item[key[0]] && item[key[0]]==0);
-//        });
-//        var step0 = present.concat(zero);
-//        var step1 = step0.concat(negetive);
-//        return step1.concat(empty);
-//    };
-//});
-</script>

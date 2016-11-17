@@ -61,7 +61,9 @@
 
             <div style="padding: 0 0 10px 0">
                 <div style="float: left;width: 55px;text-align: left">
-                    <button class="plot" id="plotbtn" style="width: 45px;height: 35px;padding: 4px" title="Plot"><img src="/images/search.png" style="width: 24px" /></button>
+                    <button class="plot" id="plotbtn" style="width: 45px;height: 35px;padding: 4px" title="Plot" ng-click="plot()">
+                        <img src="/images/search.png" style="width: 24px" />
+                    </button>
                 </div>
 
                 <div id="x-category" style="float: left;padding: 10px 0 0 0">
@@ -124,7 +126,13 @@
                 <div style="float:left;width:230px;height:680px;display:none" id="testlist">
                         <div class="transparent" style="border:1px solid #fff;background-color:rgba(0,0,0,0.0);padding:0;margin:0 0 0 2px;height:100%; text-align:left;overflow-y:scroll">
                             <div style="margin:3px">
-                                <table cellspacing="0" style="width:100%" class="rankList"></table>
+                                <table cellspacing="0" style="width:100%" class="rankList">
+                                    <tr class="ranklist" ng-repeat="player in players" ng-click="highlight(player)" ng-class="{active: player.active}">
+                                        <td class="index">{{player.index}}</td>
+                                        <td>{{player.bv_name}}</td>
+                                        <td>{{player.position}}</td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                 </div>
@@ -139,7 +147,7 @@
     <div class="onepcssgrid-1200">
         <div class="onerow">
             <div style="margin:5px 0 20px 60px;color:#fff;font-size: 12px">
-                <? include('include_updatetime.php'); ?>
+                <?php include('include_updatetime.php'); ?>
             </div>
             <div class="col12" style="color:#fff; text-align:left;font-size: 14px;padding-left: 100px;line-height: 25px">
                 Note:<br />
@@ -243,11 +251,3 @@ tr.ranklist.active td {
 }
 </style>
 
-<span class="javascript" src="/js/hightchart.dataScatter.js"></span>
-
-<script>
-    var j = '';
-    $('[name=x]').each(function(x) {
-        console.log(1);
-    });
-</script>

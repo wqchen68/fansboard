@@ -1,8 +1,4 @@
-$(function () {
-
-    pageobj.bind('startjs',function(){
-           $('#plotbtn').click();
-    });
+angular.module('app').controller('dataScatterCtrl', function($scope, $filter, $http, $sce, $routeParams) {
 
     var chart2 = new Highcharts.Chart({
 
@@ -191,7 +187,7 @@ $(function () {
 
         series: [0]
 
-    });
+    });  
 
     var fbid_to_index = [];
     var optionMenu = $('<div class="optionMenu" style="position:absolute;top:0;left:0;width:200px;height:200px;display:none;z-index:1"></div>').appendTo(chart2.container);
@@ -208,7 +204,6 @@ $(function () {
     optionMenu.on('click','div.optionMenuItem',function(){
         $(this).mouseleave();
     });
-
 
     var chertHeight = 680;
     function resizeChart(){
@@ -238,27 +233,15 @@ $(function () {
             resizeChart();
     });
 
-    pageobj.on('click','.rankList tr.ranklist',function(){
-        $(this).toggleClass('active');
-        var index = $(this).find('td.index').text();
-        //chart2.series[index].data[0].select($(this).hasClass('active'));
-
-        if( $(this).hasClass('active') ){
-            chart2.get('series'+index).update({
-                marker: {
-                    fillColor:'rgba(255,255,255,0.5)',
-                    radius: 10
-                }
-            });
-        }else{
-            chart2.get('series'+index).update({
-                marker: {
-                    fillColor:'rgba(255,255,255,0.0)',
-                    radius: 20
-                }
-            });
-        }
-    });
+    $scope.highlight = function(player) {
+        player.active = !player.active;
+        chart2.get('series'+$scope.players.indexOf(player)).update({
+            marker: {
+                fillColor:'rgba(255,255,255,'+ (player.active ? 0.5 : 0.0) +')',
+                radius: player.active ? 10 : 20
+            }
+        });
+    };
 
     var insertData = function() {
         var input = {
@@ -276,11 +259,14 @@ $(function () {
 
         };
         if( input.category_x.length>0 && input.category_y.length>0 )
-            $.post('/data/getScatter',input,function(data){
+            //$.post('/data/getScatter',input,function(data){
+            $http({method: 'POST', url: '/data/getScatter', data: input})
+            .success(function(data, status, headers, config) {
 
                 console.log(data);
 
-                $('.rankList').find('tr').remove();
+                $scope.players = [];
+
                 fbid_to_index = data.bv_fbid;
                 for( var i in data.bv_a ){
 
@@ -304,7 +290,7 @@ $(function () {
                         }
                     },false);
 
-                    $('.rankList').append('<tr class="ranklist"><td class="index">'+(i*1+1)+'</td><td>'+data.bv_name[i]+'</td><td>'+data.player_info[i].position+'</td></tr>');
+                    $scope.players.push({index: i*1+1, bv_name: data.bv_name[i], position: data.player_info[i].position});
                 }
 
                 chart2.redraw();
@@ -313,20 +299,20 @@ $(function () {
 
                 $('#testlist').show('slide', {direction: 'left'}, 1000);
 
-            },'json').error(function(e){
+            }).error(function(e) {
 
             });
     };
 
-    $('#plotbtn').click(function(){
+    $scope.plot = function() {
         while( chart2.series.length>0 ){
             chart2.series[0].remove(false);
         }
         chart2.redraw();
         $('#testlist').hide('slide', {direction: 'left'}, 300, insertData);
+    };
 
-    });
-
+    $scope.plot();
 
     $('#scStat').click(function(){
         $('#b-shortcuts').find(':checkbox').prop('checked',false);

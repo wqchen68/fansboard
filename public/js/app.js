@@ -33,6 +33,25 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl: '/view/careerStats',
             controller: 'careerStatsCtrl'
         })
+        .when('/dataScatter', {
+            templateUrl: '/view/dataScatter',
+            controller: 'dataScatterCtrl'
+        })
+        .when('/playerRankings', {
+            templateUrl: '/view/playerRankings',
+            controller: 'playerRankingsCtrl'
+        })
+        .when('/realtimeBox', {
+            templateUrl: '/view/realtimeBox',
+            controller: 'realtimeBoxCtrl'
+        })
+        .when('/hotcoldPlayer', {
+            templateUrl: '/view/hotcoldPlayer'
+        })
+        .when('/matchPlayer/:player?', {
+            templateUrl: '/view/matchPlayer',
+            controller: 'matchPlayerCtrl'
+        })
         .otherwise({
             templateUrl: 'welcome.html'
         });

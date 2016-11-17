@@ -49,7 +49,25 @@ Route::get('getPlayer2', function() {
             ->orderBy('biodata.player')->select('syncplayerlist.fbid','syncplayerlist.team','biodata.player')->get();
 
     $queryLog = DB::getQueryLog();
-    return Response::json(array('players'=>$players,'query'=>json_encode($queryLog)));
+    return ['players' => $players, 'query' => $queryLog];
+});
+
+Route::get('getRankplayers', function() {
+    $rankplayers = DB::table('syncplayerlist')
+    ->select(DB::raw('biodata.player AS player, syncplayerlist.fbid AS fbid,syncplayerlist.team AS team,  syncplayerlist.position AS position, syncplayerlist.injna AS injna, syncplayerlist.owned AS owned,'
+            . 'syncdataframe.wfgp, syncdataframe.wftp, syncdataframe.pwpts,syncdataframe.pw3ptm, syncdataframe.pwtreb, syncdataframe.pwast, syncdataframe.pwst, syncdataframe.pwblk, syncdataframe.pwto,'
+            . 'syncdataframe.zwfgp, syncdataframe.zwftp, syncdataframe.zwpts,syncdataframe.zw3ptm, syncdataframe.zwtreb, syncdataframe.zwast, syncdataframe.zwst, syncdataframe.zwblk, syncdataframe.zwto,'
+            . 'syncdataframe.zwtotal,syncdataframe.rownum,'
+            . 'SUBSTRING(REPLACE(rwtable.report,"&quot;","\""),1,150) as report, syncplayerlist.orank AS orank, syncplayerlist.arank AS arank'))
+    ->leftJoin('biodata','biodata.fbido','=','syncplayerlist.fbido')
+    ->leftJoin('rwtable','rwtable.fbido','=','syncplayerlist.fbido')
+    ->leftJoin(DB::raw('(SELECT @rownum := @rownum +1 AS rownum,syncdataframe.*,'
+            . ' syncdataframe.zwfgp+syncdataframe.zwftp+syncdataframe.zwpts+syncdataframe.zw3ptm+syncdataframe.zwtreb+syncdataframe.zwast+syncdataframe.zwst+syncdataframe.zwblk+syncdataframe.zwto as zwtotal'
+            . ' FROM syncdataframe, (SELECT @rownum :=0)b WHERE datarange="D30" order by zwtotal DESC) syncdataframe'),'syncdataframe.fbido','=','syncplayerlist.fbido')
+    ->where('syncplayerlist.datarange','=','D30')
+    ->orderBy('zwtotal','DESC')->get();
+
+    return ['rankplayers' => $rankplayers];
 });
 
 Route::get('view/{page}', function($page) { return View::make('subs.' . $page); });
