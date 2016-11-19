@@ -52,7 +52,6 @@ angular.module('app')
         $http.get('/sort/getRealtime').success(function(data){
             console.log(data);
             $scope.realtimeBox = data;
-            $scope.flashtime();
         });
     };
     
@@ -62,10 +61,12 @@ angular.module('app')
     $scope.flashtime = function() {
         if ($scope.reflashtime == 24) {
             $scope.reflashtime = 0;
+            $scope.update();
         } else {
             $scope.reflashtime++;
         }
         $timeout($scope.flashtime, 1000);
     };
+    $scope.flashtime();
 
 });
