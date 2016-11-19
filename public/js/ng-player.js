@@ -14,12 +14,12 @@ angular.module('ngFb', [])
             <div class="modelBox active" mid="51" style="height:420px;padding:0 0 10px 0;margin:0 0 24px 0">
                 <div class="transparent" style="height:20px;overflow:hidden;border:0px solid #fff;border-bottom:0">
                     <div>
-                        <input type="text" class="filter gray" style="width:98%;margin:0;padding:1%;border:0;outline: none;color:#999"  placeholder="Type Player Name..." />
+                        <input type="text" ng-model="searchPlayer.player" class="filter gray" style="width:98%;margin:0;padding:1%;border:0;outline: none;color:#999"  placeholder="Type Player Name..." />
                     </div>
                 </div>
                 <div class="transparent" style="height:100%; overflow-y:scroll;border:1px solid #fff;font-size: 14px">
                     <table class="plist playerList-combo muti" ng-class="{active: muti}" cellspacing="0">
-                        <tr ng-repeat="player in players">
+                        <tr ng-repeat="player in players | filter:searchPlayer">
                             <td class="sign-btn" ng-class="{active:player.active}" value ="{{player.fbid}}" team="{{player.team}}" ng-click="selectSignPlayer(player)">
                                 {{player.player}}
                                 <div class="muti-btn" ng-class="{active:player.active}" ng-click="$event.stopPropagation();player.active=!player.active;reflash()" />
@@ -32,6 +32,7 @@ angular.module('ngFb', [])
         controller: function($scope, $http, $filter, $routeParams, $location) {
 
             $scope.players = [];
+            $scope.searchPlayer = {};
 
             $scope.getPlayers = function() {
                 $scope.players = [];

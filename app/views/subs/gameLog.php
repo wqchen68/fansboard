@@ -1,11 +1,9 @@
 <div class="insidemove" style="color:#fff">
-
     <div class="onepcssgrid-1p-1200">
 
         <div class="onerow">
 
             <div class="col-1p3">
-
                 <div class="playerlistblock">
 
                     <div style="float:left;padding:0 0 10px 0">

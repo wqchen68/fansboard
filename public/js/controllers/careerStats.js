@@ -13,9 +13,9 @@ angular.module('app').controller('careerStatsCtrl', function($scope, $filter, $h
 	var chartCareerStats = new Highcharts.Chart({
         chart: {
             renderTo: $('.chart_box').get(0),
-            alignTicks: false,				
-            width: 896,        
-            height: 600,                
+            alignTicks: false,
+            width: 896,
+            height: 600,
             zoomType: 'xy',
             borderColor: 'rgba(0,0,0,0.0)',
             borderRadius: 0,
@@ -107,7 +107,7 @@ angular.module('app').controller('careerStatsCtrl', function($scope, $filter, $h
                 text: 'Games',
                 style: {},
                 align: 'low',
-                y: -100		
+                y: -100
             },
             tickPositions: [0,20,40,60,82],
             endOnTick: false,
@@ -165,7 +165,7 @@ angular.module('app').controller('careerStatsCtrl', function($scope, $filter, $h
 			if (chartCareerStats.series[key].name.search('(36)') != -1) {
 				if ($scope.isShow36) {
                     alert();
-					chartCareerStats.series[key].show();					
+					chartCareerStats.series[key].show();
 				}else{
 					chartCareerStats.series[key].hide();
 				}
@@ -174,39 +174,39 @@ angular.module('app').controller('careerStatsCtrl', function($scope, $filter, $h
     };
 
     $scope.change = function() {
-console.log($scope.selectedPlayers)
         $http({method: 'POST', url: '/data/getCareerStats', data: {player: $scope.selectedPlayers, items: $scope.items}})
         .success(function(data, status, headers, config) {
             console.log(data)
 
+            angular.extend($scope.selectedPlayers[0], data.card[0]);
             $scope.scores = [];
-			
+
 			for( var i in data['table'] ){
 				var tablerow = data['table'][i];
 
                 var score = {columns: []};
-				
+
 				for( var j in tablerow ){
                     score.columns.push({value: tablerow[j]});
 				}
                 $scope.scores.push(score);
 			}
-			
-			
+
+
 			var series_size = chartCareerStats.series.length;
 
 			if( series_size>0 )
 			for( i=0;i<series_size;i++ ){
 				if( chartCareerStats.series[0] )
 				chartCareerStats.series[0].remove(false);
-			}		
-			
-			chartCareerStats.xAxis[0].setCategories(data['label']);	
+			}
+
+			chartCareerStats.xAxis[0].setCategories(data['label']);
 			chartCareerStats.redraw();
-			
+
 			var k = 0;
 			for(var key in data['career']){
-				chartCareerStats.addSeries({ 	
+				chartCareerStats.addSeries({
 					name: key,
 					color: color[k%4],
 					type: 'line',
@@ -218,10 +218,10 @@ console.log($scope.selectedPlayers)
 				},false);
 				k++;
 			}
-			
+
 			var k = 0;
 			for(var key in data['ctime']){
-				chartCareerStats.addSeries({ 	
+				chartCareerStats.addSeries({
 					name: key,
 					showInLegend: false,
 					color: color[k%4],
@@ -235,10 +235,10 @@ console.log($scope.selectedPlayers)
 				},false);
 				k++;
 			}
-			
+
 			var k = 0;
 			for (var key in data['career36']) {
-				chartCareerStats.addSeries({ 	
+				chartCareerStats.addSeries({
 					name: key+'(36)',
 					showInLegend: false,
 					color: color36[k%4],
@@ -252,14 +252,14 @@ console.log($scope.selectedPlayers)
 				},false);
 				k++;
 			}
-			
+
 			if ($scope.items == 'ceff') {
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,5,10,15,20,25,30,35],
                     min: -13.3,
                     title:{
                         text: 'Efficiency'
-                    }                    
+                    }
 				});
             } else if ($scope.items == 'cmin') {
 				chartCareerStats.yAxis[0].update({
@@ -267,23 +267,23 @@ console.log($scope.selectedPlayers)
                     min: -18,
                     title:{
                         text: 'Minutes'
-                    }                    
-				}); 
+                    }
+				});
             }else if( $scope.items==='cpts' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,10,20,30,36],
                     min: -13.5,
                     title:{
                         text: 'Points'
-                    }                    
-				});                 
+                    }
+				});
             }else if( $scope.items==='cfgp' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0.3,0.4,0.5,0.6],
                     min: 0.186,
                     title:{
                         text: 'Field Goal (%)'
-                    }                    
+                    }
 				});
             }else if( $scope.items==='cftp' ){
 				chartCareerStats.yAxis[0].update({
@@ -324,7 +324,7 @@ console.log($scope.selectedPlayers)
                     title:{
                         text: '3-point Shots Made'
                     }
-				});                
+				});
             }else if( $scope.items==='cfga' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,7,14,21,28],
@@ -364,7 +364,7 @@ console.log($scope.selectedPlayers)
                     title:{
                         text: 'Defense Rebounds'
                     }
-				});                
+				});
             }else if( $scope.items==='ctreb' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,3,6,9,12,15],
@@ -372,7 +372,7 @@ console.log($scope.selectedPlayers)
                     title:{
                         text: 'Rebounds'
                     }
-				});                
+				});
             }else if( $scope.items==='cast' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,3,6,9,12],
@@ -388,7 +388,7 @@ console.log($scope.selectedPlayers)
                     title:{
                         text: 'Steals'
                     }
-				});                
+				});
             }else if( $scope.items==='cblk' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,1,2,3,4],
@@ -396,14 +396,14 @@ console.log($scope.selectedPlayers)
                     title:{
                         text: 'Blocks'
                     }
-				});               
+				});
             }else if( $scope.items==='catr' || $scope.items==='cpf'  || $scope.items==='cto' ){
 				chartCareerStats.yAxis[0].update({
 					tickPositions: [0,1,2,3,4,5],
                     min: -1.87,
                     title:{
                         text: 'Value'
-                    }                    
+                    }
 				});
 			}else{
 				chartCareerStats.yAxis[0].update({
@@ -412,19 +412,19 @@ console.log($scope.selectedPlayers)
                     title:{
                         text: 'Value'
                     }
-				});            
+				});
 			}
-            
+
             chartCareerStats.xAxis[0].update({
                 labels:{
                     step: (data.label.length>12 ? 2 : 1)
-                }                    
-            });            
-            
+                }
+            });
+
 			chartCareerStats.redraw();
-            
+
 			chartCareerStats.options.exporting.filename='CareerStats#'+$scope.selectedPlayers[0].fbid;
-			
+
 		}).error(function(e) {
             console.log(e);
 		});

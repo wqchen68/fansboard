@@ -1,5 +1,4 @@
 <div class="insidemove" style="color:#fff">
-
     <div class="onepcssgrid-1p-1200">
 
         <div class="onerow">
@@ -15,9 +14,7 @@
 
                     <div players range-now="rangeNow" reflash="reflash"></div>
 
-                    <div ng-repeat="selectedPlayer in selectedPlayers">
                     <?php include('include_link2playerAbility.php'); ?>
-                    </div>
 
                 </div>
             </div>

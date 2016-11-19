@@ -26,7 +26,6 @@
 <script src="/js/Highcharts-4.0.3/js/highcharts-more.js"></script>
 <script src="/js/Highcharts-4.0.3/js/modules/exporting.src.js"></script>
 <script src="/js/highcharts.theme.js"></script>
-<script src="/js/player.js"></script>
 <script src="/js/angular/1.5.8/angular.min.js"></script>
 <script src="/js/angular/1.5.8/angular-route.min.js"></script>
 <!--[if lt IE 9]><script src="/js/html5shiv.js"></script><![endif]-->
@@ -36,7 +35,6 @@
 <link rel="stylesheet" href="/css/index.css" />
 <link rel="stylesheet" href="/css/share.css" />
 <link rel="stylesheet" href="/js/smoothness/jquery-ui-1.10.3/jquery-ui-1.10.3.custom.min.css" />
-<!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">-->
 <link rel="stylesheet" href="/css/font-awesome.css" />
 
 <script src="/js/hightchart.creatRadarChart.js"></script>

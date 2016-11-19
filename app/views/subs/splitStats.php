@@ -18,9 +18,8 @@
 
                     <div players range-now="rangeNow" reflash="reflash"></div>
 
-                    <div ng-repeat="selectedPlayer in selectedPlayers">
                     <?php include('include_link2playerAbility.php'); ?>
-                    </div>
+
                 </div>
             </div>
 

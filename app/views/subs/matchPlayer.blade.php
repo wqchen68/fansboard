@@ -42,38 +42,11 @@
 
                     <div  style="padding:10px">
 
-                        <div style="color:red;font-weight:bold;padding:0px 5px 5px 5px">Most Similar Player</div>
-
-                        <div class="majorboxN">
-                            <div class="majorbox playercardsmall highlight" style="box-shadow:0 0 20px rgba(255,255,255,0.9)">
-
-                                <div style="float:left">
-                                    <img class="face" onerror="this.src='/images/nophoto.png'" style="width:60px;height:72px;display:block" />
-                                </div>
-
-                                <div class="playercardsmall-news">
-                                    <div style="float:left;width:83%">
-                                        <div class="cardplayer"></div>
-                                        <div>
-                                            <div class="cardteamposi" style="float:left;padding:0 5px 0 0"></div>
-                                            <div class="cardinjna"></div>
-                                            <div style="height:0;clear:both"></div>
-                                        </div>
-                                    </div>
-                                    <a class="link-playerAbility1" title='Player Ability (Radar Chart)'>
-                                        <div class="newsbox-icon" style="float:left;width:33px;height:35px;padding:0;background-size:33px 35px;background-image:url(/images/fig_1_playerAbility2.png)"></div>
-                                    </a>
-                                    <div style="height:0;clear:both"></div>
-                                    <div class="cardstat"></div>
-                                </div>
-                                <div style="height:0;clear:both"></div>
-                            </div>
-                        </div>
-
-                        <div style="padding:5px">Relative Players</div>
-
                         <div class="majorboxN" ng-repeat="similarPlayer in similarPlayers">
-                            <div class="majorbox playercardsmall highlight">
+                            <div ng-if="$first" style="color:red;font-weight:bold;padding:0px 5px 5px 5px">Most Similar Player</div>
+                            <div ng-if="$index==1" style="padding:5px">Relative Players</div>
+
+                            <div class="majorbox playercardsmall highlight" ng-if="!$last">
                                 <div style="float:left">
                                     <img class="face" src="/player/@{{ similarPlayer.fbid }}.png" style="width:60px;height:72px;display:block" />
                                 </div>

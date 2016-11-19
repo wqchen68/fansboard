@@ -9,7 +9,7 @@ angular.module('app').controller('gameLogCtrl', function($scope ,$filter, $http,
         {key:'2011' , name: '2011-12 Season'}
     ];
 
-    $scope.rangeNow = $routeParams.range ? $routeParams.range : '2013';
+    $scope.rangeNow = $routeParams.range ? $routeParams.range : '2016';
 
     $scope.reflash = function(selectedPlayers){
         $scope.selectedPlayers = selectedPlayers;
@@ -212,7 +212,7 @@ angular.module('app').controller('gameLogCtrl', function($scope ,$filter, $http,
         .success(function(data, status, headers, config) {
 
             console.log(data);
-
+            angular.extend($scope.selectedPlayers[0], data[0].card[0]);
             $scope.scores = [];
 
             for( var i in data[0]['table'] ){

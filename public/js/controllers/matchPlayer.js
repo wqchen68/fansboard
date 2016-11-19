@@ -34,70 +34,70 @@ angular.module('app').controller('matchPlayerCtrl', function($scope, $filter, $h
 
     $scope.change = function() {
 
-		var input = {
-			player: $scope.selectedPlayers,
-			datarange: $scope.rangeNow,
-			matchMethod: $scope.matchMethod
-		};
+        var input = {
+            player: $scope.selectedPlayers,
+            datarange: $scope.rangeNow,
+            matchMethod: $scope.matchMethod
+        };
 
         $http({method: 'POST', url: '/data/getMatch', data: input})
         .success(function(data, status, headers, config) {
 
             console.log(data);
-
+            angular.extend($scope.selectedPlayers[0], data.card[6]);
             $scope.similarPlayers = data.card;
 
-			ability = data.ability;
+            ability = data.ability;
 
-			var ability_draw = {
-				name: [ability.name[0],ability.name[1]],
-				value: [ability.value[0],ability.value[1]]
-			};
+            var ability_draw = {
+                name: [ability.name[0],ability.name[1]],
+                value: [ability.value[0],ability.value[1]]
+            };
 
-			$scope.drawRadar(ability_draw);
+            $scope.drawRadar(ability_draw);
 
             $scope.scores = [];
 
-			for( i=0;i<data.ability.table.length;i++ ){
+            for( i=0;i<data.ability.table.length;i++ ){
                 var score = {player: data.ability.name[i], abilities: []};
-				for( var j=0;j<data.ability.table[i].length;j++ ){
+                for( var j=0;j<data.ability.table[i].length;j++ ){
                     score.abilities.push({value: data.ability.table[i][j]});
-				}
+                }
                 $scope.scores.push(score);
-			}
+            }
 
-			// pageobj.find('.majorboxN .playercardsmall').removeClass('active');
-			// $('.majorboxN').eq(0).find('.playercardsmall').addClass('active');
+            // pageobj.find('.majorboxN .playercardsmall').removeClass('active');
+            // $('.majorboxN').eq(0).find('.playercardsmall').addClass('active');
 
-		}).error(function(e) {
+        }).error(function(e) {
             console.log(e);
-		});
+        });
 
-	};
+    };
 
-	$scope.drawRadar = function(ability) {
-		var series_size = radarChart.series.length;
-		if( series_size>0 )
-		for( i=0;i<series_size;i++ ){
-			if( radarChart.series[0] )
-			radarChart.series[0].remove(false);
-		}
-		radarChart.colorCounter = 0;
-		for( var i in ability.value ){
-			radarChart.addSeries({
-				type: 'area',
-				name: ability.name[i],
-				data: ability.value[i],
-				fillOpacity: 0.4,
-				marker: {
-					enabled:false,
-					radius:0,
-					symbol: 'circle'
-				}
-			},false);
-		}
-		radarChart.redraw();
+    $scope.drawRadar = function(ability) {
+        var series_size = radarChart.series.length;
+        if( series_size>0 )
+        for( i=0;i<series_size;i++ ){
+            if( radarChart.series[0] )
+            radarChart.series[0].remove(false);
+        }
+        radarChart.colorCounter = 0;
+        for( var i in ability.value ){
+            radarChart.addSeries({
+                type: 'area',
+                name: ability.name[i],
+                data: ability.value[i],
+                fillOpacity: 0.4,
+                marker: {
+                    enabled:false,
+                    radius:0,
+                    symbol: 'circle'
+                }
+            },false);
+        }
+        radarChart.redraw();
 
-	};
+    };
 
 });
