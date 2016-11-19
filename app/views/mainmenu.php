@@ -19,7 +19,7 @@
                                 </div>
                                 <ul style="width:100%">
                                     <li class="tabi" ng-repeat="item in menu.items">
-                                        <a href="/{{item.page}}" ng-click="activeItem(item, menu)" class="menu-tab-link button" ng-class="{active: item.active}">{{item.title}}</a>
+                                        <a ng-click="activeItem(item, menu)" class="menu-tab-link button" ng-class="{active: item.active}">{{item.title}}</a>
                                     </li>
                                 </ul>
                             </li>

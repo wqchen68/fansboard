@@ -61,21 +61,26 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $locationProvider.html5Mode({enabled: true, requireBase: false});
 }]);
 
-app.controller('menuController', function($scope, $filter) {
+app.controller('menuController', function($scope, $filter, $location, $routeParams) {
+
     $scope.menus = [{
         title: 'Player Board',
         items: [{
             page: 'playerAbility',
-            title: 'Player Ability'
+            title: 'Player Ability',
+            paraments: ['players', 'range']
         }, {
             page: 'gameLog',
-            title: 'Game Logs'
+            title: 'Game Logs',
+            paraments: ['players', 'range']
         }, {
             page: 'splitStats',
-            title: 'Split Stats'
+            title: 'Split Stats',
+            paraments: ['players', 'range']
         }, {
             page: 'careerStats',
-            title: 'Career Stats'
+            title: 'Career Stats',
+            paraments: ['players']
         }]
     }, {
         title: 'Data Board',
@@ -96,7 +101,8 @@ app.controller('menuController', function($scope, $filter) {
             title: 'Hot & Cold Player'
         }, {
             page: 'matchPlayer',
-            title: 'Similar Player'
+            title: 'Similar Player',
+            paraments: ['players', 'range']
         }, {
             page: 'playerSalary',
             title: 'Player Salary'
@@ -125,6 +131,23 @@ app.controller('menuController', function($scope, $filter) {
             item.active = false;
         });
         item.active = true;
+
+        var paraments = '';
+        if (item.paraments)
+        item.paraments.forEach(function(parament) {
+            switch (parament) {
+                case 'players':
+                    players = $routeParams.player ? '/' + $routeParams.player : '';
+                    paraments += players;
+                    break;
+
+                case 'range':
+                    $location.search('range', null);
+                default:
+                    break;
+            }
+        });
+        $location.path('/' + item.page + paraments);
     };
 
     $scope.menus.forEach(function(menu) {
