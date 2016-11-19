@@ -12,7 +12,7 @@ app.run(['$route', '$rootScope', '$location', function ($route, $rootScope, $loc
         }
         return original.apply($location, [path]);
     };
-}])
+}]);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
@@ -57,3 +57,80 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         });
     $locationProvider.html5Mode({enabled: true, requireBase: false});
 }]);
+
+app.controller('menuController', function($scope, $filter) {
+    $scope.menus = [{
+        title: 'Player Board',
+        items: [{
+            page: 'playerAbility',
+            title: 'Player Ability'
+        }, {
+            page: 'gameLog',
+            title: 'Game Logs'
+        }, {
+            page: 'splitStats',
+            title: 'Split Stats'
+        }, {
+            page: 'careerStats',
+            title: 'Career Stats'
+        }]
+    }, {
+        title: 'Data Board',
+        items: [{
+            page: 'dataScatter',
+            title: 'Data Scatter'
+        }, {
+            page: 'playerRankings',
+            title: 'Player Rankings'
+        }]
+    }, {
+        title: 'Smart Board',
+        items: [{
+            page: 'realtimeBox',
+            title: 'Real-Time Box'
+        }, {
+            page: 'hotcoldPlayer',
+            title: 'Hot & Cold Player'
+        }, {
+            page: 'matchPlayer',
+            title: 'Similar Player'
+        }, {
+            page: 'playerSalary',
+            title: 'Player Salary'
+        }, {
+            page: 'playerStatus',
+            title: 'Player Status - BETA'
+        }, {
+            page: 'tradeCompare',
+            title: 'Trade Compare',
+            lock: true
+        }]
+    }, {
+        title: 'Team Board',
+        items: []
+    }, {
+        title: 'Draft Board',
+        items: []
+    }];
+
+    $scope.activeItem = function(item, menu) {
+        $scope.menus.forEach(function(menu) {
+            menu.active = false;
+        });
+        menu.active = true;
+        menu.items.forEach(function(item) {
+            item.active = false;
+        });
+        item.active = true;
+    };
+
+    $scope.menus.forEach(function(menu) {
+        menu.items.forEach(function(item) {
+            if (item.page == location.pathname.split('/')[1]) {
+                item.active = true;
+                menu.active = true;
+            }
+        });
+    });
+
+});

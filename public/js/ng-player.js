@@ -11,7 +11,7 @@ angular.module('ngFb', [])
             muti: '='
         },
         template:  `
-            <div class="modelBox active" mid="51" style="height:413px">
+            <div class="modelBox active" mid="51" style="height:420px;padding:0 0 10px 0;margin:0 0 24px 0">
                 <div class="transparent" style="height:20px;overflow:hidden;border:0px solid #fff;border-bottom:0">
                     <div>
                         <input type="text" class="filter gray" style="width:98%;margin:0;padding:1%;border:0;outline: none;color:#999"  placeholder="Type Player Name..." />

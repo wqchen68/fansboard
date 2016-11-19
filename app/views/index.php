@@ -50,44 +50,6 @@
 <script src="/js/controllers/playerRankings.js"></script>
 <script src="/js/controllers/realtimeBox.js"></script>
 <script src="/js/controllers/matchPlayer.js"></script>
-
-<script type="text/javascript">
-// $(document).ready(function(){
-
-// 	var index = 1;
-// 	var index_current;
-
-
-// 	$('.tab').on('click','a.menu-tab-link',function(e){
-// 		e.preventDefault();
-// 		var c = $(e.currentTarget);
-// 		var d = $(e.delegateTarget);
-
-// 		$('a.menu-tab-link.active').removeClass('active');
-// 		c.addClass('active');
-// 		d.addClass('active').siblings().removeClass('active');
-
-// 		d.siblings().find('h4').eq(0).css('left', '');
-// 		d.siblings().find('h4').eq(1).css('left', '100%');
-
-//         d.find('h4').html(c.text());
-
-// 	});
-
-
-// 	$('a.menu-tab-link.init').trigger('click');
-//     function getScript(handle) {
-//         jQuery.ajaxSetup({
-//           cache: true
-//         });
-//         var script = '/js/hightchart.' + location.pathname.split('/')[1] + '.js';
-//         $.getScript(script, function(){
-//             handle();
-//         });
-//     }
-
-// });
-</script>
 </head>
 
 <body>
