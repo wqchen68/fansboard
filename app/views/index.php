@@ -58,7 +58,7 @@
     <div id="testi" style="position:absolute;bottom:50px;top:52px;overflow:auto">
         <div class="move active" index="0" style="height:100%">
 
-            <div ng-view></div>
+            <div ng-view style="height: 100%"></div>
 
             <div style="position: absolute ; top:20px; left:1565px">
                 <div class="fb-like" data-href="" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>

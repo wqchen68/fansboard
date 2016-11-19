@@ -98,7 +98,7 @@
 				</div>
 
                 <div class="transparent" style="overflow-x:hidden;overflow-y:scroll;position:absolute;bottom:10px;top:34px;left:0;right:0">
-                    <div class="effrank new wait" fbid="{{ player.fbid*3.5 }}" rank="{{ index }}" style="width:100%;height:20px;padding:4px 7px 4px 7px;color:#fff;position:relative" ng-repeat="player in (realtimeBox.rtstats | orderBy:predicate:reverse | filter:searchText)">
+                    <div class="effrank new wait" fbid="{{ player.fbid*3.5 }}" rank="{{ index }}" style="width:100%;height:20px;padding:4px 7px 4px 7px;color:#fff;position:relative" ng-repeat="player in realtimeBox.rtstats | orderBy:predicate:reverse | filter:searchText">
 
                         <span>
                             <div style="float:left">
