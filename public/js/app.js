@@ -33,7 +33,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         })
         .when('/careerStats', {
             templateUrl: '/view/careerStats',
-            controller: 'careerStatsCtrl'
+            controller: 'careerStatsCtrl',
+            reloadOnSearch: false
         })
         .when('/dataScatter', {
             templateUrl: '/view/dataScatter',
