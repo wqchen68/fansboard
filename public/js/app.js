@@ -16,20 +16,22 @@ app.run(['$route', '$rootScope', '$location', function ($route, $rootScope, $loc
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     $routeProvider
-        .when('/playerAbility/:player?', {
+        .when('/playerAbility', {
             templateUrl: '/view/playerAbility',
             controller: 'abilityCtrl',
             reloadOnSearch: false
         })
-        .when('/gameLog/:player?', {
+        .when('/gameLog', {
             templateUrl: '/view/gameLog',
-            controller: 'gameLogCtrl'
+            controller: 'gameLogCtrl',
+            reloadOnSearch: false
         })
-        .when('/splitStats/:player?', {
+        .when('/splitStats', {
             templateUrl: '/view/splitStats',
-            controller: 'splitStatsCtrl'
+            controller: 'splitStatsCtrl',
+            reloadOnSearch: false
         })
-        .when('/careerStats/:player?', {
+        .when('/careerStats', {
             templateUrl: '/view/careerStats',
             controller: 'careerStatsCtrl'
         })
@@ -48,9 +50,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         .when('/hotcoldPlayer', {
             templateUrl: '/view/hotcoldPlayer'
         })
-        .when('/matchPlayer/:player?', {
+        .when('/matchPlayer', {
             templateUrl: '/view/matchPlayer',
-            controller: 'matchPlayerCtrl'
+            controller: 'matchPlayerCtrl',
+            reloadOnSearch: false
         })
         .when('/playerSalary', {
             templateUrl: '/view/playerSalary'
@@ -67,20 +70,16 @@ app.controller('menuController', function($scope, $filter, $location, $routePara
         title: 'Player Board',
         items: [{
             page: 'playerAbility',
-            title: 'Player Ability',
-            paraments: ['players', 'range']
+            title: 'Player Ability'
         }, {
             page: 'gameLog',
-            title: 'Game Logs',
-            paraments: ['players', 'range']
+            title: 'Game Logs'
         }, {
             page: 'splitStats',
-            title: 'Split Stats',
-            paraments: ['players', 'range']
+            title: 'Split Stats'
         }, {
             page: 'careerStats',
-            title: 'Career Stats',
-            paraments: ['players']
+            title: 'Career Stats'
         }]
     }, {
         title: 'Data Board',
@@ -101,8 +100,7 @@ app.controller('menuController', function($scope, $filter, $location, $routePara
             title: 'Hot & Cold Player'
         }, {
             page: 'matchPlayer',
-            title: 'Similar Player',
-            paraments: ['players', 'range']
+            title: 'Similar Player'
         }, {
             page: 'playerSalary',
             title: 'Player Salary'
@@ -132,22 +130,8 @@ app.controller('menuController', function($scope, $filter, $location, $routePara
         });
         item.active = true;
 
-        var paraments = '';
-        if (item.paraments)
-        item.paraments.forEach(function(parament) {
-            switch (parament) {
-                case 'players':
-                    players = $routeParams.player ? '/' + $routeParams.player : '';
-                    paraments += players;
-                    break;
-
-                case 'range':
-                    $location.search('range', null);
-                default:
-                    break;
-            }
-        });
-        $location.path('/' + item.page + paraments);
+        $location.search('range', null);
+        $location.path('/' + item.page, true);
     };
 
     $scope.menus.forEach(function(menu) {

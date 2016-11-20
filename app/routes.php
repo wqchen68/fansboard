@@ -122,7 +122,7 @@ Route::get('{pagename}/{players?}', array('before'=>'oldUrl', function($pagename
         $player = ['Stephen-Curry'];
     }
 
-    $full_url = $pagename . '/' . $players;
+    $full_url = $pagename . '?player=' . $players;
 
     $og_image = '';
     foreach( $player as $p ){
@@ -187,6 +187,6 @@ Route::filter('oldUrl', function($route) {
     if( count($player)>0 ){
         $player = array_diff( $player, array('') );
         $player = array_slice( $player, 0 );
-        return Redirect::to($route->getParameter('pagename') . '/' . implode(',', $player), 301);
+        //return Redirect::to($route->getParameter('pagename') . '/' . implode(',', $player), 301);
     }
 });

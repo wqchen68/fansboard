@@ -42,8 +42,8 @@ angular.module('ngFb', [])
                     for (var i in $scope.players) {
                         $scope.players[i].active = $routeParams.player == $scope.players[i].fbid;
                     }
-                    if ($routeParams.player)
-                        $scope.reflash($filter('filter')($scope.players, {active: true}));
+
+                    $scope.setPlayers();
                 }).error(function(e){
                     console.log(e);
                 });
@@ -54,6 +54,20 @@ angular.module('ngFb', [])
                 $location.search('range', range);
             });
 
+            $scope.setPlayers = function(selectedPlayers) {
+                var selectedPlayers = $filter('filter')($scope.players, {active: true});
+
+                if (selectedPlayers.length == 0)
+                    selectedPlayers = selectedPlayers.concat($filter('filter')($scope.players, {fbid: 'Stephen-Curry'}, true));
+
+                player = selectedPlayers.map(function(player) { return player.fbid }).join(',');
+
+                $location.search('player', player);
+
+                if (selectedPlayers.length > 0)
+                    $scope.reflash(selectedPlayers);
+            };
+
             $scope.selectSignPlayer = function(player) {
                 angular.forEach($scope.players, function(player) {
                     player.active = false;
@@ -61,15 +75,9 @@ angular.module('ngFb', [])
 
                 player.active = true;
 
-                var selectedPlayers = $filter('filter')($scope.players, {active: true});
-
-                page = location.pathname.split('/')[1];
-                paras = selectedPlayers.map(function(player) { return player.fbid }).join(',');
-
-                $location.path(page + '/' + paras, false);
-                
-                $scope.reflash(selectedPlayers);
+                $scope.setPlayers();
             };
+
         }
     };
 });
