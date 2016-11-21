@@ -59,6 +59,13 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         .when('/playerSalary', {
             templateUrl: '/view/playerSalary'
         })
+        .when('/', {
+            template: '<div></div>',
+            controller: function($location) {
+                window.location = '/';
+            }
+        })
+
         .otherwise({
             templateUrl: 'welcome.html'
         });
