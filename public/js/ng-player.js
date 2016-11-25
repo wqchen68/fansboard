@@ -19,7 +19,7 @@ angular.module('ngFb', [])
                 </div>
                 <div class="transparent" style="height:100%; overflow-y:scroll;border:1px solid #fff;font-size: 14px">
                     <table class="plist playerList-combo muti" ng-class="{active: muti}" cellspacing="0">
-                        <tr ng-repeat="player in players | filter:searchPlayer">
+                        <tr ng-repeat="player in players | orderBy:'biodata.player' | filter:searchPlayer">
                             <td class="sign-btn" ng-class="{active:isSelected(player)}" value ="{{player.fbid}}" team="{{player.team}}" ng-click="selectSignPlayer(player)">
                                 {{player.player}}
                                 <div class="muti-btn" ng-class="{active:isSelected(player)}" ng-click="$event.stopPropagation();selectMutiPlayer(player)" />
