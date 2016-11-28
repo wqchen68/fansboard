@@ -43,7 +43,7 @@ Route::get('getPlayer2', function() {
         $season='ALL';
     }
 
-    $players = Fansboard\Syncplayer::with('biodata')->where('datarange', $season)->get()->sortBy('biodata.player')->toArray();
+    $players = Fansboard\Syncplayer::with(['biodata', 'frame'])->where('datarange', $season)->get()->toArray();
 
     // $players = DB::table('syncplayerlist')
     //         ->leftJoin('biodata','syncplayerlist.fbido','=','biodata.fbido')

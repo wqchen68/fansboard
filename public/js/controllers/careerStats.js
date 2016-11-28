@@ -178,7 +178,6 @@ angular.module('app').controller('careerStatsCtrl', function($scope, $filter, $h
         .success(function(data, status, headers, config) {
             console.log(data)
 
-            angular.extend($scope.selectedPlayers[0], data.card[0]);
             $scope.scores = [];
 
 			for( var i in data['table'] ){

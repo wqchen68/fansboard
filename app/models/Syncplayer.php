@@ -12,5 +12,10 @@ class Syncplayer extends Eloquent {
     {
         return $this->hasOne('Fansboard\Biodata', 'fbido', 'fbido');
     }
-    
+
+    public function frame()
+    {
+        return $this->hasOne('Fansboard\SyncFrame', 'fbido', 'fbido')->where('datarange', 'ALL');
+    }
+
 }

@@ -101,10 +101,7 @@ angular.module('app').controller('abilityCtrl', function($scope, $filter, $http,
 
             radarChart.redraw();
 
-            for (var i in data.basic) {
-                radarChart.options.exporting.filename='RadarChart#'+$scope.selectedPlayers[i].fbid;
-                $scope.selectedPlayers[i].basics = data.basic[i];
-            }
+            radarChart.options.exporting.filename = 'RadarChart#' + $scope.selectedPlayers.map(function(selectedPlayer) {return selectedPlayer.fbid;}).join(',');
 
         }).error(function(e) {
             console.log(e);

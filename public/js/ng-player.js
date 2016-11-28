@@ -14,7 +14,7 @@ angular.module('ngFb', [])
             <div class="modelBox active" mid="51" style="height:420px;padding:0 0 10px 0;margin:0 0 24px 0">
                 <div class="transparent" style="height:20px;overflow:hidden;border:0px solid #fff;border-bottom:0">
                     <div>
-                        <input type="text" ng-model="searchPlayer.player" class="filter gray" style="width:98%;margin:0;padding:1%;border:0;outline: none;color:#999"  placeholder="Type Player Name..." />
+                        <input type="text" ng-model="searchPlayer.biodata.player" class="filter gray" style="width:98%;margin:0;padding:1%;border:0;outline: none;color:#999"  placeholder="Type Player Name..." />
                     </div>
                 </div>
                 <div class="transparent" style="height:100%; overflow-y:scroll;border:1px solid #fff;font-size: 14px">
@@ -32,7 +32,7 @@ angular.module('ngFb', [])
         controller: function($scope, $http, $filter, $routeParams, $location) {
 
             $scope.players = [];
-            $scope.searchPlayer = {};
+            $scope.searchPlayer = {biodata: {}};
 
             var players = $scope.muti ? $routeParams.players.split(',') : [$routeParams.players.split(',')[0]];
 
@@ -115,13 +115,13 @@ angular.module('ngFb', [])
 
                     </div>
                     <div class="playercardsmall-news">
-                        <div class="cardplayer">{{ selectedPlayer.cardplayer }}</div>
+                        <div class="cardplayer">{{ selectedPlayer.player }}</div>
                         <div>
-                            <div class="cardteamposi" style="float:left;padding:0 5px 0 0">{{ selectedPlayer.cardteamposi }}</div>
-                            <div class="cardinjna">{{ selectedPlayer.cardinjna }}</div>
+                            <div class="cardteamposi" style="float:left;padding:0 5px 0 0">{{ selectedPlayer.team + '&nbsp-&nbsp'+ selectedPlayer.position }}</div>
+                            <div class="cardinjna">{{ selectedPlayer.injna }}</div>
                             <div style="height:0;clear:both"></div>
                         </div>
-                        <div class="cardstat">{{ selectedPlayer.cardstat }}</div>
+                        <div class="cardstat">{{ selectedPlayer.frame.stat }}</div>
                     </div>
                     <div style="height:0;clear:both"></div>
                 </div>

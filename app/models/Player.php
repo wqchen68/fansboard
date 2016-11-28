@@ -106,13 +106,10 @@ class Player {
             }
         }
 
-        $card = self::getCard(array($player['fbid']));
-
         $data_new['spstat']=$spstat;
         $data_new['table']=$splitdata;
         /*$data_new['basic']=$basic_array;
         $data_new['stat']=$stat_array;*/
-        $data_new['card']=$card;
 
         return Response::json($data_new);
     }
@@ -646,8 +643,6 @@ class Player {
 
         }
 
-        $card = self::getCard(array($inputid));
-
         $output = array(
             'career'=>$careerdata,
             'career36'=>$careerdata36,
@@ -656,7 +651,6 @@ class Player {
             'valueMax'=>($valueMaxNow>$valueMax)?ceil($valueMaxNow):ceil($valueMax),
             /*'basic'=>$basic_array,
             'stat'=>$stat_array,*/
-            'card'=>$card,
             'table'=>$table_array,
 
         );
@@ -906,43 +900,6 @@ class Player {
         return Response::json($output);
     }
 
-    public static function getCard($player) {
-        /*
-         * Input player array;
-         */
-        $player_basic_query = DB::table('syncplayerlist AS sl1')
-                            ->leftJoin('syncdataframe AS sd',function($join){
-                                $join->on('sl1.fbido','=','sd.fbido')->on('sd.datarange','=',DB::raw('\'ALL\''));
-                            })
-                            ->where('sl1.datarange','=','Full')
-                            ->whereIn('sl1.fbid',$player);
-        $player_basic = $player_basic_query->select('sl1.player','sl1.fbid','sl1.team','sl1.position','sl1.injna','sd.pwpts','sd.pwtreb','sd.pwast')->get();
-
-        if ($player_basic) {
-            $output_bykey = array();
-            foreach($player_basic as $basic){
-                !isset($basic->pwpts) && $basic->pwpts='---';
-                !isset($basic->pwtreb) && $basic->pwtreb='---';
-                !isset($basic->pwast) && $basic->pwast='---';
-                $output_bykey[$basic->fbid] = array(
-                    'fbid' => $basic->fbid,
-                    'cardplayer' => $basic->player,
-                    /*'cardbasic' => $basic->team.$basic->position.$basic->injna,
-                    'cardstat' => $basic->pwpts.$basic->pwtreb.$basic->pwast,*/
-                    'cardteamposi' => $basic->team.'&nbsp-&nbsp'.$basic->position,
-                    'cardinjna' => $basic->injna,
-                    'cardstat' => sprintf("%.1f",round($basic->pwpts, 1)).' pts, '.sprintf("%.1f",round($basic->pwtreb, 1)).' reb, '.sprintf("%.1f",round($basic->pwast, 1)).' ast',
-                );
-            }
-        }
-        $output = array();
-        foreach($player as $p){
-            array_push($output,$output_bykey[$p]);
-        }
-        return $output;
-    }
-
-
     public static function getRank() {
 
         $get_array = Input::get('get_array');
@@ -1151,8 +1108,6 @@ class Player {
 
         $table_new = array_reverse($table,false);
 
-        $card = self::getCard(array($inputid));
-
         $madata['current'] = $madata['current'];
         $madata['ma3'] = $madata['ma3'];
         $madata['ma6'] = $madata['ma6'];
@@ -1162,78 +1117,9 @@ class Player {
         $madata['date'] = $info['date'];
         $madata['oppo'] = $info['oppo'];
         $madata['table'] = $table_new;
-        $madata['card'] = $card;
 
         return $madata;
     }
-
-    public static function getPlayer() {
-
-        $position = Input::get('player_position');
-        $season = Input::get('player_season','ALL');
-
-        $season=='ALL' && $season = 'Full';
-
-        $resultAry = DB::table('syncplayerlist')
-                ->leftJoin('biodata','syncplayerlist.fbido','=','biodata.fbido')
-                ->where('syncplayerlist.datarange','=',$season)
-                ->where(function($query) use($position){
-                    if( is_array($position) ){
-                        foreach($position as $p){
-                            //$query = $query->orWhere('syncplayerlist.position','LIKE','%'.$p.'%');
-                        }
-                    }else
-                    if( $position!='ALL' ){
-                        //$query->where('syncplayerlist.position','LIKE','%'.$position.'%');
-                    }
-                })->orderBy('biodata.player')->select('syncplayerlist.fbid','syncplayerlist.team','biodata.player')->get();
-
-
-        $player_option = '';
-        if( is_array($resultAry) ){
-            foreach($resultAry as $player)
-            $player_option .= '<tr><td value ="'.$player->fbid.'" team="'.$player->team.'">'.$player->player.'</td></tr>';
-        }
-        $queryLog = DB::getQueryLog();
-
-        return Response::json(array('playlist'=>$player_option,'query'=>json_encode($queryLog)));
-
-    }
-
-    public static function getPlayer2() {
-        $season = Input::get('range','Full');
-        if ($season=='2016'){
-            $season='ALL';
-        }
-//        var_dump($season);
-        //$season=='ALL' && $season = 'Full';
-
-        $resultAry = DB::table('syncplayerlist')
-                ->leftJoin('biodata','syncplayerlist.fbido','=','biodata.fbido')
-                ->where('syncplayerlist.datarange','=',$season)
-                ->orderBy('biodata.player')->select('syncplayerlist.fbid','syncplayerlist.team','biodata.player')->get();
-        $player_option = '';
-        if( is_array($resultAry) ){
-            foreach($resultAry as $player)
-            $player_option .= '<tr><td class="sign-btn" value ="'.$player->fbid.'" team="'.$player->team.'">'.$player->player.'<div class="muti-btn" /></td></tr>';
-        }
-        $queryLog = DB::getQueryLog();
-        return Response::json(array('playlist'=>$player_option,'query'=>json_encode($queryLog)));
-    }
-
-    public static function getPlayer3() {
-
-        $resultAry = DB::table('ncaadataframe')
-                ->orderBy('player')->select('fbid','player')->get();
-        $player_option = '';
-        if( is_array($resultAry) ){
-            foreach($resultAry as $player)
-            $player_option .= '<tr><td class="sign-btn" value ="'.$player->fbid.'>'.$player->player.'<div class="muti-btn" /></td></tr>';
-        }
-        $queryLog = DB::getQueryLog();
-        return Response::json(array('playlist'=>$player_option,'query'=>json_encode($queryLog)));
-    }
-
 
     public static function getMatch()	{
         //$datarange = 'D07';
@@ -1401,11 +1287,6 @@ class Player {
         }
     }
 
-
-
-
-
-
     public static function getAbility()	{
         $datarange = Input::get('datarange');
         $player_array = array_pluck(Input::get('player'), 'fbid');
@@ -1425,15 +1306,6 @@ class Player {
                     ->where('syncdataframe.fbid','=',$fbid)
                     ->where('syncdataframe.datarange','=',$datarange)
                     ->where('syncplayerlist.datarange','=',$datarange)->get();
-
-            $basic_array = array();
-            $player_basic = DB::table('syncplayerlist')
-                            ->select('team','position','injna')
-                            ->where('fbid','=',$fbid)
-                            ->where('datarange','=','Full')->get();
-            array_push($basic_array,$player_basic[0]->team);
-            array_push($basic_array,$player_basic[0]->position);
-            array_push($basic_array,$player_basic[0]->injna);
 
             $value_array = array();
             $table_array = array();
@@ -1472,20 +1344,15 @@ class Player {
                     array_push($table_array,sprintf("%.1f",round($res->pweff, 1)));
                     array_push($table_array,sprintf("%.1f",round($res->pweff36, 1)));
 
-                    /*array_push($basic_array,$res->team);
-                    array_push($basic_array,$res->position);
-                    array_push($basic_array,$res->injna);					*/
-
                 }
             }
 
             array_push($plays_value_array,$value_array);
             array_push($plays_table_array,$table_array);
-            array_push($plays_basic_array,$basic_array);
 
         }
 
-        return array('value'=>$plays_value_array,'table'=>$plays_table_array,'basic'=>$plays_basic_array);
+        return ['value' => $plays_value_array, 'table' => $plays_table_array];
     }
 
 

@@ -65,9 +65,9 @@
                                     </div>
                                     <div style="height:0;clear:both"></div>
                                 </div>
-                                <div class="basic00" style="font-size:12px;text-align:left;margin:10px 0 0 0">{{selectedPlayer.basics[0]}}</div>
-                                <div class="basic01" style="font-size:12px;text-align:left;margin:6px 0 0 0">{{selectedPlayer.basics[1]}}</div>
-                                <div class="basic02" style="font-size:12px;text-align:left;margin:6px 0 0 0;font-weight:bold;color:red">{{selectedPlayer.basics[2]}}</div>
+                                <div class="basic00" style="font-size:12px;text-align:left;margin:10px 0 0 0">{{selectedPlayer.team}}</div>
+                                <div class="basic01" style="font-size:12px;text-align:left;margin:6px 0 0 0">{{selectedPlayer.position}}</div>
+                                <div class="basic02" style="font-size:12px;text-align:left;margin:6px 0 0 0;font-weight:bold;color:red">{{selectedPlayer.injna}}</div>
                             </div>
 
                             <div style="width:75%;float:left">
