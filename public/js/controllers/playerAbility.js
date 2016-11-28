@@ -74,14 +74,17 @@ angular.module('app').controller('abilityCtrl', function($scope, $filter, $http,
         $http({method: 'POST', url: '/data/getAbility', data: {player: $scope.selectedPlayers, datarange: $scope.rangeNow}})
         .success(function(data, status, headers, config) {
 
-            $scope.scores = [];
+            console.log(data);
 
-            for( i=0;i<data.value.length;i++ ){
+            $scope.reFlashNews();
 
+            $scope.frames = data.frames;
+
+            for (var i in data.frames) {
                 radarChart.addSeries({
                     type: 'area',
-                    name: $scope.selectedPlayers[i].player,
-                    data: data.value[i],
+                    name: data.frames[i].player.player,
+                    data: data.frames[i].ability8,
                     fillOpacity: 0.3,
                     marker: {
                         enabled: false,
@@ -89,14 +92,6 @@ angular.module('app').controller('abilityCtrl', function($scope, $filter, $http,
                         symbol: 'circle'
                     }
                 }, false);
-
-                var score = {player: $scope.selectedPlayers[i].player, columns: []};
-
-                for( var j=0;j<data.table[i].length;j++ ){
-                    score.columns.push({value: data.table[i][j]});
-                }
-
-                $scope.scores.push(score);
             }
 
             radarChart.redraw();

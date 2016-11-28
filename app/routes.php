@@ -45,13 +45,7 @@ Route::get('getPlayer2', function() {
 
     $players = Fansboard\Syncplayer::with(['biodata', 'frame'])->where('datarange', $season)->get()->toArray();
 
-    // $players = DB::table('syncplayerlist')
-    //         ->leftJoin('biodata','syncplayerlist.fbido','=','biodata.fbido')
-    //         ->where('syncplayerlist.datarange','=',$season)
-    //         ->orderBy('biodata.player')->select('syncplayerlist.fbid','syncplayerlist.team','biodata.player')->get();
-
-    $queryLog = DB::getQueryLog();
-    return ['players' => $players, 'query' => $queryLog];
+    return ['players' => $players, 'query' => DB::getQueryLog()];
 });
 
 Route::get('getRankplayers', function() {

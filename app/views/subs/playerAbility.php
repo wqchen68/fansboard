@@ -141,11 +141,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="report-detail" ng-repeat="score in scores">
-                                <td style="text-align: left">{{score.player}}</td>
-                                <td style="text-align: right;padding-right:5px" ng-repeat="column in score.columns">
-                                    {{column.value}}
-                                </td>
+                            <tr class="report-detail" ng-repeat="frame in frames">
+                                <td style="text-align: left">{{frame.player.player}}</td>
+                                <td style="text-align: right;padding-right:5px" ng-repeat="ability in frame.abilities">{{ability}}</td>
                             </tr>
                         </tbody>
                     </table>

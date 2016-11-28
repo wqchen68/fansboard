@@ -1287,74 +1287,21 @@ class Player {
         }
     }
 
-    public static function getAbility()	{
+    public static function getAbility()
+    {
         $datarange = Input::get('datarange');
-        $player_array = array_pluck(Input::get('player'), 'fbid');
-        return Response::json(self::ability($datarange,$player_array));
+
+        $players = array_pluck(Input::get('player'), 'fbid');
+
+        return self::ability($datarange, $players);
     }
 
-    public static function ability($datarange,$player_array) {
+    public static function ability($datarange, $players)
+    {
+        $frames = Fansboard\SyncFrame::where('fbid', $players)->where('datarange', $datarange)->get()->load('player');
 
-        $plays_value_array = array();
-        $plays_table_array = array();
-        $plays_basic_array = array();
-
-        foreach( $player_array as $player ){
-            $fbid = $player;
-
-            $resultAry = DB::table('syncdataframe')->leftJoin('syncplayerlist','syncdataframe.fbido','=','syncplayerlist.fbido')
-                    ->where('syncdataframe.fbid','=',$fbid)
-                    ->where('syncdataframe.datarange','=',$datarange)
-                    ->where('syncplayerlist.datarange','=',$datarange)->get();
-
-            $value_array = array();
-            $table_array = array();
-            if( is_array($resultAry ) ){
-                foreach($resultAry as $res){
-                    array_push($value_array,round($res->swftp, 2));
-                    array_push($value_array,round($res->sw3ptm, 2));
-                    array_push($value_array,round($res->swast, 2));
-                    array_push($value_array,round($res->swst, 2));
-                    array_push($value_array,round($res->swfgp, 2));
-                    array_push($value_array,round($res->swblk, 2));
-                    array_push($value_array,round($res->swtreb, 2));
-                    array_push($value_array,round($res->swpts, 2));
-
-                    array_push($table_array,round($res->wgp, 0));
-                    array_push($table_array,sprintf("%.2f",round($res->pwmin, 2)));
-                    array_push($table_array,sprintf("%.1f",round($res->pwfgm, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pwfga, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->wfgp*100, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pw3ptm, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pw3pta, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->w3ptp*100, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pwftm, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pwfta, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->wftp*100, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pworeb, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pwdreb, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pwtreb, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pwast, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pwto, 1)));
-                    array_push($table_array,sprintf("%.2f",round($res->watr, 2)));
-                    array_push($table_array,sprintf("%.2f",round($res->pwst, 2)));
-                    array_push($table_array,sprintf("%.2f",round($res->pwblk, 2)));
-                    array_push($table_array,sprintf("%.1f",round($res->pwpf, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pwpts, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pweff, 1)));
-                    array_push($table_array,sprintf("%.1f",round($res->pweff36, 1)));
-
-                }
-            }
-
-            array_push($plays_value_array,$value_array);
-            array_push($plays_table_array,$table_array);
-
-        }
-
-        return ['value' => $plays_value_array, 'table' => $plays_table_array];
+        return ['frames' => $frames, 'logs' => DB::getQueryLog()];
     }
-
 
 }
 
