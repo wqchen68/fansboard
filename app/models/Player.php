@@ -9,55 +9,30 @@ class Player {
 
         $splitdata = DB::table('splitdata')->where(function($query){
             $query->where('pickshow','=','1');
-            //$query->whereIn('spcate',array('Home','Away','Day','Night','0 Days Rest','1 Days Rest'))->orWhere('spcate', 'LIKE', 'vs%');
-            })->where('season',$datarange)->where('fbid',$player['fbid'])->orderBy('spcate')->select(DB::raw('season,spcate,spgame,
-                                                    FORMAT(spmin,1) AS spmin,
-                                                    FORMAT(spfgm,1) AS spfgm,
-                                                    FORMAT(spfga,1) AS spfga,
-                                                    FORMAT(spfgp,1) AS spfgp,
-                                                    FORMAT(sp3ptm,1) AS sp3ptm,
-                                                    FORMAT(sp3pta,1) AS sp3pta,
-                                                    FORMAT(sp3ptp,1) AS sp3ptp,
-                                                    FORMAT(spftm,1) AS spftm,
-                                                    FORMAT(spfta,1) AS spfta,
-                                                    FORMAT(spftp,1) AS spftp,
-                                                    FORMAT(sporeb,1) AS sporeb,
-                                                    FORMAT(spdreb,1) AS spdreb,
-                                                    FORMAT(sptreb,1) AS sptreb,
-                                                    FORMAT(spast,1) AS spast,
-                                                    FORMAT(spto,1) AS spto,
-                                                    FORMAT(spatr,1) AS spatr,
-                                                    FORMAT(spst,1) AS spst,
-                                                    FORMAT(spblk,1) AS spblk,
-                                                    FORMAT(sppf,1) AS sppf,
-                                                    FORMAT(sppts,1) AS sppts,
-                                                    FORMAT(speff,1) AS speff,
-                                                    FORMAT(speff36,1) AS speff36'))->get();
-
-        /*$basic_array = array();
-        $player_basic = DB::table('syncplayerlist')
-                        ->leftJoin('syncdataframe','syncplayerlist.fbido','=','syncdataframe.fbido')
-                        ->select('player','team','position','injna','pwpts','pwtreb','pwast')
-                        ->where('syncplayerlist.fbid','=',$player['fbid'])
-                        ->where('syncplayerlist.datarange','=','Full')
-                        ->orderBy('syncdataframe.updatetime')->get();
-
-        array_push($basic_array,$player_basic[0]->player);
-        array_push($basic_array,$player_basic[0]->team);
-        array_push($basic_array,$player_basic[0]->position);
-        array_push($basic_array,$player_basic[0]->injna);
-
-        $stat_array = array();
-        $norank = DB::table('syncplayerlist')->where('datarange', '=', 'ALL')->where('fbid', $player['fbid']);
-        if( $norank->exists() ){
-            array_push($stat_array,sprintf("%.1f",round($player_basic[0]->pwpts,1)));
-            array_push($stat_array,sprintf("%.1f",round($player_basic[0]->pwtreb,1)));
-            array_push($stat_array,sprintf("%.1f",round($player_basic[0]->pwast,1)));
-        }else{
-            array_push($stat_array,"---");
-            array_push($stat_array,"---");
-            array_push($stat_array,"---");
-        }*/
+            })->where('season',$datarange)->where('fbid',$player['fbid'])->orderBy('spcate')->select(
+                DB::raw('season,spcate,spgame,
+                    FORMAT(spmin,1) AS spmin,
+                    FORMAT(spfgm,1) AS spfgm,
+                    FORMAT(spfga,1) AS spfga,
+                    FORMAT(spfgp,1) AS spfgp,
+                    FORMAT(sp3ptm,1) AS sp3ptm,
+                    FORMAT(sp3pta,1) AS sp3pta,
+                    FORMAT(sp3ptp,1) AS sp3ptp,
+                    FORMAT(spftm,1) AS spftm,
+                    FORMAT(spfta,1) AS spfta,
+                    FORMAT(spftp,1) AS spftp,
+                    FORMAT(sporeb,1) AS sporeb,
+                    FORMAT(spdreb,1) AS spdreb,
+                    FORMAT(sptreb,1) AS sptreb,
+                    FORMAT(spast,1) AS spast,
+                    FORMAT(spto,1) AS spto,
+                    FORMAT(spatr,1) AS spatr,
+                    FORMAT(spst,1) AS spst,
+                    FORMAT(spblk,1) AS spblk,
+                    FORMAT(sppf,1) AS sppf,
+                    FORMAT(sppts,1) AS sppts,
+                    FORMAT(speff,1) AS speff,
+                    FORMAT(speff36,1) AS speff36'))->get();
 
         $spstat = array(
             'dayNight'=>array(0,0),
@@ -108,8 +83,6 @@ class Player {
 
         $data_new['spstat']=$spstat;
         $data_new['table']=$splitdata;
-        /*$data_new['basic']=$basic_array;
-        $data_new['stat']=$stat_array;*/
 
         return Response::json($data_new);
     }
@@ -120,16 +93,14 @@ class Player {
                 ->leftJoin('biodata','biodata.fbido','=','realtimeeff.fbido')
                 ->leftJoin(DB::raw('(SELECT * FROM syncdataframe WHERE datarange="ALL") syncdataframe'),'syncdataframe.fbido','=','realtimeeff.fbido')
                 ->leftJoin('teamlist','teamlist.team','=','realtimeeff.team')
-                ->orderBy('realtimeeff.bxeff','desc')//->orderBy('realtimeeff.bxpts','desc')
+                ->orderBy('realtimeeff.bxeff','desc')
                 ->select(
                     'realtimeeff.gameid',
                     'realtimeeff.fbid',
                     'realtimeeff.bxeff',
                     'realtimeeff.szv',
-//					DB::raw('\'LIVE!\' AS livemark'),
                     'realtimeeff.livemark',
                     'realtimeeff.startfive',
-//                    'realtimeeff.bxgs',
                     DB::raw('1-isnull(realtimeeff.bxgs) AS bxgs'),
                     DB::raw('UPPER(realtimeeff.oppo) AS oppo'),
                     'realtimeeff.bxmin',
@@ -176,7 +147,6 @@ class Player {
                     'teamlist.colorfont',
                     DB::raw('realtimeeff.bxeff/realtimeeff.bxmin AS effper'),
                     DB::raw('syncdataframe.pweff/syncdataframe.pwmin AS effper2'))
-//                ->whereRaw('realtimeeff.startfive!="DNP"')
                 ->get();
 
         $efflv = DB::table('realtimeeff')
@@ -191,8 +161,6 @@ class Player {
         return Response::json(array('rtstats'=>$rtstats,'efflv'=>$efflv->efflv,'gamedata'=>$gamedata));
     }
 
-
-/***************************************************************************************/
     public static function gethotcoldPlayer() {
 
         $todaybo = DB::table('realtimeeff')
@@ -217,7 +185,6 @@ class Player {
                     ->where('syncdataframe.datarange','=','ALL')
                     ->where('syncplayerlist.datarange','=','ALL')
                     ->orderBy('trend','DESC')->take(15)->get();
-
 
         if ( empty($todaybo) ){
                     $todaybo[0] = (object)array();
@@ -305,8 +272,6 @@ class Player {
                     $todaysg[1]->trend='';
         }
 
-
-
         $recenthot = DB::table('syncdataframe AS A1')
                     ->leftJoin('syncdataframe AS A2','A1.fbido','=','A2.fbido')
                     ->leftJoin('biodata','A1.fbido','=','biodata.fbido')
@@ -358,13 +323,8 @@ class Player {
         return Response::json(array('todaybo'=>$todaybo,'todaysg'=>$todaysg,'recenthot'=>$recenthot,'recentcold'=>$recentcold,'livemark'=>$livemark));
 
     }
-/***************************************************************************************/
-
-
-
 
     public static function getTradecompare() {
-
 
         $playerA = array();
         foreach(Input::get('playerA') as $p){
@@ -467,31 +427,6 @@ class Player {
         $careerdata36 = array();
         $careertime = array();
         $uniseason_key = array_flip($uniseason);
-
-        /*$basic_array = array();
-        $player_basic = DB::table('syncplayerlist')
-                        ->leftJoin('syncdataframe','syncplayerlist.fbido','=','syncdataframe.fbido')
-                        ->select('player','team','position','injna','pwpts','pwtreb','pwast')
-                        ->where('syncplayerlist.fbid','=',$inputid)
-                        ->where('syncplayerlist.datarange','=','Full')
-                        ->orderBy('syncdataframe.updatetime')->get();
-
-        array_push($basic_array,$player_basic[0]->player);
-        array_push($basic_array,$player_basic[0]->team);
-        array_push($basic_array,$player_basic[0]->position);
-        array_push($basic_array,$player_basic[0]->injna);
-
-        $stat_array = array();
-        $norank = DB::table('syncplayerlist')->where('datarange', '=', 'ALL')->where('fbid', $inputid);
-        if( $norank->exists() ){
-            array_push($stat_array,sprintf("%.1f",round($player_basic[0]->pwpts,1)));
-            array_push($stat_array,sprintf("%.1f",round($player_basic[0]->pwtreb,1)));
-            array_push($stat_array,sprintf("%.1f",round($player_basic[0]->pwast,1)));
-        }else{
-            array_push($stat_array,"---");
-            array_push($stat_array,"---");
-            array_push($stat_array,"---");
-        }*/
 
         $table_array1 = DB::table('careerstats')->where('fbid','=',$inputid)->select('cseason','cteam',DB::raw('cgame,FORMAT(cmin,1),
                                 FORMAT(cfgm,1),
@@ -649,8 +584,6 @@ class Player {
             'ctime'=>$careertime,
             'label'=>$uniseason,
             'valueMax'=>($valueMaxNow>$valueMax)?ceil($valueMaxNow):ceil($valueMax),
-            /*'basic'=>$basic_array,
-            'stat'=>$stat_array,*/
             'table'=>$table_array,
 
         );
@@ -658,7 +591,6 @@ class Player {
     }
 
     public static function getNews() {
-        //if( isset(Input::get('id')) )
         $news = array();
         foreach(Input::get('player') as $player){
 
@@ -701,7 +633,6 @@ class Player {
             $date=$date_dom->innertext;
             $info=$info_dom->innertext;
 
-            //$sql_update = "UPDATE rwtable SET report='$report2',impact='$impact2',date='$date2',info='$info2',updatetime=now() WHERE rwid='$inputid'";
             DB::table('rwtable')->where('fbid',$fbid)->update(array(
                 'report'=>$report,
                 'impact'=>$impact,
@@ -839,15 +770,13 @@ class Player {
             ? $mins_array[Input::get('mins','SF')]
             : 'min30';
 
-        //$sql = " SELECT $culumn_sql_s,l.player,d.rr,d.gg,d.bb FROM syncdataframe d INNER JOIN syncplayerlist l ON d.datarange=l.datarange AND d.id=l.id WHERE $mins AND $where_sql_s";
-        $resultAry = DB::table('syncdataframe')
+            $resultAry = DB::table('syncdataframe')
                 ->leftJoin('syncplayerlist',function($join){
                     $join->on('syncplayerlist.fbido','=','syncdataframe.fbido');
                 })
                 ->leftJoin('biodata','biodata.fbido','=','syncdataframe.fbido')
                 ->where('syncdataframe.datarange','=',$datarange)
                 ->where('syncplayerlist.datarange','=','Full')
-                //->whereIn('syncplayerlist.fbid',array('Damian-Lillard','DeMar-DeRozan','Giannis-Antetokounmpo','Goran-Dragic','Michael-Carter-Williams','Reggie-Jackson','Trey-Burke','Victor-Oladipo'))
                 ->where('syncdataframe.pwmin','>',$mins)
                 ->whereRaw($position_sql)
                 ->orderBy(DB::raw($category_y_order_sql),'desc')
@@ -860,11 +789,6 @@ class Player {
                     'syncdataframe.bb',
                     'syncplayerlist.position'
                 )->get();
-        //return $resultAry->tosql();
-        //$queries = DB::getQueryLog();
-        //var_dump($queries);
-        //$last_query = end($queries);
-        //return $last_query;
 
         $bv_a = array();
         $bv_name = array();
@@ -905,7 +829,6 @@ class Player {
         $get_array = Input::get('get_array');
         $player = Input::get('player');
         $datarange = Input::get('datarange');
-        //$datarange = 'Y-1';
 
         $sum_item = array_filter($get_array,function($n){
             $inputcate_filter = array('zwfgm','zwfga','zwfgp','zwftm','zwfta','zwftp','zw3ptm','zw3pta','zw3ptp','zworeb','zwdreb','zwtreb','zwast','zwto','zwatr','zwst','zwblk','zwpf','zwpts','zwtech');
@@ -928,10 +851,6 @@ class Player {
         //output: rank
 
         ///撈SQL並sum而且排序///
-
-        /*$injna = DB::table('syncplayerlist')->where('datarange', '=', 'Full')->where('fbid', $inputid)->whereNotNull('injna');
-        if( $injna->exists() )
-            return $injna->pluck('injna');*/
 
         $norank = DB::table('syncplayerlist')->where('datarange', '=', 'ALL')->where('fbid', $inputid);
         if( !$norank->exists() )
@@ -974,31 +893,6 @@ class Player {
         //$sql="SELECT $inputcate AS colsum,ggp,gmin,gdate,goppo,gresult FROM gamelog WHERE fbid='$inputid' AND season='$inputseason'";
         $info = array();
         $table = array();
-
-        /*$basic_array = array();
-        $player_basic = DB::table('syncplayerlist')
-                        ->leftJoin('syncdataframe','syncplayerlist.fbido','=','syncdataframe.fbido')
-                        ->select('player','team','position','injna','pwpts','pwtreb','pwast')
-                        ->where('syncplayerlist.fbid','=',$inputid)
-                        ->where('syncplayerlist.datarange','=','Full')
-                        ->orderBy('syncdataframe.updatetime')->get();
-
-        array_push($basic_array,$player_basic[0]->player);
-        array_push($basic_array,$player_basic[0]->team);
-        array_push($basic_array,$player_basic[0]->position);
-        array_push($basic_array,$player_basic[0]->injna);
-
-        $stat_array = array();
-        $norank = DB::table('syncplayerlist')->where('datarange', '=', 'ALL')->where('fbid', $inputid);
-        if( $norank->exists() ){
-            array_push($stat_array,sprintf("%.1f",round($player_basic[0]->pwpts,1)));
-            array_push($stat_array,sprintf("%.1f",round($player_basic[0]->pwtreb,1)));
-            array_push($stat_array,sprintf("%.1f",round($player_basic[0]->pwast,1)));
-        }else{
-            array_push($stat_array,"---");
-            array_push($stat_array,"---");
-            array_push($stat_array,"---");
-        }*/
 
         if ($inputseason=='2013'||$inputseason=='2014'||$inputseason=='2015'||$inputseason=='2016'){
             $resultAry = DB::table('allgamelog')->where('fbid','=',$inputid)->where('season','=',$inputseason)->orderby('gdate')->select('*',DB::raw('UPPER(goppo) AS goppo'),'bxeff AS colsum')->get();
@@ -1080,7 +974,6 @@ class Player {
         }
 
         ///轉換array///
-
 
         ///計算MA///
         $ma3 = 1;
@@ -1173,21 +1066,6 @@ class Player {
                             pow($player->swto-$pickprdata->swto,2) +
                             pow($player->swpts-$pickprdata->swpts,2);
                 }
-//				foreach($allprdata as $player){
-//                    if ($pickprdata->sw3ptm-$player->sw3ptm<0.5
-//                            && $pickprdata->swtreb-$player->swtreb<0.5
-//                            && $pickprdata->swast-$player->swast<0.5
-//                            && $pickprdata->swst-$player->swst<0.5
-//                            && $pickprdata->swblk-$player->swblk<0.5
-//                            && $pickprdata->swpts-$player->swpts<0.5){
-//                        $dist[$player->fbid] = standard_deviation(array(($player->sw3ptm-$pickprdata->sw3ptm),
-//                            ($player->swtreb-$pickprdata->swtreb),
-//                            ($player->swast-$pickprdata->swast),
-//                            ($player->swst-$pickprdata->swst),
-//                            ($player->swblk-$pickprdata->swblk),
-//                            ($player->swpts-$pickprdata->swpts)),0);
-//                    }
-//				}
 
             }elseif( $matchMethod=='method3' ){ //worse case
                 $pickprdata = DB::table('syncdataframe')->where('fbid','=',$fbid)->where('datarange','=',$datarange)
@@ -1245,26 +1123,6 @@ class Player {
                         pow($player->swtech-$pickprdata->swtech,2);
                 }
 
-//			}else{
-//				$pickprdata = DB::table('syncdataframe')->where('fbid','=',$fbid)->where('datarange','=',$datarange)->select('swmin','swfgm','swfga','swfgp','sw3ptm','sw3pta','sw3ptp','swftm','swfta','swftp','sworeb','swdreb','swtreb','swast','swto','swatr','swst','swblk','swpf','swpts','swtech')->first();
-//				$allprdata = DB::table('syncdataframe')->where('datarange','=',$datarange)->select('fbid','swmin','swfgm','swfga','swfgp','sw3ptm','sw3pta','sw3ptp','swftm','swfta','swftp','sworeb','swdreb','swtreb','swast','swto','swatr','swst','swblk','swpf','swpts','swtech')->get();
-//				$dist= array();
-//				foreach($allprdata as $player){
-//					$dist[$player->fbid] = standard_deviation(array(($player->swfgm-$pickprdata->swfgm),
-//						($player->swfga-$pickprdata->swfga),
-//						($player->sw3ptm-$pickprdata->sw3ptm),
-//						($player->sw3pta-$pickprdata->sw3pta),
-//						($player->swftm-$pickprdata->swftm),
-//						($player->swfta-$pickprdata->swfta),
-//						($player->sworeb-$pickprdata->sworeb),
-//						($player->swdreb-$pickprdata->swdreb),
-//						($player->swast-$pickprdata->swast),
-//						($player->swto-$pickprdata->swto),
-//						($player->swst-$pickprdata->swst),
-//						($player->swblk-$pickprdata->swblk),
-//						($player->swpf-$pickprdata->swpf),
-//						($player->swpts-$pickprdata->swpts)),0);
-//				}
             }
 
             asort($dist);
@@ -1305,15 +1163,14 @@ class Player {
 
 }
 
-
-    function standard_deviation($aValues, $bSample = false)
+function standard_deviation($aValues, $bSample = false)
+{
+    $fMean = array_sum($aValues) / count($aValues);
+    $fVariance = 0.0;
+    foreach ($aValues as $i)
     {
-        $fMean = array_sum($aValues) / count($aValues);
-        $fVariance = 0.0;
-        foreach ($aValues as $i)
-        {
-            $fVariance += pow($i - $fMean, 2);
-        }
-        $fVariance /= ( $bSample ? count($aValues) - 1 : count($aValues) );
-        return (float) sqrt($fVariance);
+        $fVariance += pow($i - $fMean, 2);
     }
+    $fVariance /= ( $bSample ? count($aValues) - 1 : count($aValues) );
+    return (float) sqrt($fVariance);
+}
