@@ -868,73 +868,56 @@ class Player {
     }
 
 
-    public static function getLog() {
+    public static function getLog()
+    {
+        $players = array_fetch(Input::get('player'), 'fbid');
 
-        $player = Input::get('player');
         $datarange = Input::get('datarange');
 
-        $plays_value_array = array();
+        $player = Fansboard\Syncplayer::whereIn('fbid', $players)->first()->load(['gamelogs' => function($query) {
+            $query->season(Input::get('datarange'));
+        }]);
 
-        foreach( $player as $p ){
+        self::getMA($player->gamelogs);
 
-            $op = self::fg_gamelogma($p['fbid'],$datarange);
-            array_push($plays_value_array,$op);
-
-        }
-        return Response::json($plays_value_array);
+        return ['player' => $player];
     }
 
-    private static function fg_gamelogma($inputid,$inputseason) {
+    public static function getMA(&$gamelogs)
+    {
+        $mai = 1;
+
+        foreach ($gamelogs as $i => $gamelog) {
+
+            if ($gamelog->current == NULL) {
+                $mai = 0;
+            }
+
+            $sum3 = $mai < 3 ? NULL : $gamelogs[$i]->current + $gamelogs[$i-1]->current + $gamelogs[$i-2]->current;
+            $sum6 = $mai < 6 ? NULL : $gamelogs[$i-3]->current + $gamelogs[$i-4]->current + $gamelogs[$i-5]->current + $sum3;
+            $sum9 = $mai < 9 ? NULL : $gamelogs[$i-6]->current + $gamelogs[$i-7]->current + $gamelogs[$i-8]->current + $sum6;
+
+            $gamelog->ma3 = $mai < 3 ? NULL : round($sum3 / 3, 2);
+            $gamelog->ma6 = $mai < 6 ? NULL : round($sum6 / 6, 2);
+            $gamelog->ma9 = $mai < 9 ? NULL : round($sum9 / 9, 2);
+
+            $mai++;
+        }
+    }
+
+    private static function fg_gamelogma($player ,$inputseason) {
         //功能  : 計算gamelog的MA
         //input : ID,season
         //output: madata=data,ma3,ma6,ma9
 
         ///撈SQL並sum///
-        //$sql="SELECT $inputcate AS colsum,ggp,gmin,gdate,goppo,gresult FROM gamelog WHERE fbid='$inputid' AND season='$inputseason'";
         $info = array();
         $table = array();
 
         if ($inputseason=='2013'||$inputseason=='2014'||$inputseason=='2015'||$inputseason=='2016'){
-            $resultAry = DB::table('allgamelog')->where('fbid','=',$inputid)->where('season','=',$inputseason)->orderby('gdate')->select('*',DB::raw('UPPER(goppo) AS goppo'),'bxeff AS colsum')->get();
-            $game_length = count($resultAry);
-            foreach($resultAry as $key => $gd){
 
-                $data[$key]=$gd->colsum;
-                $info['min1'][$key]=$gd->bxgs==1?round($gd->bxmin,2):0;
-                $info['min2'][$key]=$gd->bxgs==0?round($gd->bxmin,2):0;
-                $info['date'][$key]=$gd->gdate;
-                $info['oppo'][$gd->gdate]=$gd->goppo;
-                if( $game_length-$key<82 ){
-                    array_push($table,array(
-                    'gdate'=>$gd->gdate,
-                    'goppo'=>$gd->goppo,
-                    'score'=>$gd->score,
-                    'startfive'=>$gd->startfive,
-                    'bxmin'=>isset($gd->bxmin)?sprintf("%.1f",round($gd->bxmin, 1)):'-',
-                    'bxfgm'=>isset($gd->bxfgm)?$gd->bxfgm:'-',
-                    'bxfga'=>isset($gd->bxfga)?$gd->bxfga:'-',
-                    'bxfgp'=>isset($gd->bxfgp)?sprintf("%.1f",round($gd->bxfgp, 1)):'-',
-                    'bx3ptm'=>isset($gd->bx3ptm)?$gd->bx3ptm:'-',
-                    'bx3pta'=>isset($gd->bx3pta)?$gd->bx3pta:'-',
-                    'bx3ptp'=>isset($gd->bx3ptp)?sprintf("%.1f",round($gd->bx3ptp, 1)):'-',
-                    'bxftm'=>isset($gd->bxftm)?$gd->bxftm:'-',
-                    'bxfta'=>isset($gd->bxfta)?$gd->bxfta:'-',
-                    'bxftp'=>isset($gd->bxftp)?sprintf("%.1f",round($gd->bxftp, 1)):'-',
-                    'bxoreb'=>isset($gd->bxoreb)?$gd->bxoreb:'-',
-                    'bxdreb'=>isset($gd->bxdreb)?$gd->bxdreb:'-',
-                    'bxtreb'=>isset($gd->bxtreb)?$gd->bxtreb:'-',
-                    'bxast'=>isset($gd->bxast)?$gd->bxast:'-',
-                    'bxto'=>isset($gd->bxto)?$gd->bxto:'-',
-                    'bxst'=>isset($gd->bxst)?$gd->bxst:'-',
-                    'bxblk'=>isset($gd->bxblk)?$gd->bxblk:'-',
-                    'bxpf'=>isset($gd->bxpf)?$gd->bxpf:'-',
-                    'bxpts'=>isset($gd->bxpts)?$gd->bxpts:'-',
-                    'bxeff'=>isset($gd->bxeff)?$gd->bxeff:'-',
-                    'bxeff36'=>isset($gd->bxeff36)?sprintf("%.1f",round($gd->bxeff36, 1)):'-'));
-                }
-            }
         }else{
-            $resultAry = DB::table('gamelog')->where('fbid','=',$inputid)->where('season','=',$inputseason)->select('*','geff AS colsum')->get();
+            $resultAry = DB::table('gamelog')->where('fbid','=', $player)->where('season','=',$inputseason)->select('*','geff AS colsum')->get();
             $game_length = count($resultAry);
             foreach($resultAry as $key => $gd){
                 $data[$key]=$gd->colsum;
@@ -972,46 +955,6 @@ class Player {
                 }
             }
         }
-
-        ///轉換array///
-
-        ///計算MA///
-        $ma3 = 1;
-        $ma6 = 1;
-        $ma9 = 1;
-        $madata = array();
-        for($i=0;$i<count($data);$i++){
-            $madata['current'][$i] = $data[$i];
-
-            if( $madata['current'][$i]===NULL ){
-                $ma3 = 0;
-                $ma6 = 0;
-                $ma9 = 0;
-            }
-
-            $madata['ma3'][$i]=$ma3<3?NULL:round(($data[$i]+$data[$i-1]+$data[$i-2])/3,2);
-            $madata['ma6'][$i]=$ma6<6?NULL:round(($data[$i]+$data[$i-1]+$data[$i-2]+$data[$i-3]+$data[$i-4]+$data[$i-5])/6,2);
-            $madata['ma9'][$i]=$ma9<9?NULL:round(($data[$i]+$data[$i-1]+$data[$i-2]+$data[$i-3]+$data[$i-4]+$data[$i-5]+$data[$i-6]+$data[$i-7]+$data[$i-8])/9,2);
-
-            $ma3++;
-            $ma6++;
-            $ma9++;
-
-        }
-
-        $table_new = array_reverse($table,false);
-
-        $madata['current'] = $madata['current'];
-        $madata['ma3'] = $madata['ma3'];
-        $madata['ma6'] = $madata['ma6'];
-        $madata['ma9'] = $madata['ma9'];
-        $madata['min1'] = $info['min1'];
-        $madata['min2'] = $info['min2'];
-        $madata['date'] = $info['date'];
-        $madata['oppo'] = $info['oppo'];
-        $madata['table'] = $table_new;
-
-        return $madata;
     }
 
     public static function getMatch()	{

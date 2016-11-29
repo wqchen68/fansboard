@@ -18,4 +18,9 @@ class Syncplayer extends Eloquent {
         return $this->hasOne('Fansboard\SyncFrame', 'fbido', 'fbido')->where('datarange', 'ALL');
     }
 
+    public function gamelogs()
+    {
+        return $this->hasMany('Fansboard\GameLog', 'fbido', 'fbido')->orderby('gdate');
+    }
+
 }

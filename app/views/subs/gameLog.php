@@ -79,8 +79,8 @@
                     </thead>
 
                     <tbody>
-                        <tr class="report-detail" ng-repeat="score in scores">
-                            <td ng-style="{'text-align':column.align}" ng-repeat="column in score.columns">{{column.value}}</td>
+                        <tr class="report-detail" ng-repeat="gamelog in gamelogs | orderBy:'-gdate'">
+                            <td ng-style="{'text-align':column.align ? column.align : 'right'}" ng-repeat="column in columns">{{gamelog.gd[column.name]}}</td>
                         </tr>
                     </tbody>
 

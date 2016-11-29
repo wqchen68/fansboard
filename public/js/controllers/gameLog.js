@@ -9,6 +9,34 @@ angular.module('app').controller('gameLogCtrl', function($scope ,$filter, $http,
         {key:'2011' , name: '2011-12 Season'}
     ];
 
+    $scope.columns = [
+        {name: 'gdate'},
+        {name: 'goppo', align: 'left'},
+        {name: 'score', align: 'left'},
+        {name: 'startfive'},
+        {name: 'bxmin'},
+        {name: 'bxfgm'},
+        {name: 'bxfga'},
+        {name: 'bxfgp'},
+        {name: 'bx3ptm'},
+        {name: 'bx3pta'},
+        {name: 'bx3ptp'},
+        {name: 'bxftm'},
+        {name: 'bxfta'},
+        {name: 'bxftp'},
+        {name: 'bxoreb'},
+        {name: 'bxdreb'},
+        {name: 'bxtreb'},
+        {name: 'bxast'},
+        {name: 'bxto'},
+        {name: 'bxst'},
+        {name: 'bxblk'},
+        {name: 'bxpf'},
+        {name: 'bxpts'},
+        {name: 'bxeff'},
+        {name: 'bxeff36'}
+    ];
+
     $scope.rangeNow = $routeParams.range ? $routeParams.range : '2016';
 
     $scope.reflash = function(selectedPlayers) {
@@ -211,103 +239,92 @@ angular.module('app').controller('gameLogCtrl', function($scope ,$filter, $http,
         .success(function(data, status, headers, config) {
 
             console.log(data);
-            $scope.scores = [];
-
-            for( var i in data[0]['table'] ){
-                var tablerow = data[0]['table'][i];
-
-                var score = {columns: []};
-
-                for (var j in tablerow) {
-                    score.columns.push({value: tablerow[j], align: j=='score' || j=='goppo' ? 'left' : 'right'});
-                }
-                $scope.scores.push(score);
-            }
+            $scope.gamelogs = data.player.gamelogs;
 
             var series_size = chart.series.length;
 
-            if( series_size>0 )
-            for( i=0;i<series_size;i++ ){
-                if( chart.series[0] )
-                chart.series[0].remove(false);
+            if (series_size > 0)
+            for (i=0;i<series_size;i++) {
+                if (chart.series[0])
+                    chart.series[0].remove(false);
             }
 
             chart.addSeries({
                 type: 'spline',
                 name: 'Game EFF',
-                data: data[0].current,
+                data: $scope.gamelogs.map(function(gamelog) { return gamelog.current; }),
                 color: 'rgba(200,200,200,0.4)',
                 yAxis: 0,
                 dashStyle: 'Dash',
                 marker: {
                     symbol: 'circle'
                 }
-            },false);
-
+            }, false);
 
             chart.addSeries({
                 type: 'spline',
                 name: 'Sohrt-Term',
-                data: data[0].ma3,
+                data: $scope.gamelogs.map(function(gamelog) { return gamelog.ma3; }),
                 color: '#00CCFF',
                 yAxis: 0,
                 marker: {
                     symbol: 'circle'
                 }
-            },false);
+            }, false);
 
             chart.addSeries({
                 type: 'spline',
                 name: 'Mid-Term',
-                data: data[0].ma6,
+                data: $scope.gamelogs.map(function(gamelog) { return gamelog.ma6; }),
                 color: 'rgba(0,255,0,1)',
                 yAxis: 0,
                 marker: {
                     symbol: 'circle'
                 }
-            },false);
+            }, false);
 
             chart.addSeries({
                 type: 'spline',
                 name: 'Long-Term',
-                data: data[0].ma9,
+                data: $scope.gamelogs.map(function(gamelog) { return gamelog.ma9; }),
                 color: '#ff0066',
                 yAxis: 0,
                 marker: {
                     symbol: 'circle'
                 }
-            },false);
+            }, false);
 
             chart.addSeries({
                 name: 'Start',
                 color: '#4572A7',
                 type: 'column',
-                data: data[0].min1,
+                data: $scope.gamelogs.map(function(gamelog) { return gamelog.info.min1; }),
                 yAxis: 1,
                 states: {
                     hover: {
                         brightness: 0.5
                     }
                 }
-            },false);
+            }, false);
 
             chart.addSeries({
                 name: 'Bench',
                 showInLegend: false,
                 color: '#c0504d',
                 type: 'column',
-                data: data[0].min2,
+                data: $scope.gamelogs.map(function(gamelog) { return gamelog.info.min2; }),
                 yAxis: 1,
                 states: {
                     hover: {
                         brightness: 0.5
                     }
                 }
-            },false);
+            }, false);
 
-            chart.xAxis[0].setCategories(data[0].date);
-            oppo = data[0].oppo;
-            chart.options.exporting.filename='Gamelog#' + $scope.selectedPlayers[0].fbid;
+            chart.xAxis[0].setCategories($scope.gamelogs.map(function(gamelog) { return gamelog.info.date; }));
+            oppo = $scope.gamelogs.map(function(gamelog) { return gamelog.info.oppo; });
+
+            chart.options.exporting.filename = 'Gamelog#' + $scope.selectedPlayers.map(function(selectedPlayer) {return selectedPlayer.fbid;}).join(',');
 
             chart.redraw();
 
