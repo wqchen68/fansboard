@@ -52,7 +52,7 @@
                             <div style="height:0;clear:both"></div>
                         </div>
 
-                        <div ng-repeat="selectedPlayer in selectedPlayers" class="playercardbig highlight" style="box-shadow:0 0 20px rgba(255,255,255,0.9)">
+                        <div ng-repeat="selectedPlayer in selectedPlayers | limitTo:2" class="playercardbig highlight" style="box-shadow:0 0 20px rgba(255,255,255,0.9)">
 
                             <div style="width:25%;float:left">
                                 <div style="background-color:rgba(0,0,0,0.8);width:60px">

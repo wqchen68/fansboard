@@ -14,7 +14,7 @@
 
                     <div players range-now="rangeNow" reflash="reflash"></div>
 
-                    <?php include('include_link2playerAbility.php'); ?>
+                    <card selected-players="selectedPlayers"></card>
 
                 </div>
             </div>

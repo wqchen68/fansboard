@@ -31,7 +31,7 @@ angular.module('app').controller('abilityCtrl', function($scope, $filter, $http,
         {key: 'Y-1', name: '2015-16 Season'},
         {key: 'Y-2', name: '2014-15 Season'}
     ];
-    
+
     $scope.rangeNow = $routeParams.range ? $routeParams.range : 'ALL';
 
     if (typeof(radarChart)==='undefined') {
@@ -43,7 +43,6 @@ angular.module('app').controller('abilityCtrl', function($scope, $filter, $http,
 
         $http({method: 'POST', url: '/data/getRank', data:{get_array: options, player: $scope.selectedPlayers, datarange: $scope.rangeNow}})
         .success(function(data, status, headers, config) {
-            console.log(data);
             $scope.selectedPlayers.forEach(function(selectedPlayer, i) {
                 selectedPlayer.rank = data[i];
             });
@@ -55,31 +54,25 @@ angular.module('app').controller('abilityCtrl', function($scope, $filter, $http,
     $scope.reflash = function(selectedPlayers) {
         $scope.selectedPlayers = selectedPlayers;
 
-        if ($scope.selectedPlayers.length>0) {
-            $scope.change();
-        } else {
-            for (var i=0; i < radarChart.series.length; i++) {
-                console.log(1);
-                if (radarChart.series[0])
-                    radarChart.series[0].remove(false);
+        var amount = radarChart.series.length;
+        for (var i=0; i < amount; i++) {
+            if (radarChart.series[0]) {
+                radarChart.series[0].remove(false);
             }
-            radarChart.colorCounter = 0;
+        }
+        radarChart.colorCounter = 0;
+
+        if ($scope.selectedPlayers.length > 0) {
+            $scope.change();
+            $scope.getRank();
+            $scope.reFlashNews();
         }
     };
 
     $scope.change = function() {
 
-        $scope.getRank();
-
-        for (var i=0; i < radarChart.series.length; i++) {
-            if (radarChart.series[0])
-                radarChart.series[0].remove(false);
-        }
-        radarChart.colorCounter = 0;
-
         $http({method: 'POST', url: '/data/getAbility', data: {player: $scope.selectedPlayers, datarange: $scope.rangeNow}})
         .success(function(data, status, headers, config) {
-            $scope.reFlashNews();
 
             $scope.scores = [];
 
@@ -91,12 +84,11 @@ angular.module('app').controller('abilityCtrl', function($scope, $filter, $http,
                     data: data.value[i],
                     fillOpacity: 0.3,
                     marker: {
-                        enabled:false,
-                        radius:0,
+                        enabled: false,
+                        radius: 0,
                         symbol: 'circle'
                     }
-                },false);
-                //radarChart.hideLoading();
+                }, false);
 
                 var score = {player: $scope.selectedPlayers[i].player, columns: []};
 
@@ -106,6 +98,7 @@ angular.module('app').controller('abilityCtrl', function($scope, $filter, $http,
 
                 $scope.scores.push(score);
             }
+
             radarChart.redraw();
 
             for (var i in data.basic) {

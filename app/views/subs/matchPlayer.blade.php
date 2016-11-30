@@ -17,9 +17,9 @@
 
                     <div style="height:0;clear:both"></div>
 
-                    <div players range-now="rangeNow" reflash="reflash" muti="true"></div>
+                    <div players range-now="rangeNow" reflash="reflash" muti="false"></div>
 
-                    @include('subs.include_link2playerAbility')
+                    <card selected-players="selectedPlayers"></card>
 
                 </div>
             </div>

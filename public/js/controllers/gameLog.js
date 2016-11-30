@@ -11,7 +11,7 @@ angular.module('app').controller('gameLogCtrl', function($scope ,$filter, $http,
 
     $scope.rangeNow = $routeParams.range ? $routeParams.range : '2016';
 
-    $scope.reflash = function(selectedPlayers){
+    $scope.reflash = function(selectedPlayers) {
         $scope.selectedPlayers = selectedPlayers;
 
         if ($scope.selectedPlayers.length>0) {
@@ -207,7 +207,6 @@ angular.module('app').controller('gameLogCtrl', function($scope ,$filter, $http,
     });
 
     $scope.change = function() {
-        console.log($scope.selectedPlayers);
         $http({method: 'POST', url: '/data/getLog', data: {player: $scope.selectedPlayers, datarange: $scope.rangeNow}})
         .success(function(data, status, headers, config) {
 
@@ -296,7 +295,7 @@ angular.module('app').controller('gameLogCtrl', function($scope ,$filter, $http,
             chart.addSeries({
                 name: 'Bench',
                 showInLegend: false,
-                color: '#c0504d',//'#008866'
+                color: '#c0504d',
                 type: 'column',
                 data: data[0].min2,
                 yAxis: 1,
@@ -309,7 +308,7 @@ angular.module('app').controller('gameLogCtrl', function($scope ,$filter, $http,
 
             chart.xAxis[0].setCategories(data[0].date);
             oppo = data[0].oppo;
-            chart.options.exporting.filename='Gamelog#'+$scope.selectedPlayers[0].fbid;
+            chart.options.exporting.filename='Gamelog#' + $scope.selectedPlayers[0].fbid;
 
             chart.redraw();
 
