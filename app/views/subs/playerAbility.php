@@ -60,7 +60,7 @@
                                         <img style="width:16px;line-height:16px;float:left" src="/images/medal_gold_1.png" />
                                         <div class="rank1" style="font-size:12px;margin:0 0 0 5px;line-height:20px;float:left;text-align:center">{{selectedPlayer.rank}}</div>
                                     </div>
-                                    <div style="background:url(/images/nophoto.png) no-repeat center;background-size:60px 72px">
+                                    <div>
                                         <div class="face" ng-style="{'background-image': 'url(/player/'+selectedPlayer.fbid+'.png)'}" style="width:60px;height:72px;background-size: 60px 72px"></div>
                                     </div>
                                     <div style="height:0;clear:both"></div>
@@ -143,7 +143,7 @@
                         <tbody>
                             <tr class="report-detail" ng-repeat="frame in frames">
                                 <td style="text-align: left">{{frame.player.player}}</td>
-                                <td style="text-align: right;padding-right:5px" ng-repeat="ability in frame.abilities">{{ability}}</td>
+                                <td style="text-align: right;padding-right:5px" ng-repeat="column in columns">{{frame.abilities[column.name]}}</td>
                             </tr>
                         </tbody>
                     </table>

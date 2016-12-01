@@ -23,6 +23,32 @@ angular.module('app').controller('abilityCtrl', function($scope, $filter, $http,
         {value:"zwtech", title:"-TECH", checked:false}
     ];
 
+    $scope.columns = [
+        {name: 'wgp'},
+        {name: 'pwmin'},
+        {name: 'pwfgm'},
+        {name: 'pwfga'},
+        {name: 'wfgp'},
+        {name: 'pw3ptm'},
+        {name: 'pw3pta'},
+        {name: 'w3ptp'},
+        {name: 'pwftm'},
+        {name: 'pwfta'},
+        {name: 'wftp'},
+        {name: 'pworeb'},
+        {name: 'pwdreb'},
+        {name: 'pwtreb'},
+        {name: 'pwast'},
+        {name: 'pwto'},
+        {name: 'watr'},
+        {name: 'pwst'},
+        {name: 'pwblk'},
+        {name: 'pwpf'},
+        {name: 'pwpts'},
+        {name: 'pweff'},
+        {name: 'pweff36'}
+    ];
+
     $scope.ranges = [
         {key: 'ALL', name: '2016-17 Season'},
         {key: 'D30', name: 'Last 4 Weeks'},
