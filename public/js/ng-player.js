@@ -34,7 +34,8 @@ angular.module('ngFb', [])
             $scope.players = [];
             $scope.searchPlayer = {biodata: {}};
 
-            var players = $scope.muti ? $routeParams.players.split(',') : [$routeParams.players.split(',')[0]];
+            var paramsPlayers = $routeParams.players ? $routeParams.players.split(',') : ['Stephen-Curry'];
+            var players = $scope.muti ? paramsPlayers : [paramsPlayers[0]];
 
             $scope.getPlayers = function() {
                 $scope.players = [];
