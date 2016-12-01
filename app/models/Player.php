@@ -1,94 +1,36 @@
 <?php
 class Player {
 
-    public static function getSplitStats() {
-
+    public static function getSplitStats()
+    {
         $player = Input::get('player')[0];
         $datarange = Input::get('datarange');
         $datarange=='ALL' && $datarange='2013';
 
-        $splitdata = DB::table('splitdata')->where(function($query){
-            $query->where('pickshow','=','1');
-            })->where('season',$datarange)->where('fbid',$player['fbid'])->orderBy('spcate')->select(
-                DB::raw('season,spcate,spgame,
-                    FORMAT(spmin,1) AS spmin,
-                    FORMAT(spfgm,1) AS spfgm,
-                    FORMAT(spfga,1) AS spfga,
-                    FORMAT(spfgp,1) AS spfgp,
-                    FORMAT(sp3ptm,1) AS sp3ptm,
-                    FORMAT(sp3pta,1) AS sp3pta,
-                    FORMAT(sp3ptp,1) AS sp3ptp,
-                    FORMAT(spftm,1) AS spftm,
-                    FORMAT(spfta,1) AS spfta,
-                    FORMAT(spftp,1) AS spftp,
-                    FORMAT(sporeb,1) AS sporeb,
-                    FORMAT(spdreb,1) AS spdreb,
-                    FORMAT(sptreb,1) AS sptreb,
-                    FORMAT(spast,1) AS spast,
-                    FORMAT(spto,1) AS spto,
-                    FORMAT(spatr,1) AS spatr,
-                    FORMAT(spst,1) AS spst,
-                    FORMAT(spblk,1) AS spblk,
-                    FORMAT(sppf,1) AS sppf,
-                    FORMAT(sppts,1) AS sppts,
-                    FORMAT(speff,1) AS speff,
-                    FORMAT(speff36,1) AS speff36'))->get();
+        $stats = Fansboard\SplitStats::where('fbid', $player['fbid'])->where('pickshow', '=', '1')->where('season', $datarange)->orderBy('spcate')->get();
 
-        $spstat = array(
-            'dayNight'=>array(0,0),
-            'HomeAway'=>array(0,0),
-            'Starter'=>array(0,0),
-            'Rest'=>array(0,0,0,0),
-            'VSTeam'=>array(),
-            'VS'=>array()
-        );
-        foreach($splitdata as $d) {
-            switch($d->spcate){
-                case '@Home':
-                    $spstat['HomeAway'][0] = $d->speff*1;
-                break;
-                case '@Away':
-                    $spstat['HomeAway'][1] = $d->speff*1;
-                break;
-                case 'Day':
-                    $spstat['dayNight'][0] = $d->speff*1;
-                break;
-                case 'Night':
-                    $spstat['dayNight'][1] = $d->speff*1;
-                break;
-                case 'As Starter':
-                    $spstat['Starter'][0] = $d->speff*1;
-                break;
-                case 'As Sub':
-                    $spstat['Starter'][1] = $d->speff*1;
-                break;
-                case '0 Days Rest':
-                    $spstat['Rest'][0] = $d->speff*1;
-                break;
-                case '1 Days Rest':
-                    $spstat['Rest'][1] = $d->speff*1;
-                break;
-                case '2 Days Rest':
-                    $spstat['Rest'][2] = $d->speff*1;
-                break;
-                case '3+ Days Rest':
-                    $spstat['Rest'][3] = $d->speff*1;
-                break;
-                default:
-                    array_push($spstat['VSTeam'],$d->spcate);
-                    array_push($spstat['VS'],$d->speff*1);
-                break;
+        $spstat = $stats->reduce(function($spstat, $stat) {
+            if ($stat->spcateKey) {
+                $spstat[$stat->spcateKey[0]][$stat->spcateKey[1]] = $stat->speff*1;
+            } else {
+                $spstat['VSTeam'][] = $stat->spcate;
+                $spstat['VS'][] = $stat->speff*1;
             }
-        }
+            return $spstat;
+        }, [
+            'dayNight' => [0, 0],
+            'HomeAway' => [0, 0],
+            'Starter' => [0, 0],
+            'Rest' => [0, 0, 0, 0],
+            'VSTeam' => [],
+            'VS' => []
+        ]);
 
-        $data_new['spstat']=$spstat;
-        $data_new['table']=$splitdata;
-
-        return Response::json($data_new);
+        return ['stats' => $stats, 'spstat' => $spstat];
     }
 
-    public static function getRealtime() {
-
+    public static function getRealtime()
+    {
         $rtstats = DB::table('realtimeeff')
                 ->leftJoin('biodata','biodata.fbido','=','realtimeeff.fbido')
                 ->leftJoin(DB::raw('(SELECT * FROM syncdataframe WHERE datarange="ALL") syncdataframe'),'syncdataframe.fbido','=','realtimeeff.fbido')

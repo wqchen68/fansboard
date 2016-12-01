@@ -50,8 +50,6 @@
             </div>
         </div>
 
-
-
         <div class="onerow" style="padding:10px 0 0 0">
             <div class="col-1p12">
 
@@ -100,8 +98,11 @@
                     </thead>
 
                     <tbody>
-                        <tr class="report-detail" ng-repeat="score in scores">
-                            <td ng-repeat="column in score.columns">{{column.value}}</td>
+                        <tr class="report-detail" ng-repeat="stat in stats">
+                            <td>{{stat.season}}</td>
+                            <td>{{stat.spcate}}</td>
+                            <td>{{stat.spgame}}</td>
+                            <td ng-repeat="column in columns">{{stat.formated[column.name]}}</td>
                         </tr>
                     </tbody>
 

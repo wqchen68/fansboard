@@ -7,6 +7,31 @@ angular.module('app').controller('splitStatsCtrl', function($scope ,$filter, $ht
         {key: '2011',  name: '2011-12 Season'}
     ];
 
+    $scope.columns = [
+        {name: 'spmin'},
+        {name: 'spfgm'},
+        {name: 'spfga'},
+        {name: 'spfgp'},
+        {name: 'sp3ptm'},
+        {name: 'sp3pta'},
+        {name: 'sp3ptp'},
+        {name: 'spftm'},
+        {name: 'spfta'},
+        {name: 'spftp'},
+        {name: 'sporeb'},
+        {name: 'spdreb'},
+        {name: 'sptreb'},
+        {name: 'spast'},
+        {name: 'spto'},
+        {name: 'spatr'},
+        {name: 'spst'},
+        {name: 'spblk'},
+        {name: 'sppf'},
+        {name: 'sppts'},
+        {name: 'speff'},
+        {name: 'speff36'}
+    ];
+
     $scope.rangeNow = $routeParams.range ? $routeParams.range : '2014';
 
     $scope.reflash = function(selectedPlayers){
@@ -223,78 +248,67 @@ angular.module('app').controller('splitStatsCtrl', function($scope ,$filter, $ht
         .success(function(data, status, headers, config) {
 
             console.log(data);
-            $scope.scores = [];
-
-            for( var i in data['table'] ){
-                var tablerow = data['table'][i];
-
-                var score = {columns: []};
-
-                for (var j in tablerow) {
-                    score.columns.push({value: tablerow[j]});
-                }
-                $scope.scores.push(score);
-            }
+            $scope.stats = data.stats;
 
             var series_size = chartHomeAway.series.length;
-            if( series_size>0 )
-                for( i=0;i<series_size;i++ ){
-                    if( chartHomeAway.series[0] )
-                        chartHomeAway.series[0].remove(false);
-                }
+            for (i=0; i<series_size; i++) {
+                if( chartHomeAway.series[0] )
+                    chartHomeAway.series[0].remove(false);
+            }
+
             chartHomeAway.colorCounter = 0;
             chartHomeAway.addSeries({
                 name: '',
                 data: data.spstat.HomeAway
-            },true);
+            }, true);
 
             var series_size = chartDayNight.series.length;
-            if( series_size>0 )
-                for( i=0;i<series_size;i++ ){
-                    if( chartDayNight.series[0] )
-                        chartDayNight.series[0].remove(false);
-                }
+            for( i=0;i<series_size;i++ ){
+                if( chartDayNight.series[0] )
+                    chartDayNight.series[0].remove(false);
+            }
+
             chartDayNight.colorCounter = 0;
             chartDayNight.addSeries({
                 name: '',
                 data: data.spstat.dayNight
-            },true);
+            }, true);
 
             var series_size = chartStarter.series.length;
-            if( series_size>0 )
-                for( i=0;i<series_size;i++ ){
-                    if( chartStarter.series[0] )
-                        chartStarter.series[0].remove(false);
-                }
+            for( i=0;i<series_size;i++ ){
+                if( chartStarter.series[0] )
+                    chartStarter.series[0].remove(false);
+            }
+
             chartStarter.colorCounter = 0;
             chartStarter.addSeries({
                 name: '',
                 data: data.spstat.Starter
-            },true);
+            }, true);
 
             var series_size = chartRestDays.series.length;
-            if( series_size>0 )
-                for( i=0;i<series_size;i++ ){
-                    if( chartRestDays.series[0] )
-                        chartRestDays.series[0].remove(false);
-                }
+            for( i=0;i<series_size;i++ ){
+                if( chartRestDays.series[0] )
+                    chartRestDays.series[0].remove(false);
+            }
+
             chartRestDays.colorCounter = 0;
             chartRestDays.addSeries({
                 name: '',
                 data: data.spstat.Rest
-            },true);
+            }, true);
 
             var series_size = chartOppo.series.length;
-            if( series_size>0 )
-                for( i=0;i<series_size;i++ ){
-                    if( chartOppo.series[0] )
-                        chartOppo.series[0].remove(false);
-                }
+            for( i=0;i<series_size;i++ ){
+                if( chartOppo.series[0] )
+                    chartOppo.series[0].remove(false);
+            }
+
             chartOppo.colorCounter = 0;
             chartOppo.addSeries({
-                name: $scope.selectedPlayers[0]['name'],
+                name: $scope.selectedPlayers[0].player,
                 data: data.spstat.VS
-            },true);
+            }, true);
 
             chartOppo.xAxis[0].setCategories(data.spstat.VSTeam);
 
