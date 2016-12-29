@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "67d10b315d90689c802360ec41dd237b",
-    "content-hash": "7db79c2144ab6df0a238f79cb6e29b86",
+    "content-hash": "0ad0122f92fd9c06f70ca1dadfaaba4e",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -52,7 +51,7 @@
                 "class",
                 "preload"
             ],
-            "time": "2014-03-12 00:05:31"
+            "time": "2014-03-12T00:05:31+00:00"
         },
         {
             "name": "d11wtq/boris",
@@ -86,7 +85,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2014-01-17 12:21:18"
+            "time": "2014-01-17T12:21:18+00:00"
         },
         {
             "name": "filp/whoops",
@@ -144,7 +143,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2015-06-29 05:42:04"
+            "time": "2015-06-29T05:42:04+00:00"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -186,7 +185,7 @@
                 "hashing",
                 "password"
             ],
-            "time": "2014-11-20 16:49:30"
+            "time": "2014-11-20T16:49:30+00:00"
         },
         {
             "name": "jeremeamia/SuperClosure",
@@ -234,7 +233,7 @@
                 "serialize",
                 "tokenizer"
             ],
-            "time": "2015-01-10 01:09:28"
+            "time": "2015-01-10T01:09:28+00:00"
         },
         {
             "name": "laravel/framework",
@@ -349,7 +348,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-10-26 15:36:54"
+            "time": "2016-10-26T15:36:54+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -427,7 +426,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-07-29 03:23:52"
+            "time": "2016-07-29T03:23:52+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -474,7 +473,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2015-11-04 20:07:17"
+            "time": "2015-11-04T20:07:17+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -519,7 +518,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2014-07-23 18:24:17"
+            "time": "2014-07-23T18:24:17+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -567,7 +566,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-03-18 20:34:03"
+            "time": "2016-03-18T20:34:03+00:00"
         },
         {
             "name": "patchwork/utf8",
@@ -626,46 +625,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2016-05-18 13:57:10"
-        },
-        {
-            "name": "phpmyadmin/phpmyadmin",
-            "version": "4.5.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpmyadmin/phpmyadmin.git",
-                "reference": "718ef314e378018e60a869cc92507bfc489c0a7b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/phpmyadmin/zipball/718ef314e378018e60a869cc92507bfc489c0a7b",
-                "reference": "718ef314e378018e60a869cc92507bfc489c0a7b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "application",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "The phpMyAdmin Team",
-                    "email": "phpmyadmin-devel@lists.sourceforge.net",
-                    "homepage": "https://www.phpmyadmin.net/team/"
-                }
-            ],
-            "description": "Deployment ready version of phpmyadmin-all-languages. All Languages; without: doc, examples, scripts & setup folders!",
-            "homepage": "https://www.phpmyadmin.net/",
-            "keywords": [
-                "mysql",
-                "phpmyadmin",
-                "web"
-            ],
-            "abandoned": "please use external repository: composer create-project phpmyadmin/phpmyadmin --repository-url=https://www.phpmyadmin.net/packages.json",
-            "time": "2015-09-24 10:19:45"
+            "time": "2016-05-18T13:57:10+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -763,7 +723,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2015-01-28 21:50:33"
+            "time": "2015-01-28T21:50:33+00:00"
         },
         {
             "name": "predis/predis",
@@ -813,7 +773,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-08-01 09:43:10"
+            "time": "2014-08-01T09:43:10+00:00"
         },
         {
             "name": "psr/log",
@@ -860,7 +820,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10 12:19:37"
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "rollbar/rollbar",
@@ -910,7 +870,7 @@
                 "logging",
                 "monitoring"
             ],
-            "time": "2016-07-05 15:50:29"
+            "time": "2016-07-05T15:50:29+00:00"
         },
         {
             "name": "stack/builder",
@@ -959,7 +919,7 @@
             "keywords": [
                 "stack"
             ],
-            "time": "2016-06-02 06:58:42"
+            "time": "2016-06-02T06:58:42+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1012,7 +972,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-07-08 11:51:25"
+            "time": "2016-07-08T11:51:25+00:00"
         },
         {
             "name": "symfony/browser-kit",
@@ -1069,7 +1029,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-06 07:26:09"
+            "time": "2016-09-06T07:26:09+00:00"
         },
         {
             "name": "symfony/console",
@@ -1129,7 +1089,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-05 17:26:56"
+            "time": "2016-10-05T17:26:56+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -1182,7 +1142,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-06 07:26:07"
+            "time": "2016-09-06T07:26:07+00:00"
         },
         {
             "name": "symfony/debug",
@@ -1239,7 +1199,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-06 07:26:07"
+            "time": "2016-09-06T07:26:07+00:00"
         },
         {
             "name": "symfony/dom-crawler",
@@ -1294,7 +1254,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-18 13:42:15"
+            "time": "2016-10-18T13:42:15+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1354,7 +1314,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-13 01:43:15"
+            "time": "2016-10-13T01:43:15+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -1403,7 +1363,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-18 04:28:30"
+            "time": "2016-10-18T04:28:30+00:00"
         },
         {
             "name": "symfony/finder",
@@ -1452,7 +1412,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-16 16:53:37"
+            "time": "2016-09-16T16:53:37+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -1508,7 +1468,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-24 14:36:35"
+            "time": "2016-10-24T14:36:35+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -1590,7 +1550,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-27 01:37:19"
+            "time": "2016-10-27T01:37:19+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1649,7 +1609,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-05-18 14:26:46"
+            "time": "2016-05-18T14:26:46+00:00"
         },
         {
             "name": "symfony/process",
@@ -1698,7 +1658,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2016-09-29 02:20:21"
+            "time": "2016-09-29T02:20:21+00:00"
         },
         {
             "name": "symfony/routing",
@@ -1772,7 +1732,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2016-08-16 10:55:04"
+            "time": "2016-08-16T10:55:04+00:00"
         },
         {
             "name": "symfony/security-core",
@@ -1837,7 +1797,7 @@
             ],
             "description": "Symfony Security Component - Core Library",
             "homepage": "https://symfony.com",
-            "time": "2016-10-06 01:42:44"
+            "time": "2016-10-06T01:42:44+00:00"
         },
         {
             "name": "symfony/translation",
@@ -1900,7 +1860,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-10-16 20:09:53"
+            "time": "2016-10-16T20:09:53+00:00"
         }
     ],
     "packages-dev": [],
