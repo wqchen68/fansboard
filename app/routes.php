@@ -11,6 +11,19 @@
 |
 */
 Route::any('test', function(){	
+return DB::table('allgamelog')->get();
+Rollbar::init(array('access_token' => '01b63f6397454ebba731ea71ab9aaa51'));
+
+// Message at level 'info'
+Rollbar::report_message('testing 123', 'info');
+
+// Catch an exception and send it to Rollbar
+try {
+    throw new Exception('test exception');
+} catch (Exception $e) {
+    Rollbar::report_exception($e);
+}
+
     return;
 });
 
@@ -83,7 +96,7 @@ Route::get('{pagename}/{players?}', array('before'=>'oldUrl', function($pagename
     if( !is_null($players) ){
         $player = explode(',', $players);
     }else{
-        $player = ['Stephen-Curry'];
+        $player = ['Anthony-Davis'];
     }
     
     $full_url = $pagename . '/' . $players;

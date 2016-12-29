@@ -523,7 +523,7 @@ class Player {
 												->where('syncdataframe.fbid','=',$inputid)
 												->where('syncdataframe.datarange','=','ALL') //開季後把2拿掉
 												->where('syncplayerlist.datarange','=','ALL')
-												->select(DB::raw('"2015-16",syncplayerlist.team,wgp,FORMAT(pwmin,1),
+												->select(DB::raw('"2016-17",syncplayerlist.team,wgp,FORMAT(pwmin,1),
 								FORMAT(pwfgm,1),
 								FORMAT(pwfga,1),
 								FORMAT(wfgp*100,1),
@@ -549,7 +549,7 @@ class Player {
 		$table_array = array_merge($table_array1,$table_array2);
 		$table_array=array_reverse($table_array,false);
 		
-		array_push($uniseason,'2015-16');
+		array_push($uniseason,'2016-17');
 		foreach($uniteam as $unit){
 			$pickteam = $unit->cteam;
 			
@@ -568,7 +568,7 @@ class Player {
 		$items = Input::get('items');
 		$itemsMap = array(
 			'ceff'=>'pweff',
-            'cmin'=>'pwmin',
+                        'cmin'=>'pwmin',
 			'cfgm'=>'pwfgm',
 			'cfga'=>'pwfga',
 			'cfgp'=>'wfgp',
@@ -586,7 +586,7 @@ class Player {
 			'catr'=>'watr',
 			'cst'=>'pwst',
 			'cblk'=>'pwblk',
-            'cpf'=>'pwpf',
+                        'cpf'=>'pwpf',
 			'cpts'=>'pwpts'
 		);
 		if ( !in_array($items,array('ceff','cmin','cfgm','cfga','cfgp','cftm','cfta','cftp','c3ptm','c3pta','c3ptp','coreb','cdreb','ctreb','cast','cto','catr','cst','cblk','cpf','cpts')) )

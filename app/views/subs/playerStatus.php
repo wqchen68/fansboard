@@ -11,7 +11,7 @@
                             ,DB::raw('STR_TO_DATE(CONCAT("2016",DATE),"%Y%b %e - %l:%i %p") AS date2')
                             ,DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2016",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
                         ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
-                        ->leftJoin(DB::raw('(select fbido,round((1-count(bxgs)/count(fbid))*100,0) as prate from allgamelog where season="2015" group by fbid) newgamelog'),'rwtable.fbido','=','newgamelog.fbido')
+                        ->leftJoin(DB::raw('(select fbido,round((1-count(bxgs)/count(fbid))*100,0) as prate from allgamelog where season="2016" group by fbid) newgamelog'),'rwtable.fbido','=','newgamelog.fbido')
                         ->leftJoin(DB::raw('(select fbido,wgp from syncdataframe where datarange="Y-1") newsyncdataframe'),'rwtable.fbido','=','newsyncdataframe.fbido')                        
 //                        ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'<=',1440+1440)
                         ->where('syncplayerlist.datarange','=','Full')
@@ -168,11 +168,11 @@
                 </div>
                 
                 <img style="margin-left:10px;width:48px" src="images/adsense.png" />
-                <span style="font-size:22px">Player Status - Beta Version</span>
+                <span style="font-size:22px">Player Status</span>
                 
                 <span style="font-size:14px;color:#FFF;font-weight:normal;padding-top:35px;float:right">
-                    <div>Risk is Absence Rate - 
-                        <span style="color:red;font-weight:bold;margin:1px;padding:0 2px 0 2px;text-align:center;background-color:rgba(255,255,255,0.6);border-radius:2px"> 2014-15 % </span>
+                    <div>Absence Rate:
+                        <span style="color:red;font-weight:bold;margin:1px;padding:0 2px 0 2px;text-align:center;background-color:rgba(255,255,255,0.6);border-radius:2px"> 2015-16 % </span>
                         <span style="color:red;font-weight:bold;margin:1px;padding:0 2px 0 2px;text-align:center;background-color:rgba(255,255,255,0.6);border-radius:2px"> Season % </span>
                     </div>                    
                     <div style="position:relative;right:0;font-weight:bold;bottom:0;color:rgba(46,204,113,0.7);float:right">Sorted by Update Time.</div>
@@ -204,7 +204,7 @@
                                 
                                 <a href="gameLog?player={{pstatus.fbid}}"     target="_blank"><span class="rateblock"> {{pstatus.prate}} % </span></a>
                                 <a href="careerStats?player={{pstatus.fbid}}" target="_blank"><span class="rateblock"> {{pstatus.abrate}} % </span></a>
-                                <span style="color:white;padding-right:3px;float:right">Risk </span>
+                                <span style="color:white;padding-right:3px;float:right"> </span>
                             </div>
                             <div style="height:35px">{{pstatus.report}}</div>
                             <div style="position:relative;right:0;bottom:0;color:rgba(46,204,113,0.7);float:right">{{pstatus.date}}</div>
