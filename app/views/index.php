@@ -45,7 +45,7 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-33910679-3', 'auto');
+  ga('create', 'UA-89527176-1', 'auto');
   ga('send', 'pageview');
 </script>
 
