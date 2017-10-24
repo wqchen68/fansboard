@@ -10,6 +10,7 @@
 						
 					<div style="float:left;padding:0 0 10px 0">                        
                         <?=Form::select('range', array(
+                            '2017' => '2017-18 Season',
                             '2016' => '2016-17 Season',                            
                             '2015' => '2015-16 Season',                            
                             '2014' => '2014-15 Season',
