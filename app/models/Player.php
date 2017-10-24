@@ -1043,7 +1043,7 @@ class Player {
 			array_push($stat_array,"---");
 		}*/
 				
-		if ($inputseason=='2013'||$inputseason=='2014'||$inputseason=='2015'||$inputseason=='2016'){
+		if ($inputseason=='2013'||$inputseason=='2014'||$inputseason=='2015'||$inputseason=='2016'||$inputseason=='2017'){
 			$resultAry = DB::table('allgamelog')->where('fbid','=',$inputid)->where('season','=',$inputseason)->orderby('gdate')->select('*',DB::raw('UPPER(goppo) AS goppo'),'bxeff AS colsum')->get();
 			$game_length = count($resultAry);
 			foreach($resultAry as $key => $gd){
