@@ -96,7 +96,7 @@ Route::get('{pagename}/{players?}', array('before'=>'oldUrl', function($pagename
     if( !is_null($players) ){
         $player = explode(',', $players);
     }else{
-        $player = ['Anthony-Davis'];
+        $player = ['Giannis-Antetokounmpo'];
     }
     
     $full_url = $pagename . '/' . $players;
