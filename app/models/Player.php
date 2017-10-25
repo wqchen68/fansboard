@@ -523,7 +523,7 @@ class Player {
 												->where('syncdataframe.fbid','=',$inputid)
 												->where('syncdataframe.datarange','=','ALL') //開季後把2拿掉
 												->where('syncplayerlist.datarange','=','ALL')
-												->select(DB::raw('"2016-17",syncplayerlist.team,wgp,FORMAT(pwmin,1),
+												->select(DB::raw('"2017-18",syncplayerlist.team,wgp,FORMAT(pwmin,1),
 								FORMAT(pwfgm,1),
 								FORMAT(pwfga,1),
 								FORMAT(wfgp*100,1),
@@ -549,7 +549,7 @@ class Player {
 		$table_array = array_merge($table_array1,$table_array2);
 		$table_array=array_reverse($table_array,false);
 		
-		array_push($uniseason,'2016-17');
+		array_push($uniseason,'2017-18');
 		foreach($uniteam as $unit){
 			$pickteam = $unit->cteam;
 			
