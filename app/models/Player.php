@@ -153,6 +153,8 @@ class Player {
                     'realtimeeff.bxpf',
                     'realtimeeff.oncourt',
 					'biodata.player',
+                    'syncdataframe.wgp',
+                    'syncdataframe.wgs',                    
                     'syncdataframe.pwmin',
                     'syncdataframe.pwfgm',
                     'syncdataframe.pwfga',
