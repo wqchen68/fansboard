@@ -8,10 +8,10 @@
                 $playerstatusO = DB::table('rwtable')
                     ->select('rwtable.fbido','rwtable.fbid','rwtable.player','rwtable.date','rwtable.updatetime','syncplayerlist.injna','syncplayerlist.team','syncplayerlist.position'
                             ,DB::raw('REPLACE(rwtable.report,"&quot;","\"") as report,round(1-newsyncdataframe.wgp/82,2)*100 AS abrate'),'newgamelog.prate'
-                            ,DB::raw('STR_TO_DATE(CONCAT("2016",DATE),"%Y%b %e - %l:%i %p") AS date2')
-                            ,DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2016",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
+                            ,DB::raw('STR_TO_DATE(CONCAT("2017",DATE),"%Y%b %e - %l:%i %p") AS date2')
+                            ,DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2017",DATE),"%Y%b %e - %l:%i %p"),NOW()) AS news'))
                         ->leftJoin('syncplayerlist','rwtable.fbido','=','syncplayerlist.fbido')
-                        ->leftJoin(DB::raw('(select fbido,round((1-count(bxgs)/count(fbid))*100,0) as prate from allgamelog where season="2016" group by fbid) newgamelog'),'rwtable.fbido','=','newgamelog.fbido')
+                        ->leftJoin(DB::raw('(select fbido,round((1-count(bxgs)/count(fbid))*100,0) as prate from allgamelog where season="2017" group by fbid) newgamelog'),'rwtable.fbido','=','newgamelog.fbido')
                         ->leftJoin(DB::raw('(select fbido,wgp from syncdataframe where datarange="Y-1") newsyncdataframe'),'rwtable.fbido','=','newsyncdataframe.fbido')                        
 //                        ->where(DB::raw('TIMESTAMPDIFF(MINUTE,STR_TO_DATE(CONCAT("2014",DATE),"%Y%b %e - %l:%i %p"),NOW())'),'<=',1440+1440)
                         ->where('syncplayerlist.datarange','=','Full')
@@ -172,7 +172,7 @@
                 
                 <span style="font-size:14px;color:#FFF;font-weight:normal;padding-top:35px;float:right">
                     <div>Absence Rate:
-                        <span style="color:red;font-weight:bold;margin:1px;padding:0 2px 0 2px;text-align:center;background-color:rgba(255,255,255,0.6);border-radius:2px"> 2015-16 % </span>
+                        <span style="color:red;font-weight:bold;margin:1px;padding:0 2px 0 2px;text-align:center;background-color:rgba(255,255,255,0.6);border-radius:2px"> 2016-17 % </span>
                         <span style="color:red;font-weight:bold;margin:1px;padding:0 2px 0 2px;text-align:center;background-color:rgba(255,255,255,0.6);border-radius:2px"> Season % </span>
                     </div>                    
                     <div style="position:relative;right:0;font-weight:bold;bottom:0;color:rgba(46,204,113,0.7);float:right">Sorted by Update Time.</div>
