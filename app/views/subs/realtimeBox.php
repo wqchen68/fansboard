@@ -107,7 +107,11 @@
                             </div>
 
                             <div style="float:left;padding:0 4px 0 4px">
-                                <div style="padding-left:20px;margin-bottom: 2px">2017-18 Season Average - Start/GP: {{ Math.round(player.wgs)}}/{{ Math.round(player.wgp)}}</div>
+                                <div style="padding-left:20px;margin-bottom: 2px">
+					<div style="float:left">2017-18 Season Average</div> 
+					<div style="color:green;float:left;font-weight:bold;margin:0 0 0 5px">Start/GP: {{ Math.round(player.wgs)}}/{{ Math.round(player.wgp)}}</div>
+					<div style="height:0;clear:both"></div>
+				</div>
                                 <div>
                                     <div class="hovercard1">Min</div>
                                     <div class="hovercard1">FGM</div>
