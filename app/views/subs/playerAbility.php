@@ -212,7 +212,7 @@
 					<div class="tableupdate">
                         <? include('include_updatetime.php'); ?>
 					</div>
-					<div class="tableupdate">Players with only one game are excluded.</div>
+					#<div class="tableupdate">Players with only one game are excluded.</div>
 				</div>
 			</div>
 		</div>
